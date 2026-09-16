@@ -80,6 +80,7 @@
   },
   "model_selection": {
     "eligible": ["E", "RQ2", "D", "F_shape"],
+    "deployment_eligible_without_extra_features": ["E", "RQ2", "D"],
     "protocols": ["leave_one_batch_out", "leave_one_config_out", "leave_context_band_out"],
     "rule": "lowest macro median relative error, then macro p95 relative error, then lower complexity",
     "session_holdout_used_for_selection": false,

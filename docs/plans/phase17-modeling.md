@@ -45,7 +45,10 @@ All predictive models minimize log-latency loss with the fixed complexity in
 `configs/plans/phase17_modeling.yaml`. Final deployable selection uses macro
 median relative error across the three geometry protocols, then macro P95,
 then lower complexity. That selected outer score is explicitly not presented
-as an unbiased evaluation of the selection procedure.
+as an unbiased evaluation of the selection procedure. The offline default is
+selected separately from E/RQ2/D so that method+B+L+config or explicit
+`r_alloc` is sufficient; F_shape remains a scientific candidate and requires
+its explicit shape features rather than guessing them from scalar r.
 
 ## Uncertainty and targets
 
