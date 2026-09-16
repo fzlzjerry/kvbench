@@ -1076,6 +1076,14 @@ def render_report(payload: Mapping[str, Any]) -> str:
     selected = payload["selection"]
     targets = payload["targets"]
     knees = payload["knees"]
+    holdout_lines = []
+    for row in payload["selected_holdout_summary"]:
+        median = "not_applicable" if row["median_absolute_relative_error"] is None else f"{100.0 * float(row['median_absolute_relative_error']):.3f}%"
+        p95 = "not_applicable" if row["p95_relative_error"] is None else f"{100.0 * float(row['p95_relative_error']):.3f}%"
+        holdout_lines.append(
+            f"| {row['protocol']} | {row['method_family']} | {row['scored_rows']} | {median} | {p95} | {row['domain_status']} |"
+        )
+    holdout_table = "\n".join(holdout_lines)
     return f"""# Phase 17 Modeling Report
 
 Status: **{payload['status']}**
@@ -1086,13 +1094,19 @@ The CPU-only analysis used the immutable Phase 16R host-wall dataset: {payload['
 
 The preregistered candidates were E (scalar byte law), RQ2 (B/L/r surface), D (positive knee surface), F_shape (D plus static byte-shape features), and F_diagnostic (plus observed kernel count, diagnostic only). Scientific selection chose **{selected['scientific_selected_model']}**; the offline deployment default chose **{selected['deployment_selected_model']}**. Selection used the declared outer results, so its selected score is not an unbiased estimate of a further model-selection procedure.
 
+| Holdout | Method family | Scored rows | Median relative error | P95 relative error | Domain |
+|---|---:|---:|---:|---:|---|
+{holdout_table}
+
+Session holdout is process-level repeat-session prediction; the three geometry protocols are logical-point-level. BF16 has no leave-one-compressed-configuration fold, so that cell is not applicable.
+
 - Median relative-error target: **{targets['median_relative_error']['status']}** ({targets['median_relative_error']['value']:.6f}).
 - P95 relative-error target: **{targets['p95_relative_error']['status']}** ({targets['p95_relative_error']['value']:.6f}).
 - Same-work speedup-sign target: **{targets['speedup_sign_accuracy']['status']}** ({targets['speedup_sign_accuracy']['value_text']}).
 - Pairwise method-ranking target: **{targets['method_ranking_accuracy']['status']}** ({targets['method_ranking_accuracy']['value_text']}).
 - Knee-relative-error target: **not_evaluable**; no independent knee reference exists.
 
-The comparison of E, RQ2, D, and F_shape is reported without changing thresholds or adding experiments. F_diagnostic is not deployable because kernel count is an observed runtime feature. Phase 15 traffic features remain restricted to their one common profiler point and normal timing rows retain `r_hbm=null`.
+The scalar E law was insufficient. RQ2 improved on E, and D improved further under the frozen macro rule. F_shape did not materially improve on D; F_diagnostic scored better on the median but is not deployable because kernel count is an observed held-out-run feature. Thus the evidence supports method-conditioned B/L/r structure, not a scalar allocated-byte law, while the predeclared structural byte fractions did not add a robust further improvement. Phase 15 traffic features remain restricted to their one common profiler point and normal timing rows retain `r_hbm=null`.
 
 ## Knee uncertainty
 
@@ -1197,6 +1211,18 @@ def run_analysis(bundle_id: str | None = None) -> Path:
         "execution_head": starting_head, "source": source_summary,
         "source_roots": {"host_wall": WALL_ROOT_SHA256, "outer": OUTER_ROOT_SHA256, "phase15": PHASE15_ROOT_SHA256},
         "selection": selection, "targets": targets,
+        "selected_holdout_summary": [
+            {
+                "protocol": row["protocol"], "method_family": row["method_family"],
+                "scored_rows": row["scored_rows"],
+                "median_absolute_relative_error": row["median_absolute_relative_error"],
+                "p95_relative_error": row["p95_relative_error"],
+                "domain_status": json.loads(row["domain_status_json"]),
+            }
+            for row in comparison
+            if row["model_id"] == selected and row["subset"] == "combined"
+            and row["protocol"] in (*GEOMETRY_PROTOCOLS, "session_holdout")
+        ],
         "holdout_failures": failures, "fitted_fold_count": len(fitted),
         "metrics": metric_details, "ratio_and_ranking": ratio_ranking,
         "knees": {"status_counts": dict(sorted(knee_counts.items())), "identified": knee_counts["identified_in_range"], "non_identified": len(knees) - knee_counts["identified_in_range"], "scaling_hypotheses": scaling},
@@ -1218,7 +1244,24 @@ def run_analysis(bundle_id: str | None = None) -> Path:
     model_file = model_index["families"]["kvquant"][deployment_model]
     example_model = next(m for m in exported if m["method_family"] == "kvquant" and m["model_id"] == deployment_model)
     example_prediction = float(predict_predictive(example_model, [example_row])[0])
-    write_exclusive(stage / "prediction_example.json", json_bytes({"method": "kvquant", "method_config_id": "kvq4", "batch_size": 1, "historical_context": 4096, "r_alloc": example_row["r_alloc"], "model_id": deployment_model, "model_file": model_file, "predicted_host_wall_ms": example_prediction, "units": "milliseconds_per_full_batch_decode_step", "quality_status": "unvalidated", "performance_claim_eligible": False}))
+    bf16_row = next(r for r in rows if r["status"] == "completed" and r["method_config_id"] == "bf16" and r["batch_size"] == 1 and r["historical_context"] == 4096)
+    bf16_model = next(m for m in exported if m["method_family"] == "bf16" and m["model_id"] == deployment_model)
+    bf16_prediction = float(predict_predictive(bf16_model, [bf16_row])[0])
+    interval = example_model.get("new_process_log_residual_interval_95")
+    write_exclusive(stage / "prediction_example.json", json_bytes({
+        "method": "kvquant", "method_config_id": "kvq4", "batch_size": 1,
+        "historical_context": 4096, "r_alloc": example_row["r_alloc"],
+        "r_alloc_source": "frozen_cpu_byte_formula", "model_id": deployment_model,
+        "model_file": model_file, "predicted_host_wall_ms": example_prediction,
+        "prediction_interval_95_new_process_ms": (
+            [example_prediction * math.exp(float(interval[0])), example_prediction * math.exp(float(interval[1]))]
+            if isinstance(interval, list) and len(interval) == 2 else None
+        ),
+        "predicted_bf16_host_wall_ms": bf16_prediction,
+        "predicted_same_work_ratio": bf16_prediction / example_prediction,
+        "domain_status": "interpolation", "units": "milliseconds_per_full_batch_decode_step",
+        "quality_status": "unvalidated", "performance_claim_eligible": False,
+    }))
     plots = stage / "plots"; plots.mkdir()
     selected_comparison = [(f"{r['protocol']}:{r['method_family']}", float(r["median_absolute_relative_error"])) for r in selected_rows]
     _write_svg(plots / "held_out_median_error.svg", "Held-out median relative error", selected_comparison)
@@ -1247,7 +1290,26 @@ def main() -> int:
         frame = _read_parquet(args.validate / "analysis_frame.parquet")
         if len(frame) != EXPECTED_RECORDS:
             raise Phase17Error("validated bundle analysis-frame cardinality differs")
-        print(json.dumps({"status": "PASS", "root_sha256": artifact.root_sha256, "records": len(frame)}, sort_keys=True))
+        required = {
+            "input_manifest.json", "split_manifest.json", "candidate_spec.json",
+            "out_of_fold_predictions.parquet", "model_comparison.parquet",
+            "knee_estimates.parquet", "prediction_metrics.json",
+            "model_target_status.json", "prediction_example.json",
+            "phase17_report.md", "manifest.json", "artifact_inventory.json",
+            "checksums.sha256", "COMPLETE", "models/index.json",
+        }
+        missing = sorted(value for value in required if not (args.validate / value).is_file())
+        if missing:
+            raise Phase17Error(f"validated bundle lacks required files: {missing}")
+        splits = _strict_json(args.validate / "split_manifest.json")
+        for fold in splits["folds"]:
+            overlap = set(fold["train_group_keys"]) & set(fold["test_group_keys"])
+            if fold["protocol"] != "session_holdout" and overlap:
+                raise Phase17Error("validated bundle contains grouped leakage")
+        oof = _read_parquet(args.validate / "out_of_fold_predictions.parquet")
+        if not oof or any(row["quality_status"] != "unvalidated" or row["performance_claim_eligible"] is not False for row in oof):
+            raise Phase17Error("validated OOF prediction scope differs")
+        print(json.dumps({"status": "PASS", "root_sha256": artifact.root_sha256, "records": len(frame), "oof_predictions": len(oof), "folds": splits["fold_count"]}, sort_keys=True))
         return 0
     run_analysis(args.bundle_id)
     return 0
