@@ -8,6 +8,19 @@ requirements; and AGENTS.md. Decision 0005 records precedence.
 
 ## Current state
 
+- Latest scoped phase: Phase 17 Modeling `PASS`. CPU-only analysis used the
+  immutable Phase 16R host-wall closure: 2205 accepted process observations,
+  441 feasible logical points, and 465 explicit capacity-infeasible process
+  records. All 38 infrastructure replacements contribute exactly one accepted
+  observation per logical replicate slot. The frozen E/RQ2/D/F candidates were
+  evaluated under 53 grouped folds with no fit failure. Model D was selected,
+  but the median-error, P95-error, same-work sign, and pairwise-ranking targets
+  were honestly missed; knee error is not evaluable without an independent
+  reference. Twenty-three of 50 local curves have identifiable in-range knees;
+  the remaining 27 retain explicit non-identifiable statuses. The 44-object
+  root `05d5c4e82259ca8bf2d43e62a689c1180f091da1fd166c79106230ab455f98bb`
+  is COMPLETE-last and passed one clean R2 retrieval. Quality remains LOCKED,
+  `PERFORMANCE_DATA_FROZEN` remains absent, and Phase 18 has not started.
 - Latest scoped phase: Phase 16R Full Scan `PASS`. Family
   `phase16-20260831t123029614620z-ec534d99-de80ac` preserves all 2670
   terminal records: 2205 completed and 465 capacity-infeasible, with 38
@@ -19,7 +32,7 @@ requirements; and AGENTS.md. Decision 0005 records precedence.
   `5605558be0483ddfeffd251977306d3397aa27a66309324c6011e5043584103e`.
   See `docs/phase_reports/phase16r-full-scan.md` and
   `docs/evidence/phase16r/full-scan-publication.json`.
-  Full Scan is COMPLETE; G0-G5 remain PASS; Phase 17 is READY, not started;
+  Full Scan is COMPLETE; G0-G5 remain PASS; Phase 17 used this immutable input;
   Quality remains LOCKED and `PERFORMANCE_DATA_FROZEN` absent. Historical
   prefix catalogs and stopped campaigns remain unchanged. No reboot occurred.
 - Historical Phase 15 Profiler Subset `PASS`. Campaign

@@ -1,0 +1,66 @@
+{
+  "schema_version": "kvbench-phase17-r2-publication-1.0.0",
+  "status": "PASS",
+  "artifact_id": "phase17-20260916t164055992658z-9e20208a-c944c5",
+  "publication_git_sha": "9e20208a5eab4f14263334436878492654756ce9",
+  "local_validation": {
+    "artifact_path": "artifacts/phase17/phase17-20260916t164055992658z-9e20208a-c944c5",
+    "root_sha256": "05d5c4e82259ca8bf2d43e62a689c1180f091da1fd166c79106230ab455f98bb",
+    "object_count": 44,
+    "status": "PASS"
+  },
+  "publication": {
+    "status": "PASS",
+    "root_sha256": "05d5c4e82259ca8bf2d43e62a689c1180f091da1fd166c79106230ab455f98bb",
+    "uri": "r2://kvbench-artifacts/kvbench/sha256/05d5c4e82259ca8bf2d43e62a689c1180f091da1fd166c79106230ab455f98bb/",
+    "object_count": 44,
+    "uploaded_count": 44,
+    "verified_existing_count": 0,
+    "content_addressed": true,
+    "conditional_writes": true,
+    "complete_last": true,
+    "publication_order_sha256": "43395151fbb4094b457d00bb96cdda239a52346dce3a05242228de3409972d65",
+    "published_at_utc": "2026-09-16T16:44:47.415735Z"
+  },
+  "clean_retrieval": {
+    "result": "PASS",
+    "verification_result": "PASS",
+    "root_sha256": "05d5c4e82259ca8bf2d43e62a689c1180f091da1fd166c79106230ab455f98bb",
+    "uri": "r2://kvbench-artifacts/kvbench/sha256/05d5c4e82259ca8bf2d43e62a689c1180f091da1fd166c79106230ab455f98bb/",
+    "object_count": 44,
+    "destination_initially_empty": true,
+    "complete_marker_valid": true,
+    "inventory_valid": true,
+    "checksum_ledger_valid": true,
+    "unexpected_objects": false,
+    "retrieved_at_utc": "2026-09-16T16:45:28.924792Z"
+  },
+  "clean_retrieval_count": 1,
+  "bucket_lock": {
+    "bucket": "kvbench-artifacts",
+    "bucket_public": false,
+    "covered_prefix": "kvbench/sha256/",
+    "enabled": true,
+    "lock_rule_id": "kvbench-evidence-indefinite",
+    "lock_scope": "exact",
+    "retention_type": "Indefinite",
+    "verification_result": "PASS",
+    "verified_at_utc": "2026-09-16T16:44:58.061551Z"
+  },
+  "credential_handling": {
+    "env_file_read": true,
+    "env_file_read_operator_authorized": true,
+    "credential_values_recorded": false,
+    "env_file_uploaded": false,
+    "credentials_passed_to_container": false,
+    "required_variables": {
+      "AWS_ACCESS_KEY_ID": "PRESENT",
+      "AWS_SECRET_ACCESS_KEY": "PRESENT",
+      "CLOUDFLARE_API_TOKEN": "PRESENT",
+      "KVBENCH_R2_PREFIX": "PRESENT",
+      "R2_ACCOUNT_ID": "PRESENT",
+      "R2_BUCKET": "PRESENT",
+      "R2_ENDPOINT": "PRESENT"
+    }
+  }
+}
