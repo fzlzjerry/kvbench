@@ -136,7 +136,7 @@ KIVI_REFERENCE_BUILD_REVISION := 3417ea0e7f322369eed21bb787a9a9a19b0a69bd
 .PHONY: bootstrap bootstrap-phase3 test checks format-check lint hot-path-check typecheck config-check
 .PHONY: provenance-check scope-check immutable-check package-lock-check
 .PHONY: phase3-package-lock-check test-cuda test-graph test-allocation
-.PHONY: smoke pilot full-scan validate-full-scan test-phase16 profile-subset
+.PHONY: smoke pilot full-scan validate-full-scan test-phase16 profile-subset fit validate-phase17-modeling test-phase17
 .PHONY: test-phase13f remediate-phase13-feasibility validate-phase13-feasibility
 .PHONY: test-phase13t validate-phase13-timeout
 .PHONY: densify-pilot-knees validate-pilot-densification
@@ -1911,9 +1911,18 @@ profile-subset:
 	@$(PHASE2_CLI) run --plan configs/plans/profiler_subset.yaml --dry-run
 	@echo '{"status":"validation_only","target":"profile-subset","profiler_executed":false}'
 
+PHASE17_PYTHON ?= .phase17-venv/bin/python
+PHASE17_ARTIFACT ?=
+
+test-phase17:
+	@PYTHONPATH=src $(PHASE17_PYTHON) -m unittest tests.unit.test_phase17_modeling -v
+
 fit:
-	@echo '{"error":"phase_not_implemented","target":"fit","phase":"17"}' >&2
-	@exit 2
+	@PYTHONPATH=src $(PHASE17_PYTHON) -m scripts.phase17_modeling
+
+validate-phase17-modeling:
+	@test -n "$(PHASE17_ARTIFACT)" || { echo '{"status":"BLOCKED","reason":"PHASE17_ARTIFACT_required"}' >&2; exit 2; }
+	@PYTHONPATH=src $(PHASE17_PYTHON) -m scripts.phase17_modeling --validate "$(PHASE17_ARTIFACT)"
 
 figures:
 	@echo '{"error":"phase_not_implemented","target":"figures","phase":"17+"}' >&2
