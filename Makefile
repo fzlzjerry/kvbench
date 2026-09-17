@@ -136,7 +136,7 @@ KIVI_REFERENCE_BUILD_REVISION := 3417ea0e7f322369eed21bb787a9a9a19b0a69bd
 .PHONY: bootstrap bootstrap-phase3 test checks format-check lint hot-path-check typecheck config-check
 .PHONY: provenance-check scope-check immutable-check package-lock-check
 .PHONY: phase3-package-lock-check test-cuda test-graph test-allocation
-.PHONY: smoke pilot full-scan validate-full-scan test-phase16 profile-subset fit validate-phase17-modeling test-phase17
+.PHONY: smoke pilot full-scan validate-full-scan test-phase16 profile-subset fit validate-phase17-modeling test-phase17 reproduce package-phase18 validate-phase18 test-phase18
 .PHONY: test-phase13f remediate-phase13-feasibility validate-phase13-feasibility
 .PHONY: test-phase13t validate-phase13-timeout
 .PHONY: densify-pilot-knees validate-pilot-densification
@@ -1928,8 +1928,19 @@ figures:
 	@echo '{"error":"phase_not_implemented","target":"figures","phase":"17+"}' >&2
 	@exit 2
 
-reproduce: export KVBENCH_RUN_ID := $(RUN_ID)
+PHASE18_SOURCE_PACKAGE ?= artifacts/phase18/phase18-current
+PHASE18_OUTPUT ?= /tmp/kvbench-phase18-reproduced
+PHASE18_ARTIFACT ?=
+
+test-phase18:
+	@PYTHONPATH=src $(PHASE17_PYTHON) -m unittest tests.unit.test_phase18_reproduction -v
+
 reproduce:
-	@$(PHASE2_VALIDATE) run-id
-	@echo '{"error":"phase_not_implemented","target":"reproduce","phase":"18"}' >&2
-	@exit 2
+	@python3 "$(PHASE18_SOURCE_PACKAGE)/reproduce.py" reproduce --package "$(PHASE18_SOURCE_PACKAGE)" --output "$(PHASE18_OUTPUT)"
+
+package-phase18:
+	@PYTHONPATH=src $(PHASE17_PYTHON) -m scripts.phase18_package
+
+validate-phase18:
+	@test -n "$(PHASE18_ARTIFACT)" || { echo '{"status":"BLOCKED","reason":"PHASE18_ARTIFACT_required"}' >&2; exit 2; }
+	@PYTHONPATH=src $(PHASE17_PYTHON) -m scripts.phase18_package --validate "$(PHASE18_ARTIFACT)"
