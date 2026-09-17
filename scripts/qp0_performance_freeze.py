@@ -355,7 +355,7 @@ def payload_files(root: Path, excluded: set[str]) -> list[Path]:
 
 def seal(stage: Path, freeze_id: str) -> Path:
     inventory_rows = pq.read_table(stage / "performance_inventory.parquet").num_rows
-    items = [{"path": path.relative_to(stage).as_posix(), "size_bytes": path.stat().st_size, "sha256": sha256_file(path)} for path in payload_files(stage, {"artifact_inventory.json", "checksums.sha256", "COMPLETE"})]
+    items = [{"path": path.relative_to(stage).as_posix(), "role": "qp0_performance_freeze", "size_bytes": path.stat().st_size, "sha256": sha256_file(path)} for path in payload_files(stage, {"artifact_inventory.json", "checksums.sha256", "COMPLETE"})]
     write_new(stage / "artifact_inventory.json", json_bytes({"schema_version": "kvbench-artifact-inventory-1.0.0", "run_id": freeze_id, "files": items, "excluded_control_files": ["artifact_inventory.json", "checksums.sha256", "COMPLETE"]}))
     ledger = "".join(f"{sha256_file(path)}  {path.relative_to(stage).as_posix()}\n" for path in payload_files(stage, {"checksums.sha256", "COMPLETE"})).encode()
     write_new(stage / "checksums.sha256", ledger)
