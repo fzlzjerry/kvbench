@@ -1,0 +1,22 @@
+{
+  "annotation": {
+    "freeze_id": "qp0-freeze-20260917t115200000000z-83536c37-bf28e4",
+    "freeze_root_sha256": "9996171e9c0ee737dba15fb0609684e3574e4633ec2f841f2c660b48319d213f",
+    "manifest_sha256_recorded": "3d14895e63030dbe7f0c1066b7c45ad19ec3e6a0a58267e6fcc8be23516e6a6b",
+    "manifest_sha256_actual": "91db28a33940e9bbdda6c723a2678ae9459e73f813b20bfecb6c97222ba38fc5",
+    "manifest_sha256_match": false,
+    "root_binding_valid": true
+  },
+  "created_locally": true,
+  "freeze_marker": {
+    "path": "PERFORMANCE_DATA_FROZEN",
+    "present": false,
+    "reason": "withheld_fail_closed_pending_human_review_of_tag_annotation_manifest_sha_mismatch"
+  },
+  "pushed": false,
+  "schema_version": "qp0-freeze-tag-receipt-1.0.0",
+  "status": "PARTIAL",
+  "tag_name": "perf-freeze-20260917-83536c37",
+  "tag_object_id": "c5049cf73c78a96729c4e8a791ae77acf7a1963c",
+  "target_commit": "83536c37433875cda98c36e2848e05692e9407d0"
+}

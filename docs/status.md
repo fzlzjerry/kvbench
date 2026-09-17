@@ -8,6 +8,17 @@ requirements; and AGENTS.md. Decision 0005 records precedence.
 
 ## Current state
 
+- Latest scoped task: QP-0 performance freeze `PARTIAL`. The compact
+  2,670-slot release inventory, 68-path hot-path lock, external-kernel
+  identities, Quality derivative image, and pending manifest-bound quality
+  contract are complete. The 14-object root
+  `9996171e9c0ee737dba15fb0609684e3574e4633ec2f841f2c660b48319d213f`
+  is COMPLETE-last and passed one clean R2 retrieval. The sole local tag
+  targets the correct performance source and binds the correct bundle root,
+  but its redundant manifest-SHA annotation does not match the finalized
+  manifest. The immutable tag was not replaced or pushed; fail-closed,
+  `PERFORMANCE_DATA_FROZEN` remains absent pending human review. Quality is
+  LOCKED and QP-1/Q0/PPL/LongBench have not started.
 - Latest scoped phase: Phase 18 CPU Reproduction Package `PASS`. The compact
   package preserves Phase 17 model D, all missed target states, 23/50
   identified knees, and the outer-selection limitation. Its reporting audit

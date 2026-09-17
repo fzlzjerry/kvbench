@@ -1,0 +1,343 @@
+{
+  "quality_contract": {
+    "approval": {
+      "approved": false,
+      "approved_at_utc": null,
+      "approved_by": null
+    },
+    "configurations": {
+      "items": [
+        {
+          "method_config_fingerprint": "81ca6a0d74727a9c8a54f14d6d222dee502ee5e9a9ab6e8c9a03b4fed98f371b",
+          "method_config_id": "bf16",
+          "method_family": "bf16",
+          "parameters": {
+            "cache_dtype": "bfloat16",
+            "parameter_type": "bf16"
+          }
+        },
+        {
+          "method_config_fingerprint": "5b56167c81ef2042be5fa45ed4e7f8ddc60670d5611283e19e848307076c27eb",
+          "method_config_id": "tq_4bit_nc",
+          "method_family": "turboquant",
+          "parameters": {
+            "block_size": null,
+            "cache_dtype_name": null,
+            "decode_split_count": null,
+            "key_bits": 4,
+            "key_path": "mse",
+            "norm_correction": true,
+            "parameter_type": "turboquant",
+            "skipped_layers": null,
+            "value_bits": 4
+          }
+        },
+        {
+          "method_config_fingerprint": "ff92cd334059888584564bb84999353a698baf3b991a602a827a53aab726908e",
+          "method_config_id": "tq_k3v4_nc",
+          "method_family": "turboquant",
+          "parameters": {
+            "block_size": null,
+            "cache_dtype_name": null,
+            "decode_split_count": null,
+            "key_bits": 3,
+            "key_path": "mse",
+            "norm_correction": true,
+            "parameter_type": "turboquant",
+            "skipped_layers": null,
+            "value_bits": 4
+          }
+        },
+        {
+          "method_config_fingerprint": "0d17950c2502fe7399cf5a896efa429861eb53194060ab95a7369287889dc49a",
+          "method_config_id": "tq_3bit_nc",
+          "method_family": "turboquant",
+          "parameters": {
+            "block_size": null,
+            "cache_dtype_name": null,
+            "decode_split_count": null,
+            "key_bits": 3,
+            "key_path": "mse",
+            "norm_correction": true,
+            "parameter_type": "turboquant",
+            "skipped_layers": null,
+            "value_bits": 3
+          }
+        },
+        {
+          "method_config_fingerprint": "97289ed9c875e27013ddcf7659fc6e849b3d438c58d0d86bd3dcac5d82eefb09",
+          "method_config_id": "k4v4",
+          "method_family": "kivi",
+          "parameters": {
+            "group_size": 32,
+            "k_bits": 4,
+            "parameter_type": "kivi",
+            "residual_length": 32,
+            "v_bits": 4
+          }
+        },
+        {
+          "method_config_fingerprint": "568493e09cad122088716533c954beb6b25a01209fa28016f761b2ede4930a3f",
+          "method_config_id": "k2v4",
+          "method_family": "kivi",
+          "parameters": {
+            "group_size": 32,
+            "k_bits": 2,
+            "parameter_type": "kivi",
+            "residual_length": 32,
+            "v_bits": 4
+          }
+        },
+        {
+          "method_config_fingerprint": "667395cefa882efc7c54f9088e3706dcdc3ba33c8734bdf8de9e0dd8ae1124b8",
+          "method_config_id": "k2v2",
+          "method_family": "kivi",
+          "parameters": {
+            "group_size": 32,
+            "k_bits": 2,
+            "parameter_type": "kivi",
+            "residual_length": 32,
+            "v_bits": 2
+          }
+        },
+        {
+          "method_config_fingerprint": "27b3af27e153491112ef974ea3a6d813987bfcb5083a699ce131fa3332c9703b",
+          "method_config_id": "kvq4",
+          "method_family": "kvquant",
+          "parameters": {
+            "bits": 4,
+            "calibration_artifact_sha256": "a8c009633ac4cad952deb2a2fa96c44ef928a1510dadcf11dee29a7a3efe1bf6",
+            "lut_scale_dtype": "float32",
+            "outlier_cap": 12,
+            "parameter_type": "kvquant",
+            "sink_tokens": 5,
+            "sparse_index_dtype": "int32"
+          }
+        },
+        {
+          "method_config_fingerprint": "2f0d1a99db2e6884745b6cd54c50eedfa17744b89a3e8b2ffd840986126bd802",
+          "method_config_id": "kvq3",
+          "method_family": "kvquant",
+          "parameters": {
+            "bits": 3,
+            "calibration_artifact_sha256": "97518129cc64ffa445722cb0802b3082631841de50835cbdf2c85c36a0c1579f",
+            "lut_scale_dtype": "float32",
+            "outlier_cap": 12,
+            "parameter_type": "kvquant",
+            "sink_tokens": 5,
+            "sparse_index_dtype": "int32"
+          }
+        },
+        {
+          "method_config_fingerprint": "eb75d6cbf8ff27365cd2799c4e0232649c94d6f094cb4d041bbe8c3ac1cda5ee",
+          "method_config_id": "kvq2",
+          "method_family": "kvquant",
+          "parameters": {
+            "bits": 2,
+            "calibration_artifact_sha256": "b9bb3a8699aa38fb2a5707ff036814971552462692a180431f6f68df9624560e",
+            "lut_scale_dtype": "float32",
+            "outlier_cap": 12,
+            "parameter_type": "kvquant",
+            "sink_tokens": 5,
+            "sparse_index_dtype": "int32"
+          }
+        }
+      ],
+      "require_exact_method_config_fingerprint": true,
+      "run_fast_ppl_for_all": true,
+      "run_q0_for_all": true,
+      "source": "performance_inventory"
+    },
+    "execution": {
+      "decode_conditioning_tokens": 16,
+      "do_sample": false,
+      "implementation_equivalence": "exact frozen adapter/kernel/config identity; quality code outside locked paths",
+      "primary_protocol": "cache_sensitive",
+      "quality_batch_size": 1,
+      "require_compressed_cache_read_assertion": true,
+      "secondary_protocol": "native_prefill_finalists_only",
+      "seed": 20260722,
+      "temperature": 0.0,
+      "top_p": 1.0
+    },
+    "gates": {
+      "decision_states": [
+        "pass",
+        "fail",
+        "inconclusive"
+      ],
+      "longbench_e": {
+        "category_hard_fail_points": 5.0,
+        "category_review_points": 3.0,
+        "invalid_output_increase_max_pp": 1.0,
+        "macro_score_drop_max_points": 2.0
+      },
+      "longbench_v2": {
+        "accuracy_drop_max_pp": 2.0,
+        "any_category_drop_max_pp": 5.0,
+        "any_length_bucket_drop_max_pp": 5.0,
+        "baseline_correct_retention_min": 0.95,
+        "invalid_output_increase_max_pp": 1.0
+      },
+      "ppl": {
+        "bucket_hard_fail": 0.05,
+        "bucket_review_threshold": 0.02,
+        "global_relative_increase_max": 0.01
+      }
+    },
+    "id": "quality-qp0-freeze-20260917t115200000000z-83536c37-bf28e4",
+    "invariance": {
+      "batch_sample_count": 100,
+      "batch_sizes": [
+        1,
+        4,
+        8
+      ],
+      "graph_eager_sample_count": 100
+    },
+    "longbench_e": {
+      "cache_sensitive": true,
+      "decode_conditioning_tokens": 16,
+      "official_metrics": true,
+      "official_prompts": true,
+      "revision": {
+        "status": "pending_qp1"
+      },
+      "sample_ids": {
+        "status": "pending_qp1"
+      },
+      "tasks": [
+        "qasper",
+        "multifieldqa_en",
+        "hotpotqa",
+        "2wikimqa",
+        "gov_report",
+        "multi_news",
+        "trec",
+        "triviaqa",
+        "samsum",
+        "passage_count",
+        "passage_retrieval_en",
+        "lcc",
+        "repobench-p"
+      ],
+      "truncate_overlength_primary": false
+    },
+    "longbench_v2": {
+      "cache_sensitive": true,
+      "cot_finalist_stress": true,
+      "cot_primary": false,
+      "decode_conditioning_tokens": 16,
+      "finalist_rule": [
+        "best_quality_among_primary_passers",
+        "highest_r_alloc_among_primary_passers",
+        "do_not_use_speed_for_selection"
+      ],
+      "max_new_tokens_no_cot": 8,
+      "revision": {
+        "status": "pending_qp1"
+      },
+      "sample_ids": {
+        "status": "pending_qp1"
+      },
+      "valid_answers": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ]
+    },
+    "model": {
+      "chat_template_hash": {
+        "reason": "not_present_in_frozen_performance_manifest",
+        "status": "pending_qp1"
+      },
+      "checkpoint": "meta-llama/Llama-3.1-8B-Instruct",
+      "max_model_length": 131072,
+      "require_same_checkpoint_as_performance": true,
+      "revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+      "rope": {
+        "factor": 8.0,
+        "high_frequency_factor": 4.0,
+        "low_frequency_factor": 1.0,
+        "original_max_position_embeddings": 8192,
+        "rope_type": "llama3",
+        "theta": 500000.0
+      },
+      "tokenizer_config_sha256": "177c7b61e616fecb84c17ce0591acb92c6c4d60e9ac5ababfb940ff23bbcd424",
+      "tokenizer_id": "meta-llama/Llama-3.1-8B-Instruct",
+      "tokenizer_revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+      "weight_dtype": "bfloat16"
+    },
+    "pending_qp1_items": [
+      "quality_evaluation_dependency_lock",
+      "chat_template_hash",
+      "dataset_revisions",
+      "sample_id_sets",
+      "prompt_template_hashes",
+      "dataset_and_prompt_materialization",
+      "formal_human_approval"
+    ],
+    "ppl": {
+      "burn_in_decode_tokens": 1,
+      "datasets": [
+        {
+          "name": "wikitext-2-raw-v1",
+          "revision": {
+            "status": "pending_qp1"
+          },
+          "split": "test"
+        },
+        {
+          "name": "c4",
+          "revision": {
+            "status": "pending_qp1"
+          },
+          "sample_ids_file": {
+            "status": "pending_qp1"
+          },
+          "split": "validation"
+        }
+      ],
+      "document_boundary": {
+        "ignored_tokens_after_boundary": 32,
+        "separator": "eos"
+      },
+      "fast": {
+        "anchors_per_length": 16,
+        "prefix_lengths": [
+          4096,
+          24576,
+          32768,
+          65536
+        ],
+        "scored_tokens_per_anchor": 128
+      },
+      "full": {
+        "anchors_per_length": 64,
+        "prefix_lengths": [
+          4096,
+          16384,
+          24576,
+          28672,
+          32768,
+          65536,
+          98304,
+          130560
+        ],
+        "scored_tokens_per_anchor": 256
+      },
+      "mode": "incremental_teacher_forcing",
+      "primary_metric": "delta_nll"
+    },
+    "provenance": {
+      "manifest_binding_prepared_after_performance_results_known": true,
+      "performance_freeze_manifest": "artifacts/performance_freeze/qp0-freeze-20260917t115200000000z-83536c37-bf28e4/manifest.json",
+      "performance_freeze_tag": "perf-freeze-20260917-83536c37",
+      "protocol_commit_sha": "a7b8285dd8ed2fb598efbb3312e9f55064a0ee64",
+      "protocol_preregistered_before_performance": true
+    },
+    "quality_execution": "LOCKED",
+    "status": "requires_human_approval"
+  }
+}
