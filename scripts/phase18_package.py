@@ -316,7 +316,7 @@ def validate_bundle(root: Path) -> dict[str, Any]:
     manifest = strict_json(root / "manifest.json")
     if manifest.get("gpu_launched") is not False or manifest.get("model_refit") is not False or manifest.get("quality_status") != "unvalidated":
         raise Phase18PackageError("bundle scope differs")
-    return {"status": "PASS", "root_sha256": artifact.root_sha256, "object_count": artifact.object_count, "tail_rows": len(tail)}
+    return {"status": "PASS", "root_sha256": artifact.root_sha256, "object_count": len(artifact.files), "tail_rows": len(tail)}
 
 
 def build(bundle_id: str | None = None) -> Path:
