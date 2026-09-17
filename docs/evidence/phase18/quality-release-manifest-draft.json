@@ -1,0 +1,25 @@
+{
+  "next_authorized_task": "separate_QP-0_performance_freeze",
+  "performance_data_frozen": "absent",
+  "performance_freeze_created": false,
+  "performance_freeze_tag_created": false,
+  "qp0_prerequisites": [
+    "verify_no_active_performance_process",
+    "all_planned_runs_terminal",
+    "raw_samples_present",
+    "artifact_checksums_present",
+    "record_git_working_tree",
+    "record_container_digest",
+    "record_gpu_hardware_manifest",
+    "create_performance_inventory",
+    "create_freeze_git_tag",
+    "create_locked_hot_path_list",
+    "populate_quality_contract_from_manifest",
+    "stop_at_human_approval_gate"
+  ],
+  "quality_contract_approved": false,
+  "quality_evaluation_executed": false,
+  "quality_state": "LOCKED",
+  "schema_version": "kvbench-phase18-quality-release-manifest-draft-1.0.0",
+  "status": "DRAFT_NOT_AUTHORITY"
+}

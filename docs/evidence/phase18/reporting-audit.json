@@ -1,0 +1,57 @@
+{
+  "bf16_leave_one_batch_out": {
+    "checks": {
+      "bf16_r_alloc": {
+        "maximum": 0.999995231942173,
+        "minimum": 0.9996949917647776,
+        "status": "PASS_actual_point_dependent_not_forced_to_one"
+      },
+      "coordinate_scaling": "PASS_historical_L_over_131071",
+      "finite_positive_outputs": "PASS",
+      "fold_and_model_joins": "PASS",
+      "fold_parameters": "not_persisted_separately_in_phase17_bundle",
+      "inverse_transform": "PASS_positive_direct_D_output",
+      "per_token_normalization": "PASS_not_applied",
+      "units": "PASS_full_batch_decode_step_ms"
+    },
+    "diagnosis": "real_predictive_failure_concentrated_in_B1_short_context_edge_extrapolation",
+    "domain_summary": [
+      {
+        "domain_status": "edge_extrapolation",
+        "logical_points": 15,
+        "maximum_absolute_relative_error": 55.789904982614516,
+        "median_absolute_relative_error": 0.21509445246339698,
+        "p95_relative_error": 40.16989986942676
+      },
+      {
+        "domain_status": "interior_interpolation",
+        "logical_points": 27,
+        "maximum_absolute_relative_error": 0.10445384666921298,
+        "median_absolute_relative_error": 0.02459067215413143,
+        "p95_relative_error": 0.060193662118041176
+      }
+    ],
+    "logical_points": 42,
+    "median_absolute_relative_error": 0.03884879771958878,
+    "p95_relative_error": 16.256903457972626,
+    "tail_rows_exported": 20
+  },
+  "macro_metric_definition": {
+    "cell_count": 11,
+    "cell_weighting": "equal",
+    "excluded_not_applicable": [
+      "leave_one_config_out:bf16"
+    ],
+    "median_label": "macro_mean_of_cell_median_relative_errors",
+    "median_value": 0.0791985632276268,
+    "p95_label": "macro_mean_of_cell_p95_relative_errors",
+    "p95_value": 1.645283992575687,
+    "pooled_quantile": false,
+    "session_holdout_in_primary_macro": false
+  },
+  "quality_status": "unvalidated",
+  "schema_version": "kvbench-phase18-reporting-audit-1.0.0",
+  "selected_model": "D",
+  "source_phase17_root_sha256": "05d5c4e82259ca8bf2d43e62a689c1180f091da1fd166c79106230ab455f98bb",
+  "target_statuses_unchanged": true
+}

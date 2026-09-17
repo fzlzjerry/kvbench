@@ -1,6 +1,6 @@
 # Project status
 
-Last updated: 2026-09-16
+Last updated: 2026-09-17
 Authoritative contracts: CODEX_WORKFLOW.md for active performance engineering;
 CODEX_POST_PERFORMANCE_QUALITY_VALIDATION.md for post-performance quality
 scheduling; CODEX_QUALITY_EVALUATION_ADDENDUM.md for non-conflicting quality
@@ -8,6 +8,16 @@ requirements; and AGENTS.md. Decision 0005 records precedence.
 
 ## Current state
 
+- Latest scoped phase: Phase 18 CPU Reproduction Package `PASS`. The compact
+  package preserves Phase 17 model D, all missed target states, 23/50
+  identified knees, and the outer-selection limitation. Its reporting audit
+  labels the two primary aggregates as equal-cell macro means, not pooled
+  quantiles, and retains the BF16 B=1 short-context edge-extrapolation tail.
+  A pure-standard-library fresh-directory reproduction regenerated six figures
+  and four predictor examples without GPU or network work. The 54-object root
+  `cd6ee2324d0163088102e29e45b4ad124b5d524fb1900717faddf997da6805e2`
+  is COMPLETE-last and passed one clean R2 retrieval. Quality remains LOCKED,
+  `PERFORMANCE_DATA_FROZEN` remains absent, and QP-0 was not started.
 - Latest scoped phase: Phase 17 Modeling `PASS`. CPU-only analysis used the
   immutable Phase 16R host-wall closure: 2205 accepted process observations,
   441 feasible logical points, and 465 explicit capacity-infeasible process
@@ -20,7 +30,8 @@ requirements; and AGENTS.md. Decision 0005 records precedence.
   the remaining 27 retain explicit non-identifiable statuses. The 44-object
   root `05d5c4e82259ca8bf2d43e62a689c1180f091da1fd166c79106230ab455f98bb`
   is COMPLETE-last and passed one clean R2 retrieval. Quality remains LOCKED,
-  `PERFORMANCE_DATA_FROZEN` remains absent, and Phase 18 has not started.
+  `PERFORMANCE_DATA_FROZEN` remains absent; Phase 18 packaged this evidence
+  without changing the scientific outcome.
 - Latest scoped phase: Phase 16R Full Scan `PASS`. Family
   `phase16-20260831t123029614620z-ec534d99-de80ac` preserves all 2670
   terminal records: 2205 completed and 465 capacity-infeasible, with 38

@@ -1928,7 +1928,7 @@ figures:
 	@echo '{"error":"phase_not_implemented","target":"figures","phase":"17+"}' >&2
 	@exit 2
 
-PHASE18_SOURCE_PACKAGE ?= artifacts/phase18/phase18-current
+PHASE18_SOURCE_PACKAGE ?= artifacts/phase18/phase18-20260917t024901884906z-a866fa68-6cfb61
 PHASE18_OUTPUT ?= /tmp/kvbench-phase18-reproduced
 PHASE18_ARTIFACT ?=
 
