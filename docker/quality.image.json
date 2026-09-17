@@ -1,0 +1,24 @@
+{
+  "base_image_digest": "sha256:059bc9be89387369d7de9e3e9b26d85b6e9902c41e7dbf002ebc45edd188fb7e",
+  "build_kind": "thin_derivative_metadata_and_import_check",
+  "built_at_utc": "2026-09-17T11:47:32.502894Z",
+  "dependency_delta": [],
+  "evaluation_dependencies": {
+    "status": "pending_qp1_lock",
+    "reason": "The accepted protocol names dependency classes but does not pin installable versions; QP-0 does not guess them."
+  },
+  "gpu_or_model_execution": false,
+  "image_tag": "kvbench-quality:qp0",
+  "quality_execution": "LOCKED",
+  "quality_image_digest": "sha256:1d8056643bf001fb83ee19e6bb19ec93379c296f2be6ba02e907d0b2f4ecca32",
+  "runtime_identity": {
+    "cuda": "13.0",
+    "numpy": "2.5.1",
+    "python": "3.12.3",
+    "pytorch": "2.12.1+cu130",
+    "transformers": "4.57.6",
+    "triton": "3.7.1"
+  },
+  "schema_version": "kvbench-qp0-quality-image-identity-1.0.0",
+  "status": "PASS"
+}
