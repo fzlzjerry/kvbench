@@ -416,7 +416,7 @@ def build(freeze_id: str, metadata_commit: str) -> dict[str, Any]:
     write_new(stage / "release_sources.json", json_bytes(release_sources))
     manifest = {
         "schema_version": "kvbench-qp0-performance-freeze-manifest-1.0.0",
-        "freeze_id": freeze_id, "status": "PASS", "created_at_utc": utc_now(),
+        "run_id": freeze_id, "freeze_id": freeze_id, "status": "PASS", "created_at_utc": utc_now(),
         "performance_source_commit": PERFORMANCE_SOURCE, "qp0_metadata_commit": metadata_commit,
         "intended_local_tag": tag, "tag_target": PERFORMANCE_SOURCE,
         "inventory": counts, "full_scan_family_id": FAMILY_ID,
