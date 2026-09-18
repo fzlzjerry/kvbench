@@ -332,8 +332,10 @@
     },
     "provenance": {
       "manifest_binding_prepared_after_performance_results_known": true,
+      "performance_freeze_bundle_root_sha256": "9996171e9c0ee737dba15fb0609684e3574e4633ec2f841f2c660b48319d213f",
       "performance_freeze_manifest": "artifacts/performance_freeze/qp0-freeze-20260917t115200000000z-83536c37-bf28e4/manifest.json",
-      "performance_freeze_tag": "perf-freeze-20260917-83536c37",
+      "performance_freeze_tag": "perf-freeze-20260917-83536c37-r1",
+      "performance_freeze_tag_correction_receipt": "docs/evidence/qp0/freeze-tag-correction.json",
       "protocol_commit_sha": "a7b8285dd8ed2fb598efbb3312e9f55064a0ee64",
       "protocol_preregistered_before_performance": true
     },

@@ -1,0 +1,51 @@
+{
+  "active_freeze_binding": {
+    "tag_name": "perf-freeze-20260917-83536c37-r1",
+    "tag_object_id": "773b12c32ae312bfae9b782d772364f6bbbc008e",
+    "target_commit": "83536c37433875cda98c36e2848e05692e9407d0"
+  },
+  "corrected_at_utc": "2026-09-18T14:17:33.258387Z",
+  "corrected_tag": {
+    "annotation_correction_only": true,
+    "local": true,
+    "manifest_sha256_annotated": "91db28a33940e9bbdda6c723a2678ae9459e73f813b20bfecb6c97222ba38fc5",
+    "name": "perf-freeze-20260917-83536c37-r1",
+    "object_id": "773b12c32ae312bfae9b782d772364f6bbbc008e",
+    "pushed": false,
+    "target_commit": "83536c37433875cda98c36e2848e05692e9407d0"
+  },
+  "freeze_bundle": {
+    "freeze_id": "qp0-freeze-20260917t115200000000z-83536c37-bf28e4",
+    "inventory": {
+      "accepted": 2205,
+      "capacity_infeasible": 465,
+      "replacements": 38,
+      "slots": 2670
+    },
+    "manifest_path": "artifacts/performance_freeze/qp0-freeze-20260917t115200000000z-83536c37-bf28e4/manifest.json",
+    "manifest_sha256": "91db28a33940e9bbdda6c723a2678ae9459e73f813b20bfecb6c97222ba38fc5",
+    "manifest_sha256_matches_inventory": true,
+    "manifest_sha256_matches_ledger": true,
+    "root_sha256": "9996171e9c0ee737dba15fb0609684e3574e4633ec2f841f2c660b48319d213f",
+    "unchanged": true
+  },
+  "original_tag": {
+    "manifest_sha256_annotated": "3d14895e63030dbe7f0c1066b7c45ad19ec3e6a0a58267e6fcc8be23516e6a6b",
+    "name": "perf-freeze-20260917-83536c37",
+    "object_id": "c5049cf73c78a96729c4e8a791ae77acf7a1963c",
+    "preserved": true,
+    "pushed": false,
+    "target_commit": "83536c37433875cda98c36e2848e05692e9407d0"
+  },
+  "performance_source_commit": "83536c37433875cda98c36e2848e05692e9407d0",
+  "quality": {
+    "contract_approved": false,
+    "contract_status": "requires_human_approval",
+    "evaluation_executed": false,
+    "execution": "LOCKED",
+    "qp1_pending_items_preserved": true
+  },
+  "schema_version": "kvbench-qp0-freeze-tag-correction-1.0.0",
+  "scope": "metadata_only_tag_annotation_correction",
+  "status": "PASS"
+}

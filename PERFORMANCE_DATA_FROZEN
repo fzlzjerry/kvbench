@@ -1,0 +1,18 @@
+{
+  "active_freeze_tag_name": "perf-freeze-20260917-83536c37-r1",
+  "active_freeze_tag_object_id": "773b12c32ae312bfae9b782d772364f6bbbc008e",
+  "active_freeze_target_commit": "83536c37433875cda98c36e2848e05692e9407d0",
+  "correction_receipt": "docs/evidence/qp0/freeze-tag-correction.json",
+  "correction_receipt_sha256": "d97999cf3298596792c95f4a298f07b6119098a47302597274c861bd9619ed27",
+  "created_at_utc": "2026-09-18T14:17:33.258387Z",
+  "freeze_bundle_root_sha256": "9996171e9c0ee737dba15fb0609684e3574e4633ec2f841f2c660b48319d213f",
+  "freeze_id": "qp0-freeze-20260917t115200000000z-83536c37-bf28e4",
+  "manifest_path": "artifacts/performance_freeze/qp0-freeze-20260917t115200000000z-83536c37-bf28e4/manifest.json",
+  "manifest_sha256": "91db28a33940e9bbdda6c723a2678ae9459e73f813b20bfecb6c97222ba38fc5",
+  "performance_freeze_complete": true,
+  "quality_contract_approved": false,
+  "quality_evaluation_executed": false,
+  "quality_execution": "LOCKED",
+  "schema_version": "kvbench-performance-data-frozen-marker-1.0.0",
+  "status": "PASS"
+}

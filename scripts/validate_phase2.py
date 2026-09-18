@@ -3192,6 +3192,63 @@ def freeze_markers() -> list[Path]:
     return markers
 
 
+def validate_performance_freeze_markers(markers: list[Path]) -> list[str]:
+    """Keep performance-freeze completion separate from quality approval."""
+
+    if not markers:
+        return []
+    expected_path = ROOT / "PERFORMANCE_DATA_FROZEN"
+    if markers != [expected_path]:
+        return ["unexpected PERFORMANCE_DATA_FROZEN marker location or count"]
+    try:
+        marker = json.loads(expected_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as error:
+        return [f"invalid PERFORMANCE_DATA_FROZEN marker: {error}"]
+    errors: list[str] = []
+    expected = {
+        "schema_version": "kvbench-performance-data-frozen-marker-1.0.0",
+        "status": "PASS",
+        "performance_freeze_complete": True,
+        "quality_contract_approved": False,
+        "quality_execution": "LOCKED",
+        "quality_evaluation_executed": False,
+    }
+    for key, value in expected.items():
+        if marker.get(key) != value:
+            errors.append(f"PERFORMANCE_DATA_FROZEN field mismatch: {key}")
+    receipt_relative = marker.get("correction_receipt")
+    if not isinstance(receipt_relative, str):
+        errors.append("PERFORMANCE_DATA_FROZEN correction receipt is missing")
+        return errors
+    receipt_path = ROOT / receipt_relative
+    try:
+        receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as error:
+        errors.append(f"invalid performance-freeze correction receipt: {error}")
+        return errors
+    binding = receipt.get("active_freeze_binding", {})
+    for key in ("tag_name", "tag_object_id", "target_commit"):
+        if marker.get(f"active_freeze_{key}") != binding.get(key):
+            errors.append(f"performance-freeze correction binding mismatch: {key}")
+    if marker.get("freeze_bundle_root_sha256") != receipt.get("freeze_bundle", {}).get("root_sha256"):
+        errors.append("performance-freeze bundle root mismatch")
+    if marker.get("manifest_sha256") != receipt.get("freeze_bundle", {}).get("manifest_sha256"):
+        errors.append("performance-freeze manifest SHA mismatch")
+    if receipt.get("quality", {}).get("contract_approved") is not False:
+        errors.append("performance-freeze receipt incorrectly approves quality")
+    tag_name = binding.get("tag_name")
+    if isinstance(tag_name, str):
+        tag_object = git(("rev-parse", tag_name))
+        tag_target = git(("rev-parse", f"{tag_name}^{{}}"))
+        if tag_object.returncode != 0 or tag_object.stdout.strip() != binding.get("tag_object_id"):
+            errors.append("active performance-freeze tag object mismatch")
+        if tag_target.returncode != 0 or tag_target.stdout.strip() != binding.get("target_commit"):
+            errors.append("active performance-freeze tag target mismatch")
+    else:
+        errors.append("active performance-freeze tag is missing")
+    return errors
+
+
 def check_provenance() -> int:
     errors: list[str] = []
     head = git_output(("rev-parse", "HEAD")).strip()
@@ -3215,10 +3272,7 @@ def check_provenance() -> int:
             )
     for run_id, expected in E00_RUNS.items():
         errors.extend(validate_e00_run(run_id, expected))
-    if freeze_markers():
-        errors.append(
-            "PERFORMANCE_DATA_FROZEN marker exists while quality is locked"
-        )
+    errors.extend(validate_performance_freeze_markers(freeze_markers()))
     status_path = ROOT / "docs" / "status.md"
     if not status_path.is_file():
         errors.append("docs/status.md is missing")

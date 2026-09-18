@@ -1,6 +1,6 @@
 # Project status
 
-Last updated: 2026-09-17
+Last updated: 2026-09-18
 Authoritative contracts: CODEX_WORKFLOW.md for active performance engineering;
 CODEX_POST_PERFORMANCE_QUALITY_VALIDATION.md for post-performance quality
 scheduling; CODEX_QUALITY_EVALUATION_ADDENDUM.md for non-conflicting quality
@@ -8,17 +8,18 @@ requirements; and AGENTS.md. Decision 0005 records precedence.
 
 ## Current state
 
-- Latest scoped task: QP-0 performance freeze `PARTIAL`. The compact
+- Latest scoped task: QP-0 performance freeze `PASS`. The compact
   2,670-slot release inventory, 68-path hot-path lock, external-kernel
   identities, Quality derivative image, and pending manifest-bound quality
   contract are complete. The 14-object root
   `9996171e9c0ee737dba15fb0609684e3574e4633ec2f841f2c660b48319d213f`
-  is COMPLETE-last and passed one clean R2 retrieval. The sole local tag
-  targets the correct performance source and binds the correct bundle root,
-  but its redundant manifest-SHA annotation does not match the finalized
-  manifest. The immutable tag was not replaced or pushed; fail-closed,
-  `PERFORMANCE_DATA_FROZEN` remains absent pending human review. Quality is
-  LOCKED and QP-1/Q0/PPL/LongBench have not started.
+  is COMPLETE-last and passed one clean R2 retrieval. The original local tag
+  remains immutable historical evidence; corrected tag
+  `perf-freeze-20260917-83536c37-r1` targets the same performance source and
+  binds the ledger-verified finalized manifest SHA. `PERFORMANCE_DATA_FROZEN`
+  records performance-freeze completion only. Quality remains LOCKED, the
+  quality contract still requires human approval, all QP-1 items remain
+  pending, and QP-1/Q0/PPL/LongBench have not started.
 - Latest scoped phase: Phase 18 CPU Reproduction Package `PASS`. The compact
   package preserves Phase 17 model D, all missed target states, 23/50
   identified knees, and the outer-selection limitation. Its reporting audit
