@@ -17,8 +17,10 @@ requirements; and AGENTS.md. Decision 0005 records precedence.
   remains immutable historical evidence; corrected tag
   `perf-freeze-20260917-83536c37-r1` targets the same performance source and
   binds the ledger-verified finalized manifest SHA. `PERFORMANCE_DATA_FROZEN`
-  records performance-freeze completion only. Quality remains LOCKED, the
-  quality contract still requires human approval, all QP-1 items remain
+  records performance-freeze completion only. The nine-object correction root
+  `44c9594079e372d708d509449589a428f4b27c0392e2f1b1e491acc3d17e2559`
+  is COMPLETE-last and passed one clean R2 retrieval. Quality remains LOCKED,
+  the quality contract still requires human approval, all QP-1 items remain
   pending, and QP-1/Q0/PPL/LongBench have not started.
 - Latest scoped phase: Phase 18 CPU Reproduction Package `PASS`. The compact
   package preserves Phase 17 model D, all missed target states, 23/50
