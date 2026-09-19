@@ -99,6 +99,17 @@ class Q0ContractTests(unittest.TestCase):
         q0._finish_step(cache, "turboquant")
         self.assertEqual(cache.calls, 2)
 
+    def test_checksum_ledger_includes_nested_unit_complete_markers(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "units/bf16/core-l512").mkdir(parents=True)
+            (root / "units/bf16/core-l512/COMPLETE").write_text("unit")
+            (root / "manifest.json").write_text("manifest")
+            (root / "checksums.sha256").write_text("control")
+            (root / "COMPLETE").write_text("root-control")
+            relatives = [path.relative_to(root).as_posix() for path in q0._checksum_ledger_payloads(root)]
+            self.assertEqual(relatives, ["manifest.json", "units/bf16/core-l512/COMPLETE"])
+
     def test_docker_worker_uses_absolute_campaign_mount(self) -> None:
         campaign = q0.ROOT / "artifacts/q0/q0-test-absolute-path"
         command = q0._docker_worker_command(campaign, "bf16", "0" * 40)

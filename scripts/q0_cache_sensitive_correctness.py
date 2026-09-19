@@ -1192,6 +1192,16 @@ def _role(path: str) -> str:
     return "q0_evidence"
 
 
+def _checksum_ledger_payloads(campaign: Path) -> list[Path]:
+    return sorted(
+        path
+        for path in campaign.rglob("*")
+        if path.is_file()
+        and path.relative_to(campaign).as_posix()
+        not in {"checksums.sha256", "COMPLETE"}
+    )
+
+
 def finalize_campaign(campaign: Path, execution_head: str) -> dict[str, Any]:
     if (campaign / "COMPLETE").exists():
         raise Q0Error("Q0 campaign is already finalized")
@@ -1293,7 +1303,7 @@ def finalize_campaign(campaign: Path, execution_head: str) -> dict[str, Any]:
         "excluded_control_files": ["artifact_inventory.json", "checksums.sha256", "COMPLETE"],
     }
     write_json_new(campaign / "artifact_inventory.json", inventory)
-    ledger_paths = sorted(path for path in campaign.rglob("*") if path.is_file() and path.name not in {"checksums.sha256", "COMPLETE"})
+    ledger_paths = _checksum_ledger_payloads(campaign)
     ledger = "".join(f"{sha256_file(path)}  {path.relative_to(campaign).as_posix()}\n" for path in ledger_paths).encode()
     write_new(campaign / "checksums.sha256", ledger)
     completion = {
