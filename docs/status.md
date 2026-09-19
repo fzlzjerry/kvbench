@@ -8,6 +8,18 @@ requirements; and AGENTS.md. Decision 0005 records precedence.
 
 ## Current state
 
+- Latest scoped task: Q0 batch diagnosis `COMPLETE`, while the approved Q0
+  batch gate remains `FAILED`. A bounded three-sample BF16 reproducer rules out
+  input/row/state/output-ownership errors and localizes the first cross-batch
+  difference to layer-0 Q/V projection output under identical inputs. A small
+  quality-only comparator repair now applies the frozen tolerance relative to
+  the B=1 reference explicitly; all ten affected batch units were rerun and
+  remain FAIL with unchanged aggregate maxima and selected-token counts. The
+  other 100 Q0 units, all 68 locked hot paths, and all performance evidence are
+  unchanged. Compact root
+  `eedee1596bb36692da8557fc001c45593f50f930e62c27227a7151ab6aa88ba6`
+  is COMPLETE-last and cleanly retrieved. Fast-PPL eligibility remains 0/10;
+  Fast/Full PPL and LongBench scoring remain not started.
 - Latest scoped task: Q0 cache-sensitive correctness `PARTIAL`. Operator
   approval is bound separately to contract
   `quality-qp1-20260918t170812117127z-170b638c-e8f4a2`, SHA-256

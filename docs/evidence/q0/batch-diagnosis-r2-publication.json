@@ -1,0 +1,27 @@
+{
+  "schema_version": "kvbench-q0-batch-diagnosis-r2-publication-1.0.0",
+  "status": "PASS",
+  "campaign_id": "q0bd-continuation-20260919t121901z-e078336-closure-c7b46ea",
+  "root_sha256": "eedee1596bb36692da8557fc001c45593f50f930e62c27227a7151ab6aa88ba6",
+  "uri": "r2://kvbench-artifacts/kvbench/sha256/eedee1596bb36692da8557fc001c45593f50f930e62c27227a7151ab6aa88ba6/",
+  "object_count": 62,
+  "uploaded_count": 62,
+  "verified_existing_count": 0,
+  "complete_last": true,
+  "publication_order_sha256": "dd58f15d1ac5c64644f4c4c3e2901d1a7c08dbacd0b7e3c9cc1a600535464dcb",
+  "published_at_utc": "2026-09-19T12:29:13.539516Z",
+  "clean_retrieval": "PASS",
+  "retrieved_at_utc": "2026-09-19T12:29:53.562924Z",
+  "inventory_valid": true,
+  "checksum_ledger_valid": true,
+  "complete_marker_valid": true,
+  "unexpected_objects": false,
+  "bucket_lock": {
+    "rule_id": "kvbench-evidence-indefinite",
+    "covered_prefix": "kvbench/sha256/",
+    "retention_type": "Indefinite",
+    "verification_result": "PASS",
+    "bucket_public": false
+  },
+  "credential_material_uploaded": false
+}

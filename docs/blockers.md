@@ -7,9 +7,16 @@ Last updated: 2026-09-19.
 Q0 executed all 110 required units, but every one of the ten configurations
 fails the unchanged B=1 versus B={4,8} batch-invariance tolerance. The other
 100 selected units pass. This blocks Fast PPL eligibility for all ten
-configurations; it is not repaired or reclassified in Q0. The next permitted
-action is a separate diagnosis of the shared cross-batch numerical behavior.
-Fast PPL, Full PPL, and LongBench scoring have not started.
+configurations; it is not repaired or reclassified in Q0. Fast PPL, Full PPL,
+and LongBench scoring have not started. The bounded Q0
+batch diagnosis subsequently demonstrated genuine BF16 batch-shape arithmetic
+sensitivity at layer-0 Q/V projections, not a quality input or row-lifecycle
+defect. A reference-directed comparator correction was applied and only the ten
+affected batch units were rerun; all ten remain FAIL. Diagnostic root
+`eedee1596bb36692da8557fc001c45593f50f930e62c27227a7151ab6aa88ba6`
+passed clean R2 retrieval. The blocker therefore remains open without a waiver;
+the next action requires a separately authorized protected-path investigation
+or an explicit quality-contract decision.
 
 ## Current Phase 16R disposition
 
