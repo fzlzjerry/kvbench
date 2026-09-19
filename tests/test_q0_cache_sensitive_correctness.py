@@ -77,12 +77,27 @@ class Q0ContractTests(unittest.TestCase):
             original = original_path.read_bytes()
             passed = {"status": "PASS", "configuration": "kvq4", "stage": "core-l512"}
             q0._finalize_unit(root, "kvq4", "core-l512", passed)
-            replacement_path = root / "continuations/kvquant-family-routing-fix/units/kvq4/core-l512/result.json"
+            replacement_path = root / "continuations/kvquant-q0-wrapper-fix/units/kvq4/core-l512/result.json"
             replacement = json.loads(replacement_path.read_text())
             self.assertEqual(original_path.read_bytes(), original)
             self.assertEqual(replacement["replacement_of"], "units/kvq4/core-l512")
             self.assertTrue(replacement["original_failure_preserved"])
             self.assertTrue(q0._unit_complete(root, "kvq4", "core-l512"))
+
+    def test_kvquant_growing_commit_is_adapter_owned(self) -> None:
+        class Cache:
+            calls = 0
+
+            def finish_growing_step(self) -> None:
+                self.calls += 1
+
+        cache = Cache()
+        q0._finish_step(cache, "kvquant")
+        q0._finish_step(cache, "kivi")
+        self.assertEqual(cache.calls, 0)
+        q0._finish_step(cache, "bf16")
+        q0._finish_step(cache, "turboquant")
+        self.assertEqual(cache.calls, 2)
 
     def test_docker_worker_uses_absolute_campaign_mount(self) -> None:
         campaign = q0.ROOT / "artifacts/q0/q0-test-absolute-path"

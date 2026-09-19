@@ -419,7 +419,9 @@ def _prefill(endpoint: Any, prefix: Any, selected: str) -> None:
 
 
 def _finish_step(cache: Any, selected: str) -> None:
-    if selected != "kivi":
+    # KIVI and KVQuant commit growing state inside their final-layer decode.
+    # BF16 and TurboQuant retain caller-owned commit semantics.
+    if selected in {"bf16", "turboquant"}:
         cache.finish_growing_step()
 
 
@@ -612,7 +614,7 @@ def _replaceable_harness_failure(campaign: Path, configuration: str, stage: str)
 
 
 def _replacement_unit_root(campaign: Path, configuration: str, stage: str) -> Path:
-    return campaign / "continuations" / "kvquant-family-routing-fix" / "units" / configuration / stage
+    return campaign / "continuations" / "kvquant-q0-wrapper-fix" / "units" / configuration / stage
 
 
 def _unit_root(campaign: Path, configuration: str, stage: str) -> Path:
@@ -650,7 +652,7 @@ def _finalize_unit(
         selected_result.update(
             {
                 "replacement_of": original.relative_to(campaign).as_posix(),
-                "replacement_reason": "quality_harness_configuration_family_routing_error",
+                "replacement_reason": "quality_harness_kvquant_routing_and_growing_lifecycle_errors",
                 "original_failure_preserved": True,
             }
         )
@@ -1116,13 +1118,13 @@ def resume_campaign(campaign: Path, execution_head: str) -> dict[str, Any]:
         for configuration, stage in replaceable
         if not (_replacement_unit_root(campaign, configuration, stage) / "COMPLETE").exists()
     ]
-    continuation = campaign / "continuations" / "kvquant-family-routing-fix"
+    continuation = campaign / "continuations" / "kvquant-q0-wrapper-fix"
     continuation.mkdir(parents=True, exist_ok=True)
     authority = {
         "schema_version": "kvbench-q0-harness-continuation-1.0.0",
         "execution_head": execution_head,
         "original_execution_head": load_json(campaign / "started.json")["execution_head"],
-        "reason": "kvquant_configuration_ids_were_routed_to_kivi_loader_before_inference",
+        "reason": "kvquant_configuration_routing_and_growing_lifecycle_were_incorrect_in_the_q0_wrapper",
         "replacement_unit_count": 33,
         "timing_or_method_code_changed": False,
         "original_failures_preserved": True,
@@ -1165,7 +1167,7 @@ def resume_campaign(campaign: Path, execution_head: str) -> dict[str, Any]:
                 "return_code": result.returncode,
                 "quality_image_digest": QUALITY_IMAGE,
                 "command_sha256": sha256_bytes(canonical_bytes(command)),
-                "continuation": "kvquant-family-routing-fix",
+                "continuation": "kvquant-q0-wrapper-fix",
             })
             terminal = sum(_unit_complete(campaign, configuration, stage) for stage in UNIT_STAGES)
             records.append({"configuration": configuration, "attempt": attempt, "return_code": result.returncode, "terminal_units": terminal})
@@ -1241,6 +1243,26 @@ def finalize_campaign(campaign: Path, execution_head: str) -> dict[str, Any]:
             for configuration in ("kvq4", "kvq3", "kvq2")
             for stage in UNIT_STAGES
             if _replaceable_harness_failure(campaign, configuration, stage)
+        ],
+        "obsolete_intermediate_harness_failure_units": [
+            {
+                "configuration": configuration,
+                "stage": stage,
+                "path": path.relative_to(campaign).as_posix(),
+                "error": load_json(path)["error"],
+            }
+            for configuration in ("kvq4", "kvq3", "kvq2")
+            for stage in UNIT_STAGES
+            for path in [
+                campaign
+                / "continuations"
+                / "kvquant-family-routing-fix"
+                / "units"
+                / configuration
+                / stage
+                / "result.json"
+            ]
+            if path.is_file()
         ],
     }
     write_json_new(campaign / "q0_summary.json", summary)
