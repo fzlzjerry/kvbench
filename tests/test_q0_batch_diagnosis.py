@@ -61,6 +61,11 @@ class Q0BatchDiagnosisTests(unittest.TestCase):
             f"type=bind,src={campaign},dst=/home/rockrock/cmu_paper/artifacts/q0_batch_diagnosis/{campaign.name}",
         )
 
+    def test_diagnosis_manifest_uses_generic_run_id(self) -> None:
+        source = diagnosis.ROOT.joinpath("scripts/q0_batch_diagnosis.py").read_text()
+        self.assertIn('"run_id": campaign.name', source)
+        self.assertNotIn('"campaign_id": campaign.name,\n        "status": summary["status"]', source)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -569,7 +569,7 @@ def run_batch_continuation(campaign: Path, diagnostic: Path, runtime_settings: P
     q0.write_new(campaign / "batch_diagnosis_report.md", _diagnosis_markdown(summary).encode())
     q0.write_json_new(campaign / "manifest.json", {
         "schema_version": "kvbench-q0-batch-diagnosis-campaign-1.0.0",
-        "campaign_id": campaign.name,
+        "run_id": campaign.name,
         "status": summary["status"],
         "execution_head": execution_head,
         "source_q0_root": summary["source_q0_root"],
@@ -611,17 +611,89 @@ def run_batch_continuation(campaign: Path, diagnostic: Path, runtime_settings: P
     return {**summary, "campaign_id": campaign.name, "root_sha256": artifact.root_sha256, "object_count": len(artifact.files)}
 
 
+def close_staging(source: Path, closure: Path) -> dict[str, Any]:
+    """Copy immutable run payloads and rebuild only invalid finalization controls."""
+
+    if closure.exists():
+        raise DiagnosisError("diagnosis closure already exists")
+    summary = q0.load_json(source / "batch_diagnosis_summary.json")
+    if summary.get("affected_unit_count") != 10:
+        raise DiagnosisError("diagnosis staging lacks ten affected units")
+    closure.mkdir(parents=True)
+    controls = {"manifest.json", "artifact_inventory.json", "checksums.sha256", "COMPLETE"}
+    for item in source.iterdir():
+        if item.name in controls:
+            continue
+        destination = closure / item.name
+        if item.is_dir():
+            shutil.copytree(item, destination)
+        else:
+            shutil.copy2(item, destination)
+    q0.write_json_new(closure / "manifest.json", {
+        "schema_version": "kvbench-q0-batch-diagnosis-campaign-1.0.0",
+        "run_id": closure.name,
+        "status": summary["status"],
+        "execution_head": summary["execution_head"],
+        "source_q0_root": summary["source_q0_root"],
+        "quality_image_digest": q0.QUALITY_IMAGE,
+        "source_invalid_finalization_staging": source.name,
+        "run_payloads_reexecuted": False,
+    })
+    payloads = sorted(path for path in closure.rglob("*") if path.is_file())
+    q0.write_json_new(closure / "artifact_inventory.json", {
+        "schema_version": "kvbench-artifact-inventory-1.0.0",
+        "run_id": closure.name,
+        "files": [
+            {"path": path.relative_to(closure).as_posix(), "role": q0._role(path.relative_to(closure).as_posix()), "size_bytes": path.stat().st_size, "sha256": q0.sha256_file(path)}
+            for path in payloads
+        ],
+        "excluded_control_files": ["artifact_inventory.json", "checksums.sha256", "COMPLETE"],
+    })
+    ledger_paths = q0._checksum_ledger_payloads(closure)
+    q0.write_new(
+        closure / "checksums.sha256",
+        "".join(f"{q0.sha256_file(path)}  {path.relative_to(closure).as_posix()}\n" for path in ledger_paths).encode(),
+    )
+    q0.write_json_new(closure / "COMPLETE", {
+        "schema_version": "kvbench-q0-batch-diagnosis-complete-1.0.0",
+        "run_id": closure.name,
+        "status": summary["status"],
+        "manifest_sha256": q0.sha256_file(closure / "manifest.json"),
+        "artifact_inventory_sha256": q0.sha256_file(closure / "artifact_inventory.json"),
+        "checksum_ledger_sha256": q0.sha256_file(closure / "checksums.sha256"),
+        "checksum_ledger_path": "checksums.sha256",
+        "written_last": True,
+    })
+    for path in sorted(closure.rglob("*"), reverse=True):
+        if path.is_file():
+            path.chmod(0o444)
+        elif path.is_dir():
+            path.chmod(0o555)
+    closure.chmod(0o555)
+    from scripts.r2_artifact import validate_local_artifact
+    artifact = validate_local_artifact(closure)
+    return {
+        "status": summary["status"],
+        "campaign_id": closure.name,
+        "root_sha256": artifact.root_sha256,
+        "object_count": len(artifact.files),
+        "run_payloads_reexecuted": False,
+    }
+
+
 def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     action = parser.add_mutually_exclusive_group(required=True)
     action.add_argument("--run-bf16", action="store_true")
     action.add_argument("--run-batch-worker", action="store_true")
     action.add_argument("--run-batch-continuation", action="store_true")
+    action.add_argument("--close-staging", action="store_true")
     parser.add_argument("--output-dir", type=Path)
     parser.add_argument("--campaign", type=Path)
     parser.add_argument("--configuration", choices=q0.CONFIGS)
     parser.add_argument("--diagnostic", type=Path)
     parser.add_argument("--runtime-settings", type=Path)
+    parser.add_argument("--source-staging", type=Path)
     parser.add_argument("--execution-head", required=True)
     return parser.parse_args(argv)
 
@@ -644,6 +716,12 @@ def main(argv: Sequence[str] | None = None) -> int:
         if args.campaign is None or args.diagnostic is None or args.runtime_settings is None:
             raise DiagnosisError("batch continuation arguments are required")
         result = run_batch_continuation(args.campaign, args.diagnostic, args.runtime_settings, args.execution_head)
+        print(json.dumps(result, sort_keys=True))
+        return 0
+    if args.close_staging:
+        if args.source_staging is None or args.campaign is None:
+            raise DiagnosisError("closure arguments are required")
+        result = close_staging(args.source_staging, args.campaign)
         print(json.dumps(result, sort_keys=True))
         return 0
     raise AssertionError("unreachable")
