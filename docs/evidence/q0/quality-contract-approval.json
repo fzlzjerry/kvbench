@@ -1,0 +1,22 @@
+{
+  "schema_version": "kvbench-q0-quality-contract-approval-1.0.0",
+  "status": "APPROVED",
+  "approved_at_utc": "2026-09-19T05:23:24.608922Z",
+  "approved_by": "operator",
+  "contract_id": "quality-qp1-20260918t170812117127z-170b638c-e8f4a2",
+  "contract_sha256": "b4d6cb35b0b455ca19680a0a39a12016369b667f8e53e2b07525766a05ecedd1",
+  "performance_freeze_tag": "perf-freeze-20260917-83536c37-r1",
+  "qp1_bundle_root": "6c24d464a8f7e9fa1b33f7bece2246d776c26045642ab00ed0df7b8f83200b62",
+  "authorization_scope": [
+    "Q0_CACHE_SENSITIVE_CORRECTNESS"
+  ],
+  "not_authorized": [
+    "FAST_PPL",
+    "FULL_PPL",
+    "LONGBENCH_SCORING",
+    "PERFORMANCE_RERUNS",
+    "QP0_REEXECUTION",
+    "QP1_REEXECUTION"
+  ],
+  "frozen_contract_bytes_modified": false
+}
