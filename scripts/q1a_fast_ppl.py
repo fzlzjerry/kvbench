@@ -643,6 +643,7 @@ def analyze(campaign: Path) -> dict[str, Any]:
 
 
 def _worker_command(campaign: Path, configuration: str, execution_head: str) -> list[str]:
+    campaign = campaign.resolve()
     command = q0._docker_worker_command(campaign, configuration, execution_head)
     container_campaign = f"/home/rockrock/cmu_paper/artifacts/q1a/{campaign.name}"
     source_marker = f"src={campaign},"
@@ -662,6 +663,7 @@ def _worker_command(campaign: Path, configuration: str, execution_head: str) -> 
 
 
 def run_campaign(campaign: Path, execution_head: str) -> dict[str, Any]:
+    campaign = campaign.resolve()
     if campaign.exists():
         raise Q1AError("Q1A campaign already exists")
     if subprocess.run(("git", "rev-parse", "HEAD"), cwd=ROOT, check=True, capture_output=True, text=True).stdout.strip() != execution_head:

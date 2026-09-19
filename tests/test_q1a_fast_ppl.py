@@ -91,6 +91,19 @@ class Q1AFastPPLTests(unittest.TestCase):
             with self.assertRaises(q1a.Q1AError):
                 q1a._finalize_unit(campaign, "bf16", anchor, result)
 
+    def test_worker_campaign_bind_uses_absolute_paths(self) -> None:
+        with tempfile.TemporaryDirectory(dir=q1a.ROOT) as directory:
+            campaign = Path(directory).relative_to(q1a.ROOT)
+            command = q1a._worker_command(campaign, "bf16", "0" * 40)
+            campaign_mounts = [
+                value for value in command
+                if value.startswith("type=bind,") and f"/{Path(directory).name}" in value
+            ]
+            self.assertEqual(len(campaign_mounts), 1)
+            fields = dict(field.split("=", 1) for field in campaign_mounts[0].split(",")[1:])
+            self.assertTrue(fields["src"].startswith("/"))
+            self.assertTrue(fields["dst"].startswith("/"))
+
 
 if __name__ == "__main__":
     unittest.main()
