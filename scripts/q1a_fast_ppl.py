@@ -386,6 +386,17 @@ def _finalize_unit(campaign: Path, configuration: str, anchor: Mapping[str, Any]
     })
 
 
+def _accept_anchor_result(
+    campaign: Path,
+    configuration: str,
+    anchor: Mapping[str, Any],
+    result: Mapping[str, Any],
+) -> None:
+    if result.get("status") != "PASS":
+        raise Q1AError("successful Fast-PPL path produced a non-PASS result")
+    _finalize_unit(campaign, configuration, anchor, result)
+
+
 def run_worker(campaign: Path, configuration: str, execution_head: str) -> dict[str, Any]:
     if os.environ.get("KVBENCH_QUALITY_IMAGE_DIGEST") != q0.QUALITY_IMAGE:
         raise Q1AError("Quality image identity differs")
@@ -423,8 +434,11 @@ def run_worker(campaign: Path, configuration: str, execution_head: str) -> dict[
                 continue
             try:
                 result = score_anchor(loaded, configuration, streams[anchor["dataset"]], anchor, fingerprints[configuration])
+                _accept_anchor_result(campaign, configuration, anchor, result)
             except BaseException as error:
                 failed += 1
+                if _unit_complete(campaign, configuration, anchor):
+                    raise
                 _finalize_unit(campaign, configuration, anchor, {
                     "schema_version": "kvbench-q1a-fast-ppl-anchor-failure-1.0.0",
                     "status": "FAIL",

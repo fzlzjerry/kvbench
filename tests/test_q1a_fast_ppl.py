@@ -91,6 +91,15 @@ class Q1AFastPPLTests(unittest.TestCase):
             with self.assertRaises(q1a.Q1AError):
                 q1a._finalize_unit(campaign, "bf16", anchor, result)
 
+    def test_success_path_persists_result_before_acceptance(self) -> None:
+        anchor = q1a.fast_plan()["anchors"][0]
+        with tempfile.TemporaryDirectory() as directory:
+            campaign = Path(directory)
+            q1a._accept_anchor_result(campaign, "bf16", anchor, {"status": "PASS"})
+            self.assertTrue(q1a._unit_complete(campaign, "bf16", anchor))
+            complete = q1a.load_json(q1a._unit_dir(campaign, "bf16", anchor) / "COMPLETE")
+            self.assertTrue(complete["written_last"])
+
     def test_worker_campaign_bind_uses_absolute_paths(self) -> None:
         with tempfile.TemporaryDirectory(dir=q1a.ROOT) as directory:
             campaign = Path(directory).relative_to(q1a.ROOT)
