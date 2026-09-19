@@ -409,8 +409,15 @@ def run_batch_worker(campaign: Path, configuration: str, execution_head: str) ->
 
 def _batch_worker_command(campaign: Path, configuration: str, execution_head: str) -> list[str]:
     command = q0._docker_worker_command(campaign, configuration, execution_head)
-    module_index = command.index("-m")
     container_campaign = f"/home/rockrock/cmu_paper/artifacts/q0_batch_diagnosis/{campaign.name}"
+    source_marker = f"src={campaign},"
+    for index, value in enumerate(command):
+        if value.startswith("type=bind,") and source_marker in value:
+            command[index] = f"type=bind,src={campaign},dst={container_campaign}"
+            break
+    else:
+        raise DiagnosisError("batch continuation campaign mount is absent")
+    module_index = command.index("-m")
     return command[:module_index] + [
         "-m",
         "scripts.q0_batch_diagnosis",

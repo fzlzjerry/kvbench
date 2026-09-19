@@ -51,6 +51,16 @@ class Q0BatchDiagnosisTests(unittest.TestCase):
         with self.assertRaises(diagnosis.DiagnosisError):
             diagnosis.build_carrier([1, 2, 3], 2)
 
+    def test_batch_worker_mount_uses_diagnosis_namespace(self) -> None:
+        campaign = diagnosis.ROOT / "artifacts/q0_batch_diagnosis/q0bd-test"
+        command = diagnosis._batch_worker_command(campaign, "bf16", "0" * 40)
+        mounts = [command[index + 1] for index, value in enumerate(command[:-1]) if value == "--mount"]
+        selected = next(value for value in mounts if f"src={campaign}," in value)
+        self.assertEqual(
+            selected,
+            f"type=bind,src={campaign},dst=/home/rockrock/cmu_paper/artifacts/q0_batch_diagnosis/{campaign.name}",
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
