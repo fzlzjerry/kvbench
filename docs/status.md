@@ -1,6 +1,6 @@
 # Project status
 
-Last updated: 2026-09-18
+Last updated: 2026-09-19
 Authoritative contracts: CODEX_WORKFLOW.md for active performance engineering;
 CODEX_POST_PERFORMANCE_QUALITY_VALIDATION.md for post-performance quality
 scheduling; CODEX_QUALITY_EVALUATION_ADDENDUM.md for non-conflicting quality
@@ -8,14 +8,27 @@ requirements; and AGENTS.md. Decision 0005 records precedence.
 
 ## Current state
 
+- Latest scoped task: Q0 cache-sensitive correctness `PARTIAL`. Operator
+  approval is bound separately to contract
+  `quality-qp1-20260918t170812117127z-170b638c-e8f4a2`, SHA-256
+  `b4d6cb35b0b455ca19680a0a39a12016369b667f8e53e2b07525766a05ecedd1`.
+  All 110 required units completed. Every configuration passes its seven core
+  probes, suffix diagnostic, eager/Graph invariance, and applicable cache-
+  dependence control, but all ten fail the frozen B=1 versus B={4,8} batch-
+  invariance gate. Fast PPL eligibility is therefore 0/10 and Fast/Full PPL
+  plus LongBench scoring remain not started. The 356-object root
+  `2bde5bf4a95becb0b6cbe752c7987355128c412709abd107b89979b21c6a48e0`
+  is COMPLETE-last and passed one clean R2 retrieval. Performance evidence and
+  all 68 locked hot paths remain unchanged; no configuration is quality-pass.
 - Latest scoped task: QP-1 quality-contract preparation `PASS`. All six
   technical pending items are complete under contract
   `quality-qp1-20260918t170812117127z-170b638c-e8f4a2`, SHA-256
   `b4d6cb35b0b455ca19680a0a39a12016369b667f8e53e2b07525766a05ecedd1`.
   The 62-object root
   `6c24d464a8f7e9fa1b33f7bece2246d776c26045642ab00ed0df7b8f83200b62`
-  is COMPLETE-last and passed one clean R2 retrieval. Human approval remains
-  pending, Quality remains LOCKED, and Q0/PPL/LongBench have not run.
+  is COMPLETE-last and passed one clean R2 retrieval. The separate approval
+  receipt now authorizes Q0 only; Q0 completed PARTIAL as recorded above, while
+  PPL and LongBench benchmark scoring remain not started.
 - QP-0 performance freeze remains `PASS`, unchanged. The compact
   2,670-slot release inventory, 68-path hot-path lock, external-kernel
   identities, Quality derivative image, and pending manifest-bound quality

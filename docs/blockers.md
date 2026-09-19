@@ -1,6 +1,15 @@
 # Blockers
 
-Last updated: 2026-09-16.
+Last updated: 2026-09-19.
+
+## Current Q0 disposition
+
+Q0 executed all 110 required units, but every one of the ten configurations
+fails the unchanged B=1 versus B={4,8} batch-invariance tolerance. The other
+100 selected units pass. This blocks Fast PPL eligibility for all ten
+configurations; it is not repaired or reclassified in Q0. The next permitted
+action is a separate diagnosis of the shared cross-batch numerical behavior.
+Fast PPL, Full PPL, and LongBench scoring have not started.
 
 ## Current Phase 16R disposition
 
