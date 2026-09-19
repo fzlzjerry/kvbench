@@ -1,0 +1,36 @@
+{
+  "schema_version": "kvbench-q1a-scope-amendment-approval-1.0.0",
+  "status": "APPROVED",
+  "approved_by": "operator",
+  "recorded_at_utc": "2026-09-19T13:56:50.246825Z",
+  "original_contract_id": "quality-qp1-20260918t170812117127z-170b638c-e8f4a2",
+  "original_contract_sha256": "b4d6cb35b0b455ca19680a0a39a12016369b667f8e53e2b07525766a05ecedd1",
+  "amendment_id": "quality-q1a-b1-20260919t135650246825z-a89ddc18",
+  "amendment_sha256": "f794f4a59899c7dfe853c39b7011b2d0633d68acf5a3e2ddeb5851f4d564b441",
+  "approval_preceded_amendment_hash_materialization": true,
+  "approval_text": [
+    "Restrict the current formal quality-evaluation track to physical model batch size B=1.",
+    "Preserve the original cross-batch gate as FAILED; do not change its tolerance, results, or historical contract.",
+    "Permit B=1 Fast PPL only for configurations whose existing B=1 Q0 requirements are complete and passing.",
+    "Keep all quality margins, datasets, sample IDs, tokenization, cache-sensitive execution, and statistical rules unchanged.",
+    "Do not transfer B=1 quality qualification to B=2/4/8/16 performance."
+  ],
+  "authorization_scope": [
+    "MATERIALIZE_EXACT_B1_SCOPE_AMENDMENT",
+    "Q1A_FAST_PPL_B1"
+  ],
+  "not_authorized": [
+    "FULL_PPL",
+    "LONGBENCH_SCORING",
+    "Q0_OR_BATCH_INVARIANCE_RERUN",
+    "BATCH_INVARIANT_RUNTIME_WORK",
+    "PROTECTED_RUNTIME_OR_KERNEL_CHANGE",
+    "PERFORMANCE_RERUN"
+  ],
+  "original_contract_bytes_modified": false,
+  "original_cross_batch_gate": "failed",
+  "quality_evaluated_batch_sizes": [
+    1
+  ],
+  "quality_transfer_to_other_batches": "not_established"
+}
