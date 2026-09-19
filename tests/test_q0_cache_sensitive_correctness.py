@@ -47,6 +47,12 @@ class Q0ContractTests(unittest.TestCase):
             "cache-dependence",
         ))
 
+    def test_kvquant_configuration_family_routing(self) -> None:
+        self.assertEqual(q0.family("kvq4"), "kvquant")
+        self.assertEqual(q0.family("kvq3"), "kvquant")
+        self.assertEqual(q0.family("kvq2"), "kvquant")
+        self.assertEqual(q0.family("k4v4"), "kivi")
+
     def test_existing_unit_is_never_overwritten(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
@@ -56,6 +62,27 @@ class Q0ContractTests(unittest.TestCase):
             with self.assertRaisesRegex(q0.Q0Error, "already exists"):
                 q0._finalize_unit(root, "bf16", "core-l512", result)
             self.assertEqual((root / "units/bf16/core-l512/result.json").read_bytes(), original)
+
+    def test_exact_kvquant_harness_failure_is_replaced_append_only(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            failed = {
+                "status": "FAIL",
+                "configuration": "kvq4",
+                "stage": "core-l512",
+                "error": "config_load_error: KIVI requires one explicit frozen configuration",
+            }
+            q0._finalize_unit(root, "kvq4", "core-l512", failed)
+            original_path = root / "units/kvq4/core-l512/result.json"
+            original = original_path.read_bytes()
+            passed = {"status": "PASS", "configuration": "kvq4", "stage": "core-l512"}
+            q0._finalize_unit(root, "kvq4", "core-l512", passed)
+            replacement_path = root / "continuations/kvquant-family-routing-fix/units/kvq4/core-l512/result.json"
+            replacement = json.loads(replacement_path.read_text())
+            self.assertEqual(original_path.read_bytes(), original)
+            self.assertEqual(replacement["replacement_of"], "units/kvq4/core-l512")
+            self.assertTrue(replacement["original_failure_preserved"])
+            self.assertTrue(q0._unit_complete(root, "kvq4", "core-l512"))
 
     def test_docker_worker_uses_absolute_campaign_mount(self) -> None:
         campaign = q0.ROOT / "artifacts/q0/q0-test-absolute-path"

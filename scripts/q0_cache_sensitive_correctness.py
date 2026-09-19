@@ -315,9 +315,11 @@ def family(configuration: str) -> str:
         return "bf16"
     if configuration.startswith("tq_"):
         return "turboquant"
+    if configuration.startswith("kvq"):
+        return "kvquant"
     if configuration.startswith("k"):
         return "kivi"
-    return "kvquant"
+    raise Q0Error(f"unknown Q0 configuration: {configuration}")
 
 
 def frozen_tolerance(configuration: str) -> tuple[float, float]:
@@ -592,8 +594,34 @@ def _load_logits(path: Path) -> list[Any]:
     return [values[key] for key in sorted(values, key=lambda item: int(item.split("_")[-1]))]
 
 
-def _unit_root(campaign: Path, configuration: str, stage: str) -> Path:
+def _original_unit_root(campaign: Path, configuration: str, stage: str) -> Path:
     return campaign / "units" / configuration / stage
+
+
+def _replaceable_harness_failure(campaign: Path, configuration: str, stage: str) -> bool:
+    root = _original_unit_root(campaign, configuration, stage)
+    if not (root / "COMPLETE").is_file() or not (root / "result.json").is_file():
+        return False
+    result = load_json(root / "result.json")
+    return bool(
+        configuration.startswith("kvq")
+        and result.get("status") == "FAIL"
+        and result.get("error")
+        == "config_load_error: KIVI requires one explicit frozen configuration"
+    )
+
+
+def _replacement_unit_root(campaign: Path, configuration: str, stage: str) -> Path:
+    return campaign / "continuations" / "kvquant-family-routing-fix" / "units" / configuration / stage
+
+
+def _unit_root(campaign: Path, configuration: str, stage: str) -> Path:
+    replacement = _replacement_unit_root(campaign, configuration, stage)
+    if (replacement / "COMPLETE").is_file():
+        return replacement
+    if _replaceable_harness_failure(campaign, configuration, stage):
+        return replacement
+    return _original_unit_root(campaign, configuration, stage)
 
 
 def _unit_complete(campaign: Path, configuration: str, stage: str) -> bool:
@@ -609,13 +637,24 @@ def _finalize_unit(
     *,
     logits: Sequence[Any] | None = None,
 ) -> None:
-    root = _unit_root(campaign, configuration, stage)
+    original = _original_unit_root(campaign, configuration, stage)
+    replacing = _replaceable_harness_failure(campaign, configuration, stage)
+    root = _replacement_unit_root(campaign, configuration, stage) if replacing else original
     if root.exists():
         raise Q0Error(f"Q0 unit already exists without completion: {configuration}/{stage}")
     root.mkdir(parents=True)
     if logits is not None:
         _save_logits(root / "bf16_logits.safetensors", logits)
-    write_json_new(root / "result.json", dict(result))
+    selected_result = dict(result)
+    if replacing:
+        selected_result.update(
+            {
+                "replacement_of": original.relative_to(campaign).as_posix(),
+                "replacement_reason": "quality_harness_configuration_family_routing_error",
+                "original_failure_preserved": True,
+            }
+        )
+    write_json_new(root / "result.json", selected_result)
     payload = {
         "schema_version": "kvbench-q0-unit-complete-1.0.0",
         "configuration": configuration,
@@ -1060,6 +1099,87 @@ def run_campaign(campaign: Path, execution_head: str) -> dict[str, Any]:
     return {"campaign_id": campaign.name, "terminal_units": sum(_unit_complete(campaign, config, stage) for config in CONFIGS for stage in UNIT_STAGES)}
 
 
+def resume_campaign(campaign: Path, execution_head: str) -> dict[str, Any]:
+    campaign = campaign.resolve(strict=True)
+    if (campaign / "COMPLETE").exists():
+        raise Q0Error("finalized Q0 campaign cannot be resumed")
+    replaceable = [
+        (configuration, stage)
+        for configuration in CONFIGS
+        for stage in UNIT_STAGES
+        if _replaceable_harness_failure(campaign, configuration, stage)
+    ]
+    if len(replaceable) != 33:
+        raise Q0Error("expected exact 33 preserved KVQuant harness failures")
+    pending = [
+        (configuration, stage)
+        for configuration, stage in replaceable
+        if not (_replacement_unit_root(campaign, configuration, stage) / "COMPLETE").exists()
+    ]
+    continuation = campaign / "continuations" / "kvquant-family-routing-fix"
+    continuation.mkdir(parents=True, exist_ok=True)
+    authority = {
+        "schema_version": "kvbench-q0-harness-continuation-1.0.0",
+        "execution_head": execution_head,
+        "original_execution_head": load_json(campaign / "started.json")["execution_head"],
+        "reason": "kvquant_configuration_ids_were_routed_to_kivi_loader_before_inference",
+        "replacement_unit_count": 33,
+        "timing_or_method_code_changed": False,
+        "original_failures_preserved": True,
+        "continued_at_utc": utc_now(),
+    }
+    authority_path = continuation / "authority.json"
+    if authority_path.exists():
+        existing = load_json(authority_path)
+        for key in (
+            "schema_version",
+            "execution_head",
+            "original_execution_head",
+            "reason",
+            "replacement_unit_count",
+            "timing_or_method_code_changed",
+            "original_failures_preserved",
+        ):
+            if existing.get(key) != authority.get(key):
+                raise Q0Error(f"Q0 continuation authority mismatch: {key}")
+    else:
+        write_json_new(authority_path, authority)
+    records: list[dict[str, Any]] = []
+    with gpu_lock():
+        for configuration in ("kvq4", "kvq3", "kvq2"):
+            if not any(item_configuration == configuration for item_configuration, _ in pending):
+                continue
+            _gpu_idle()
+            existing_attempts = sorted((campaign / "worker_attempts" / configuration).glob("attempt-*"))
+            attempt = len(existing_attempts)
+            attempt_root = campaign / "worker_attempts" / configuration / f"attempt-{attempt:02d}"
+            attempt_root.mkdir(parents=True)
+            command = _docker_worker_command(campaign, configuration, execution_head)
+            result = subprocess.run(command, cwd=ROOT, check=False, capture_output=True, text=True)
+            write_new(attempt_root / "stdout.txt", result.stdout.encode())
+            write_new(attempt_root / "stderr.txt", result.stderr.encode())
+            write_json_new(attempt_root / "command.json", {
+                "schema_version": "kvbench-q0-worker-attempt-1.0.0",
+                "configuration": configuration,
+                "attempt": attempt,
+                "return_code": result.returncode,
+                "quality_image_digest": QUALITY_IMAGE,
+                "command_sha256": sha256_bytes(canonical_bytes(command)),
+                "continuation": "kvquant-family-routing-fix",
+            })
+            terminal = sum(_unit_complete(campaign, configuration, stage) for stage in UNIT_STAGES)
+            records.append({"configuration": configuration, "attempt": attempt, "return_code": result.returncode, "terminal_units": terminal})
+            if result.returncode != 0 or terminal != len(UNIT_STAGES):
+                raise Q0Error(f"Q0 continuation worker incomplete: {configuration}")
+            _gpu_idle()
+    write_json_new(continuation / "worker_index.json", {"records": records})
+    return {
+        "campaign_id": campaign.name,
+        "replacement_units_completed_this_invocation": len(pending),
+        "terminal_units": sum(_unit_complete(campaign, config, stage) for config in CONFIGS for stage in UNIT_STAGES),
+    }
+
+
 def _role(path: str) -> str:
     if path == "manifest.json":
         return "manifest"
@@ -1111,6 +1231,17 @@ def finalize_campaign(campaign: Path, execution_head: str) -> dict[str, Any]:
         "performance_rerun": False,
         "quality_state": "Q0_COMPLETE_FAST_PPL_NOT_STARTED",
         "protected_paths": verify_locked_paths(),
+        "obsolete_harness_failure_units": [
+            {
+                "configuration": configuration,
+                "stage": stage,
+                "original_path": _original_unit_root(campaign, configuration, stage).relative_to(campaign).as_posix(),
+                "replacement_path": _replacement_unit_root(campaign, configuration, stage).relative_to(campaign).as_posix(),
+            }
+            for configuration in ("kvq4", "kvq3", "kvq2")
+            for stage in UNIT_STAGES
+            if _replaceable_harness_failure(campaign, configuration, stage)
+        ],
     }
     write_json_new(campaign / "q0_summary.json", summary)
     manifest = {
@@ -1184,6 +1315,7 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     action.add_argument("--new-campaign-id", action="store_true")
     action.add_argument("--run-worker", action="store_true")
     action.add_argument("--run-campaign", action="store_true")
+    action.add_argument("--resume-campaign", action="store_true")
     action.add_argument("--finalize", action="store_true")
     action.add_argument("--validate", action="store_true")
     parser.add_argument("--campaign", type=Path)
@@ -1215,6 +1347,11 @@ def main(argv: Sequence[str] | None = None) -> int:
         if args.campaign is None or not args.execution_head:
             raise Q0Error("campaign arguments are required")
         print(json.dumps(run_campaign(args.campaign, args.execution_head), sort_keys=True))
+        return 0
+    if args.resume_campaign:
+        if args.campaign is None or not args.execution_head:
+            raise Q0Error("continuation arguments are required")
+        print(json.dumps(resume_campaign(args.campaign, args.execution_head), sort_keys=True))
         return 0
     if args.finalize:
         if args.campaign is None or not args.execution_head:
