@@ -543,7 +543,10 @@ def tensor_compare(left: Any, right: Any, *, atol: float, rtol: float) -> dict[s
     import torch
 
     delta = (left - right).abs()
-    passed = bool(torch.allclose(left, right, atol=atol, rtol=rtol))
+    # The approved quality contract treats ``left`` as the reference.  Spell
+    # out the asymmetric predicate instead of relying on torch.allclose,
+    # whose relative term is scaled by its second argument.
+    passed = bool(torch.all(delta <= atol + rtol * left.abs()))
     return {
         "passed": passed,
         "atol": atol,
