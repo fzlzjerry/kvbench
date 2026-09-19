@@ -600,6 +600,12 @@ def run_batch_continuation(campaign: Path, diagnostic: Path, runtime_settings: P
         "checksum_ledger_path": "checksums.sha256",
         "written_last": True,
     })
+    for path in sorted(campaign.rglob("*"), reverse=True):
+        if path.is_file():
+            path.chmod(0o444)
+        elif path.is_dir():
+            path.chmod(0o555)
+    campaign.chmod(0o555)
     from scripts.r2_artifact import validate_local_artifact
     artifact = validate_local_artifact(campaign)
     return {**summary, "campaign_id": campaign.name, "root_sha256": artifact.root_sha256, "object_count": len(artifact.files)}
