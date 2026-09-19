@@ -1011,6 +1011,7 @@ def _docker_worker_command(campaign: Path, configuration: str, execution_head: s
 
 
 def run_campaign(campaign: Path, execution_head: str) -> dict[str, Any]:
+    campaign = campaign.resolve()
     if campaign.exists():
         raise Q0Error("Q0 campaign ID already exists")
     campaign.mkdir(parents=True)

@@ -57,6 +57,13 @@ class Q0ContractTests(unittest.TestCase):
                 q0._finalize_unit(root, "bf16", "core-l512", result)
             self.assertEqual((root / "units/bf16/core-l512/result.json").read_bytes(), original)
 
+    def test_docker_worker_uses_absolute_campaign_mount(self) -> None:
+        campaign = q0.ROOT / "artifacts/q0/q0-test-absolute-path"
+        command = q0._docker_worker_command(campaign, "bf16", "0" * 40)
+        mounts = [command[index + 1] for index, value in enumerate(command[:-1]) if value == "--mount"]
+        self.assertTrue(any(f"src={campaign}" in mount for mount in mounts))
+        self.assertTrue(all("src=artifacts/" not in mount for mount in mounts))
+
     def test_approval_receipt_scope_excludes_later_quality_stages(self) -> None:
         receipt = json.loads(q0.APPROVAL.read_text())
         self.assertEqual(receipt["authorization_scope"], ["Q0_CACHE_SENSITIVE_CORRECTNESS"])
