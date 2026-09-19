@@ -8,7 +8,15 @@ requirements; and AGENTS.md. Decision 0005 records precedence.
 
 ## Current state
 
-- Latest scoped task: QP-0 performance freeze `PASS`. The compact
+- Latest scoped task: QP-1 quality-contract preparation `PASS`. All six
+  technical pending items are complete under contract
+  `quality-qp1-20260918t170812117127z-170b638c-e8f4a2`, SHA-256
+  `b4d6cb35b0b455ca19680a0a39a12016369b667f8e53e2b07525766a05ecedd1`.
+  The 62-object root
+  `6c24d464a8f7e9fa1b33f7bece2246d776c26045642ab00ed0df7b8f83200b62`
+  is COMPLETE-last and passed one clean R2 retrieval. Human approval remains
+  pending, Quality remains LOCKED, and Q0/PPL/LongBench have not run.
+- QP-0 performance freeze remains `PASS`, unchanged. The compact
   2,670-slot release inventory, 68-path hot-path lock, external-kernel
   identities, Quality derivative image, and pending manifest-bound quality
   contract are complete. The 14-object root
@@ -19,9 +27,8 @@ requirements; and AGENTS.md. Decision 0005 records precedence.
   binds the ledger-verified finalized manifest SHA. `PERFORMANCE_DATA_FROZEN`
   records performance-freeze completion only. The nine-object correction root
   `44c9594079e372d708d509449589a428f4b27c0392e2f1b1e491acc3d17e2559`
-  is COMPLETE-last and passed one clean R2 retrieval. Quality remains LOCKED,
-  the quality contract still requires human approval, all QP-1 items remain
-  pending, and QP-1/Q0/PPL/LongBench have not started.
+  is COMPLETE-last and passed one clean R2 retrieval. Quality remains LOCKED;
+  QP-1 used this binding without recreating either tag or freeze bundle.
 - Latest scoped phase: Phase 18 CPU Reproduction Package `PASS`. The compact
   package preserves Phase 17 model D, all missed target states, 23/50
   identified knees, and the outer-selection limitation. Its reporting audit

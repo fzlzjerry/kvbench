@@ -1,0 +1,21 @@
+{
+  "schema_version": "kvbench-qp1-quality-contract-handoff-1.0.0",
+  "status": "PENDING_HUMAN_APPROVAL",
+  "contract_id": "quality-qp1-20260918t170812117127z-170b638c-e8f4a2",
+  "contract_sha256": "b4d6cb35b0b455ca19680a0a39a12016369b667f8e53e2b07525766a05ecedd1",
+  "performance_freeze_tag": "perf-freeze-20260917-83536c37-r1",
+  "performance_manifest_sha256": "91db28a33940e9bbdda6c723a2678ae9459e73f813b20bfecb6c97222ba38fc5",
+  "completed_technical_items": [
+    "quality_evaluation_dependency_lock",
+    "chat_template_hash",
+    "dataset_revisions",
+    "sample_id_sets",
+    "prompt_template_hashes",
+    "dataset_and_prompt_materialization"
+  ],
+  "remaining_action": "human_approval_of_exact_contract_id_and_sha256",
+  "quality_execution": "LOCKED",
+  "q0_executed": false,
+  "ppl_executed": false,
+  "longbench_executed": false
+}

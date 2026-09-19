@@ -1,0 +1,43 @@
+{
+  "bootstrap": {
+    "confidence_level": 0.95,
+    "draws": 10000,
+    "extension_budget": "one preregistered additional equal-size sample only after human approval",
+    "insufficient_sample_state": "inconclusive",
+    "longbench_e_unit": "paired_sample_stratified_by_task",
+    "longbench_v2_unit": "paired_sample_stratified_by_length_and_category",
+    "ppl_unit": "paired_anchor_clustered_by_source_document",
+    "seed": 20260722
+  },
+  "decision_states": [
+    "pass",
+    "fail",
+    "inconclusive"
+  ],
+  "longbench_e": {
+    "aggregation": "equal_task_macro",
+    "category_hard_fail_score_points": 5.0,
+    "category_review_score_points": 3.0,
+    "invalid_output_increase_max_percentage_points": 1.0,
+    "macro_drop_max_score_points": 2.0
+  },
+  "longbench_v2": {
+    "accuracy_drop_max_percentage_points": 2.0,
+    "bf16_correct_retention_min": 0.95,
+    "category_hard_fail_percentage_points": 5.0,
+    "invalid_output_increase_max_percentage_points": 1.0,
+    "length_hard_fail_percentage_points": 5.0
+  },
+  "ppl": {
+    "global_relative_ppl_increase_max": 0.01,
+    "length_hard_fail_relative_increase": 0.05,
+    "length_review_relative_increase": 0.02,
+    "primary_comparison": "paired_delta_nll",
+    "reported": [
+      "nll",
+      "delta_nll",
+      "exp(delta_nll)-1"
+    ]
+  },
+  "schema_version": "kvbench-quality-margins-1.0.0"
+}

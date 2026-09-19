@@ -1,0 +1,68 @@
+{
+  "benchmark_source_commit": "2e00731f8d0bff23dc4325161044d0ed8af94c1e",
+  "files": [
+    {
+      "path": "LongBench/config/dataset2maxlen.json",
+      "sha256": "72966b3c0933e214591637fb085798c5e687ebff4ddaab5d99bbc31120532022"
+    },
+    {
+      "path": "LongBench/config/dataset2prompt.json",
+      "sha256": "56d22ad4f382169c2b8a11ff4c982a4a1bea096c8152b0f0b85b64686b157c30"
+    },
+    {
+      "path": "LongBench/eval.py",
+      "sha256": "1a3acfc25d9b053e9bb75c479f7e385d0cb9989f0f7115346b7d632655967721"
+    },
+    {
+      "path": "LongBench/metrics.py",
+      "sha256": "e22e2a2662e0f7e683137fa3541f64edb6a801e9138d16d2f3459a6ab9941323"
+    },
+    {
+      "path": "LongBench/pred.py",
+      "sha256": "fdbb0ab2bb68c822fc35126ac050ec60110396bd14fb6d27bed1969f6361835c"
+    },
+    {
+      "path": "pred.py",
+      "sha256": "ab63f77866a1c0dc770582bc3fe6b014c3b4be4667399b0ee267075780c6a138"
+    },
+    {
+      "path": "prompts/0shot.txt",
+      "sha256": "68a162252bc9ff71d5d7abca3d69bb31aac3c35f832d657a2866f2018b8a6950"
+    },
+    {
+      "path": "prompts/0shot_cot.txt",
+      "sha256": "6cc33d92fd8f611662b756c1f10f302c541ca005b58c46d5f3188ac3a939bfe8"
+    },
+    {
+      "path": "prompts/0shot_cot_ans.txt",
+      "sha256": "85ec59df4ac0e27aabbc619a7ca5cf3ae1787dd5a76cf51a18944eb52c91955f"
+    },
+    {
+      "path": "result.py",
+      "sha256": "b6675c1c0b72090c01e12c94d3b176c4991fe38ceed9a301d24d22b1997465bd"
+    }
+  ],
+  "longbench_e_no_chat_wrapper_tasks": [
+    "lcc",
+    "repobench-p",
+    "samsum",
+    "trec",
+    "triviaqa"
+  ],
+  "schema_version": "kvbench-quality-prompt-lock-1.0.0",
+  "tokenizer": {
+    "add_generation_prompt": true,
+    "asset_recovery_mirror": {
+      "commit": "db1f81ad4b8c7e39777509fac66c652eb0a52f91",
+      "repository": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+      "verified_by_frozen_sha256": true
+    },
+    "bos_token_id": 128000,
+    "chat_template_sha256": "e10ca381b1ccc5cf9db52e371f3b6651576caee0a630b452e2816b2d404d4b65",
+    "eos_token_id": 128009,
+    "repository": "meta-llama/Llama-3.1-8B-Instruct",
+    "revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+    "tokenizer_config_sha256": "177c7b61e616fecb84c17ce0591acb92c6c4d60e9ac5ababfb940ff23bbcd424",
+    "tokenizer_json_sha256": "79e3e522635f3171300913bb421464a87de6222182a0570b9b2ccba2a964b2b4"
+  }
+}

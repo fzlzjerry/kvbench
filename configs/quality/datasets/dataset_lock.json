@@ -1,0 +1,68 @@
+{
+  "benchmark_source": {
+    "commit": "2e00731f8d0bff23dc4325161044d0ed8af94c1e",
+    "repository": "THUDM/LongBench"
+  },
+  "c4": {
+    "config": "en",
+    "repository": "allenai/c4",
+    "revision": "1588ec454efa1a09f29cd18ddd04fe05fc8653a2",
+    "seed": 20260722,
+    "selected_count": 2048,
+    "selected_frame": "rows 0..4095",
+    "split": "validation"
+  },
+  "longbench_e": {
+    "repository": "zai-org/LongBench",
+    "revision": "5e628be450b7e67fb7ae6e201bd6d8f7056f7672",
+    "sha256": "cb45b11a4133c6bc1d6a44b0f8e701335ff1e543195db1103472e575857f7f64",
+    "source_file": "data.zip",
+    "splits": [
+      "qasper_e/test",
+      "multifieldqa_en_e/test",
+      "hotpotqa_e/test",
+      "2wikimqa_e/test",
+      "gov_report_e/test",
+      "multi_news_e/test",
+      "trec_e/test",
+      "triviaqa_e/test",
+      "samsum_e/test",
+      "passage_count_e/test",
+      "passage_retrieval_en_e/test",
+      "lcc_e/test",
+      "repobench-p_e/test"
+    ],
+    "tasks": [
+      "qasper",
+      "multifieldqa_en",
+      "hotpotqa",
+      "2wikimqa",
+      "gov_report",
+      "multi_news",
+      "trec",
+      "triviaqa",
+      "samsum",
+      "passage_count",
+      "passage_retrieval_en",
+      "lcc",
+      "repobench-p"
+    ]
+  },
+  "longbench_v2": {
+    "config": "default",
+    "repository": "zai-org/LongBench-v2",
+    "revision": "2b48e494f2c7a2f0af81aae178e05c7e1dde0fe9",
+    "sha256": "15d61c22d92c96900b3c4948b6aeea218d3214b676a65df48e7b8555604c7fe2",
+    "source_file": "data.json",
+    "split": "train"
+  },
+  "schema_version": "kvbench-quality-dataset-lock-1.0.0",
+  "wikitext2": {
+    "config": "wikitext-2-raw-v1",
+    "file": "wikitext-2-raw-v1/test-00000-of-00001.parquet",
+    "repository": "Salesforce/wikitext",
+    "revision": "b08601e04326c79dfdd32d625aee71d232d685c3",
+    "sha256": "5f1bea067869d04849c0f975a2b29c4ff47d867f484f5010ea5e861eab246d91",
+    "split": "test"
+  }
+}
