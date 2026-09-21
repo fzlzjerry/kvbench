@@ -1,0 +1,28 @@
+{
+  "schema_version": "kvbench-q1a-r2-publication-1.0.0",
+  "status": "PASS",
+  "campaign_id": "q1a-20260919t141635000000z-6e0c7803-4c6a18f2",
+  "root_sha256": "23d11321522bc9d997f2d26f9f6c4110e3332d0aedc47e3f53b8e1f7f547a5d0",
+  "uri": "r2://kvbench-artifacts/kvbench/sha256/23d11321522bc9d997f2d26f9f6c4110e3332d0aedc47e3f53b8e1f7f547a5d0/",
+  "object_count": 2603,
+  "uploaded_count": 2603,
+  "verified_existing_count": 0,
+  "complete_last": true,
+  "publication_order_sha256": "15805e496b362345e45c15434e669014baac5cdbc79302208b6d2fb7bd6e00e5",
+  "clean_retrieval": "PASS",
+  "inventory_valid": true,
+  "checksum_ledger_valid": true,
+  "complete_marker_valid": true,
+  "unexpected_objects": false,
+  "published_at_utc": "2026-09-21T12:03:03.912331Z",
+  "retrieved_at_utc": "2026-09-21T12:27:55.893641Z",
+  "bucket_lock": {
+    "rule_id": "kvbench-evidence-indefinite",
+    "covered_prefix": "kvbench/sha256/",
+    "retention_type": "Indefinite",
+    "retention_condition": "Indefinite",
+    "verification_result": "PASS",
+    "bucket_public": false
+  },
+  "credential_material_uploaded": false
+}

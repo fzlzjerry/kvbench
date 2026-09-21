@@ -1,6 +1,14 @@
 # Blockers
 
-Last updated: 2026-09-19.
+Last updated: 2026-09-21.
+
+## Current Q1A disposition
+
+Q1A is complete under the explicit physical-B=1 scope amendment. The original
+cross-batch gate remains `FAILED` and blocks transfer of B=1 quality evidence to
+B=2/4/8/16. `k4v4` is the sole Q1B Full-PPL-eligible configuration;
+`tq_4bit_nc` is inconclusive and the other seven compressed configurations fail
+Fast PPL. Q1B, LongBench, and any performance-quality join have not started.
 
 ## Current Q0 disposition
 
@@ -16,7 +24,8 @@ affected batch units were rerun; all ten remain FAIL. Diagnostic root
 `eedee1596bb36692da8557fc001c45593f50f930e62c27227a7151ab6aa88ba6`
 passed clean R2 retrieval. The blocker therefore remains open without a waiver;
 the next action requires a separately authorized protected-path investigation
-or an explicit quality-contract decision.
+or an explicit quality-contract decision. The later Q1A amendment supplies a
+B=1-only decision without waiving or passing this original gate.
 
 ## Current Phase 16R disposition
 

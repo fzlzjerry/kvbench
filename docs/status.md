@@ -8,6 +8,16 @@ requirements; and AGENTS.md. Decision 0005 records precedence.
 
 ## Current state
 
+- Latest scoped task: Q1A B=1 Fast PPL `COMPLETE`. The operator-authorized
+  amendment `quality-q1a-b1-20260919t135650246825z-a89ddc18` restricts this
+  quality track to physical B=1 while preserving the original cross-batch gate
+  as `FAILED`. All 1,280 frozen anchor units completed. BF16 baseline coverage
+  is valid; `k4v4` passes and is the only Q1B-eligible configuration,
+  `tq_4bit_nc` is inconclusive, and the other seven compressed configurations
+  fail. Root
+  `23d11321522bc9d997f2d26f9f6c4110e3332d0aedc47e3f53b8e1f7f547a5d0`
+  is COMPLETE-last and cleanly retrieved. Full PPL and LongBench remain not
+  started, and B=1 quality evidence is not transferred to B=2/4/8/16.
 - Latest scoped task: Q0 batch diagnosis `COMPLETE`, while the approved Q0
   batch gate remains `FAILED`. A bounded three-sample BF16 reproducer rules out
   input/row/state/output-ownership errors and localizes the first cross-batch
@@ -18,8 +28,9 @@ requirements; and AGENTS.md. Decision 0005 records precedence.
   other 100 Q0 units, all 68 locked hot paths, and all performance evidence are
   unchanged. Compact root
   `eedee1596bb36692da8557fc001c45593f50f930e62c27227a7151ab6aa88ba6`
-  is COMPLETE-last and cleanly retrieved. Fast-PPL eligibility remains 0/10;
-  Fast/Full PPL and LongBench scoring remain not started.
+  is COMPLETE-last and cleanly retrieved. Under the original contract,
+  Fast-PPL eligibility remains 0/10; the later explicit B=1 amendment and Q1A
+  result are recorded above without changing this historical disposition.
 - Latest scoped task: Q0 cache-sensitive correctness `PARTIAL`. Operator
   approval is bound separately to contract
   `quality-qp1-20260918t170812117127z-170b638c-e8f4a2`, SHA-256
