@@ -1,0 +1,48 @@
+{
+  "schema_version": "kvbench-q1b-execution-authorization-1.0.0",
+  "status": "APPROVED",
+  "approved_by": "operator",
+  "recorded_at_utc": "2026-09-21T13:02:00.732200Z",
+  "original_contract_id": "quality-qp1-20260918t170812117127z-170b638c-e8f4a2",
+  "original_contract_sha256": "b4d6cb35b0b455ca19680a0a39a12016369b667f8e53e2b07525766a05ecedd1",
+  "amendment_id": "quality-q1a-b1-20260919t135650246825z-a89ddc18",
+  "amendment_sha256": "f794f4a59899c7dfe853c39b7011b2d0633d68acf5a3e2ddeb5851f4d564b441",
+  "q1a_campaign_id": "q1a-20260919t141635000000z-6e0c7803-4c6a18f2",
+  "q1a_root_sha256": "23d11321522bc9d997f2d26f9f6c4110e3332d0aedc47e3f53b8e1f7f547a5d0",
+  "authorized_configurations": [
+    "bf16",
+    "k4v4"
+  ],
+  "authorization_scope": [
+    "Q1B_FULL_PPL_B1"
+  ],
+  "approval_text": [
+    "Authorize Q1B Full PPL for bf16 as paired baseline and k4v4 as the only Fast-PPL-passing compressed configuration.",
+    "Use the approved contract, accepted B=1 amendment, existing Full-PPL fixtures, and validated Q0/Q1A scoring path.",
+    "Keep tq_4bit_nc inconclusive and every Fast-failed configuration excluded.",
+    "Do not alter thresholds or add anchors.",
+    "Do not automatically start LongBench, KVQuant diagnosis, or a quality-performance join."
+  ],
+  "preserved_fast_statuses": {
+    "tq_4bit_nc": "inconclusive",
+    "tq_k3v4_nc": "fail",
+    "tq_3bit_nc": "fail",
+    "k2v4": "fail",
+    "k2v2": "fail",
+    "kvq4": "fail",
+    "kvq3": "fail",
+    "kvq2": "fail"
+  },
+  "not_authorized": [
+    "Q0_OR_BATCH_INVARIANCE_RERUN",
+    "FAST_PPL_RERUN_OR_EXPANSION",
+    "LONGBENCH_SCORING",
+    "KVQUANT_DIAGNOSIS",
+    "QUALITY_PERFORMANCE_JOIN",
+    "PROTECTED_RUNTIME_CHANGE",
+    "PERFORMANCE_RERUN"
+  ],
+  "physical_quality_batch_size": 1,
+  "original_cross_batch_gate": "failed",
+  "quality_transfer_to_other_batches": "not_established"
+}

@@ -275,6 +275,9 @@ def score_anchor(
     stream: Sequence[int],
     anchor: Mapping[str, Any],
     contract_fingerprint: str,
+    *,
+    expected_horizon: int = SCORED_HORIZON,
+    result_schema_version: str = "kvbench-q1a-fast-ppl-anchor-1.0.0",
 ) -> dict[str, Any]:
     import torch
 
@@ -282,8 +285,8 @@ def score_anchor(
     prefix_ids = list(stream[int(anchor["prefix_start"]):int(anchor["prefix_end"])])
     burn_in = int(stream[int(anchor["burn_in_index"])])
     targets = list(stream[int(anchor["target_start"]):int(anchor["target_end_exclusive"])])
-    if len(prefix_ids) != length or len(targets) != SCORED_HORIZON:
-        raise Q1AError("Fast-PPL input slice is truncated")
+    if len(prefix_ids) != length or len(targets) != expected_horizon:
+        raise Q1AError("PPL input slice is truncated")
     output_steps = 1 + len(targets)
     method, cache, endpoint, positions, rope = q0._allocate_state(
         loaded,
@@ -318,11 +321,11 @@ def score_anchor(
         last_output = logits.detach().to(device="cpu", dtype=torch.float32, copy=True)
         torch.cuda.synchronize(device=cache.device)
         finite = bool(torch.isfinite(last_output).all()) and math.isfinite(nll_sum)
-    if scored_count != SCORED_HORIZON or not finite:
-        raise Q1AError("Fast-PPL scored output is incomplete")
+    if scored_count != expected_horizon or not finite:
+        raise Q1AError("PPL scored output is incomplete")
     accounting = cache.accounting()
     result = {
-        "schema_version": "kvbench-q1a-fast-ppl-anchor-1.0.0",
+        "schema_version": result_schema_version,
         "status": "PASS",
         "configuration": configuration,
         "method_family": selected,
