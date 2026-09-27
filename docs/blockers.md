@@ -1,22 +1,34 @@
 # Blockers
 
-Last updated: 2026-09-21.
+Last updated: 2026-09-27.
+
+## Current Q1B disposition
+
+Q1B B=1 Full PPL is complete: 2,048/2,048 paired BF16/`k4v4` anchor units
+completed, BF16 is valid, and `k4v4` passes both dataset gates under the
+unchanged 1% margin. Root
+`725f28a2b5cfa00fc68642b5661755233f20c10b0c7272998abfa3200bf39dd8`
+passed clean R2 retrieval. `k4v4` is Q2A LongBench-E eligible only at physical
+B=1; Q2A is not started. The original cross-batch Q0 gate remains `FAILED`
+and blocks transfer to B=2/4/8/16. No performance-quality join is authorized.
 
 ## Current Q1A disposition
 
 Q1A is complete under the explicit physical-B=1 scope amendment. The original
 cross-batch gate remains `FAILED` and blocks transfer of B=1 quality evidence to
-B=2/4/8/16. `k4v4` is the sole Q1B Full-PPL-eligible configuration;
+B=2/4/8/16. `k4v4` was the sole Q1B Full-PPL-eligible configuration;
 `tq_4bit_nc` is inconclusive and the other seven compressed configurations fail
-Fast PPL. Q1B, LongBench, and any performance-quality join have not started.
+Fast PPL. The subsequently authorized Q1B result is recorded above;
+LongBench and any performance-quality join have not started.
 
 ## Current Q0 disposition
 
 Q0 executed all 110 required units, but every one of the ten configurations
 fails the unchanged B=1 versus B={4,8} batch-invariance tolerance. The other
-100 selected units pass. This blocks Fast PPL eligibility for all ten
-configurations; it is not repaired or reclassified in Q0. Fast PPL, Full PPL,
-and LongBench scoring have not started. The bounded Q0
+100 selected units pass. Under the original unamended contract, this blocks
+Fast PPL eligibility for all ten configurations; it is not repaired or
+reclassified in Q0. The later B=1 amendment authorized Q1A and Q1B; LongBench
+has not started. The bounded Q0
 batch diagnosis subsequently demonstrated genuine BF16 batch-shape arithmetic
 sensitivity at layer-0 Q/V projections, not a quality input or row-lifecycle
 defect. A reference-directed comparator correction was applied and only the ten

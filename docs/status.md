@@ -1,6 +1,6 @@
 # Project status
 
-Last updated: 2026-09-19
+Last updated: 2026-09-27
 Authoritative contracts: CODEX_WORKFLOW.md for active performance engineering;
 CODEX_POST_PERFORMANCE_QUALITY_VALIDATION.md for post-performance quality
 scheduling; CODEX_QUALITY_EVALUATION_ADDENDUM.md for non-conflicting quality
@@ -8,6 +8,16 @@ requirements; and AGENTS.md. Decision 0005 records precedence.
 
 ## Current state
 
+- Latest scoped task: Q1B physical-B=1 Full PPL `COMPLETE`. The paired BF16
+  baseline is valid and `k4v4` passes both frozen dataset gates: WikiText-2
+  relative PPL +0.173736% and C4 +0.181803%, with both paired 95% CI upper
+  bounds below the 1% margin. All 2,048/2,048 anchor units and 524,288 scored
+  tokens completed with one attempt per configuration and no failures or
+  replacements. The 4,115-object root
+  `725f28a2b5cfa00fc68642b5661755233f20c10b0c7272998abfa3200bf39dd8`
+  is COMPLETE-last and cleanly retrieved. `k4v4` is Q2A LongBench-E eligible
+  for B=1 only; Q2A has not started. The original cross-batch gate remains
+  `FAILED`, and no quality result transfers to B=2/4/8/16.
 - Latest scoped task: Q1A B=1 Fast PPL `COMPLETE`. The operator-authorized
   amendment `quality-q1a-b1-20260919t135650246825z-a89ddc18` restricts this
   quality track to physical B=1 while preserving the original cross-batch gate
@@ -16,8 +26,9 @@ requirements; and AGENTS.md. Decision 0005 records precedence.
   `tq_4bit_nc` is inconclusive, and the other seven compressed configurations
   fail. Root
   `23d11321522bc9d997f2d26f9f6c4110e3332d0aedc47e3f53b8e1f7f547a5d0`
-  is COMPLETE-last and cleanly retrieved. Full PPL and LongBench remain not
-  started, and B=1 quality evidence is not transferred to B=2/4/8/16.
+  is COMPLETE-last and cleanly retrieved. The subsequently authorized Full
+  PPL result is recorded above; LongBench has not started, and B=1 quality
+  evidence is not transferred to B=2/4/8/16.
 - Latest scoped task: Q0 batch diagnosis `COMPLETE`, while the approved Q0
   batch gate remains `FAILED`. A bounded three-sample BF16 reproducer rules out
   input/row/state/output-ownership errors and localizes the first cross-batch
@@ -38,8 +49,9 @@ requirements; and AGENTS.md. Decision 0005 records precedence.
   All 110 required units completed. Every configuration passes its seven core
   probes, suffix diagnostic, eager/Graph invariance, and applicable cache-
   dependence control, but all ten fail the frozen B=1 versus B={4,8} batch-
-  invariance gate. Fast PPL eligibility is therefore 0/10 and Fast/Full PPL
-  plus LongBench scoring remain not started. The 356-object root
+  invariance gate. Under the original unamended contract, Fast PPL eligibility
+  is therefore 0/10. The later B=1 amendment authorized the Q1A/Q1B results
+  above; LongBench remains unstarted. The 356-object root
   `2bde5bf4a95becb0b6cbe752c7987355128c412709abd107b89979b21c6a48e0`
   is COMPLETE-last and passed one clean R2 retrieval. Performance evidence and
   all 68 locked hot paths remain unchanged; no configuration is quality-pass.
@@ -50,8 +62,8 @@ requirements; and AGENTS.md. Decision 0005 records precedence.
   The 62-object root
   `6c24d464a8f7e9fa1b33f7bece2246d776c26045642ab00ed0df7b8f83200b62`
   is COMPLETE-last and passed one clean R2 retrieval. The separate approval
-  receipt now authorizes Q0 only; Q0 completed PARTIAL as recorded above, while
-  PPL and LongBench benchmark scoring remain not started.
+  receipt authorized Q0 only; later separate authorizations permitted Q1A and
+  Q1B. Q0 completed PARTIAL as recorded above; LongBench has not started.
 - QP-0 performance freeze remains `PASS`, unchanged. The compact
   2,670-slot release inventory, 68-path hot-path lock, external-kernel
   identities, Quality derivative image, and pending manifest-bound quality

@@ -1,0 +1,48 @@
+{
+  "schema_version": "kvbench-q1b-full-ppl-evidence-1.0.0",
+  "status": "PASS",
+  "campaign_id": "q1b-20260921t130810654798z-e5961237-fe8adff2",
+  "execution_head": "e59612371077ebc350e26eec537eb9cb5201cb18",
+  "original_contract_id": "quality-qp1-20260918t170812117127z-170b638c-e8f4a2",
+  "original_contract_sha256": "b4d6cb35b0b455ca19680a0a39a12016369b667f8e53e2b07525766a05ecedd1",
+  "effective_amendment_id": "quality-q1a-b1-20260919t135650246825z-a89ddc18",
+  "effective_amendment_sha256": "f794f4a59899c7dfe853c39b7011b2d0633d68acf5a3e2ddeb5851f4d564b441",
+  "quality_image_digest": "sha256:1d8056643bf001fb83ee19e6bb19ec93379c296f2be6ba02e907d0b2f4ecca32",
+  "physical_quality_batch_size": 1,
+  "configurations": ["bf16", "k4v4"],
+  "planned_anchor_units": 2048,
+  "completed_anchor_units": 2048,
+  "failed_or_missing_anchor_units": 0,
+  "total_scored_tokens": 524288,
+  "attempts_per_configuration": {"bf16": 1, "k4v4": 1},
+  "replacements": 0,
+  "baseline_valid": true,
+  "k4v4_full_ppl_status": "PASS",
+  "dataset_gate_reasons": ["dataset_pass:wikitext2_test", "dataset_pass:c4_validation"],
+  "dataset_paired_delta_nll": {
+    "wikitext2_test": {
+      "point": 0.0017358530203330164,
+      "ci95": [0.0012280110891732556, 0.0022416091917443494],
+      "relative_ppl_change": 0.001737360485306803,
+      "clusters": 124
+    },
+    "c4_validation": {
+      "point": 0.0018163754197431932,
+      "ci95": [0.0011445322168935183, 0.002571406799849913],
+      "relative_ppl_change": 0.0018180260287998678,
+      "clusters": 304
+    }
+  },
+  "length_review_threshold_exceeded": 0,
+  "length_hard_fail_threshold_exceeded": 0,
+  "original_cross_batch_gate": "FAILED",
+  "quality_transfer_to_other_batches": "not_established",
+  "q2a_eligible_configurations": ["k4v4"],
+  "longbench_started": false,
+  "fast_full_overlap": {"exact_full_observations": 0, "same_prefix_partial_horizon": 2},
+  "summary_sha256": "2711bf621644cb41cc1a553d46313a40e6792a6d49079d23dd27419df7bb78cd",
+  "paired_results_sha256": "6e3c47d98e2c6b7fb4c8f6ffc822280805017c6c0cae7475360529e449f045e5",
+  "campaign_root_sha256": "725f28a2b5cfa00fc68642b5661755233f20c10b0c7272998abfa3200bf39dd8",
+  "full_dataset_and_length_statistics_path": "full_ppl_summary.json",
+  "publication_receipt_path": "docs/evidence/q1b/r2-publication.json"
+}
