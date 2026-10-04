@@ -8,6 +8,23 @@ requirements; and AGENTS.md. Decision 0005 records precedence.
 
 ## Current state
 
+- Latest scoped task: Q3 joint admission and Q4 scoped quality/performance join
+  are CPU-side `COMPLETE`; new-bundle R2 publication and clean retrieval PASS. The nine
+  compressed configurations remain visible: eight `quality_fail`, one
+  `quality_inconclusive`, zero fully qualified. k4v4 retains Full-PPL and
+  LongBench-E PASS alongside Q2B FAIL; overall v2 non-inferiority remains
+  INCONCLUSIVE. The qualified compressed table is empty with a null optimum.
+  All 2,670 frozen performance slots remain: 2,205 accepted, 465 infeasible,
+  38 replacement links, zero unmatched identities or duplicated slots.
+  B=1 results are configuration metadata only; 2,070 B>1 slots are outside
+  evaluated quality scope. Original cross-batch Q0 remains FAILED. Q2C is
+  `not_run_no_eligible_finalist`; native-prefill remains unexecuted under its
+  conditional contract rule. No inference, performance rerun, refit, contract
+  amendment or historical bulk verification occurred. See
+  `docs/phase_reports/q3-q4-joint-results.md`. The 70-object root
+  `2d609efb39c5e50d617d3c03affa22795076415364249a51bf4b1087e64c7704`
+  is COMPLETE-last and cleanly retrieved once; see
+  `docs/evidence/q3-q4/r2-publication.json`. Stop for human review.
 - Latest scoped task: Q2B physical-B=1 LongBench-v2 primary no-CoT execution
   `COMPLETE`; frozen scientific gate `FAIL`. Only `bf16` and `k4v4` ran:
   642/642 outputs, 321 pairs, 182 predeclared length exclusions, no missing
@@ -22,8 +39,9 @@ requirements; and AGENTS.md. Decision 0005 records precedence.
   `6191a72b0390b9119c2532604ba1021f53a7c81a279a2cafef62651cd4de8c4e`
   is COMPLETE-last and cleanly retrieved; see `docs/evidence/q2b/r2-publication.json`
   and `docs/phase_reports/q2b-b1-longbench-v2.md`. Q1B/Q2A PASS is unchanged.
-  k4v4 is not qualified for Q2C by Q2B; stop for human review. Original batch
-  gate remains FAILED; no B>1 transfer, KVQuant diagnosis, Q2C, Q3, or Q4.
+  k4v4 is not qualified for Q2C by Q2B. Original batch gate remains FAILED;
+  no B>1 transfer, KVQuant diagnosis or Q2C. The later separately authorized
+  CPU-only Q3/Q4 closure is recorded above.
   Unrelated untracked operator monitoring files are preserved.
 - Latest scoped task: Q2A physical-B=1 LongBench-E `COMPLETE`; frozen
   scientific gate `PASS`. All 7,336/7,336 configuration-sample outputs and
@@ -36,7 +54,7 @@ requirements; and AGENTS.md. Decision 0005 records precedence.
   `docs/evidence/q2a/r2-publication.json`.
   `k4v4` was eligible for separately authorized Q2B at physical B=1 only.
   Q2B was unstarted at Q2A closure; its completed result is recorded above;
-  the quality-performance join has not started. The original
+  the later quality-performance join is recorded above. The original
   cross-batch gate remains `FAILED`; no quality conclusion transfers to
   B=2/4/8/16, and no final global quality-pass is established.
 - Latest scoped task: Q1B physical-B=1 Full PPL `COMPLETE`. The paired BF16
