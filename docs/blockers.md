@@ -1,6 +1,20 @@
 # Blockers
 
-Last updated: 2026-10-02.
+Last updated: 2026-10-04.
+
+## Current Q2B disposition
+
+Q2B physical-B=1 LongBench-v2 primary no-CoT execution and publication are
+complete: 642/642 outputs, 321 pairs, 182 frozen length exclusions, zero missing
+outputs or inference retries/replacements. There is no execution/closure blocker.
+The scientific gate is FAIL: code-category accuracy drop 6.6667 pp exceeds 5 pp,
+and BF16-correct retention 86/94 = 91.4894% is below 95%. The overall drop CI
+[-0.3115, 3.4268] pp is inconclusive by itself, not a non-inferiority PASS.
+Root `6191a72b0390b9119c2532604ba1021f53a7c81a279a2cafef62651cd4de8c4e`
+passed COMPLETE-last publication and one clean retrieval. Q1B/Q2A PASS remains
+unchanged. Q2B does not qualify k4v4 for Q2C; further work requires human review.
+No Q2C, native-prefill secondary run, KVQuant diagnosis, Q3, or Q4 was started.
+The original cross-batch FAIL and prohibition on B>1 quality transfer remain.
 
 ## Current Q2A disposition
 
@@ -9,8 +23,8 @@ gate is PASS: 7,336/7,336 outputs, 3,668 accepted pairs, zero missing outputs,
 and no inference retries or replacements. Root
 `9b7c4f5a3631afb634a0d9fd50232c3aba3418a518bc86ebeedd1ccbabdeedfa`
 passed COMPLETE-last publication and clean retrieval. No Q2A closure blocker
-remains. `k4v4` is eligible for separately authorized Q2B at physical B=1 only;
-Q2B and the quality-performance join have not started. The original
+remains. `k4v4` was eligible for separately authorized Q2B at physical B=1 only;
+its Q2B result is recorded above. The quality-performance join has not started. The original
 cross-batch Q0 gate remains FAILED and blocks transfer to B=2/4/8/16.
 
 ## Current Q1B disposition
@@ -29,8 +43,8 @@ Q1A is complete under the explicit physical-B=1 scope amendment. The original
 cross-batch gate remains `FAILED` and blocks transfer of B=1 quality evidence to
 B=2/4/8/16. `k4v4` was the sole Q1B Full-PPL-eligible configuration;
 `tq_4bit_nc` is inconclusive and the other seven compressed configurations fail
-Fast PPL. The subsequently authorized Q1B and Q2A results are recorded above;
-Q2B and any performance-quality join have not started.
+Fast PPL. The subsequently authorized Q1B, Q2A, and Q2B results are recorded above;
+the performance-quality join has not started.
 
 ## Current Q0 disposition
 

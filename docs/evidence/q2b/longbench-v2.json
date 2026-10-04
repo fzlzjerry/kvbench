@@ -1,0 +1,1104 @@
+{
+  "schema_version": "kvbench-q2b-closure-1.0.0",
+  "campaign_id": "q2b-20261002t094109291012z-9c25c5ca-2aa1f724",
+  "campaign_path": "artifacts/q2b/q2b-20261002t094109291012z-9c25c5ca-2aa1f724",
+  "campaign_root_sha256": "6191a72b0390b9119c2532604ba1021f53a7c81a279a2cafef62651cd4de8c4e",
+  "campaign_uri": "r2://kvbench-artifacts/kvbench/sha256/6191a72b0390b9119c2532604ba1021f53a7c81a279a2cafef62651cd4de8c4e/",
+  "starting_head": "df09bbf272dd9ef40611b57d1141a6739eb27d35",
+  "execution_head": "9c25c5ca2020bd447a20ee8a2b99458111bba73a",
+  "closure_head_reference": "commit containing docs/phase_reports/q2b-b1-longbench-v2.md; exact SHA in operator handoff",
+  "closed_on": "2026-10-04",
+  "authority": {
+    "amendment_id": "quality-q1a-b1-20260919t135650246825z-a89ddc18",
+    "amendment_sha256": "f794f4a59899c7dfe853c39b7011b2d0633d68acf5a3e2ddeb5851f4d564b441",
+    "contract_id": "quality-qp1-20260918t170812117127z-170b638c-e8f4a2",
+    "contract_sha256": "b4d6cb35b0b455ca19680a0a39a12016369b667f8e53e2b07525766a05ecedd1",
+    "evaluator_source_sha256": "b6675c1c0b72090c01e12c94d3b176c4991fe38ceed9a301d24d22b1997465bd",
+    "input_manifest_sha256": "8ae6533a7c57989f722aa429073f1f8d5409a6e765b6ffaee6142f838e631a99",
+    "original_cross_batch_gate": "FAILED",
+    "parser_source_sha256": "ab63f77866a1c0dc770582bc3fe6b014c3b4be4667399b0ee267075780c6a138",
+    "performance_freeze_tag": "perf-freeze-20260917-83536c37-r1",
+    "physical_batch_size": 1,
+    "prompt_lock_sha256": "bc264b51bd485a20e350dfde5013aa14039aeeb6c87964edcaf7834b2fdcc98f",
+    "q1b_root": "725f28a2b5cfa00fc68642b5661755233f20c10b0c7272998abfa3200bf39dd8",
+    "q2a_root": "9b7c4f5a3631afb634a0d9fd50232c3aba3418a518bc86ebeedd1ccbabdeedfa",
+    "qp1_root": "6c24d464a8f7e9fa1b33f7bece2246d776c26045642ab00ed0df7b8f83200b62",
+    "quality_image_digest": "sha256:1d8056643bf001fb83ee19e6bb19ec93379c296f2be6ba02e907d0b2f4ecca32",
+    "quality_transfer_to_other_batches": "not_established"
+  },
+  "method_fingerprints": {
+    "bf16": "81ca6a0d74727a9c8a54f14d6d222dee502ee5e9a9ab6e8c9a03b4fed98f371b",
+    "k4v4": "97289ed9c875e27013ddcf7659fc6e849b3d438c58d0d86bd3dcac5d82eefb09"
+  },
+  "model": {
+    "chat_template_hash": {
+      "algorithm": "sha256",
+      "value": "e10ca381b1ccc5cf9db52e371f3b6651576caee0a630b452e2816b2d404d4b65"
+    },
+    "checkpoint": "meta-llama/Llama-3.1-8B-Instruct",
+    "max_model_length": 131072,
+    "require_same_checkpoint_as_performance": true,
+    "revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+    "rope": {
+      "factor": 8,
+      "high_frequency_factor": 4,
+      "low_frequency_factor": 1,
+      "original_max_position_embeddings": 8192,
+      "rope_type": "llama3",
+      "theta": 500000
+    },
+    "tokenizer_assets": {
+      "add_generation_prompt": true,
+      "asset_recovery_mirror": {
+        "commit": "db1f81ad4b8c7e39777509fac66c652eb0a52f91",
+        "repository": "hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4",
+        "verified_by_frozen_sha256": true
+      },
+      "bos_token_id": 128000,
+      "chat_template_sha256": "e10ca381b1ccc5cf9db52e371f3b6651576caee0a630b452e2816b2d404d4b65",
+      "eos_token_id": 128009,
+      "repository": "meta-llama/Llama-3.1-8B-Instruct",
+      "revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+      "tokenizer_config_sha256": "177c7b61e616fecb84c17ce0591acb92c6c4d60e9ac5ababfb940ff23bbcd424",
+      "tokenizer_json_sha256": "79e3e522635f3171300913bb421464a87de6222182a0570b9b2ccba2a964b2b4"
+    },
+    "tokenizer_config_sha256": "177c7b61e616fecb84c17ce0591acb92c6c4d60e9ac5ababfb940ff23bbcd424",
+    "tokenizer_id": "meta-llama/Llama-3.1-8B-Instruct",
+    "tokenizer_revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+    "weight_dtype": "bfloat16"
+  },
+  "dataset": {
+    "config": "default",
+    "repository": "zai-org/LongBench-v2",
+    "revision": "2b48e494f2c7a2f0af81aae178e05c7e1dde0fe9",
+    "sha256": "15d61c22d92c96900b3c4948b6aeea218d3214b676a65df48e7b8555604c7fe2",
+    "source_file": "data.json",
+    "split": "train"
+  },
+  "generation_policy": {
+    "additional_stop_tokens": [],
+    "cot": false,
+    "decode_conditioning_tokens": 16,
+    "do_sample": false,
+    "eos_token_id": 128009,
+    "implementation_equivalence": "exact frozen adapter/kernel/config identity; quality code outside locked paths",
+    "max_new_tokens": 8,
+    "parser_early_stop": false,
+    "primary_protocol": "cache_sensitive",
+    "quality_batch_size": 1,
+    "require_compressed_cache_read_assertion": true,
+    "secondary_protocol": "native_prefill_finalists_only",
+    "seed": 20260722,
+    "temperature": 0,
+    "top_p": 1
+  },
+  "statistics_policy": {
+    "aggregation": "sample_accuracy",
+    "interval": "paired_percentile_order_statistics_at_floor_0.025N_and_floor_0.975N",
+    "mcnemar": "discordant_table_only; contract_does_not_require_a_p_value",
+    "retention_zero_denominator": "undefined; report count and null CI if any bootstrap denominator is zero",
+    "strata": [
+      "length_bucket",
+      "category"
+    ]
+  },
+  "results": {
+    "category_results": [
+      {
+        "accuracy_drop_pp": 6.666666666666667,
+        "bf16_accuracy": 0.4666666666666667,
+        "bf16_accuracy_ci95": [
+          0.26666666666666666,
+          0.7333333333333333
+        ],
+        "bootstrap_draws": 10000,
+        "bootstrap_seed": 20260722,
+        "bootstrap_strata": [
+          {
+            "category": "Code Repository Understanding",
+            "count": 3,
+            "length_bucket": "16-32k"
+          },
+          {
+            "category": "Code Repository Understanding",
+            "count": 3,
+            "length_bucket": "32-64k"
+          },
+          {
+            "category": "Code Repository Understanding",
+            "count": 9,
+            "length_bucket": "64-128k"
+          }
+        ],
+        "correct_to_wrong": 1,
+        "invalid_counts": {
+          "bf16": 0,
+          "k4v4": 0
+        },
+        "invalid_increase_pp": 0,
+        "invalid_rates": {
+          "bf16": 0,
+          "k4v4": 0
+        },
+        "k4v4_accuracy": 0.4,
+        "k4v4_accuracy_ci95": [
+          0.2,
+          0.6666666666666666
+        ],
+        "n00": 8,
+        "n01": 0,
+        "n10": 1,
+        "n11": 6,
+        "name": "Code Repository Understanding",
+        "paired_ci95_pp": [
+          0,
+          20
+        ],
+        "pairs": 15,
+        "retention": 0.8571428571428571,
+        "retention_ci95": [
+          0.6,
+          1
+        ],
+        "retention_denominator": 7,
+        "retention_zero_denominator_draws": 0,
+        "status": "observed",
+        "wrong_to_correct": 0
+      },
+      {
+        "accuracy_drop_pp": 0,
+        "bf16_accuracy": 0.24390243902439024,
+        "bf16_accuracy_ci95": [
+          0.12195121951219512,
+          0.36585365853658536
+        ],
+        "bootstrap_draws": 10000,
+        "bootstrap_seed": 20260722,
+        "bootstrap_strata": [
+          {
+            "category": "Long In-context Learning",
+            "count": 5,
+            "length_bucket": "16-32k"
+          },
+          {
+            "category": "Long In-context Learning",
+            "count": 6,
+            "length_bucket": "32-64k"
+          },
+          {
+            "category": "Long In-context Learning",
+            "count": 28,
+            "length_bucket": "64-128k"
+          },
+          {
+            "category": "Long In-context Learning",
+            "count": 2,
+            "length_bucket": "8-16k"
+          }
+        ],
+        "correct_to_wrong": 2,
+        "invalid_counts": {
+          "bf16": 0,
+          "k4v4": 0
+        },
+        "invalid_increase_pp": 0,
+        "invalid_rates": {
+          "bf16": 0,
+          "k4v4": 0
+        },
+        "k4v4_accuracy": 0.24390243902439024,
+        "k4v4_accuracy_ci95": [
+          0.12195121951219512,
+          0.36585365853658536
+        ],
+        "n00": 29,
+        "n01": 2,
+        "n10": 2,
+        "n11": 8,
+        "name": "Long In-context Learning",
+        "paired_ci95_pp": [
+          -9.75609756097561,
+          9.75609756097561
+        ],
+        "pairs": 41,
+        "retention": 0.8,
+        "retention_ci95": null,
+        "retention_denominator": 10,
+        "retention_zero_denominator_draws": 1,
+        "status": "observed",
+        "wrong_to_correct": 2
+      },
+      {
+        "accuracy_drop_pp": 0,
+        "bf16_accuracy": 0.1,
+        "bf16_accuracy_ci95": [
+          0,
+          0.3
+        ],
+        "bootstrap_draws": 10000,
+        "bootstrap_seed": 20260722,
+        "bootstrap_strata": [
+          {
+            "category": "Long Structured Data Understanding",
+            "count": 1,
+            "length_bucket": "16-32k"
+          },
+          {
+            "category": "Long Structured Data Understanding",
+            "count": 1,
+            "length_bucket": "32-64k"
+          },
+          {
+            "category": "Long Structured Data Understanding",
+            "count": 8,
+            "length_bucket": "64-128k"
+          }
+        ],
+        "correct_to_wrong": 0,
+        "invalid_counts": {
+          "bf16": 1,
+          "k4v4": 1
+        },
+        "invalid_increase_pp": 0,
+        "invalid_rates": {
+          "bf16": 0.1,
+          "k4v4": 0.1
+        },
+        "k4v4_accuracy": 0.1,
+        "k4v4_accuracy_ci95": [
+          0,
+          0.3
+        ],
+        "n00": 9,
+        "n01": 0,
+        "n10": 0,
+        "n11": 1,
+        "name": "Long Structured Data Understanding",
+        "paired_ci95_pp": [
+          0,
+          0
+        ],
+        "pairs": 10,
+        "retention": 1,
+        "retention_ci95": null,
+        "retention_denominator": 1,
+        "retention_zero_denominator_draws": 3401,
+        "status": "observed",
+        "wrong_to_correct": 0
+      },
+      {
+        "accuracy_drop_pp": 0,
+        "bf16_accuracy": 0.10256410256410256,
+        "bf16_accuracy_ci95": [
+          0.02564102564102564,
+          0.20512820512820512
+        ],
+        "bootstrap_draws": 10000,
+        "bootstrap_seed": 20260722,
+        "bootstrap_strata": [
+          {
+            "category": "Long-dialogue History Understanding",
+            "count": 12,
+            "length_bucket": "16-32k"
+          },
+          {
+            "category": "Long-dialogue History Understanding",
+            "count": 8,
+            "length_bucket": "32-64k"
+          },
+          {
+            "category": "Long-dialogue History Understanding",
+            "count": 19,
+            "length_bucket": "64-128k"
+          }
+        ],
+        "correct_to_wrong": 0,
+        "invalid_counts": {
+          "bf16": 20,
+          "k4v4": 20
+        },
+        "invalid_increase_pp": 0,
+        "invalid_rates": {
+          "bf16": 0.5128205128205128,
+          "k4v4": 0.5128205128205128
+        },
+        "k4v4_accuracy": 0.10256410256410256,
+        "k4v4_accuracy_ci95": [
+          0.02564102564102564,
+          0.20512820512820512
+        ],
+        "n00": 35,
+        "n01": 0,
+        "n10": 0,
+        "n11": 4,
+        "name": "Long-dialogue History Understanding",
+        "paired_ci95_pp": [
+          0,
+          0
+        ],
+        "pairs": 39,
+        "retention": 1,
+        "retention_ci95": null,
+        "retention_denominator": 4,
+        "retention_zero_denominator_draws": 110,
+        "status": "observed",
+        "wrong_to_correct": 0
+      },
+      {
+        "accuracy_drop_pp": 1.1111111111111112,
+        "bf16_accuracy": 0.32222222222222224,
+        "bf16_accuracy_ci95": [
+          0.23333333333333334,
+          0.4222222222222222
+        ],
+        "bootstrap_draws": 10000,
+        "bootstrap_seed": 20260722,
+        "bootstrap_strata": [
+          {
+            "category": "Multi-Document QA",
+            "count": 19,
+            "length_bucket": "16-32k"
+          },
+          {
+            "category": "Multi-Document QA",
+            "count": 36,
+            "length_bucket": "32-64k"
+          },
+          {
+            "category": "Multi-Document QA",
+            "count": 21,
+            "length_bucket": "64-128k"
+          },
+          {
+            "category": "Multi-Document QA",
+            "count": 14,
+            "length_bucket": "8-16k"
+          }
+        ],
+        "correct_to_wrong": 1,
+        "invalid_counts": {
+          "bf16": 1,
+          "k4v4": 1
+        },
+        "invalid_increase_pp": 0,
+        "invalid_rates": {
+          "bf16": 0.011111111111111112,
+          "k4v4": 0.011111111111111112
+        },
+        "k4v4_accuracy": 0.3111111111111111,
+        "k4v4_accuracy_ci95": [
+          0.2222222222222222,
+          0.4111111111111111
+        ],
+        "n00": 61,
+        "n01": 0,
+        "n10": 1,
+        "n11": 28,
+        "name": "Multi-Document QA",
+        "paired_ci95_pp": [
+          0,
+          3.3333333333333335
+        ],
+        "pairs": 90,
+        "retention": 0.9655172413793104,
+        "retention_ci95": [
+          0.8888888888888888,
+          1
+        ],
+        "retention_denominator": 29,
+        "retention_zero_denominator_draws": 0,
+        "status": "observed",
+        "wrong_to_correct": 0
+      },
+      {
+        "accuracy_drop_pp": 2.380952380952381,
+        "bf16_accuracy": 0.3412698412698413,
+        "bf16_accuracy_ci95": [
+          0.2619047619047619,
+          0.42063492063492064
+        ],
+        "bootstrap_draws": 10000,
+        "bootstrap_seed": 20260722,
+        "bootstrap_strata": [
+          {
+            "category": "Single-Document QA",
+            "count": 50,
+            "length_bucket": "16-32k"
+          },
+          {
+            "category": "Single-Document QA",
+            "count": 18,
+            "length_bucket": "32-64k"
+          },
+          {
+            "category": "Single-Document QA",
+            "count": 46,
+            "length_bucket": "64-128k"
+          },
+          {
+            "category": "Single-Document QA",
+            "count": 12,
+            "length_bucket": "8-16k"
+          }
+        ],
+        "correct_to_wrong": 4,
+        "invalid_counts": {
+          "bf16": 2,
+          "k4v4": 3
+        },
+        "invalid_increase_pp": 0.7936507936507936,
+        "invalid_rates": {
+          "bf16": 0.015873015873015872,
+          "k4v4": 0.023809523809523808
+        },
+        "k4v4_accuracy": 0.31746031746031744,
+        "k4v4_accuracy_ci95": [
+          0.23809523809523808,
+          0.3968253968253968
+        ],
+        "n00": 82,
+        "n01": 1,
+        "n10": 4,
+        "n11": 39,
+        "name": "Single-Document QA",
+        "paired_ci95_pp": [
+          -0.7936507936507936,
+          6.349206349206349
+        ],
+        "pairs": 126,
+        "retention": 0.9069767441860465,
+        "retention_ci95": [
+          0.8125,
+          0.9787234042553191
+        ],
+        "retention_denominator": 43,
+        "retention_zero_denominator_draws": 0,
+        "status": "observed",
+        "wrong_to_correct": 1
+      }
+    ],
+    "completed_outputs": 642,
+    "eligible": 321,
+    "excluded": 182,
+    "execution_status": "COMPLETE",
+    "gate_reasons": [
+      "category_hard_fail:Code Repository Understanding",
+      "retention_point_hard_fail"
+    ],
+    "generation": {
+      "bf16": {
+        "mean_tokens": 8,
+        "median_tokens": 8,
+        "paired_outputs": 321,
+        "stop_reasons": {
+          "budget_exhausted": 253,
+          "eos": 68
+        }
+      },
+      "k4v4": {
+        "mean_tokens": 8,
+        "median_tokens": 8,
+        "paired_outputs": 321,
+        "stop_reasons": {
+          "budget_exhausted": 256,
+          "eos": 65
+        }
+      }
+    },
+    "inference_replacements": 0,
+    "length_results": [
+      {
+        "accuracy_drop_pp": 3.5714285714285716,
+        "bf16_accuracy": 0.2857142857142857,
+        "bf16_accuracy_ci95": [
+          0.14285714285714285,
+          0.4642857142857143
+        ],
+        "bootstrap_draws": 10000,
+        "bootstrap_seed": 20260722,
+        "bootstrap_strata": [
+          {
+            "category": "Long In-context Learning",
+            "count": 2,
+            "length_bucket": "8-16k"
+          },
+          {
+            "category": "Multi-Document QA",
+            "count": 14,
+            "length_bucket": "8-16k"
+          },
+          {
+            "category": "Single-Document QA",
+            "count": 12,
+            "length_bucket": "8-16k"
+          }
+        ],
+        "correct_to_wrong": 1,
+        "invalid_counts": {
+          "bf16": 1,
+          "k4v4": 1
+        },
+        "invalid_increase_pp": 0,
+        "invalid_rates": {
+          "bf16": 0.03571428571428571,
+          "k4v4": 0.03571428571428571
+        },
+        "k4v4_accuracy": 0.25,
+        "k4v4_accuracy_ci95": [
+          0.10714285714285714,
+          0.42857142857142855
+        ],
+        "n00": 20,
+        "n01": 0,
+        "n10": 1,
+        "n11": 7,
+        "name": "8-16k",
+        "paired_ci95_pp": [
+          0,
+          10.714285714285714
+        ],
+        "pairs": 28,
+        "retention": 0.875,
+        "retention_ci95": [
+          0.6,
+          1
+        ],
+        "retention_denominator": 8,
+        "retention_zero_denominator_draws": 0,
+        "status": "observed",
+        "wrong_to_correct": 0
+      },
+      {
+        "accuracy_drop_pp": 1.1111111111111112,
+        "bf16_accuracy": 0.37777777777777777,
+        "bf16_accuracy_ci95": [
+          0.28888888888888886,
+          0.4666666666666667
+        ],
+        "bootstrap_draws": 10000,
+        "bootstrap_seed": 20260722,
+        "bootstrap_strata": [
+          {
+            "category": "Code Repository Understanding",
+            "count": 3,
+            "length_bucket": "16-32k"
+          },
+          {
+            "category": "Long In-context Learning",
+            "count": 5,
+            "length_bucket": "16-32k"
+          },
+          {
+            "category": "Long Structured Data Understanding",
+            "count": 1,
+            "length_bucket": "16-32k"
+          },
+          {
+            "category": "Long-dialogue History Understanding",
+            "count": 12,
+            "length_bucket": "16-32k"
+          },
+          {
+            "category": "Multi-Document QA",
+            "count": 19,
+            "length_bucket": "16-32k"
+          },
+          {
+            "category": "Single-Document QA",
+            "count": 50,
+            "length_bucket": "16-32k"
+          }
+        ],
+        "correct_to_wrong": 2,
+        "invalid_counts": {
+          "bf16": 13,
+          "k4v4": 14
+        },
+        "invalid_increase_pp": 1.1111111111111112,
+        "invalid_rates": {
+          "bf16": 0.14444444444444443,
+          "k4v4": 0.15555555555555556
+        },
+        "k4v4_accuracy": 0.36666666666666664,
+        "k4v4_accuracy_ci95": [
+          0.2777777777777778,
+          0.4666666666666667
+        ],
+        "n00": 55,
+        "n01": 1,
+        "n10": 2,
+        "n11": 32,
+        "name": "16-32k",
+        "paired_ci95_pp": [
+          -2.2222222222222223,
+          4.444444444444445
+        ],
+        "pairs": 90,
+        "retention": 0.9411764705882353,
+        "retention_ci95": [
+          0.8518518518518519,
+          1
+        ],
+        "retention_denominator": 34,
+        "retention_zero_denominator_draws": 0,
+        "status": "observed",
+        "wrong_to_correct": 1
+      },
+      {
+        "accuracy_drop_pp": 2.7777777777777777,
+        "bf16_accuracy": 0.3194444444444444,
+        "bf16_accuracy_ci95": [
+          0.2222222222222222,
+          0.4166666666666667
+        ],
+        "bootstrap_draws": 10000,
+        "bootstrap_seed": 20260722,
+        "bootstrap_strata": [
+          {
+            "category": "Code Repository Understanding",
+            "count": 3,
+            "length_bucket": "32-64k"
+          },
+          {
+            "category": "Long In-context Learning",
+            "count": 6,
+            "length_bucket": "32-64k"
+          },
+          {
+            "category": "Long Structured Data Understanding",
+            "count": 1,
+            "length_bucket": "32-64k"
+          },
+          {
+            "category": "Long-dialogue History Understanding",
+            "count": 8,
+            "length_bucket": "32-64k"
+          },
+          {
+            "category": "Multi-Document QA",
+            "count": 36,
+            "length_bucket": "32-64k"
+          },
+          {
+            "category": "Single-Document QA",
+            "count": 18,
+            "length_bucket": "32-64k"
+          }
+        ],
+        "correct_to_wrong": 2,
+        "invalid_counts": {
+          "bf16": 10,
+          "k4v4": 10
+        },
+        "invalid_increase_pp": 0,
+        "invalid_rates": {
+          "bf16": 0.1388888888888889,
+          "k4v4": 0.1388888888888889
+        },
+        "k4v4_accuracy": 0.2916666666666667,
+        "k4v4_accuracy_ci95": [
+          0.19444444444444445,
+          0.3888888888888889
+        ],
+        "n00": 49,
+        "n01": 0,
+        "n10": 2,
+        "n11": 21,
+        "name": "32-64k",
+        "paired_ci95_pp": [
+          0,
+          6.944444444444445
+        ],
+        "pairs": 72,
+        "retention": 0.9130434782608695,
+        "retention_ci95": [
+          0.7916666666666666,
+          1
+        ],
+        "retention_denominator": 23,
+        "retention_zero_denominator_draws": 0,
+        "status": "observed",
+        "wrong_to_correct": 0
+      },
+      {
+        "accuracy_drop_pp": 0.7633587786259542,
+        "bf16_accuracy": 0.22137404580152673,
+        "bf16_accuracy_ci95": [
+          0.15267175572519084,
+          0.29770992366412213
+        ],
+        "bootstrap_draws": 10000,
+        "bootstrap_seed": 20260722,
+        "bootstrap_strata": [
+          {
+            "category": "Code Repository Understanding",
+            "count": 9,
+            "length_bucket": "64-128k"
+          },
+          {
+            "category": "Long In-context Learning",
+            "count": 28,
+            "length_bucket": "64-128k"
+          },
+          {
+            "category": "Long Structured Data Understanding",
+            "count": 8,
+            "length_bucket": "64-128k"
+          },
+          {
+            "category": "Long-dialogue History Understanding",
+            "count": 19,
+            "length_bucket": "64-128k"
+          },
+          {
+            "category": "Multi-Document QA",
+            "count": 21,
+            "length_bucket": "64-128k"
+          },
+          {
+            "category": "Single-Document QA",
+            "count": 46,
+            "length_bucket": "64-128k"
+          }
+        ],
+        "correct_to_wrong": 3,
+        "invalid_counts": {
+          "bf16": 0,
+          "k4v4": 0
+        },
+        "invalid_increase_pp": 0,
+        "invalid_rates": {
+          "bf16": 0,
+          "k4v4": 0
+        },
+        "k4v4_accuracy": 0.21374045801526717,
+        "k4v4_accuracy_ci95": [
+          0.1450381679389313,
+          0.2900763358778626
+        ],
+        "n00": 100,
+        "n01": 2,
+        "n10": 3,
+        "n11": 26,
+        "name": "64-128k",
+        "paired_ci95_pp": [
+          -2.2900763358778624,
+          3.816793893129771
+        ],
+        "pairs": 131,
+        "retention": 0.896551724137931,
+        "retention_ci95": [
+          0.7741935483870968,
+          1
+        ],
+        "retention_denominator": 29,
+        "retention_zero_denominator_draws": 0,
+        "status": "observed",
+        "wrong_to_correct": 2
+      }
+    ],
+    "margins": {
+      "accuracy_drop_max_percentage_points": 2,
+      "bf16_correct_retention_min": 0.95,
+      "category_hard_fail_percentage_points": 5,
+      "invalid_output_increase_max_percentage_points": 1,
+      "length_hard_fail_percentage_points": 5
+    },
+    "missing_outputs": 0,
+    "original_cross_batch_gate": "FAILED",
+    "overall": {
+      "accuracy_drop_pp": 1.557632398753894,
+      "bf16_accuracy": 0.29283489096573206,
+      "bf16_accuracy_ci95": [
+        0.24610591900311526,
+        0.3395638629283489
+      ],
+      "bootstrap_draws": 10000,
+      "bootstrap_seed": 20260722,
+      "bootstrap_strata": [
+        {
+          "category": "Code Repository Understanding",
+          "count": 3,
+          "length_bucket": "16-32k"
+        },
+        {
+          "category": "Long In-context Learning",
+          "count": 5,
+          "length_bucket": "16-32k"
+        },
+        {
+          "category": "Long Structured Data Understanding",
+          "count": 1,
+          "length_bucket": "16-32k"
+        },
+        {
+          "category": "Long-dialogue History Understanding",
+          "count": 12,
+          "length_bucket": "16-32k"
+        },
+        {
+          "category": "Multi-Document QA",
+          "count": 19,
+          "length_bucket": "16-32k"
+        },
+        {
+          "category": "Single-Document QA",
+          "count": 50,
+          "length_bucket": "16-32k"
+        },
+        {
+          "category": "Code Repository Understanding",
+          "count": 3,
+          "length_bucket": "32-64k"
+        },
+        {
+          "category": "Long In-context Learning",
+          "count": 6,
+          "length_bucket": "32-64k"
+        },
+        {
+          "category": "Long Structured Data Understanding",
+          "count": 1,
+          "length_bucket": "32-64k"
+        },
+        {
+          "category": "Long-dialogue History Understanding",
+          "count": 8,
+          "length_bucket": "32-64k"
+        },
+        {
+          "category": "Multi-Document QA",
+          "count": 36,
+          "length_bucket": "32-64k"
+        },
+        {
+          "category": "Single-Document QA",
+          "count": 18,
+          "length_bucket": "32-64k"
+        },
+        {
+          "category": "Code Repository Understanding",
+          "count": 9,
+          "length_bucket": "64-128k"
+        },
+        {
+          "category": "Long In-context Learning",
+          "count": 28,
+          "length_bucket": "64-128k"
+        },
+        {
+          "category": "Long Structured Data Understanding",
+          "count": 8,
+          "length_bucket": "64-128k"
+        },
+        {
+          "category": "Long-dialogue History Understanding",
+          "count": 19,
+          "length_bucket": "64-128k"
+        },
+        {
+          "category": "Multi-Document QA",
+          "count": 21,
+          "length_bucket": "64-128k"
+        },
+        {
+          "category": "Single-Document QA",
+          "count": 46,
+          "length_bucket": "64-128k"
+        },
+        {
+          "category": "Long In-context Learning",
+          "count": 2,
+          "length_bucket": "8-16k"
+        },
+        {
+          "category": "Multi-Document QA",
+          "count": 14,
+          "length_bucket": "8-16k"
+        },
+        {
+          "category": "Single-Document QA",
+          "count": 12,
+          "length_bucket": "8-16k"
+        }
+      ],
+      "correct_to_wrong": 8,
+      "invalid_counts": {
+        "bf16": 24,
+        "k4v4": 25
+      },
+      "invalid_increase_pp": 0.3115264797507788,
+      "invalid_rates": {
+        "bf16": 0.07476635514018691,
+        "k4v4": 0.0778816199376947
+      },
+      "k4v4_accuracy": 0.2772585669781931,
+      "k4v4_accuracy_ci95": [
+        0.23052959501557632,
+        0.32398753894080995
+      ],
+      "n00": 224,
+      "n01": 3,
+      "n10": 8,
+      "n11": 86,
+      "paired_ci95_pp": [
+        -0.3115264797507788,
+        3.426791277258567
+      ],
+      "pairs": 321,
+      "retention": 0.9148936170212766,
+      "retention_ci95": [
+        0.8557692307692307,
+        0.9662921348314607
+      ],
+      "retention_denominator": 94,
+      "retention_zero_denominator_draws": 0,
+      "status": "observed",
+      "wrong_to_correct": 3
+    },
+    "paired_count": 321,
+    "physical_batch_size": 1,
+    "planned_outputs": 642,
+    "q2c_readiness": "not_qualified_by_Q2B",
+    "q2c_started": false,
+    "q3_started": false,
+    "q4_started": false,
+    "quality_transfer_to_other_batches": "not_established",
+    "schema_version": "kvbench-q2b-summary-1.0.0",
+    "scientific_verdict": "FAIL",
+    "selected": 503
+  },
+  "guardrails": {
+    "primary_noninferiority": {
+      "status": "INCONCLUSIVE",
+      "paired_drop_pp": 1.557632398753894,
+      "ci95_pp": [
+        -0.3115264797507788,
+        3.426791277258567
+      ],
+      "upper_bound_limit_pp": 2
+    },
+    "category_drop": {
+      "status": "FAIL",
+      "limit_pp": 5,
+      "failures": [
+        {
+          "category": "Code Repository Understanding",
+          "pairs": 15,
+          "drop_pp": 6.666666666666667
+        }
+      ]
+    },
+    "length_drop": {
+      "status": "PASS",
+      "limit_pp": 5,
+      "maximum_drop_pp": 3.5714285714285716
+    },
+    "invalid_output_increase": {
+      "status": "PASS",
+      "limit_pp": 1,
+      "increase_pp": 0.3115264797507788
+    },
+    "bf16_correct_retention": {
+      "status": "FAIL",
+      "minimum": 0.95,
+      "point": 0.9148936170212766,
+      "ci95": [
+        0.8557692307692307,
+        0.9662921348314607
+      ],
+      "denominator": 94,
+      "lower_ci_gate": false
+    }
+  },
+  "focused_tests": {
+    "passed": 9,
+    "failed": 0,
+    "source": "focused_tests.json",
+    "synthetic_finalization": "PASS"
+  },
+  "protected_paths": {
+    "authority_sha256": "ff1511826f0a98af1c77222c1bbaf364b0be998befe453c67c01c10a675f1128",
+    "files_aggregate_sha256": "f05c6986d3b6b9f0a6b986b385ecd8e2840e215e6eff94bed33e2d7833d70bc9",
+    "locked_path_count": 68,
+    "status": "PASS"
+  },
+  "wrapper_scope": [
+    "Q2B primary eligibility/record glue",
+    "QP-1-pinned parser extraction",
+    "paired statistics/gate glue",
+    "reuse of unchanged Q2A generation and atomic writer"
+  ],
+  "cpu_closure_audit": {
+    "audit_status": "PASS",
+    "audited_at_utc": "2026-10-04T01:52:14.663625+00:00",
+    "source_root": "6191a72b0390b9119c2532604ba1021f53a7c81a279a2cafef62651cd4de8c4e",
+    "accepted_output_count": 642,
+    "paired_count": 321,
+    "excluded": 182,
+    "failed_outputs": 0,
+    "inference_retries": 0,
+    "replacements": 0,
+    "contingency": {
+      "n10": 8,
+      "n00": 224,
+      "n11": 86,
+      "n01": 3
+    },
+    "generation": {
+      "bf16": {
+        "budget_exhausted": 253,
+        "outputs": 321,
+        "tokens": 2568,
+        "eos": 68
+      },
+      "k4v4": {
+        "budget_exhausted": 256,
+        "outputs": 321,
+        "tokens": 2568,
+        "eos": 65
+      }
+    },
+    "immutable_file_sha256": {
+      "manifest.json": "1b4026a3d6f427e21720f8a48ceedbf9f4ceb57451a304a94538fd4b531bfd29",
+      "artifact_inventory.json": "769990e8bc7ec6ce57be7dc9a2512b996fa79a45ffa79563886a51983586b4ba",
+      "checksums.sha256": "30a6d6aaa2d3235766fa6cb5e53237a6ac3dbed8fc9f258816b0348eff85ef42",
+      "COMPLETE": "b9f9a0859a66951328ff215415227c97cfb6f568b840197aa1656a26ac34322b",
+      "execution_plan.json": "b6d999acd9b0e16367f1a456cfe8bb9b7d354256e3c837fee6e4e5fdf4bbedc6",
+      "summary.json": "1dedc80e9038c884ed707ba8f7f4917486b1072e3497c8ab35e0c66a92a5910e",
+      "paired_scores.json": "90e5172205d01effbc04f524d1bf393e29f3c50612d925c7d8e113c64da877ee",
+      "output_index.json": "dfe1bcd17250a9fd6029e7bee6cdbc40fed7e897d683b45db6b140acaf95084c",
+      "primary_eligibility.json": "c7460bb572ce7ebde0e3eae99886ae4990b45a7815dc2b287697171233672420",
+      "q2b_report.md": "d22954f6952c7369dddf1fe6e7276c757baf502ac975a2d19c851627ef9edcf4"
+    },
+    "already_retrieved_control_comparison": "PASS",
+    "new_remote_retrievals": 0,
+    "historical_bulk_verification": false,
+    "protected_file_git_diff": "unchanged",
+    "changed_execution_paths": [
+      "docs/plans/q2b-b1-longbench-v2.md",
+      "scripts/q2b_longbench_v2.py",
+      "tests/test_q2b_longbench_v2.py"
+    ],
+    "read_only_audit": true
+  },
+  "publication_receipt": "docs/evidence/q2b/r2-publication.json",
+  "preserved": {
+    "original_cross_batch_gate": "FAILED",
+    "q1b_full_ppl": "PASS",
+    "q2a_longbench_e": "PASS",
+    "tq_4bit_nc_fast_ppl": "INCONCLUSIVE",
+    "other_compressed_fast_ppl_fail_count": 7,
+    "performance_data": "unchanged",
+    "contracts_and_amendment": "unchanged",
+    "protected_runtime": "unchanged",
+    "unrelated_untracked_monitoring_files": "untouched"
+  },
+  "next_action": "Human review of completed Q2B FAIL; no automatic extension, retry, or later-stage execution.",
+  "q2c_readiness": "not_qualified_by_Q2B",
+  "q2c_started": false,
+  "kvquant_diagnosis_started": false,
+  "q3_started": false,
+  "q4_started": false,
+  "native_prefill_secondary_started": false
+}

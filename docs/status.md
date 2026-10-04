@@ -1,6 +1,6 @@
 # Project status
 
-Last updated: 2026-10-02
+Last updated: 2026-10-04
 Authoritative contracts: CODEX_WORKFLOW.md for active performance engineering;
 CODEX_POST_PERFORMANCE_QUALITY_VALIDATION.md for post-performance quality
 scheduling; CODEX_QUALITY_EVALUATION_ADDENDUM.md for non-conflicting quality
@@ -8,6 +8,23 @@ requirements; and AGENTS.md. Decision 0005 records precedence.
 
 ## Current state
 
+- Latest scoped task: Q2B physical-B=1 LongBench-v2 primary no-CoT execution
+  `COMPLETE`; frozen scientific gate `FAIL`. Only `bf16` and `k4v4` ran:
+  642/642 outputs, 321 pairs, 182 predeclared length exclusions, no missing
+  outputs or inference retries/replacements. Overall accuracy is BF16 29.2835%
+  and k4v4 27.7259%; drop 1.5576 pp, paired 95% CI [-0.3115, 3.4268] pp.
+  The primary interval is inconclusive by itself; code-category drop 6.6667 pp
+  exceeds the 5 pp guardrail and retention 86/94 = 91.4894% is below 95%,
+  so the unchanged overall gate fails. Length and invalid-increase guards pass.
+  Campaign `q2b-20261002t094109291012z-9c25c5ca-2aa1f724`, execution HEAD
+  `9c25c5ca2020bd447a20ee8a2b99458111bba73a`; focused tests 9/9 and
+  all 68 protected paths PASS. The 1,949-object root
+  `6191a72b0390b9119c2532604ba1021f53a7c81a279a2cafef62651cd4de8c4e`
+  is COMPLETE-last and cleanly retrieved; see `docs/evidence/q2b/r2-publication.json`
+  and `docs/phase_reports/q2b-b1-longbench-v2.md`. Q1B/Q2A PASS is unchanged.
+  k4v4 is not qualified for Q2C by Q2B; stop for human review. Original batch
+  gate remains FAILED; no B>1 transfer, KVQuant diagnosis, Q2C, Q3, or Q4.
+  Unrelated untracked operator monitoring files are preserved.
 - Latest scoped task: Q2A physical-B=1 LongBench-E `COMPLETE`; frozen
   scientific gate `PASS`. All 7,336/7,336 configuration-sample outputs and
   3,668 pairs completed, with no missing outputs, inference retries, or
@@ -17,8 +34,9 @@ requirements; and AGENTS.md. Decision 0005 records precedence.
   `9b7c4f5a3631afb634a0d9fd50232c3aba3418a518bc86ebeedd1ccbabdeedfa`
   is COMPLETE-last and cleanly retrieved; see
   `docs/evidence/q2a/r2-publication.json`.
-  `k4v4` is eligible for separately authorized Q2B at physical B=1 only.
-  Q2B and the quality-performance join have not started. The original
+  `k4v4` was eligible for separately authorized Q2B at physical B=1 only.
+  Q2B was unstarted at Q2A closure; its completed result is recorded above;
+  the quality-performance join has not started. The original
   cross-batch gate remains `FAILED`; no quality conclusion transfers to
   B=2/4/8/16, and no final global quality-pass is established.
 - Latest scoped task: Q1B physical-B=1 Full PPL `COMPLETE`. The paired BF16
@@ -41,7 +59,7 @@ requirements; and AGENTS.md. Decision 0005 records precedence.
   fail. Root
   `23d11321522bc9d997f2d26f9f6c4110e3332d0aedc47e3f53b8e1f7f547a5d0`
   is COMPLETE-last and cleanly retrieved. The subsequently authorized Full
-  PPL and Q2A LongBench-E results are recorded above; Q2B has not started,
+  PPL, Q2A LongBench-E, and Q2B results are recorded above,
   and B=1 quality evidence is not transferred to B=2/4/8/16.
 - Latest scoped task: Q0 batch diagnosis `COMPLETE`, while the approved Q0
   batch gate remains `FAILED`. A bounded three-sample BF16 reproducer rules out
@@ -65,7 +83,7 @@ requirements; and AGENTS.md. Decision 0005 records precedence.
   dependence control, but all ten fail the frozen B=1 versus B={4,8} batch-
   invariance gate. Under the original unamended contract, Fast PPL eligibility
   is therefore 0/10. The later B=1 amendment and separate authorizations
-  permitted the Q1A/Q1B/Q2A results above; Q2B remains unstarted. The
+  permitted the Q1A/Q1B/Q2A/Q2B results above. The
   356-object root
   `2bde5bf4a95becb0b6cbe752c7987355128c412709abd107b89979b21c6a48e0`
   is COMPLETE-last and passed one clean R2 retrieval. Performance evidence and
@@ -79,7 +97,7 @@ requirements; and AGENTS.md. Decision 0005 records precedence.
   `6c24d464a8f7e9fa1b33f7bece2246d776c26045642ab00ed0df7b8f83200b62`
   is COMPLETE-last and passed one clean R2 retrieval. The separate approval
   receipt authorized Q0 only; later separate authorizations permitted Q1A,
-  Q1B, and Q2A. Q0 remains PARTIAL as recorded above; Q2B has not started.
+  Q1B, Q2A, and Q2B. Q0 remains PARTIAL as recorded above.
 - QP-0 performance freeze remains `PASS`, unchanged. The compact
   2,670-slot release inventory, 68-path hot-path lock, external-kernel
   identities, Quality derivative image, and pending manifest-bound quality
