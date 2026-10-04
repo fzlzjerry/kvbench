@@ -1,0 +1,135 @@
+{
+  "schema_version": "kvbench.phase3-admission-plan.v1",
+  "document_type": "experiment",
+  "plan_id": "phase3_bf16_fixed_l",
+  "plan_kind": "phase3_admission",
+  "resolution": {
+    "schema_version": "kvbench.resolution.v1",
+    "status": "resolved",
+    "blockers": [],
+    "reason": null
+  },
+  "description": "Bounded non-claim Phase 3 BF16 fixed-L eager and CUDA Graph admission grid.",
+  "hardware": {
+    "path": "configs/hardware/rtx_pro_6000.yaml",
+    "sha256": "b4531c256a28c0110766f8f725b90d1954fa3647d5f89b8f721a91cf5141c4e6"
+  },
+  "model": {
+    "path": "configs/models/primary_gqa_model.yaml",
+    "sha256": "9f37a5b8acc1a19d390f000280a1f24e18c26f56c0415acb09ba40b87f59143f"
+  },
+  "methods": [
+    {
+      "config": {
+        "path": "configs/methods/bf16.yaml",
+        "sha256": "49f69c7b59463f25fb994042c08a7b170519ef8fe2a3b22292e55a6ace7649ae"
+      },
+      "variants": [
+        "bf16"
+      ]
+    }
+  ],
+  "experiment_contract": {
+    "path": "docs/experiment_contract.md",
+    "sha256": "eac6737a637cbc3d6b4b67bc7455e950b50bcb4ee922621b8dcba3051938d7fd"
+  },
+  "measurement_protocol": {
+    "path": "docs/measurement_protocol.md",
+    "sha256": "fc4208706327655fc503ff09898229b3a3a2e2bbdc0e833961d7a64e2ba03f7a"
+  },
+  "software_environment": {
+    "schema_version": "kvbench.software-environment.v1",
+    "environment_id": "phase3_native_host",
+    "resolution": {
+      "schema_version": "kvbench.resolution.v1",
+      "status": "resolved",
+      "blockers": [],
+      "reason": null
+    },
+    "execution_kind": "native_host",
+    "container_image": null,
+    "container_digest": null,
+    "python_version": "3.12.3",
+    "cuda_runtime_version": "13.0",
+    "cuda_toolkit_version": "13.0.88",
+    "torch_version": "2.12.1+cu130",
+    "triton_version": "3.7.1",
+    "dependency_lock_sha256": "cebe254a3e03a48e3e67100ce11d5623fc0dc722dc43e2f482152beb644a08e9"
+  },
+  "run_kinds": [
+    "phase3_admission"
+  ],
+  "runner_kind": "fixed_l",
+  "graph_modes": [
+    "eager",
+    "cuda_graph"
+  ],
+  "claim_class": "none",
+  "measurement_scope": "native_host_admission",
+  "performance_claim_eligible": false,
+  "context_length_convention": "historical_prefix_tokens",
+  "grid": {
+    "batch_sizes": [
+      1,
+      4
+    ],
+    "context_lengths": [
+      128,
+      4096,
+      16384
+    ],
+    "output_steps": 1
+  },
+  "measurement": {
+    "warmup_count": 16,
+    "measured_count": 32,
+    "measured_batches": 5,
+    "count_unit": "decode_operations",
+    "ordinary_process_replicates": 1,
+    "seed": 20260722
+  },
+  "stability": {
+    "batch_size": 1,
+    "context_length": 4096,
+    "graph_modes": [
+      "eager",
+      "cuda_graph"
+    ],
+    "total_process_replicates": 3,
+    "maximum_cv_percent": 3.0
+  },
+  "admission": {
+    "required_gates": [
+      "G0",
+      "G1"
+    ],
+    "evaluated_gate": "G1",
+    "native_g0_status": "PASS",
+    "later_gates_status": "NOT_EVALUATED",
+    "full_scan_state": "closed",
+    "retained_open_blockers": [
+      "B-009",
+      "B-010"
+    ],
+    "require_native_g0": true,
+    "require_container_parity_g0": false,
+    "require_durable_artifact_store": false
+  },
+  "outputs": {
+    "artifact_root": "artifacts/phase3",
+    "format": "json",
+    "raw_samples": true,
+    "environment_manifest": true,
+    "telemetry": true,
+    "checksum": "sha256",
+    "overwrite": false
+  },
+  "quality": {
+    "schema_version": "kvbench.quality-status.v1",
+    "quality_status": "unvalidated",
+    "claim_eligibility": "performance_only",
+    "quality_execution": "locked",
+    "performance_data_frozen": false
+  },
+  "expected_process_count": 16
+}

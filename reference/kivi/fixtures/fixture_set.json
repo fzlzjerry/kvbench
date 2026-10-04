@@ -1,0 +1,60 @@
+{
+  "base_tree": "c94c31b2cfd44eeb9a18cff9dcdf03adff4ac49b",
+  "build_manifest_sha256": "d04ee50b8a3e1910e5b2e3c2cba87c6456d3ca4a3cdb3ca3108d7db73429d906",
+  "configurations": [
+    "k4v4",
+    "k2v4",
+    "k2v2",
+    "k4v2"
+  ],
+  "determinism": {
+    "cublas_workspace_config": ":4096:8",
+    "existing_set_policy": "regenerate, compare exact bytes, never overwrite differences",
+    "input_generation": "CPU integer grid divided by 64 then BF16 cast",
+    "seed": 20260726,
+    "torch_deterministic_algorithms": true
+  },
+  "dockerfile_sha256": "b319d0c15d43d70ce364123d447b820ad1e312d6c60aa737c9707c701da17912",
+  "extension_sha256": "45d29ec1a3cecc4b253d1d1dd6139ef4f91cff88993db61a9d73685314851aa9",
+  "held_out_configurations": [
+    "k4v2"
+  ],
+  "image_config_digest": "sha256:0915dc8488fd6c9a150a3b4f56bb4b97b5dbdb7c51d96cda2d431df20e856ce3",
+  "mandatory_configurations": [
+    "k4v4",
+    "k2v4",
+    "k2v2"
+  ],
+  "patched_tree": "b617493dea5aff1a754cd27ad6be12ac512b2aee",
+  "performance_measurement": false,
+  "r_hbm_populated": false,
+  "schema_version": "kivi-reference-fixture-set-1.0.0",
+  "source_commit": "876b4d2d08e3b1d5f70d0969c299d8c7c42ddfb6",
+  "source_manifest_sha256": "09fc44823b3537985985521a000d6ec034acee18073689ed321bd67f23b39af3",
+  "variant_manifests": [
+    {
+      "nbytes": 663,
+      "path": "k4v4/manifest.json",
+      "sha256": "e209d8d18901f4c3bfb9bf1833fc8ac2c0bdf322c9163baa5eac2d7ae491d748",
+      "variant": "k4v4"
+    },
+    {
+      "nbytes": 663,
+      "path": "k2v4/manifest.json",
+      "sha256": "5343643d94d4128e2b6cb912fe1916b2c9381d39d10686bc2332853eefb4d24e",
+      "variant": "k2v4"
+    },
+    {
+      "nbytes": 663,
+      "path": "k2v2/manifest.json",
+      "sha256": "3988930c5667f1c98266d6f52fc12981049d95c947b1a5ced9bcbf22c9e93d09",
+      "variant": "k2v2"
+    },
+    {
+      "nbytes": 680,
+      "path": "k4v2/manifest.json",
+      "sha256": "587d9c76d7a15e998b176f82e2639f3440812dfda0e0238d5a49dd540d25c103",
+      "variant": "k4v2"
+    }
+  ]
+}

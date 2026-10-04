@@ -1,0 +1,169 @@
+{
+  "schema_version": "kvbench-kvquant-gqa-source-patch-manifest-1.0.0",
+  "authority": {
+    "base_decision": "docs/decisions/0020-kvquant-upstream-gqa-patch.md",
+    "custody_decision": "docs/decisions/0021-kvquant-patch-main-repository-custody.md",
+    "kind": "checksum_bound_project_patch_on_pinned_upstream_commit",
+    "method_identifier": "kvquant_gqa_upstream_patch_v1",
+    "human_name": "KVQuant-GQA patched upstream",
+    "official_gqa_support_claimed": false,
+    "root_license_status": "unresolved_no_root_license",
+    "public_patch_custody_authorized_by_operator": true
+  },
+  "source": {
+    "repository": "https://github.com/SqueezeAILab/KVQuant.git",
+    "base_commit": "57a238357f0ffe50084670fcd5781c9848f80ea2",
+    "base_tree": "094e0f736f77ee327e5350cbd1eefb1c936aa77b",
+    "patched_commit": "4ad80bc8c942d0a05516d2be8f8d443a77a05900",
+    "patched_commit_role": "historical_validation_identity_not_required_for_reconstruction",
+    "patched_tree": "c4f1490c9c0c4ec46099f1e95c092516df2adb4e",
+    "durable_execution_authority": "base_commit_plus_patch_sha256_plus_patched_tree"
+  },
+  "patch": {
+    "path": "third_party/patches/kvquant/0001-llama31-native-gqa.patch",
+    "serialization": "git diff --binary --full-index <base_commit> <patched_commit>",
+    "sha256": "db3b6fb7ec0a72e25001e1c83a5158d86512248db5c3a06c61895598d1d482d6",
+    "size_bytes": 289239,
+    "apply_command": "git apply --index --whitespace=nowarn <patch>",
+    "base_state_required": "clean checkout at base_commit",
+    "changed_file_count": 15
+  },
+  "patched_files": [
+    {
+      "path": "deployment/kvquant/quant_cuda.cpp",
+      "change_type": "modified",
+      "base_git_blob": "9910e42b0ea12e32ec554e22f86decbc87c51849",
+      "base_sha256": "e3fbff8d5d7bc4e86fe5766647f51defcbfed01b1508b6ec8e082a5663f8a4e5",
+      "patched_git_blob": "7aa3bee7b604aa415f0090d3ff72d8f0faa2afec",
+      "patched_sha256": "367a8d1f36a53088f06012a491b0869461e3c29cb891b05db270513a1a5cdfb5"
+    },
+    {
+      "path": "deployment/kvquant/quant_cuda_kernel.cu",
+      "change_type": "modified",
+      "base_git_blob": "ff5477188f4dfcb8d117d58f6e155d8d36bd684f",
+      "base_sha256": "3f2a3c5fddfe4bcb16b20b8f493539f1e127dced5a97b956d2046131ad763738",
+      "patched_git_blob": "7f9e6571a35a22fbca654f1d6ccf8ae70fc45ec5",
+      "patched_sha256": "a12fa1f79371e2adc0430abac25ab98a01a936accf858058e320bf3d30d8e472"
+    },
+    {
+      "path": "deployment/kvquant/setup_cuda.py",
+      "change_type": "modified",
+      "base_git_blob": "6f05634c8e4f27672410795e1543b4b42ad0d68b",
+      "base_sha256": "d99efc535d6a070a4c41eace3e9e3fabab7e6fbbc8f475e2e555486d400c5884",
+      "patched_git_blob": "11bce44fe037f173f13b3e77a1100f453738108c",
+      "patched_sha256": "e6aaeb319db9442b01ee11e8a419c859ac0597fa0562a98a440e84cef0e42067"
+    },
+    {
+      "path": "deployment/llama.py",
+      "change_type": "modified",
+      "base_git_blob": "3a2411a8b1bde45bbf766366592a50611b38f83e",
+      "base_sha256": "121bac505a2e7451b18cedaff10c59b606b6f4d4aae4e8030cbb31f6606817a8",
+      "patched_git_blob": "78f0554a325e2177d6a3c878ac4f45004e06a578",
+      "patched_sha256": "efb3e26395af14602b96c6ad83e852dcb60bc929d1603ab6489b39e4165fc4e5"
+    },
+    {
+      "path": "deployment/transformers/src/transformers/models/llama/configuration_llama.py",
+      "change_type": "modified",
+      "base_git_blob": "5161dbf0ba0eb5a988c516afd9c0238b5d4e1f82",
+      "base_sha256": "1743b1e6119cda385ca58f7b050a8b2dac45479e6d0c2f323eada05130d1232b",
+      "patched_git_blob": "5772ae35457f91a7473557e85fa85103a7a4cee4",
+      "patched_sha256": "7a7b310d115ae2b07197e5c189a448b387c4d5545788b6121a9845fb28bbaf4b"
+    },
+    {
+      "path": "deployment/transformers/src/transformers/models/llama/modeling_llama.py",
+      "change_type": "modified",
+      "base_git_blob": "7f9476cbc0cc57bf1de9f22d392923eeedd9ae3c",
+      "base_sha256": "890e75f74d30d57aa45e02a53b8cd8c4cee3273e1d8826757ac2bee24faa9b62",
+      "patched_git_blob": "edfa8d4b7cf5409f605b43cd9a134de282801fba",
+      "patched_sha256": "f557acc086ce9b7abff57eec741d97286c09a85cc44c221c8cba43beb9ded308"
+    },
+    {
+      "path": "gradients/run-fisher.py",
+      "change_type": "modified",
+      "base_git_blob": "f5fd7bb9ec957adaee17a4fb9437d81ec6d451e6",
+      "base_sha256": "e0d8be98a93ac9a9181076ea29bdfc951e25a77a3ed246fa748ff4d1ed48b8f4",
+      "patched_git_blob": "4618d8dc0fd869eb8a54af1a51ed6ea9c7d241bb",
+      "patched_sha256": "824361e691818fb4f22633390b1341a87329b4af50d760dff6b556cd0ccf14b4"
+    },
+    {
+      "path": "kvquant_gqa/__init__.py",
+      "change_type": "added",
+      "base_git_blob": null,
+      "base_sha256": null,
+      "patched_git_blob": "fd24df4a6413d5cac3fa9c49e9d3b5591bb080ab",
+      "patched_sha256": "ab5d186d2cbbb638637ad333d3467ca4bb6d527418801abf42079253c2f47478"
+    },
+    {
+      "path": "kvquant_gqa/compat.py",
+      "change_type": "added",
+      "base_git_blob": null,
+      "base_sha256": null,
+      "patched_git_blob": "d43e09240b63f2c0bedda334114a2f96f6b9ef28",
+      "patched_sha256": "9183f0348a0f66d5bd1c2fb05b37da0b666eb66a153b2b1f9503dcafd265fc63"
+    },
+    {
+      "path": "quant/kvquant/simquant_module_quantizer.py",
+      "change_type": "modified",
+      "base_git_blob": "414daebc0526a5ae7731ccf1230e1c1c0b4e55a0",
+      "base_sha256": "43513d3abc431759f7c4b53f718f2d87ed79ba88a1bc3df52bff5319fdd60046",
+      "patched_git_blob": "fc5010fe9fd2ff718e2be4b0c6097b21f084ab15",
+      "patched_sha256": "a35c4f51b6f350c8f48697ccb9bbbb3f7950c72897c2f3499c7aadad9320781b"
+    },
+    {
+      "path": "quant/llama_simquant.py",
+      "change_type": "modified",
+      "base_git_blob": "7173a1e2d5e57485390c215ed5040122cc57b44a",
+      "base_sha256": "b46f587b0afee1d3a15beb6ee9915c2b3a7f23ca376c6f7c9071831135b704a2",
+      "patched_git_blob": "898d1d1fcf189e47fdd5dfc7970e635ac1729d75",
+      "patched_sha256": "d5b96756f82dca07d384b6bd125cd646f1bb09067a4e92cc672fd791b8d9b27d"
+    },
+    {
+      "path": "tests_phase9p/test_calibration_entrypoints.py",
+      "change_type": "added",
+      "base_git_blob": null,
+      "base_sha256": null,
+      "patched_git_blob": "517b485cf3f9e97eec36141dfa60aca78aa4988e",
+      "patched_sha256": "28ad24bfb0c91a6b7f60111f5f6e8d1b3a2a43cc49eb36d130cc70cf09ea71d0"
+    },
+    {
+      "path": "tests_phase9p/test_deployment_gqa.py",
+      "change_type": "added",
+      "base_git_blob": null,
+      "base_sha256": null,
+      "patched_git_blob": "bfcc3915de7e523b2951b5c34dd379cb8d3a02dc",
+      "patched_sha256": "02d13935cf308f0c6165c1934bd68d8feac8ac37480eb9bc52c475d0d2b2f407"
+    },
+    {
+      "path": "tests_phase9p/test_gqa_compat.py",
+      "change_type": "added",
+      "base_git_blob": null,
+      "base_sha256": null,
+      "patched_git_blob": "32c4890bc54f2122b4856d84733ef23ac321db87",
+      "patched_sha256": "ebd1cbc8a44de670252dcd0bdafaa1fa047ab7aae216767ae79aa7c38721e750"
+    },
+    {
+      "path": "tests_phase9p/test_ptx_jit.py",
+      "change_type": "added",
+      "base_git_blob": null,
+      "base_sha256": null,
+      "patched_git_blob": "84a0ae370da04887b66a2e5dd8baba891a14f2c7",
+      "patched_sha256": "71bfb7ccdbb5631623ecc6fb99b7310dc1da3e1d857cd6ab1cf091ece182e327"
+    }
+  ],
+  "publication": {
+    "destination": "https://github.com/fzlzjerry/cmu_paper",
+    "branch": "main",
+    "patch_publication_authorized": true,
+    "upstream_source_tree_vendored": false,
+    "upstream_repository_push_authorized": false,
+    "r2_source_publication_authorized": false,
+    "license_or_lineage_resolved": false
+  },
+  "phase_boundaries": {
+    "full_phase9_calibration_started": false,
+    "phase10_started": false,
+    "kvquant_adapter_enabled": false,
+    "performance_or_profiler_data_created": false,
+    "quality_data_created": false
+  }
+}

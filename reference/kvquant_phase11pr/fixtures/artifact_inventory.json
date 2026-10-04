@@ -1,0 +1,701 @@
+{
+  "excluded_control_files": [
+    "artifact_inventory.json",
+    "checksums.sha256",
+    "COMPLETE"
+  ],
+  "files": [
+    {
+      "path": "authority/build_manifest.json",
+      "role": "metadata",
+      "sha256": "1a65cc50737b20055b46202ecf5df4b76fcc60f63691cece1dbcf395ac86dcfa",
+      "size_bytes": 424
+    },
+    {
+      "path": "authority/calibration_manifest.json",
+      "role": "metadata",
+      "sha256": "c6dcdc118e51335f9d1e578793f7a19e5def5b9b9a6b2558fa6a7cc8b6815a20",
+      "size_bytes": 1492
+    },
+    {
+      "path": "authority/environment.json",
+      "role": "metadata",
+      "sha256": "0f07fb317cab8ee77ad5c9bd794b8063be230333309d3fa705cc6d9f4167b6c4",
+      "size_bytes": 422
+    },
+    {
+      "path": "authority/source_manifest.json",
+      "role": "metadata",
+      "sha256": "80a1f98efb100b5399a3ccd1938b0cf2ed1aa7aa3513cb44349dbdd0b587553d",
+      "size_bytes": 973
+    },
+    {
+      "path": "kvq2/key_cap_value_fixed12/append_state.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "84ebd1e935dc427c2d225a6126f8289fd6ed4a7d8398d34b97c084870850082d",
+      "size_bytes": 34448
+    },
+    {
+      "path": "kvq2/key_cap_value_fixed12/byte_breakdown.json",
+      "role": "metadata",
+      "sha256": "dbed3b945fe3f5deae86c2e6786fc6b24754d7629b3647c086251f2b74a9d9a4",
+      "size_bytes": 1117
+    },
+    {
+      "path": "kvq2/key_cap_value_fixed12/checksums.sha256",
+      "role": "checksum_ledger",
+      "sha256": "49bfc1a6af8913ab60a77a2aaecb149268d519454e405a52e97c1ddb1a253974",
+      "size_bytes": 979
+    },
+    {
+      "path": "kvq2/key_cap_value_fixed12/decode_output.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "086a4c1d2f1f44b36d8b3371fdced1e6c7ff4c7544a7afe35e192150c92752d3",
+      "size_bytes": 136864
+    },
+    {
+      "path": "kvq2/key_cap_value_fixed12/dense_payload.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "734b3cf5a72b17044da01baaee22ac11787212d9506a077f35add5b0cdd84ed9",
+      "size_bytes": 27392
+    },
+    {
+      "path": "kvq2/key_cap_value_fixed12/fixture_manifest.json",
+      "role": "manifest",
+      "sha256": "706f541f9e24995de6b5c97c4baf6af3e21adf46e68d9a8d63a54751ff7acb78",
+      "size_bytes": 25259
+    },
+    {
+      "path": "kvq2/key_cap_value_fixed12/inputs.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "e04b702cfce57178754a36f79b59f815fed3844a23e5c6ae4fd480450851265a",
+      "size_bytes": 90882
+    },
+    {
+      "path": "kvq2/key_cap_value_fixed12/metadata.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "35ed1cc6a69e15791b3a0649579429f382f60b020ddc68176538e08e8de0dbdd",
+      "size_bytes": 30704
+    },
+    {
+      "path": "kvq2/key_cap_value_fixed12/sink.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "32e5b7055bcad9c0d8505e7b1b8c6b2d7b7bc5e0b0d52d1337a0adcc8358ca5f",
+      "size_bytes": 31216
+    },
+    {
+      "path": "kvq2/key_cap_value_fixed12/sparse_indices.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "dda65c3aed3d44d4d8cc636cafc478e8730f05aa5d20ac1b28c1066336825167",
+      "size_bytes": 6400
+    },
+    {
+      "path": "kvq2/key_cap_value_fixed12/sparse_values.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "7d3c7266078fa746aa3828dbda2c00c5e72a18925b9f780fbe6b6dbf0753288b",
+      "size_bytes": 6008
+    },
+    {
+      "path": "kvq2/key_cap_value_fixed12/store_state.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "a939fba1f627153f6f21910c702b0a324f18df3c3ddad9a00ca96bfc38175a5f",
+      "size_bytes": 34448
+    },
+    {
+      "path": "kvq2/key_few_value_fixed12/append_state.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "dd282d10dc0d1af7fcda9013bf68c54bf4a15cde053190ee0a705f4976d0abef",
+      "size_bytes": 34448
+    },
+    {
+      "path": "kvq2/key_few_value_fixed12/byte_breakdown.json",
+      "role": "metadata",
+      "sha256": "21086bb76a4fdfdcca88639ee0d761afbfdc8e27d9a8b0e638b7bfca286d00bf",
+      "size_bytes": 1116
+    },
+    {
+      "path": "kvq2/key_few_value_fixed12/checksums.sha256",
+      "role": "checksum_ledger",
+      "sha256": "7fe791e955bb97ca8834ed519627dc594b2744ccdb252db9c2a3606d5e39a459",
+      "size_bytes": 979
+    },
+    {
+      "path": "kvq2/key_few_value_fixed12/decode_output.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "a6b76dd05fd419c30263ecabba56146ed1e3e4194269acc106c0587b8d6c6b1c",
+      "size_bytes": 136864
+    },
+    {
+      "path": "kvq2/key_few_value_fixed12/dense_payload.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "0a2986be6fa28ac5079a7b03758a0ba7ca1b6166d1f703eee7deb229bb606760",
+      "size_bytes": 27392
+    },
+    {
+      "path": "kvq2/key_few_value_fixed12/fixture_manifest.json",
+      "role": "manifest",
+      "sha256": "f2e42d65f82163e5551892abdaead7ca680aa096ba255c9e03dd14ebe161fa55",
+      "size_bytes": 25256
+    },
+    {
+      "path": "kvq2/key_few_value_fixed12/inputs.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "5c2d58c98d3fee526f09684d37c3b8f5966680f2042b82a16ba3890cd7522ea6",
+      "size_bytes": 90882
+    },
+    {
+      "path": "kvq2/key_few_value_fixed12/metadata.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "aa72141d9cd9711acbc89e154c404deb4c4b87dcbcc104fe0d873cdaef15ed84",
+      "size_bytes": 30704
+    },
+    {
+      "path": "kvq2/key_few_value_fixed12/sink.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "a2224a4f301ff517dbd0aae953e3d0052bee845a7bcf362e0c37e7e4b2ab75e5",
+      "size_bytes": 31216
+    },
+    {
+      "path": "kvq2/key_few_value_fixed12/sparse_indices.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "f1442304438478008114385a02c87509dee9176ede61676f7aa903dcd666a444",
+      "size_bytes": 6400
+    },
+    {
+      "path": "kvq2/key_few_value_fixed12/sparse_values.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "62b2ef50e5800cc013b91ae9e180241018d74edde6569ce81c18918347b5bd29",
+      "size_bytes": 6008
+    },
+    {
+      "path": "kvq2/key_few_value_fixed12/store_state.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "6543871f30487a9d1a4db54f7383f2ed935fd3a5785d917ffd7bdff05ea9b030",
+      "size_bytes": 34448
+    },
+    {
+      "path": "kvq2/key_zero_value_fixed12/append_state.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "a26affd32c59985ca0af5014fa8f4642edf56662360934fa9f078e3c879173f3",
+      "size_bytes": 34448
+    },
+    {
+      "path": "kvq2/key_zero_value_fixed12/byte_breakdown.json",
+      "role": "metadata",
+      "sha256": "35521c028f432a19c6c41336cbd3e658de4b41d962b147d2ddabcf276bf9f90f",
+      "size_bytes": 1116
+    },
+    {
+      "path": "kvq2/key_zero_value_fixed12/checksums.sha256",
+      "role": "checksum_ledger",
+      "sha256": "acaaac2843fb82d1e3aafda6904aa125cb8cb77f2a28811acc7e33bad4116895",
+      "size_bytes": 979
+    },
+    {
+      "path": "kvq2/key_zero_value_fixed12/decode_output.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "6819350c03f44f238789c2c961376b590872bcf4a7cf64edc776a3b8adcbfd7a",
+      "size_bytes": 136864
+    },
+    {
+      "path": "kvq2/key_zero_value_fixed12/dense_payload.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "80b6d97a8b916f82175b4a1963fabe1692e94bbc16e081cf9f8557f607d55d33",
+      "size_bytes": 27392
+    },
+    {
+      "path": "kvq2/key_zero_value_fixed12/fixture_manifest.json",
+      "role": "manifest",
+      "sha256": "4b50570ea7204ec0bce3862f23131be7cce2c9d241540eb4edcdf3d38e1702b3",
+      "size_bytes": 25257
+    },
+    {
+      "path": "kvq2/key_zero_value_fixed12/inputs.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "4874c3d686570f65935d3cd3c2aaf3cf3349cd3aa901c330e6431742dbbc5933",
+      "size_bytes": 90882
+    },
+    {
+      "path": "kvq2/key_zero_value_fixed12/metadata.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "eeb4acdb73eb2e6b040bb2885f8b5bc0c8dd9c9e0bb6453a864e224648fed30b",
+      "size_bytes": 30704
+    },
+    {
+      "path": "kvq2/key_zero_value_fixed12/sink.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "19ad2b30c8964f016a36d24319580b9928c58f40196859c4caf0206888ff81b3",
+      "size_bytes": 31216
+    },
+    {
+      "path": "kvq2/key_zero_value_fixed12/sparse_indices.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "4158a9429ff98f7b8b6b06b9650e5f6de94bdfaac2fea5cc72e15fa508a61f6e",
+      "size_bytes": 6400
+    },
+    {
+      "path": "kvq2/key_zero_value_fixed12/sparse_values.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "d7ffc608c1c35a710d3f9e5643049cc3cdfd9a387806759722e1e3da206ae62e",
+      "size_bytes": 6008
+    },
+    {
+      "path": "kvq2/key_zero_value_fixed12/store_state.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "65332c22c8a20ae7c9c087c4fc143770774205d31e2fe15ea25b2855865289e4",
+      "size_bytes": 34448
+    },
+    {
+      "path": "kvq3/key_cap_value_fixed12/append_state.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "60834d052fa0b36dec6d595be86c7b94a5455db04d14908296ca948411e82ced",
+      "size_bytes": 39344
+    },
+    {
+      "path": "kvq3/key_cap_value_fixed12/byte_breakdown.json",
+      "role": "metadata",
+      "sha256": "a5fae77ff53f4d149389420a91f58cb0fee578aea94cebcd9c1c3039ce8623c3",
+      "size_bytes": 1135
+    },
+    {
+      "path": "kvq3/key_cap_value_fixed12/checksums.sha256",
+      "role": "checksum_ledger",
+      "sha256": "4e6ef90f89cb5e55d029f8f5407e543a206cc703ca418d19fc6ad97f9f1ff829",
+      "size_bytes": 979
+    },
+    {
+      "path": "kvq3/key_cap_value_fixed12/decode_output.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "39adf841e8ac59acd8b54fbc64bd3f6b3ab0d727c07ec2fc2e9293c716ae9a57",
+      "size_bytes": 136864
+    },
+    {
+      "path": "kvq3/key_cap_value_fixed12/dense_payload.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "dfdf0e6bd38e0c336f2a49ad8624f1fda758eb9ded13a421a0351f3cf749c4dc",
+      "size_bytes": 50384
+    },
+    {
+      "path": "kvq3/key_cap_value_fixed12/fixture_manifest.json",
+      "role": "manifest",
+      "sha256": "24ec63c1291940a3a7f39a886ed25ef7b1a5c804cac1f9b016f5389de480c470",
+      "size_bytes": 25890
+    },
+    {
+      "path": "kvq3/key_cap_value_fixed12/inputs.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "1eb7dbdb010a9401986768150014ffa24e68bf46cd4404e12a14b5d672768ea5",
+      "size_bytes": 90882
+    },
+    {
+      "path": "kvq3/key_cap_value_fixed12/metadata.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "7105f273d191228c05dff4c301d8de21992998bbf23f0d980f95b43c2976732a",
+      "size_bytes": 47696
+    },
+    {
+      "path": "kvq3/key_cap_value_fixed12/sink.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "e89f7c663d4fbf7b854de2ac92e6f9fd7cca86bc2a7f83887bf009808f2a4707",
+      "size_bytes": 31216
+    },
+    {
+      "path": "kvq3/key_cap_value_fixed12/sparse_indices.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "8e3d5c88e5b643fff801a7367a0f2c7bb56e7efa5f81c8bcee2c32ddc27e2e02",
+      "size_bytes": 6400
+    },
+    {
+      "path": "kvq3/key_cap_value_fixed12/sparse_values.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "88c4b439ceb043e53683908a4abfdc33d89f3f24c1e74f3166af4a7b699d01e9",
+      "size_bytes": 6008
+    },
+    {
+      "path": "kvq3/key_cap_value_fixed12/store_state.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "5e4f219574cd8aad83b6ef41dcdea7b67540d8ef6c264aeee0e14dd22cb7213c",
+      "size_bytes": 39344
+    },
+    {
+      "path": "kvq3/key_few_value_fixed12/append_state.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "2996a62a98a39d24d1914412a87040caf49e86741476eab08f4b606fc2e56d99",
+      "size_bytes": 39344
+    },
+    {
+      "path": "kvq3/key_few_value_fixed12/byte_breakdown.json",
+      "role": "metadata",
+      "sha256": "054acf32e7258492f68ebedd0fd9028d61dcf44447bae69bd07068153badace0",
+      "size_bytes": 1134
+    },
+    {
+      "path": "kvq3/key_few_value_fixed12/checksums.sha256",
+      "role": "checksum_ledger",
+      "sha256": "ccb31a9e756c51c7451b92726eadccdaa563aa7053e11c7e1c093d4d0961f57a",
+      "size_bytes": 979
+    },
+    {
+      "path": "kvq3/key_few_value_fixed12/decode_output.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "a5af759bc698f8a84efa4a3fc8d762d624e3452f0f7773201b1902bd7b3307a0",
+      "size_bytes": 136864
+    },
+    {
+      "path": "kvq3/key_few_value_fixed12/dense_payload.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "9eb251e2f4af0d92713d525422cdb06a636582e7791e573342e9cb6137668f83",
+      "size_bytes": 50384
+    },
+    {
+      "path": "kvq3/key_few_value_fixed12/fixture_manifest.json",
+      "role": "manifest",
+      "sha256": "2f9de66286042c8c4937c8dbd44cbe8bb6d9acfa92580033a861ade7fd7fe14c",
+      "size_bytes": 25888
+    },
+    {
+      "path": "kvq3/key_few_value_fixed12/inputs.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "ae4b12d187069334eec93931741a4fcf10caefa5024bff3ce0937b29fb6b0ad1",
+      "size_bytes": 90882
+    },
+    {
+      "path": "kvq3/key_few_value_fixed12/metadata.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "24e3aefd418193471838154beaa00b67aaf99ca8ef73e24e83d4c00b7f129cdc",
+      "size_bytes": 47696
+    },
+    {
+      "path": "kvq3/key_few_value_fixed12/sink.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "70e0578808b90415ac27fececf2f349cb77ed134e9957b57673cd69909fa4459",
+      "size_bytes": 31216
+    },
+    {
+      "path": "kvq3/key_few_value_fixed12/sparse_indices.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "60e13448734e7fe17866ad5c6dc12138b53089e14d1eee02c52a05287bce5edd",
+      "size_bytes": 6400
+    },
+    {
+      "path": "kvq3/key_few_value_fixed12/sparse_values.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "32dbcc7ca3e3d1bf189a6cae9d6c810245a47c11834f23e7fe43bd02ef045808",
+      "size_bytes": 6008
+    },
+    {
+      "path": "kvq3/key_few_value_fixed12/store_state.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "5d51b670b8036052fece3f3f21a523ce8a30399e08c808e3b4862eeaffe9fd06",
+      "size_bytes": 39344
+    },
+    {
+      "path": "kvq3/key_zero_value_fixed12/append_state.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "b8e7b13b268572dc017bb963fc9403a978dd884b71262fc8fc1c4bc6573dfab8",
+      "size_bytes": 39344
+    },
+    {
+      "path": "kvq3/key_zero_value_fixed12/byte_breakdown.json",
+      "role": "metadata",
+      "sha256": "8acc8e936b6c7be4ab716738ccbfda96bb6746eb88d018a85b7e43c0ac3324d3",
+      "size_bytes": 1134
+    },
+    {
+      "path": "kvq3/key_zero_value_fixed12/checksums.sha256",
+      "role": "checksum_ledger",
+      "sha256": "983707233c113b97d34261162d5802a1bead4b230e4091fbff2bca2ca8f15b4b",
+      "size_bytes": 979
+    },
+    {
+      "path": "kvq3/key_zero_value_fixed12/decode_output.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "9898f185d8668634526d530dd8f3363b51ab2b6ffc247ed91c723995d32cb137",
+      "size_bytes": 136864
+    },
+    {
+      "path": "kvq3/key_zero_value_fixed12/dense_payload.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "7aa1104948ab4620a69f9c235b0f2024694c19e4e7bc6bb593a9571c9e276f24",
+      "size_bytes": 50384
+    },
+    {
+      "path": "kvq3/key_zero_value_fixed12/fixture_manifest.json",
+      "role": "manifest",
+      "sha256": "bc39570513db9f6350f4d9cf484a68a806193c15f69fd4c729e9e16390e97fb7",
+      "size_bytes": 25887
+    },
+    {
+      "path": "kvq3/key_zero_value_fixed12/inputs.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "3efe93364d357fd2e9e593876f121c8d64ae7326415e6ba1708034ba6891a245",
+      "size_bytes": 90882
+    },
+    {
+      "path": "kvq3/key_zero_value_fixed12/metadata.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "d5cff00045830b861f5af5cc9b93107c9f5a3c442187cd0680743748118aa24d",
+      "size_bytes": 47696
+    },
+    {
+      "path": "kvq3/key_zero_value_fixed12/sink.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "9a941b64e296e654d6b5eafc1d3ac1b56284f4902f200e4eee02e5f98a9ddfe0",
+      "size_bytes": 31216
+    },
+    {
+      "path": "kvq3/key_zero_value_fixed12/sparse_indices.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "ee269d6c3cdcc840d88d34c8cfaabf4694ce90d4667414887512ac1bad9db6c9",
+      "size_bytes": 6400
+    },
+    {
+      "path": "kvq3/key_zero_value_fixed12/sparse_values.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "de38af27ceb634d881a1e6ef41e6d26ba59b1db0242dc672c0f48e1b9d47b923",
+      "size_bytes": 6008
+    },
+    {
+      "path": "kvq3/key_zero_value_fixed12/store_state.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "64ceaa74c4e37781dc4abb5375816e9993cb339a1931bd6fd944e5754d40c8e9",
+      "size_bytes": 39344
+    },
+    {
+      "path": "kvq4/key_cap_value_fixed12/append_state.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "e2404140cd43f6168d28c5a373251346e8b064113ba439fdb7f836e7be023358",
+      "size_bytes": 44536
+    },
+    {
+      "path": "kvq4/key_cap_value_fixed12/byte_breakdown.json",
+      "role": "metadata",
+      "sha256": "a8419f2eb3865cb1f4a1326b45ef1f5eefebae50579cdf667123db2c26d17ed9",
+      "size_bytes": 1120
+    },
+    {
+      "path": "kvq4/key_cap_value_fixed12/checksums.sha256",
+      "role": "checksum_ledger",
+      "sha256": "d4190d80d1cfe9e89fb6b83e794694eee4240ae59f7d67513763dc974333517b",
+      "size_bytes": 979
+    },
+    {
+      "path": "kvq4/key_cap_value_fixed12/decode_output.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "9cdf9bccc1d07beff724565c344ac1aa4bb67c2c09270618fa92ddf6423e5d55",
+      "size_bytes": 136864
+    },
+    {
+      "path": "kvq4/key_cap_value_fixed12/dense_payload.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "7fc1b1a34bcb8300a9a919ac30589183f9af32840ad279e8ca2d30f5fa14a802",
+      "size_bytes": 53768
+    },
+    {
+      "path": "kvq4/key_cap_value_fixed12/fixture_manifest.json",
+      "role": "manifest",
+      "sha256": "cb049207b81a4861f0eb054219d630199e2f3eba3c6b7d19456b676301b9ea2f",
+      "size_bytes": 25282
+    },
+    {
+      "path": "kvq4/key_cap_value_fixed12/inputs.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "050bdd66929fa36b7b5b44d400111e9f2454183616e081a7e4e69876668e38ad",
+      "size_bytes": 90882
+    },
+    {
+      "path": "kvq4/key_cap_value_fixed12/metadata.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "dd0e21d3e5daf2dbebd2c5600710bd8dd63eda6adb27be9c3f03931a1c4e4381",
+      "size_bytes": 81688
+    },
+    {
+      "path": "kvq4/key_cap_value_fixed12/sink.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "641754709244beaa7da05fcda0943a248d7e781717e204a70f09b8c9ad324873",
+      "size_bytes": 31216
+    },
+    {
+      "path": "kvq4/key_cap_value_fixed12/sparse_indices.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "61c303234b37fd6661aed8a334d1b2d9d7c5de09527bef9ac52ef225f1227ec2",
+      "size_bytes": 6400
+    },
+    {
+      "path": "kvq4/key_cap_value_fixed12/sparse_values.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "cbc434ff74e65047d189d12167cf42e6701bdec1f5440b3e6b755575f83d047c",
+      "size_bytes": 6008
+    },
+    {
+      "path": "kvq4/key_cap_value_fixed12/store_state.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "128f8a6f8de95c0666084cfef9c054908d211e152dd802e9f8b9b743ff1c6555",
+      "size_bytes": 44536
+    },
+    {
+      "path": "kvq4/key_few_value_fixed12/append_state.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "673c54e1ee60f544eb7432521fe9978b915d0c97edf8901921023e3414bbd3c5",
+      "size_bytes": 44536
+    },
+    {
+      "path": "kvq4/key_few_value_fixed12/byte_breakdown.json",
+      "role": "metadata",
+      "sha256": "e9c577b20ee7fdbdd600afeac021c49b252cc0b539362adf74b0b11fd163890b",
+      "size_bytes": 1119
+    },
+    {
+      "path": "kvq4/key_few_value_fixed12/checksums.sha256",
+      "role": "checksum_ledger",
+      "sha256": "7be1210efe99edbb6604423a2b080f759c8f61738ac07a0aa053ae6bbdd92878",
+      "size_bytes": 979
+    },
+    {
+      "path": "kvq4/key_few_value_fixed12/decode_output.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "77c37e009b561301294436831d982106377fbb650d0edde2d3266d55db4d6a62",
+      "size_bytes": 136864
+    },
+    {
+      "path": "kvq4/key_few_value_fixed12/dense_payload.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "df0bdd079632f3e51f8c7f520c51349b7712432b1705fc061c79ecad0ebc0fc6",
+      "size_bytes": 53768
+    },
+    {
+      "path": "kvq4/key_few_value_fixed12/fixture_manifest.json",
+      "role": "manifest",
+      "sha256": "52ef9111a1f1e4d2cfe3f0c9b45a95be9ead199da5d7426044b6ff4e3e0fcc19",
+      "size_bytes": 25280
+    },
+    {
+      "path": "kvq4/key_few_value_fixed12/inputs.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "2182d11367fdb8f9b787d1ec00893a17f3136b958c3c74f8efd27b109a7c3ed1",
+      "size_bytes": 90882
+    },
+    {
+      "path": "kvq4/key_few_value_fixed12/metadata.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "396615d2bab3dc4f173f102cb9ff8083dd40382411e7ac24d0504aa4bfb03cae",
+      "size_bytes": 81688
+    },
+    {
+      "path": "kvq4/key_few_value_fixed12/sink.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "55b0cfe9a9e029ceb4497dea0d2dcfc9278812e3ce39c637ebf630682a688cb9",
+      "size_bytes": 31216
+    },
+    {
+      "path": "kvq4/key_few_value_fixed12/sparse_indices.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "9bd5f903b19097b08c895a8c1cae3f5447bcac26d476c8b4d1b2eae44d1e0a71",
+      "size_bytes": 6400
+    },
+    {
+      "path": "kvq4/key_few_value_fixed12/sparse_values.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "3e2b76b61f49dd30c1547e3ead7b4fbabe31e18b10287366eb70d01827e885f9",
+      "size_bytes": 6008
+    },
+    {
+      "path": "kvq4/key_few_value_fixed12/store_state.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "a56763514e1de49f8636430999ac66034de9271564366012cef1face62a97433",
+      "size_bytes": 44536
+    },
+    {
+      "path": "kvq4/key_zero_value_fixed12/append_state.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "d3e03f2847ca2c1e89af1a4d21bf50246813729f6290a348b8c06d77da69cfd9",
+      "size_bytes": 44536
+    },
+    {
+      "path": "kvq4/key_zero_value_fixed12/byte_breakdown.json",
+      "role": "metadata",
+      "sha256": "23e5a6655be12a3436ac4729a7b3ba772941ee7f248f672dbcadf7e1e451ce5d",
+      "size_bytes": 1119
+    },
+    {
+      "path": "kvq4/key_zero_value_fixed12/checksums.sha256",
+      "role": "checksum_ledger",
+      "sha256": "f437c20b2db32d28d39495d2bba8e5f6452683dfbc815f5b75facc6036a694ad",
+      "size_bytes": 979
+    },
+    {
+      "path": "kvq4/key_zero_value_fixed12/decode_output.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "829e5864a4d78af5d6a53f20d9fbef77df2096e07e0f412f4c2d1f97be2131eb",
+      "size_bytes": 136864
+    },
+    {
+      "path": "kvq4/key_zero_value_fixed12/dense_payload.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "59807d52a03192e01d339aa86541f8b8c3e6701f43e23a1c79fd3c1c2de73727",
+      "size_bytes": 53768
+    },
+    {
+      "path": "kvq4/key_zero_value_fixed12/fixture_manifest.json",
+      "role": "manifest",
+      "sha256": "173fb85b82c1273964204c923247e1e45a2444e5177ab07c0e9ede5611e306d8",
+      "size_bytes": 25282
+    },
+    {
+      "path": "kvq4/key_zero_value_fixed12/inputs.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "5936db2d98db3a233cd8f8019d0ee06390add84dd739b66585bc18a78014b2f2",
+      "size_bytes": 90882
+    },
+    {
+      "path": "kvq4/key_zero_value_fixed12/metadata.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "24db348aaceeee92ed768b81c5ec273b69120727964046d95fe10091e2bdadbd",
+      "size_bytes": 81688
+    },
+    {
+      "path": "kvq4/key_zero_value_fixed12/sink.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "86c0f1db97dad5d486bf59cd0218cc9b6c53a250a064b5c4261c5ffe9f9b8c33",
+      "size_bytes": 31216
+    },
+    {
+      "path": "kvq4/key_zero_value_fixed12/sparse_indices.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "413e918d448a753e573c45cb802a3449ee75b189bd68fb0557eca68fa344d369",
+      "size_bytes": 6400
+    },
+    {
+      "path": "kvq4/key_zero_value_fixed12/sparse_values.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "f2e2a3e23c3c223a3afe9c3f370bc5eba6e8ed4b856eee45e5a08a4a0ad7ccd7",
+      "size_bytes": 6008
+    },
+    {
+      "path": "kvq4/key_zero_value_fixed12/store_state.safetensors",
+      "role": "safe_tensor_fixture",
+      "sha256": "d4ac9d70733b11aeb7b50f5ed9efe46dc366fea16bb6d812140cc22546a598aa",
+      "size_bytes": 44536
+    },
+    {
+      "path": "manifest.json",
+      "role": "manifest",
+      "sha256": "60950cac4c7aa107552260e16e6917fbfac275882dd8b45d56116ce3da214049",
+      "size_bytes": 3150
+    },
+    {
+      "path": "reference_trace.json",
+      "role": "reference_trace",
+      "sha256": "35eecea4cd6b870dab9a1c9091d82d2e47c3442e2f4300da9561082cc6e0d6b1",
+      "size_bytes": 391
+    },
+    {
+      "path": "reuse_proof.json",
+      "role": "metadata",
+      "sha256": "3fc25acb331cac7f4f40a0b8f6b52c5d0d73cffdd562ef33c06f5050c50f689d",
+      "size_bytes": 1072
+    }
+  ],
+  "run_id": "kvqref-2e0a0e9022c50cbc6fb497d88cae973e",
+  "schema_version": "kvbench-artifact-inventory-1.0.0"
+}

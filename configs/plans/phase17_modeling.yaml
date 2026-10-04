@@ -1,0 +1,97 @@
+{
+  "schema_version": "kvbench-phase17-modeling-plan-1.0.0",
+  "phase": "17",
+  "analysis_only": true,
+  "source_family_id": "phase16-20260831t123029614620z-ec534d99-de80ac",
+  "source_host_wall_root_sha256": "5605558be0483ddfeffd251977306d3397aa27a66309324c6011e5043584103e",
+  "source_outer_root_sha256": "d74587675dd59b464d81c6e82885d3c9706c681a9da216ad1a7fe4c6ccd88daa",
+  "phase15_root_sha256": "641fc02d8fa598097885b74a336b1b1f454d9844b90025cf0c4b427bee02d5e8",
+  "primary_response": "host_wall_process_median_ms_full_batch_decode_step",
+  "secondary_response": "cuda_event_process_median_ms_diagnostic_only",
+  "latency_units": "milliseconds_per_full_batch_decode_step",
+  "logical_point_weighting": "equal",
+  "replacement_rule": "one published effective record per logical replicate slot; replacement_of retained as provenance",
+  "context_convention": {
+    "predictor_L": "actual_historical_context",
+    "top_configured_label": 131072,
+    "top_actual_historical_context": 131071,
+    "top_total_attended_context": 131072
+  },
+  "candidates": {
+    "constant": {"scope": "local_config_batch", "parameters": 1},
+    "A": {"formula": "alpha + beta*L", "scope": "local_config_batch", "parameters": 2},
+    "B": {"formula": "alpha + beta1*L + beta2*max(L-k,0)", "scope": "local_config_batch", "k_grid": "observed interiors and adjacent midpoints"},
+    "C": {"formula": "tau + s*max(L-k,0)", "scope": "local_config_batch", "s_nonnegative": true, "k_grid": "observed values and adjacent midpoints"},
+    "E": {"formula": "quadratic ridge in standardized log(B*L/r_alloc)", "scope": "method_family", "coefficient_count": 3},
+    "RQ2": {"formula": "quadratic ridge surface in standardized log(B),log(L),log(r_alloc)", "scope": "method_family", "coefficient_count": 10},
+    "D": {"formula": "tau(B,r)+s(B,r)*max(L-lambda(B,r),0)", "scope": "method_family", "surface_basis": ["1", "logB", "logr", "logB*logr"], "coefficient_count": 12},
+    "F_shape": {"formula": "D augmented with metadata, full-precision, outlier, workspace fractions", "scope": "method_family", "coefficient_count": 24, "deployable": true},
+    "F_diagnostic": {"formula": "F_shape plus observed kernel count", "scope": "method_family", "coefficient_count": 27, "deployable": false}
+  },
+  "fit": {
+    "predictive_loss": "mean_squared_log_latency",
+    "ridge_penalty": 1e-5,
+    "linear_ridge_penalty": 1e-6,
+    "nonlinear_optimizer": "deterministic_numpy_adam",
+    "nonlinear_iterations": 3000,
+    "nonlinear_learning_rate": 0.02,
+    "nonlinear_starts": 3,
+    "train_only_preprocessing": true,
+    "positive_latency": true,
+    "nonnegative_post_floor_slope": true
+  },
+  "holdouts": {
+    "leave_one_batch_out": [1, 2, 4, 8, 16],
+    "leave_one_config_out": "each of three compressed configurations within TurboQuant, KIVI, and KVQuant",
+    "leave_context_band_out": {"minimum_historical_context": 24576, "maximum_historical_context": 49152},
+    "session_holdout": [0, 1, 2, 3, 4]
+  },
+  "bootstrap": {
+    "unit": "replicate_segment_shared_block",
+    "draws": 1000,
+    "confidence": 0.95,
+    "minimum_valid_draws": 500,
+    "seed": 20260918
+  },
+  "seeds": {
+    "analysis": 20260917,
+    "bootstrap": 20260918,
+    "optimization": 20260919
+  },
+  "knee_identifiability": {
+    "minimum_unique_contexts_per_regime": 2,
+    "minimum_bic_improvement_over_linear": 2.0,
+    "finite_interval_requires_valid_bootstrap_draws": 500,
+    "pilot_knee_is_ground_truth": false
+  },
+  "metrics": ["mae_ms", "mape", "median_absolute_relative_error", "p95_relative_error", "speedup_sign_accuracy", "pairwise_method_ranking_accuracy"],
+  "targets": {
+    "median_relative_error_max": 0.05,
+    "p95_relative_error_max": 0.10,
+    "speedup_sign_accuracy_min": 0.95,
+    "method_ranking_accuracy_min": 0.90,
+    "knee_relative_error_max": 0.10
+  },
+  "ranking": {
+    "primary": "all jointly available held-out compressed-configuration pairs at exact B,L",
+    "near_tie_relative_difference": 0.01,
+    "near_ties_retained_in_primary": true,
+    "near_ties_reported_separately": true
+  },
+  "model_selection": {
+    "eligible": ["E", "RQ2", "D", "F_shape"],
+    "deployment_eligible_without_extra_features": ["E", "RQ2", "D"],
+    "protocols": ["leave_one_batch_out", "leave_one_config_out", "leave_context_band_out"],
+    "rule": "lowest macro median relative error, then macro p95 relative error, then lower complexity",
+    "session_holdout_used_for_selection": false,
+    "outer_selection_score_unbiased": false
+  },
+  "prediction_interval": {
+    "type": "new_process_empirical_log_residual",
+    "source": "out_of_fold geometric holdouts",
+    "quantiles": [0.025, 0.975]
+  },
+  "quality_status": "unvalidated",
+  "performance_claim_eligible": false,
+  "phase18_deferred": true
+}

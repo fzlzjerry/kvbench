@@ -1,0 +1,36 @@
+{
+  "calibration_id": "kvqcal-cdb724c806d64d095c040d2673a987a3",
+  "calibration_path_published": false,
+  "calibration_root_sha256": "8148306d08205af376994b022f189a0d6837915cd279ca8af6b104e1f4b46ccf",
+  "complete": true,
+  "fisher_regenerated": false,
+  "inventory_checksums": "PASS",
+  "local_binding_path": "calibration",
+  "method_identifier": "kvquant_gqa_upstream_patch_v1",
+  "mount": "read_only",
+  "patched_tree": "c4f1490c9c0c4ec46099f1e95c092516df2adb4e",
+  "quantizers": {
+    "kvq2": {
+      "bit_width": 2,
+      "manifest_sha256": "0cf292aec40f51e2db46b2f601940f36126187e8cc3cf159938dec5d87eb8e57",
+      "safe_sha256": "b9bb3a8699aa38fb2a5707ff036814971552462692a180431f6f68df9624560e",
+      "tensor_count": 320
+    },
+    "kvq3": {
+      "bit_width": 3,
+      "manifest_sha256": "94a45ee3e2b64eff69c7e53d0a4afc1949198247ec24b6220bea126ddc7fe614",
+      "safe_sha256": "97518129cc64ffa445722cb0802b3082631841de50835cbdf2c85c36a0c1579f",
+      "tensor_count": 320
+    },
+    "kvq4": {
+      "bit_width": 4,
+      "manifest_sha256": "2b0510d7e2cbcbbed6e0ddafb094e9326be2f3372c853b08ba1a155e5cd38691",
+      "safe_sha256": "a8c009633ac4cad952deb2a2fa96c44ef928a1510dadcf11dee29a7a3efe1bf6",
+      "tensor_count": 320
+    }
+  },
+  "quantizers_regenerated": false,
+  "r2_source": "r2://kvbench-artifacts/kvbench/sha256/8148306d08205af376994b022f189a0d6837915cd279ca8af6b104e1f4b46ccf/",
+  "schema_version": "kvbench-phase10-kvquant-calibration-binding-1.0.0",
+  "status": "PASS"
+}

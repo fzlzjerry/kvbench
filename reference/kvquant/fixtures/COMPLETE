@@ -1,0 +1,10 @@
+{
+  "artifact_inventory_sha256": "a133a5deb438922354970cc05ef38bd44bf44f5f00d00ee7ec4c5d026cadf1d6",
+  "checksum_ledger_path": "checksums.sha256",
+  "checksum_ledger_sha256": "8c2a5119703261bc7c37dd9e893f15a65cbd937b06e81110aa7761e5b01c4937",
+  "manifest_sha256": "ff984277bf44624b742eed399dba7c827bd66d66350d7b2889824a8c00bc5079",
+  "run_id": "kvqref-a50af6511c314b6394e58a7f81ceefb8",
+  "schema_version": "kvbench-completion-1.0.0",
+  "status": "completed",
+  "written_last": true
+}

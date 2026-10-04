@@ -1,0 +1,204 @@
+{
+  "authority_scope": "Official vLLM TurboQuant implementation for this reference lane only; no paper-author ownership or all-variant equivalence claim.",
+  "configurations": [
+    {
+      "boundary_policy": {
+        "dense": "skip first two and last two layers",
+        "hybrid": "no boundary skips"
+      },
+      "cache_dtype": "turboquant_k8v4",
+      "graph_support_declaration": "AttentionCGSupport.UNIFORM_BATCH",
+      "key_bits": 8,
+      "key_quantization": "fp8_e4m3",
+      "metadata_precision": "fp16",
+      "norm_correction": false,
+      "phase5_role": "optional",
+      "supported_block_sizes": [
+        16,
+        32,
+        64,
+        128
+      ],
+      "supported_head_dimensions": {
+        "backend": "any_positive",
+        "upstream_tests": [
+          64,
+          96,
+          128,
+          256
+        ]
+      },
+      "supported_input_dtypes": [
+        "float16",
+        "bfloat16"
+      ],
+      "value_bits": 4,
+      "value_quantization": "per_vector_uniform"
+    },
+    {
+      "boundary_policy": {
+        "dense": "skip first two and last two layers",
+        "hybrid": "no boundary skips"
+      },
+      "cache_dtype": "turboquant_4bit_nc",
+      "graph_support_declaration": "AttentionCGSupport.UNIFORM_BATCH",
+      "key_bits": 4,
+      "key_quantization": "lloyd_max_mse",
+      "metadata_precision": "fp16",
+      "norm_correction": true,
+      "phase5_role": "mandatory",
+      "supported_block_sizes": [
+        16,
+        32,
+        64,
+        128
+      ],
+      "supported_head_dimensions": {
+        "backend": "any_positive",
+        "upstream_tests": [
+          64,
+          96,
+          128,
+          256
+        ]
+      },
+      "supported_input_dtypes": [
+        "float16",
+        "bfloat16"
+      ],
+      "value_bits": 4,
+      "value_quantization": "per_vector_uniform"
+    },
+    {
+      "boundary_policy": {
+        "dense": "skip first two and last two layers",
+        "hybrid": "no boundary skips"
+      },
+      "cache_dtype": "turboquant_k3v4_nc",
+      "graph_support_declaration": "AttentionCGSupport.UNIFORM_BATCH",
+      "key_bits": 3,
+      "key_quantization": "lloyd_max_mse",
+      "metadata_precision": "fp16",
+      "norm_correction": true,
+      "phase5_role": "mandatory",
+      "supported_block_sizes": [
+        16,
+        32,
+        64,
+        128
+      ],
+      "supported_head_dimensions": {
+        "backend": "any_positive",
+        "upstream_tests": [
+          64,
+          96,
+          128,
+          256
+        ]
+      },
+      "supported_input_dtypes": [
+        "float16",
+        "bfloat16"
+      ],
+      "value_bits": 4,
+      "value_quantization": "per_vector_uniform"
+    },
+    {
+      "boundary_policy": {
+        "dense": "skip first two and last two layers",
+        "hybrid": "no boundary skips"
+      },
+      "cache_dtype": "turboquant_3bit_nc",
+      "graph_support_declaration": "AttentionCGSupport.UNIFORM_BATCH",
+      "key_bits": 3,
+      "key_quantization": "lloyd_max_mse",
+      "metadata_precision": "fp16",
+      "norm_correction": true,
+      "phase5_role": "mandatory",
+      "supported_block_sizes": [
+        16,
+        32,
+        64,
+        128
+      ],
+      "supported_head_dimensions": {
+        "backend": "any_positive",
+        "upstream_tests": [
+          64,
+          96,
+          128,
+          256
+        ]
+      },
+      "supported_input_dtypes": [
+        "float16",
+        "bfloat16"
+      ],
+      "value_bits": 3,
+      "value_quantization": "per_vector_uniform"
+    }
+  ],
+  "floating_branch_used": false,
+  "installed_wheel_source_hashes_match_git": true,
+  "official_operations": {
+    "centroids": "vllm.model_executor.layers.quantization.turboquant.centroids.solve_lloyd_max",
+    "decode": "vllm.v1.attention.ops.triton_turboquant_decode.triton_turboquant_decode_attention",
+    "hadamard": "vllm.v1.attention.backends.turboquant_attn._build_hadamard",
+    "store_and_append": "vllm.v1.attention.ops.triton_turboquant_store.triton_turboquant_store"
+  },
+  "schema_version": "turboquant-source-manifest-1.0.0",
+  "source": {
+    "commit": "752a3a504485790a2e8491cacbb35c137339ad34",
+    "commit_date": "2026-07-12T16:40:12-07:00",
+    "identity_verification": "exact commit and tree, exact tag ref, per-file Git blob and SHA-256",
+    "license": "Apache-2.0",
+    "release_status": "official vLLM release tag",
+    "relevant_source_files": [
+      {
+        "git_blob": "70a58004fc58f6ecfab8e6d60a9524240ff847d0",
+        "path": "vllm/config/cache.py",
+        "role": "cache dtype definitions",
+        "sha256": "0a0d3583f493b599097b2613f1b772de9f74471f6892be21a7920f2bd6fdf15a"
+      },
+      {
+        "git_blob": "84e3940d264dc3108a5a4e2bdb688c886a61d2b6",
+        "path": "vllm/model_executor/layers/quantization/turboquant/config.py",
+        "role": "presets and packed layout",
+        "sha256": "1fe9930e25e12b6b6cf3696159f9475a32fd2cd714991c501268c872374966bd"
+      },
+      {
+        "git_blob": "490265747c5ba4e676376f3998d2b0846a93dfff",
+        "path": "vllm/model_executor/layers/quantization/turboquant/centroids.py",
+        "role": "Lloyd-Max centroids",
+        "sha256": "0a0ec4cb3b1380d6f6983835a1ded5ebaa03d6a0927541f9dcf59d6423d4ad1d"
+      },
+      {
+        "git_blob": "3ad2d41488e7e0aec31097e75734c375d54abd13",
+        "path": "vllm/v1/attention/ops/triton_turboquant_store.py",
+        "role": "store and append kernels",
+        "sha256": "0ac49b3da69a70fdc6e7b1800237a81f8398f8509770d0f48d1938d926d06e45"
+      },
+      {
+        "git_blob": "3adaf2610d8dc033180f16709f780d756efc7445",
+        "path": "vllm/v1/attention/ops/triton_turboquant_decode.py",
+        "role": "compressed-cache decode kernels",
+        "sha256": "8e52678136449e4bbca2195fbcbb87426c955a2b1b8422e7ab9511e45ee5f5c6"
+      },
+      {
+        "git_blob": "af4ab007a8be1a602feda5e07b899f8ad18d6a39",
+        "path": "vllm/v1/attention/backends/turboquant_attn.py",
+        "role": "backend, allocation, and graph declaration",
+        "sha256": "e02d975b1e204d56247e8efd6fecf80d6b87767bb2b323243eb4441b926198de"
+      },
+      {
+        "git_blob": "ccdc69074c7f558bda3fe8a69fdf46f620973f55",
+        "path": "tests/quantization/test_turboquant.py",
+        "role": "upstream tests",
+        "sha256": "80d08f4021ec64724e9d536b8574e5e14c069118645f011925cb965b2d5706b6"
+      }
+    ],
+    "repository": "https://github.com/vllm-project/vllm.git",
+    "tag": "v0.25.1",
+    "tree": "3ec7a4eb00f9bc8fec399bea6cf7de27a7936372"
+  }
+}

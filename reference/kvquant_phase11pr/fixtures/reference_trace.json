@@ -1,0 +1,13 @@
+{
+  "operations": {
+    "backend_fallback": false,
+    "complete_prefix_temporary": false,
+    "kvq2": "byte_reused",
+    "kvq3": "deterministic_per_token_per_channel_pack",
+    "kvq4": "byte_reused"
+  },
+  "run_id": "kvqref-2e0a0e9022c50cbc6fb497d88cae973e",
+  "run_kind": "reference_trace",
+  "schema_version": "kvbench-phase11pr-reference-trace-1.0.0",
+  "timing_fields_present": false
+}

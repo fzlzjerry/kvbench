@@ -1,0 +1,20 @@
+[project]
+name = "kvbench"
+version = "0.1.0"
+description = "Strict experiment contracts and append-only artifact tooling for the KV cache study"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+kvbench = "kvbench.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pyright]
+pythonVersion = "3.11"
+typeCheckingMode = "strict"
+include = ["src"]

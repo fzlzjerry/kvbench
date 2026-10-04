@@ -1,0 +1,20 @@
+{
+  "aggregate_patch_sha256": "23a15db86790299392412c3ce2da7d971f4f073cfaf6839d82d3746c8b56b551",
+  "decision": "0025",
+  "official_author_gqa_support_claimed": false,
+  "patch_manifest_sha256": "d04a580a4a4cd0fcaa6f0880eadb46f9479ff2f7c6a250eb9568f9f520e2da6e",
+  "patched_commit": "0d9df350bd1788284e1ce76a8bf6e886beca5efa",
+  "patched_tree": "a85cf7bf093982a4bf89c33d4e6794d9a85f846d",
+  "reconstruction": {
+    "applied_patch_sha256": "23a15db86790299392412c3ce2da7d971f4f073cfaf6839d82d3746c8b56b551",
+    "base_commit": "57a238357f0ffe50084670fcd5781c9848f80ea2",
+    "base_tree": "094e0f736f77ee327e5350cbd1eefb1c936aa77b",
+    "changed_file_count": 18,
+    "patched_tree": "a85cf7bf093982a4bf89c33d4e6794d9a85f846d"
+  },
+  "schema_version": "kvbench-phase11pr-source-1.0.0",
+  "source_mount": "read_only",
+  "status": "PASS",
+  "upstream_base_commit": "57a238357f0ffe50084670fcd5781c9848f80ea2",
+  "upstream_base_tree": "094e0f736f77ee327e5350cbd1eefb1c936aa77b"
+}

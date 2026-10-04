@@ -1,0 +1,102 @@
+{
+  "claims": {
+    "comparative_latency": false,
+    "performance": false,
+    "quality": false
+  },
+  "configurations": [
+    "turboquant_k8v4",
+    "turboquant_4bit_nc",
+    "turboquant_k3v4_nc",
+    "turboquant_3bit_nc"
+  ],
+  "determinism": {
+    "cublas_workspace_config": ":4096:8",
+    "existing_set_policy": "regenerate, validate, compare exact bytes, never overwrite",
+    "input_generation": "CPU torch.Generator with fixed seed, then BF16 cast",
+    "torch_deterministic_algorithms": true
+  },
+  "environment_manifest_sha256": "b8a44c6769a17eb3c1de6e3ce129563bca2d338a7702b94e9256d443b89fcdb4",
+  "geometry": {
+    "append_tokens": 1,
+    "batch_size": 1,
+    "block_size": 16,
+    "head_dim": 128,
+    "initial_context": 17,
+    "input_dtype": "bfloat16",
+    "max_num_kv_splits": 4,
+    "num_blocks": 2,
+    "num_kv_heads": 8,
+    "num_query_heads": 32,
+    "seed": 20260724,
+    "total_context": 18
+  },
+  "inputs": {
+    "append_key": {
+      "dtype": "bfloat16",
+      "nbytes": 2048,
+      "path": "inputs/append_key.bf16.bin",
+      "sha256": "8fc4f43caf1b9340449fe210a898c6286a1f5084edcd16a57cdb664d4671e984",
+      "shape": [
+        1,
+        8,
+        128
+      ]
+    },
+    "append_value": {
+      "dtype": "bfloat16",
+      "nbytes": 2048,
+      "path": "inputs/append_value.bf16.bin",
+      "sha256": "2c6e62a917106eb96d957daab3679b14c40575fb9feae7a8360b9e4fd15b0a30",
+      "shape": [
+        1,
+        8,
+        128
+      ]
+    },
+    "decode_query": {
+      "dtype": "bfloat16",
+      "nbytes": 8192,
+      "path": "inputs/decode_query.bf16.bin",
+      "sha256": "55d8a35c7743d2888dab6041d1a5a2ac6b51cd63290fc76de61b792163e96577",
+      "shape": [
+        1,
+        32,
+        128
+      ]
+    },
+    "prefill_key": {
+      "dtype": "bfloat16",
+      "nbytes": 34816,
+      "path": "inputs/prefill_key.bf16.bin",
+      "sha256": "ae4bb4a4c578f8695e89527bc2e004b870acad87efbba8e95a26a5ae15e7da8f",
+      "shape": [
+        17,
+        8,
+        128
+      ]
+    },
+    "prefill_value": {
+      "dtype": "bfloat16",
+      "nbytes": 34816,
+      "path": "inputs/prefill_value.bf16.bin",
+      "sha256": "4280ddbb91a20b1d1ce48f34d4d143fb7fba31391249fc1561d4b6cd4bc89858",
+      "shape": [
+        17,
+        8,
+        128
+      ]
+    }
+  },
+  "mandatory_configurations": [
+    "turboquant_4bit_nc",
+    "turboquant_k3v4_nc",
+    "turboquant_3bit_nc"
+  ],
+  "optional_configurations": [
+    "turboquant_k8v4"
+  ],
+  "schema_version": "turboquant-reference-fixture-set-1.0.0",
+  "source_commit": "752a3a504485790a2e8491cacbb35c137339ad34",
+  "source_manifest_sha256": "2817315b99eac1388973fd59b9cf73f795fd81172496ef066efefeda5e2235da"
+}

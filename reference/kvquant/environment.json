@@ -1,0 +1,39 @@
+{
+  "base_image_config_digest": "sha256:127759078f2c70c9e795c7a1bb3408df1eaee8fa019319299d283dc8075b216d",
+  "calibration_dockerfile_sha256": "e3ac0933c21c986bed2ca169c8983f6d1e6412e02bed42a282f9c604fd9c4de5",
+  "calibration_mount": "read_only",
+  "calibration_python_freeze_sha256": "950f28e3513f03e693b4dd87018ced302f4c201754e791bcdef65976c737eb7a",
+  "compiler": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "credentials_in_image": false,
+  "cuda_compiler": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Wed_Aug_20_01:58:59_PM_PDT_2025\nCuda compilation tools, release 13.0, V13.0.88\nBuild cuda_13.0.r13.0/compiler.36424714_0",
+  "cuda_runtime": 13000,
+  "cuda_userspace": "13.0",
+  "dependency_overlay": {
+    "installation": "no_deps_no_index_isolated_target",
+    "package": "tokenizers",
+    "version": "0.15.2",
+    "wheel_sha256": "9e0480c452217edd35eca56fafe2029fb4d368b7c0475f8dfa3c5c9c400a7456"
+  },
+  "gpu_compute_capability": [
+    12,
+    0
+  ],
+  "gpu_name": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition",
+  "image_config_digest": "sha256:24eb3f6ff39b72f45c353acfbef6ce2d9aaac0860180b4dde8b937593176714b",
+  "model_weights_in_image": false,
+  "network": "disabled",
+  "new_dockerfile_created": true,
+  "output_mount": "write_only_fixture_destination",
+  "python": "3.12.3",
+  "pytorch": "2.12.1+cu130",
+  "r2_credentials_in_container": false,
+  "reference_dockerfile_sha256": "f1b2f2a6f6f15bf364eb3a8b7a26f01504edbe2dbcfe74b619b1c519120a618e",
+  "schema_version": "kvbench-phase10-kvquant-environment-1.0.0",
+  "source_mount": "read_only",
+  "status": "PASS",
+  "strategy": "thin_image_from_exact_phase9_calibration_image",
+  "tokenizers_active": "0.15.2",
+  "tokenizers_base_installed": "0.22.2",
+  "transformers_installed": "4.57.6",
+  "transformers_vendored": "4.38.0.dev0"
+}

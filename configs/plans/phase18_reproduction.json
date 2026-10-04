@@ -1,0 +1,45 @@
+{
+  "schema_version": "kvbench-phase18-reproduction-plan-1.0.0",
+  "phase": "18",
+  "cpu_only": true,
+  "source_phase17_bundle": "phase17-20260916t164055992658z-9e20208a-c944c5",
+  "source_phase17_root_sha256": "05d5c4e82259ca8bf2d43e62a689c1180f091da1fd166c79106230ab455f98bb",
+  "source_phase17_execution_head": "9e20208a5eab4f14263334436878492654756ce9",
+  "selected_model": "D",
+  "deployment_model": "D",
+  "metric_aggregation": {
+    "protocols": [
+      "leave_one_batch_out",
+      "leave_one_config_out",
+      "leave_context_band_out"
+    ],
+    "cell": "model_id x protocol x method_family x combined subset",
+    "applicable_cell_count": 11,
+    "weighting": "equal_cell_weight",
+    "median_label": "macro_mean_of_cell_median_relative_errors",
+    "p95_label": "macro_mean_of_cell_p95_relative_errors",
+    "bf16_config_holdout": "not_applicable",
+    "session_holdout": "reported_separately"
+  },
+  "bf16_tail": {
+    "protocol": "leave_one_batch_out",
+    "model_id": "D",
+    "logical_collapse": "median_across_five_process_predictions",
+    "rows": 20,
+    "clip": false,
+    "exclude": false
+  },
+  "figures": [
+    "predicted_vs_measured",
+    "holdout_error_by_protocol_method_domain",
+    "candidate_macro_comparison",
+    "knee_intervals_and_status",
+    "same_work_ratio_predicted_vs_measured",
+    "phase14_phase15_mechanism_summary"
+  ],
+  "default_reproduction": "summary_audit_figures_predictor_examples",
+  "optional_refit_executed": false,
+  "quality_state": "LOCKED",
+  "performance_data_frozen": "absent",
+  "quality_evaluation_executed": false
+}

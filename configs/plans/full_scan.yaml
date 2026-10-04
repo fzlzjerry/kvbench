@@ -1,0 +1,190 @@
+{
+  "schema_version": "kvbench.experiment.v1",
+  "document_type": "experiment",
+  "plan_id": "full_scan",
+  "plan_kind": "full_scan",
+  "resolution": {
+    "schema_version": "kvbench.resolution.v1",
+    "status": "blocked",
+    "blockers": [
+      "B-009",
+      "B-010",
+      "E12",
+      "E13",
+      "E14",
+      "E15",
+      "E16",
+      "M14-GRAPH-AB"
+    ],
+    "reason": "The full scan remains closed until durable publication, container parity, admission, pilot, Graph A/B, and profiler prerequisites pass."
+  },
+  "description": "Blocked preregistered CUDA Graph full scan for every baseline and main method variant.",
+  "hardware": {
+    "path": "configs/hardware/rtx_pro_6000.yaml",
+    "sha256": null
+  },
+  "model": {
+    "path": "configs/models/primary_gqa_model.yaml",
+    "sha256": null
+  },
+  "methods": [
+    {
+      "config": {
+        "path": "configs/methods/bf16.yaml",
+        "sha256": null
+      },
+      "variants": [
+        "bf16"
+      ]
+    },
+    {
+      "config": {
+        "path": "configs/methods/turboquant.yaml",
+        "sha256": null
+      },
+      "variants": [
+        "turboquant_4bit_nc",
+        "turboquant_k3v4_nc",
+        "turboquant_3bit_nc"
+      ]
+    },
+    {
+      "config": {
+        "path": "configs/methods/kivi.yaml",
+        "sha256": null
+      },
+      "variants": [
+        "k4v4",
+        "k2v4",
+        "k2v2"
+      ]
+    },
+    {
+      "config": {
+        "path": "configs/methods/kvquant.yaml",
+        "sha256": null
+      },
+      "variants": [
+        "kvq4",
+        "kvq3",
+        "kvq2"
+      ]
+    }
+  ],
+  "experiment_contract": {
+    "path": "docs/experiment_contract.md",
+    "sha256": null
+  },
+  "measurement_protocol": {
+    "path": "docs/measurement_protocol.md",
+    "sha256": null
+  },
+  "software_environment": {
+    "schema_version": "kvbench.software-environment.v1",
+    "environment_id": "measurement_container",
+    "resolution": {
+      "schema_version": "kvbench.resolution.v1",
+      "status": "blocked",
+      "blockers": [
+        "B-010"
+      ],
+      "reason": "No digest-pinned measurement container or container-parity G0 evidence exists."
+    },
+    "execution_kind": "container",
+    "container_image": null,
+    "container_digest": null,
+    "python_version": null,
+    "cuda_runtime_version": null,
+    "cuda_toolkit_version": null,
+    "torch_version": null,
+    "triton_version": null,
+    "dependency_lock_sha256": null
+  },
+  "run_kinds": [
+    "timing"
+  ],
+  "runner_kind": "fixed_l",
+  "graph_modes": [
+    "cuda_graph"
+  ],
+  "claim_class": "same_work_latency",
+  "grid": {
+    "resolution": {
+      "schema_version": "kvbench.resolution.v1",
+      "status": "resolved",
+      "blockers": [],
+      "reason": null
+    },
+    "batch_sizes": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "context_lengths": [
+      4096,
+      8192,
+      16384,
+      24576,
+      32768,
+      49152,
+      65536,
+      98304,
+      131072
+    ],
+    "output_tokens_for_request_validation": 256
+  },
+  "measurement": {
+    "resolution": {
+      "schema_version": "kvbench.resolution.v1",
+      "status": "resolved",
+      "blockers": [],
+      "reason": null
+    },
+    "warmup_steps": 64,
+    "measured_steps": 256,
+    "process_replicates": 5,
+    "randomize_within_method_block": true,
+    "rotate_method_block_order": true,
+    "seed": 20260721
+  },
+  "admission": {
+    "required_gates": [
+      "G0",
+      "G1",
+      "G2",
+      "G3",
+      "G4",
+      "G5"
+    ],
+    "require_container_parity_g0": true,
+    "require_admission_pass": true,
+    "full_scan_state": "closed",
+    "blockers": [
+      "B-009",
+      "B-010",
+      "E12",
+      "E13",
+      "E14",
+      "E15",
+      "E16",
+      "M14-GRAPH-AB"
+    ]
+  },
+  "outputs": {
+    "format": "parquet",
+    "raw_samples": true,
+    "environment_manifest": true,
+    "telemetry": true,
+    "checksum": "sha256",
+    "overwrite": false
+  },
+  "quality": {
+    "schema_version": "kvbench.quality-status.v1",
+    "quality_status": "unvalidated",
+    "claim_eligibility": "performance_only",
+    "quality_execution": "locked",
+    "performance_data_frozen": false
+  }
+}

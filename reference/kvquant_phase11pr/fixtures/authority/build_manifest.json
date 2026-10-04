@@ -1,0 +1,10 @@
+{
+  "authorized_measurement_container": "sha256:059bc9be89387369d7de9e3e9b26d85b6e9902c41e7dbf002ebc45edd188fb7e",
+  "compute_120_ptx": true,
+  "extension_published": false,
+  "extension_sha256": "46c41aad8f56d58608d4c1273bd3a72fd36c8f69f9ca2c5a046f0c811631bf51",
+  "patched_tree": "a85cf7bf093982a4bf89c33d4e6794d9a85f846d",
+  "schema_version": "kvbench-phase11pr-build-1.0.0",
+  "sm_120_cubin": true,
+  "status": "PASS"
+}

@@ -1,0 +1,122 @@
+{
+  "schema_version": "kivi-reference-build-manifest-1.0.0",
+  "source": {
+    "repository": "https://github.com/jy-yuan/KIVI.git",
+    "commit": "876b4d2d08e3b1d5f70d0969c299d8c7c42ddfb6",
+    "base_tree": "c94c31b2cfd44eeb9a18cff9dcdf03adff4ac49b",
+    "patched_tree": "b617493dea5aff1a754cd27ad6be12ac512b2aee",
+    "patch_sha256": "c9c2dd52d4c81b844d1d1d7218ad2cd60a5b31574a387f716d466cb01310423d",
+    "patch_manifest_sha256": "44edc55492e39b8ba1207a32eda1641abcbae91ae0d01c55110c0096ed1b4a41",
+    "source_manifest_sha256": "09fc44823b3537985985521a000d6ec034acee18073689ed321bd67f23b39af3"
+  },
+  "image": {
+    "platform_manifest_digest": "sha256:f27e4cdef6bd15f18ab76b1fe0e4413ede004b42538c74e3dd90d04172406f75",
+    "config_digest": "sha256:0915dc8488fd6c9a150a3b4f56bb4b97b5dbdb7c51d96cda2d431df20e856ce3"
+  },
+  "build": {
+    "working_directory": "/opt/kivi-source/quant",
+    "command": "/opt/kvbench/.venv/bin/python setup.py build_ext --inplace --verbose",
+    "official_mechanism": "quant/setup.py CUDAExtension",
+    "environment": {
+      "TORCH_CUDA_ARCH_LIST": "12.0+PTX",
+      "CUDAARCHS": "120",
+      "CMAKE_CUDA_ARCHITECTURES": "120",
+      "CC": "/usr/bin/gcc",
+      "CXX": "/usr/bin/c++"
+    },
+    "cxx_flags": [
+      "-g",
+      "-O3",
+      "-fopenmp",
+      "-lgomp",
+      "-std=c++17",
+      "-DENABLE_BF16"
+    ],
+    "nvcc_flags": [
+      "-O3",
+      "-std=c++17",
+      "-DENABLE_BF16",
+      "--expt-relaxed-constexpr",
+      "--expt-extended-lambda",
+      "--use_fast_math",
+      "--threads=8",
+      "-gencode=arch=compute_120,code=compute_120",
+      "-gencode=arch=compute_120,code=sm_120",
+      "-ccbin=/usr/bin/gcc"
+    ]
+  },
+  "extension": {
+    "module": "kivi_gemv",
+    "path": "/opt/kivi-source/quant/kivi_gemv.cpython-312-x86_64-linux-gnu.so",
+    "sha256": "45d29ec1a3cecc4b253d1d1dd6139ef4f91cff88993db61a9d73685314851aa9",
+    "imported_with": "PyTorch libraries already loaded by the pinned Python runtime",
+    "linked_cuda_runtime": "/usr/local/cuda/targets/x86_64-linux/lib/libcudart.so.13",
+    "torch": "2.12.1+cu130",
+    "cuda": "13.0"
+  },
+  "native_probe": {
+    "command": "docker run --rm --gpus all kvbench-reference-kivi@sha256:f27e4cdef6bd15f18ab76b1fe0e4413ede004b42538c74e3dd90d04172406f75 kernel-probe",
+    "gpu": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition",
+    "compute_capability": [
+      12,
+      0
+    ],
+    "kernel_families": {
+      "2_bit_key_output_sha256": "74560b37c7a3d7527b873a09be8975e1d8a3c8b82baf51c3c6d5c389a3004daa",
+      "2_bit_value_output_sha256": "86333947967422f77b7ef46839affda38c613a9df3d75ec3456938e8d0c91f2f",
+      "4_bit_key_output_sha256": "652657d790b31ba585a6f51b778250e15ac792adb16039a64e30bb8bddfb18b9",
+      "4_bit_value_output_sha256": "047dda3c06a0afc6fbdff153942be9838a1be5076146c18235c1af00632f2451"
+    }
+  },
+  "binary_architecture": {
+    "native_entry": "kivi_gemv.cpython-312-x86_64-linux-gnu.1.sm_120.cubin",
+    "ptx_build_code": "compute_120",
+    "ptx_target_reported_by_cuobjdump": ".target sm_120",
+    "ptx_version": "9.0"
+  },
+  "forced_ptx_jit": {
+    "mechanism": "nvprune the official gemv_cuda.o to compute_120 PTX only, relink with the unchanged official pybind.o, prove the derived module contains no ELF cubin, then import and execute in a fresh process",
+    "derived_extension_sha256": "bfd9db4f880ff0618214ce5b5029c2299b1b39597a3f792ba7d26a40d9ce28d3",
+    "contains_native_cubin": false,
+    "contains_compute_120_ptx": true,
+    "2_bit_key_output_sha256": "74560b37c7a3d7527b873a09be8975e1d8a3c8b82baf51c3c6d5c389a3004daa",
+    "4_bit_key_output_sha256": "652657d790b31ba585a6f51b778250e15ac792adb16039a64e30bb8bddfb18b9",
+    "status": "PASS"
+  },
+  "compute_sanitizer": {
+    "command": "compute-sanitizer --tool memcheck --error-exitcode=86 --target-processes all /opt/kvbench/.venv/bin/python /opt/kvbench-reference/reference/kivi/generate_fixtures.py sanitizer-probe",
+    "tool_version": "2025.3.1.0",
+    "extension_sha256": "45d29ec1a3cecc4b253d1d1dd6139ef4f91cff88993db61a9d73685314851aa9",
+    "covered_kernel_families": [
+      "2_bit_key_per_channel_quantize_pack_and_bgemv",
+      "4_bit_key_per_channel_quantize_pack_and_bgemv",
+      "2_bit_value_per_token_quantize_pack_and_bgemv",
+      "4_bit_value_per_token_quantize_pack_and_bgemv"
+    ],
+    "stdout": "sanitizer-probe JSON status PASS; native probe output checksums match native_probe",
+    "stderr": "========= COMPUTE-SANITIZER\n========= ERROR SUMMARY: 0 errors\n",
+    "error_summary": "0 errors",
+    "status": "PASS"
+  },
+  "dtype_compatibility": {
+    "upstream_cuda_abi": "half_only",
+    "direct_bf16_result": "expected scalar type Half but found BFloat16",
+    "reference_input_dtype": "bfloat16",
+    "execution_dtype": "float16",
+    "boundary": "BF16 values are selected from an exact FP16 grid and an exact BF16-FP16-BF16 round trip is required before execution",
+    "algorithmic_cuda_change": false
+  },
+  "results": {
+    "source_probe": true,
+    "native_sm120": true,
+    "sm120_cubin": true,
+    "compute120_ptx": true,
+    "forced_ptx_jit": true,
+    "compute_sanitizer": true,
+    "no_kernel_image": false,
+    "unsupported_fallback": false
+  },
+  "performance_measurement": false,
+  "r_hbm_populated": false,
+  "verified_at": "2026-07-27T01:07:05+08:00"
+}

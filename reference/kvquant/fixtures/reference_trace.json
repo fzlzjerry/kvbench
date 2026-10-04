@@ -1,0 +1,56 @@
+{
+  "coverage": [
+    {
+      "case": "key_zero_value_fixed12",
+      "family": "kvq4",
+      "paths": [
+        "dense_pack",
+        "store",
+        "append",
+        "sink",
+        "decode"
+      ]
+    },
+    {
+      "case": "key_cap_value_fixed12",
+      "family": "kvq4",
+      "paths": [
+        "fixed_cap_sparse",
+        "fused_sparse_correction"
+      ]
+    },
+    {
+      "case": "key_few_value_fixed12",
+      "family": "kvq3",
+      "paths": [
+        "three_bit_cross_word_pack",
+        "three_bit_decode"
+      ]
+    },
+    {
+      "case": "key_cap_value_fixed12",
+      "family": "kvq2",
+      "paths": [
+        "two_bit_pack",
+        "two_bit_decode",
+        "fixed_cap_sparse"
+      ]
+    }
+  ],
+  "operations": {
+    "backend_fallback": false,
+    "complete_prefix_temporary": false,
+    "decode": "direct compressed-cache consumption",
+    "dense_quantization_packing": "patched CUDA parallel store and append",
+    "gqa": "native 32Q/8KV mapping without cache expansion",
+    "metadata": "frozen Key LUT plus per-token Value LUT",
+    "reference_dynamic_allocation": true,
+    "sink": "separate native-H_KV FP16 storage and matmul",
+    "sparse_correction": "fused separate sparse correction within CUDA kernels",
+    "sparse_selection": "stable lower then upper selection"
+  },
+  "run_id": "kvqref-a50af6511c314b6394e58a7f81ceefb8",
+  "run_kind": "reference_trace",
+  "schema_version": "kvbench-phase10-reference-trace-1.0.0",
+  "timing_fields_present": false
+}

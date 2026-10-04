@@ -1,0 +1,148 @@
+{
+  "schema_version": "kivi-reference-source-manifest-1.0.0",
+  "source": {
+    "repository": "https://github.com/jy-yuan/KIVI.git",
+    "commit": "876b4d2d08e3b1d5f70d0969c299d8c7c42ddfb6",
+    "base_tree": "c94c31b2cfd44eeb9a18cff9dcdf03adff4ac49b",
+    "patched_tree": "b617493dea5aff1a754cd27ad6be12ac512b2aee",
+    "commit_date": "2025-11-20T12:34:32-08:00",
+    "license": "MIT",
+    "floating_branch": false,
+    "unofficial_fork": false,
+    "authority": "checksum_bound_patched_official_source"
+  },
+  "relevant_source_files": [
+    {
+      "path": "LICENSE",
+      "git_blob": "53fefb737ae5052400e253da42197d425b22880c",
+      "sha256": "add9ea09ab043685efec19b2ba456d6889b62a128ff43e2eca5d37489fdbf8a8"
+    },
+    {
+      "path": "README.md",
+      "git_blob": "ac0627c7329ee8ceace7ea266c8e435d9c2c5fed",
+      "sha256": "baa1095e6edf8263bbf20507f0d1ce444c3cb57d97d5f5677c2ac19c3b934bbf"
+    },
+    {
+      "path": "pyproject.toml",
+      "git_blob": "3274cf178895e0d5f25bfac0f7ccea8dedf29266",
+      "sha256": "6b836d569d95eeed0fa875fe688a72e556f88b67fe477f9af347de3da04d82fc"
+    },
+    {
+      "path": "requirements.txt",
+      "git_blob": "86503ec039f9942b245ee46e34ece7b3b8855a1e",
+      "sha256": "70d88b20853e5a18fe6796e8602f7529f9820391777034aa23a0fbafc7a3f7a5"
+    },
+    {
+      "path": "models/llama_kivi.py",
+      "git_blob": "427fd2b650457f75392e04658fdcebbdc026583a",
+      "sha256": "67ca858604a460fcafae018d97c5e420841b1ea7dcce522daf554e2df3af68f1"
+    },
+    {
+      "path": "models/mistral_kivi.py",
+      "git_blob": "25dca2b13e8b46f8bd8893b93ef2365c989e690f",
+      "sha256": "6c10014274ef549bbda0fe088f38f177df2128be1d0ed33d268c6d1e8de298a8"
+    },
+    {
+      "path": "models/utils_quant.py",
+      "git_blob": "27b4672db377489fc6371aee8bf8dd1761761373",
+      "sha256": "d764a19a3160c70ec0b4b600c71eaae74a96e434d4a406027113fe02220bb0a4"
+    },
+    {
+      "path": "quant/setup.py",
+      "git_blob": "abd1c5fd2905111f7227d26248f2125f4240d3c4",
+      "sha256": "07d8d6f7c55e58b37b938fe352965824e978345ccab1ad7efcfdeffdd337674a"
+    },
+    {
+      "path": "quant/new_pack.py",
+      "git_blob": "72380af9dcc931547367deb00117dc2cbd5d1ebf",
+      "sha256": "3678af0e34a0ba18e5d80a4128acf11d4070667c800a15540a16d07253a4f75e"
+    },
+    {
+      "path": "quant/matmul.py",
+      "git_blob": "0158d4c0ab095128cd192619ecdf5248aa7603fb",
+      "sha256": "e212072490b99f3e157a04c985f5bbaae4028fb14581de4e1a5029f212ec22bd"
+    },
+    {
+      "path": "quant/gemv.py",
+      "git_blob": "99202e8a083fcf9849a1d4f0ab4e8ef7581aa3e4",
+      "sha256": "f73d388f83ccd765f41c526a7e6a332f928cbba0f6c0b2b8ca73e341fbd3b76a"
+    },
+    {
+      "path": "quant/qmodule.py",
+      "git_blob": "4a1f8347a15baa651a204b3c7d3fe0666d91b10c",
+      "sha256": "b75ea47fdcf08f600d7527a094321fcdb9efaa9241566fd4ca1b748639746181"
+    },
+    {
+      "path": "quant/csrc/pybind.cpp",
+      "git_blob": "caa9b342b0dec5a60e4cc51af24d3f58270848d2",
+      "sha256": "75e7837bcd9a6aac8156ceba986a6efd9b64d0d88a60da0a799723b8ae1bfaff"
+    },
+    {
+      "path": "quant/csrc/gemv_cuda.h",
+      "git_blob": "cbec57f66ba27ccb28566ab7ed556bf1f2782cfa",
+      "sha256": "ac3d744b26a9d40e5bc08a3a20927656af2144d00a9c43cb7f7576580636fa99"
+    },
+    {
+      "path": "quant/csrc/gemv_cuda.cu",
+      "git_blob": "1294414332d90f5fcd7523db89a8ad5e763547c4",
+      "sha256": "850b9a33b1e320b3d77dab61a423cea6c73473ab7f33b064dd2e34a682dfef63"
+    }
+  ],
+  "patch": {
+    "decision": "docs/decisions/0018-kivi-b019-native-gqa-patch-authority.md",
+    "manifest": "third_party/patches/kivi/manifest.json",
+    "manifest_sha256": "44edc55492e39b8ba1207a32eda1641abcbae91ae0d01c55110c0096ed1b4a41",
+    "path": "third_party/patches/kivi/0001-preserve-native-gqa-kv-storage.patch",
+    "sha256": "c9c2dd52d4c81b844d1d1d7218ad2cd60a5b31574a387f716d466cb01310423d",
+    "patched_files": [
+      {
+        "path": "models/kivi_gqa.py",
+        "git_blob": "a8a3830da54d93bae71495e6f58473e2184e882a",
+        "sha256": "8ce44e84eda16d4f8094ea3504100d5d327e955a7a6e58fc845bbc207cbed66c"
+      },
+      {
+        "path": "models/llama_kivi.py",
+        "git_blob": "71da53ae2f480035b26179f00bb33aa4acd97115",
+        "sha256": "e6caeefcab9e47bbcd9fdfa2c8f3293db1b9810fc4f041e945bf01e7776dfed4"
+      }
+    ],
+    "semantic_scope": {
+      "quantization_changed": false,
+      "packing_changed": false,
+      "cache_layout_changed": false,
+      "rollover_changed": false,
+      "cuda_extension_changed": false,
+      "residual_kv_materialization_removed": true
+    }
+  },
+  "configuration": {
+    "group_size": 32,
+    "residual_length": 32,
+    "supported_bits": [
+      2,
+      4
+    ],
+    "variants": {
+      "k4v4": {
+        "k_bits": 4,
+        "v_bits": 4,
+        "role": "mandatory"
+      },
+      "k2v4": {
+        "k_bits": 2,
+        "v_bits": 4,
+        "role": "mandatory"
+      },
+      "k2v2": {
+        "k_bits": 2,
+        "v_bits": 2,
+        "role": "mandatory"
+      },
+      "k4v2": {
+        "k_bits": 4,
+        "v_bits": 2,
+        "role": "held_out_asymmetry_control"
+      }
+    }
+  }
+}

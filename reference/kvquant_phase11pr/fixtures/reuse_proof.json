@@ -1,0 +1,26 @@
+{
+  "families": {
+    "kvq2": {
+      "copy_mode": "ordinary_files_byte_identical",
+      "family_tree_sha256": "7625600b6b0a5341d542a40edf13693354a9e6a11847a82440349eaed2d927ac",
+      "file_count": 36,
+      "source_fixture_id": "kvqref-a50af6511c314b6394e58a7f81ceefb8",
+      "source_root_sha256": "32cdf465a361dd6695b66ccbea0a462bddc075fd9778d0aa8cdaa3f94e6f63ab"
+    },
+    "kvq4": {
+      "copy_mode": "ordinary_files_byte_identical",
+      "family_tree_sha256": "52bfbdf2c29f546b391b6079497aaf5c3d17a3a125dd0d096c748cc0fae2e0a8",
+      "file_count": 36,
+      "source_fixture_id": "kvqref-a50af6511c314b6394e58a7f81ceefb8",
+      "source_root_sha256": "32cdf465a361dd6695b66ccbea0a462bddc075fd9778d0aa8cdaa3f94e6f63ab"
+    }
+  },
+  "kvq3_regenerated_cases": [
+    "key_zero_value_fixed12",
+    "key_few_value_fixed12",
+    "key_cap_value_fixed12"
+  ],
+  "old_fixture_id": "kvqref-a50af6511c314b6394e58a7f81ceefb8",
+  "old_root_sha256": "32cdf465a361dd6695b66ccbea0a462bddc075fd9778d0aa8cdaa3f94e6f63ab",
+  "schema_version": "kvbench-phase11pr-reuse-proof-1.0.0"
+}

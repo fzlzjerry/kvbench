@@ -1,0 +1,136 @@
+{
+  "schema_version": "kvbench.method.v1",
+  "document_type": "method",
+  "method_config_id": "kvquant",
+  "method": "kvquant",
+  "resolution": {
+    "schema_version": "kvbench.resolution.v1",
+    "status": "unresolved",
+    "blockers": [
+      "B-006",
+      "E10",
+      "E11"
+    ],
+    "reason": "Phase 9 calibration is frozen and durably published; repository-wide license authority, Phase 10 reference fixtures, and the KVQuant Measurement Adapter remain unresolved."
+  },
+  "source_lock_id": "kvquant",
+  "source_revision": "57a238357f0ffe50084670fcd5781c9848f80ea2",
+  "authority_status": "official_repository_license_unresolved",
+  "implementation": {
+    "resolution": {
+      "schema_version": "kvbench.resolution.v1",
+      "status": "unresolved",
+      "blockers": [
+        "B-006",
+        "E10",
+        "E11"
+      ],
+      "reason": "No KVQuant Reference Lane or Measurement Lane implementation has been fixed or admitted."
+    },
+    "attention_backend": null,
+    "cache_layout": null,
+    "adapter_source_sha256": null,
+    "kernel_binary_sha256": null,
+    "graph_support": "not_evaluated"
+  },
+  "calibration": {
+    "method_identifier": "kvquant_gqa_upstream_patch_v1",
+    "calibration_id": "kvqcal-cdb724c806d64d095c040d2673a987a3",
+    "local_bundle_path": "calibration/kvquant/kvqcal-cdb724c806d64d095c040d2673a987a3",
+    "local_compact_manifest_path": "docs/evidence/phase9/calibration-manifest.json",
+    "source_base_commit": "57a238357f0ffe50084670fcd5781c9848f80ea2",
+    "source_base_tree": "094e0f736f77ee327e5350cbd1eefb1c936aa77b",
+    "patch_sha256": "db3b6fb7ec0a72e25001e1c83a5158d86512248db5c3a06c61895598d1d482d6",
+    "patched_commit": "4ad80bc8c942d0a05516d2be8f8d443a77a05900",
+    "patched_tree": "c4f1490c9c0c4ec46099f1e95c092516df2adb4e",
+    "model_revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+    "tokenizer_revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+    "dataset_revision": "b08601e04326c79dfdd32d625aee71d232d685c3",
+    "dataset_conversion_revision": "3f68cd45302c7b4b532d933e71d9e6e54b1c7d5e",
+    "dataset_root": "2d3a6c9877af57e6a3943824cef97ca2c036719c9aab98bfd6735d13bb2a0547",
+    "token_tensor_root": "ebb7a50649f69cde64d74876af3f2e4938405e8cee94d5a2d95e51b911777d47",
+    "fisher_root": "a4cd9ad1e28332cc38c0a8bd19c10af079379655baaa2e5066aac6e23472117b",
+    "kvq4_sha256": "a8c009633ac4cad952deb2a2fa96c44ef928a1510dadcf11dee29a7a3efe1bf6",
+    "kvq3_sha256": "97518129cc64ffa445722cb0802b3082631841de50835cbdf2c85c36a0c1579f",
+    "kvq2_sha256": "b9bb3a8699aa38fb2a5707ff036814971552462692a180431f6f68df9624560e",
+    "sink_tokens": 5,
+    "key_outlier_cap": 12,
+    "value_outlier_cap": 12,
+    "outlier_value_dtype": "float32",
+    "outlier_index_dtype": "int32",
+    "metadata_dtype": "float32",
+    "durable_r2_uri": "r2://kvbench-artifacts/kvbench/sha256/8148306d08205af376994b022f189a0d6837915cd279ca8af6b104e1f4b46ccf/",
+    "calibration_root_digest": "8148306d08205af376994b022f189a0d6837915cd279ca8af6b104e1f4b46ccf"
+  },
+  "variants": [
+    {
+      "variant_id": "kvq4",
+      "role": "main",
+      "resolution": {
+        "schema_version": "kvbench.resolution.v1",
+        "status": "unresolved",
+        "blockers": [
+          "B-006",
+          "E10",
+          "E11"
+        ],
+        "reason": "The 4-bit calibration artifact is frozen, but reference fixtures and the Measurement Adapter remain unimplemented and unadmitted."
+      },
+      "parameters": {
+        "parameter_type": "kvquant",
+        "bits": 4,
+        "sink_tokens": 5,
+        "outlier_cap": 12,
+        "calibration_artifact_sha256": "a8c009633ac4cad952deb2a2fa96c44ef928a1510dadcf11dee29a7a3efe1bf6",
+        "sparse_index_dtype": "int32",
+        "lut_scale_dtype": "float32"
+      }
+    },
+    {
+      "variant_id": "kvq3",
+      "role": "main",
+      "resolution": {
+        "schema_version": "kvbench.resolution.v1",
+        "status": "unresolved",
+        "blockers": [
+          "B-006",
+          "E10",
+          "E11"
+        ],
+        "reason": "The 3-bit calibration artifact is frozen, but reference fixtures and the Measurement Adapter remain unimplemented and unadmitted."
+      },
+      "parameters": {
+        "parameter_type": "kvquant",
+        "bits": 3,
+        "sink_tokens": 5,
+        "outlier_cap": 12,
+        "calibration_artifact_sha256": "97518129cc64ffa445722cb0802b3082631841de50835cbdf2c85c36a0c1579f",
+        "sparse_index_dtype": "int32",
+        "lut_scale_dtype": "float32"
+      }
+    },
+    {
+      "variant_id": "kvq2",
+      "role": "main",
+      "resolution": {
+        "schema_version": "kvbench.resolution.v1",
+        "status": "unresolved",
+        "blockers": [
+          "B-006",
+          "E10",
+          "E11"
+        ],
+        "reason": "The 2-bit calibration artifact is frozen, but reference fixtures and the Measurement Adapter remain unimplemented and unadmitted."
+      },
+      "parameters": {
+        "parameter_type": "kvquant",
+        "bits": 2,
+        "sink_tokens": 5,
+        "outlier_cap": 12,
+        "calibration_artifact_sha256": "b9bb3a8699aa38fb2a5707ff036814971552462692a180431f6f68df9624560e",
+        "sparse_index_dtype": "int32",
+        "lut_scale_dtype": "float32"
+      }
+    }
+  ]
+}

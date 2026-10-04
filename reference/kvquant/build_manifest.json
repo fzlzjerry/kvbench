@@ -1,0 +1,32 @@
+{
+  "build_command": "python3 setup_cuda.py build_ext --inplace with frozen SM120 and compute_120 flags",
+  "compiler": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "compute_120_ptx": true,
+  "compute_sanitizer": "PASS",
+  "cuda_compiler": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Wed_Aug_20_01:58:59_PM_PDT_2025\nCuda compilation tools, release 13.0, V13.0.88\nBuild cuda_13.0.r13.0/compiler.36424714_0",
+  "cuda_userspace": "13.0",
+  "extension_filename": "quant_cuda.cpython-312-x86_64-linux-gnu.so",
+  "extension_published": false,
+  "extension_sha256": "53bee7b4b5a0dead6adb682df1343330963b41149d12c2a876888c1c2ede9597",
+  "extension_size_bytes": 12991816,
+  "fallback": false,
+  "flags": [
+    "-O3",
+    "-gencode=arch=compute_120,code=sm_120",
+    "-gencode=arch=compute_120,code=compute_120",
+    "-ccbin /usr/bin/gcc",
+    "-std=c++20"
+  ],
+  "forced_ptx_jit": "PASS",
+  "image_config_digest": "sha256:24eb3f6ff39b72f45c353acfbef6ce2d9aaac0860180b4dde8b937593176714b",
+  "native_sm120_execution": true,
+  "python": "3.12.3",
+  "pytorch": "2.12.1+cu130",
+  "schema_version": "kvbench-phase10-kvquant-build-1.0.0",
+  "sm_120_cubin": true,
+  "source_authority": {
+    "patched_tree": "c4f1490c9c0c4ec46099f1e95c092516df2adb4e",
+    "source_root_basename": "source"
+  },
+  "status": "PASS"
+}

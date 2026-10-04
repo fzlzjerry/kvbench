@@ -1,0 +1,117 @@
+{
+  "schema_version": "kvbench.model.v2",
+  "document_type": "model",
+  "model_config_id": "primary_gqa_model",
+  "resolution": {
+    "schema_version": "kvbench.resolution.v1",
+    "status": "resolved",
+    "blockers": [],
+    "reason": null
+  },
+  "model_id": "meta-llama/Llama-3.1-8B-Instruct",
+  "revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+  "config_sha256": "29e4c210b0d6ac178b16b2a255a568bdb23b581e50ca1ef6a6d071dd85704e6e",
+  "tokenizer_id": "meta-llama/Llama-3.1-8B-Instruct",
+  "tokenizer_revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+  "tokenizer_config_sha256": "177c7b61e616fecb84c17ce0591acb92c6c4d60e9ac5ababfb940ff23bbcd424",
+  "decoder_only": true,
+  "full_attention": true,
+  "gqa_required": true,
+  "min_parameters_billion": 7.0,
+  "max_parameters_billion": 9.0,
+  "parameter_count": 8030261248,
+  "architecture": "LlamaForCausalLM",
+  "hidden_size": 4096,
+  "vocabulary_size": 128256,
+  "target_context_length": 131072,
+  "geometry": {
+    "num_hidden_layers": 32,
+    "num_query_heads": 32,
+    "num_kv_heads": 8,
+    "head_dim": 128,
+    "max_context_length": 131072
+  },
+  "weight_dtype": "bfloat16",
+  "tokenizer_class": "PreTrainedTokenizerFast",
+  "rope": {
+    "rope_type": "llama3",
+    "factor": 8.0,
+    "high_frequency_factor": 4.0,
+    "low_frequency_factor": 1.0,
+    "original_max_position_embeddings": 8192,
+    "theta": 500000.0
+  },
+  "local_snapshot_path": "/root/.cache/huggingface/hub/models--meta-llama--Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659",
+  "network_policy": "offline_local_files_only",
+  "artifacts": [
+    {
+      "path": "LICENSE",
+      "role": "license",
+      "size_bytes": 7627,
+      "sha256": "64e1b2889b7892e6bbe7a7ed5bfe6ff793c61f9d584345f8f41cf9f5cb30a369"
+    },
+    {
+      "path": "config.json",
+      "role": "model_config",
+      "size_bytes": 855,
+      "sha256": "29e4c210b0d6ac178b16b2a255a568bdb23b581e50ca1ef6a6d071dd85704e6e"
+    },
+    {
+      "path": "generation_config.json",
+      "role": "model_config",
+      "size_bytes": 184,
+      "sha256": "189fb0c0d7fd8a527db217c0a60a0e013f0394cd8800f9697a666a9e75e5f7fd"
+    },
+    {
+      "path": "model-00001-of-00004.safetensors",
+      "role": "model_weights",
+      "size_bytes": 4976698672,
+      "sha256": "2b1879f356aed350030bb40eb45ad362c89d9891096f79a3ab323d3ba5607668"
+    },
+    {
+      "path": "model-00002-of-00004.safetensors",
+      "role": "model_weights",
+      "size_bytes": 4999802720,
+      "sha256": "09d433f650646834a83c580877bd60c6d1f88f7755305c12576b5c7058f9af15"
+    },
+    {
+      "path": "model-00003-of-00004.safetensors",
+      "role": "model_weights",
+      "size_bytes": 4915916176,
+      "sha256": "fc1cdddd6bfa91128d6e94ee73d0ce62bfcdb7af29e978ddcab30c66ae9ea7fa"
+    },
+    {
+      "path": "model-00004-of-00004.safetensors",
+      "role": "model_weights",
+      "size_bytes": 1168138808,
+      "sha256": "92ecfe1a2414458b4821ac8c13cf8cb70aed66b5eea8dc5ad9eeb4ff309d6d7b"
+    },
+    {
+      "path": "model.safetensors.index.json",
+      "role": "model_config",
+      "size_bytes": 23950,
+      "sha256": "146776fce3f6db1103aa6f249e65ee5544c5923ce6f971b092eee79aa6e5d37b"
+    },
+    {
+      "path": "special_tokens_map.json",
+      "role": "tokenizer",
+      "size_bytes": 296,
+      "sha256": "6f38c73729248f6c127296386e3cdde96e254636cc58b4169d3fd32328d9a8ec"
+    },
+    {
+      "path": "tokenizer.json",
+      "role": "tokenizer",
+      "size_bytes": 9085657,
+      "sha256": "79e3e522635f3171300913bb421464a87de6222182a0570b9b2ccba2a964b2b4"
+    },
+    {
+      "path": "tokenizer_config.json",
+      "role": "tokenizer",
+      "size_bytes": 55351,
+      "sha256": "177c7b61e616fecb84c17ce0591acb92c6c4d60e9ac5ababfb940ff23bbcd424"
+    }
+  ],
+  "license_name": "Llama 3.1 Community License",
+  "access_state": "manually_gated_access_verified",
+  "same_checkpoint_reserved_for_quality_validation": true
+}

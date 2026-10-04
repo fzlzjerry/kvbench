@@ -1,0 +1,150 @@
+{
+  "schema_version": "kvbench.method.v1",
+  "document_type": "method",
+  "method_config_id": "turboquant",
+  "method": "turboquant",
+  "resolution": {
+    "schema_version": "kvbench.resolution.v1",
+    "status": "unresolved",
+    "blockers": [
+      "B-003",
+      "B-004",
+      "B-010",
+      "E05",
+      "E06"
+    ],
+    "reason": "Reference authority, model compatibility, the measurement container, fixtures, and the measurement adapter remain unresolved."
+  },
+  "source_lock_id": "vllm_turboquant",
+  "source_revision": "752a3a504485790a2e8491cacbb35c137339ad34",
+  "authority_status": "candidate_reference_authority_unresolved",
+  "implementation": {
+    "resolution": {
+      "schema_version": "kvbench.resolution.v1",
+      "status": "unresolved",
+      "blockers": [
+        "B-003",
+        "B-004",
+        "B-010",
+        "E05",
+        "E06"
+      ],
+      "reason": "No TurboQuant Measurement Lane implementation has been fixed or admitted."
+    },
+    "attention_backend": null,
+    "cache_layout": null,
+    "adapter_source_sha256": null,
+    "kernel_binary_sha256": null,
+    "graph_support": "not_evaluated"
+  },
+  "variants": [
+    {
+      "variant_id": "turboquant_4bit_nc",
+      "role": "main",
+      "resolution": {
+        "schema_version": "kvbench.resolution.v1",
+        "status": "unresolved",
+        "blockers": [
+          "B-003",
+          "B-004",
+          "B-010",
+          "E05",
+          "E06"
+        ],
+        "reason": "The preregistered variant has not been implemented or admitted."
+      },
+      "parameters": {
+        "parameter_type": "turboquant",
+        "cache_dtype_name": null,
+        "key_bits": 4,
+        "value_bits": 4,
+        "key_path": "mse",
+        "norm_correction": true,
+        "skipped_layers": null,
+        "block_size": null,
+        "decode_split_count": null
+      }
+    },
+    {
+      "variant_id": "turboquant_k3v4_nc",
+      "role": "main",
+      "resolution": {
+        "schema_version": "kvbench.resolution.v1",
+        "status": "unresolved",
+        "blockers": [
+          "B-003",
+          "B-004",
+          "B-010",
+          "E05",
+          "E06"
+        ],
+        "reason": "The preregistered variant has not been implemented or admitted."
+      },
+      "parameters": {
+        "parameter_type": "turboquant",
+        "cache_dtype_name": null,
+        "key_bits": 3,
+        "value_bits": 4,
+        "key_path": "mse",
+        "norm_correction": true,
+        "skipped_layers": null,
+        "block_size": null,
+        "decode_split_count": null
+      }
+    },
+    {
+      "variant_id": "turboquant_3bit_nc",
+      "role": "main",
+      "resolution": {
+        "schema_version": "kvbench.resolution.v1",
+        "status": "unresolved",
+        "blockers": [
+          "B-003",
+          "B-004",
+          "B-010",
+          "E05",
+          "E06"
+        ],
+        "reason": "The preregistered variant has not been implemented or admitted."
+      },
+      "parameters": {
+        "parameter_type": "turboquant",
+        "cache_dtype_name": null,
+        "key_bits": 3,
+        "value_bits": 3,
+        "key_path": "mse",
+        "norm_correction": true,
+        "skipped_layers": null,
+        "block_size": null,
+        "decode_split_count": null
+      }
+    },
+    {
+      "variant_id": "turboquant_k8v4",
+      "role": "held_out",
+      "resolution": {
+        "schema_version": "kvbench.resolution.v1",
+        "status": "unresolved",
+        "blockers": [
+          "B-003",
+          "B-004",
+          "B-010",
+          "E05",
+          "E06"
+        ],
+        "reason": "The preregistered held-out variant has not been implemented or admitted."
+      },
+      "parameters": {
+        "parameter_type": "turboquant",
+        "cache_dtype_name": null,
+        "key_bits": 8,
+        "value_bits": 4,
+        "key_path": "fp8",
+        "norm_correction": false,
+        "skipped_layers": null,
+        "block_size": null,
+        "decode_split_count": null
+      }
+    }
+  ]
+}

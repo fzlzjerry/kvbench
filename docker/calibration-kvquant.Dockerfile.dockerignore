@@ -1,0 +1,10 @@
+# Deny the repository by default. Only the calibration Dockerfile and its
+# additive wheel hash lock enter this build context.
+**
+!docker/
+!docker/calibration-kvquant.Dockerfile
+!docker/calibration-kvquant.requirements.txt
+
+# Defense in depth for operator-managed secrets.
+.env
+.env.*

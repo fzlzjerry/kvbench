@@ -1,0 +1,128 @@
+{
+  "schema_version": "kvbench.method.v1",
+  "document_type": "method",
+  "method_config_id": "kivi",
+  "method": "kivi",
+  "resolution": {
+    "schema_version": "kvbench.resolution.v1",
+    "status": "unresolved",
+    "blockers": [
+      "B-004",
+      "B-010",
+      "E07",
+      "E08"
+    ],
+    "reason": "Paper-era equivalence, model compatibility, the measurement container, fixtures, and the measurement adapter remain unresolved."
+  },
+  "source_lock_id": "kivi",
+  "source_revision": "876b4d2d08e3b1d5f70d0969c299d8c7c42ddfb6",
+  "authority_status": "post_paper_equivalence_unresolved",
+  "implementation": {
+    "resolution": {
+      "schema_version": "kvbench.resolution.v1",
+      "status": "unresolved",
+      "blockers": [
+        "B-004",
+        "B-010",
+        "E07",
+        "E08"
+      ],
+      "reason": "No KIVI Measurement Lane implementation has been fixed or admitted."
+    },
+    "attention_backend": null,
+    "cache_layout": null,
+    "adapter_source_sha256": null,
+    "kernel_binary_sha256": null,
+    "graph_support": "not_evaluated"
+  },
+  "variants": [
+    {
+      "variant_id": "k4v4",
+      "role": "main",
+      "resolution": {
+        "schema_version": "kvbench.resolution.v1",
+        "status": "unresolved",
+        "blockers": [
+          "B-004",
+          "B-010",
+          "E07",
+          "E08"
+        ],
+        "reason": "The preregistered variant has not been implemented or admitted."
+      },
+      "parameters": {
+        "parameter_type": "kivi",
+        "k_bits": 4,
+        "v_bits": 4,
+        "group_size": 32,
+        "residual_length": 32
+      }
+    },
+    {
+      "variant_id": "k2v4",
+      "role": "main",
+      "resolution": {
+        "schema_version": "kvbench.resolution.v1",
+        "status": "unresolved",
+        "blockers": [
+          "B-004",
+          "B-010",
+          "E07",
+          "E08"
+        ],
+        "reason": "The preregistered variant has not been implemented or admitted."
+      },
+      "parameters": {
+        "parameter_type": "kivi",
+        "k_bits": 2,
+        "v_bits": 4,
+        "group_size": 32,
+        "residual_length": 32
+      }
+    },
+    {
+      "variant_id": "k2v2",
+      "role": "main",
+      "resolution": {
+        "schema_version": "kvbench.resolution.v1",
+        "status": "unresolved",
+        "blockers": [
+          "B-004",
+          "B-010",
+          "E07",
+          "E08"
+        ],
+        "reason": "The preregistered variant has not been implemented or admitted."
+      },
+      "parameters": {
+        "parameter_type": "kivi",
+        "k_bits": 2,
+        "v_bits": 2,
+        "group_size": 32,
+        "residual_length": 32
+      }
+    },
+    {
+      "variant_id": "k4v2",
+      "role": "held_out",
+      "resolution": {
+        "schema_version": "kvbench.resolution.v1",
+        "status": "unresolved",
+        "blockers": [
+          "B-004",
+          "B-010",
+          "E07",
+          "E08"
+        ],
+        "reason": "The preregistered held-out variant has not been implemented or admitted."
+      },
+      "parameters": {
+        "parameter_type": "kivi",
+        "k_bits": 4,
+        "v_bits": 2,
+        "group_size": 32,
+        "residual_length": 32
+      }
+    }
+  ]
+}

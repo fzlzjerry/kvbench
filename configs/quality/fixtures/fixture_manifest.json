@@ -1,0 +1,113 @@
+{
+  "longbench_e": {
+    "2wikimqa": {
+      "eligible": 300,
+      "excluded": 0,
+      "records": 300,
+      "total_tokens": 2681515
+    },
+    "gov_report": {
+      "eligible": 300,
+      "excluded": 0,
+      "records": 300,
+      "total_tokens": 2468574
+    },
+    "hotpotqa": {
+      "eligible": 300,
+      "excluded": 0,
+      "records": 300,
+      "total_tokens": 2864022
+    },
+    "lcc": {
+      "eligible": 300,
+      "excluded": 0,
+      "records": 300,
+      "total_tokens": 4058974
+    },
+    "multi_news": {
+      "eligible": 294,
+      "excluded": 0,
+      "records": 294,
+      "total_tokens": 2337042
+    },
+    "multifieldqa_en": {
+      "eligible": 150,
+      "excluded": 0,
+      "records": 150,
+      "total_tokens": 1045952
+    },
+    "passage_count": {
+      "eligible": 300,
+      "excluded": 0,
+      "records": 300,
+      "total_tokens": 2504851
+    },
+    "passage_retrieval_en": {
+      "eligible": 300,
+      "excluded": 0,
+      "records": 300,
+      "total_tokens": 2482187
+    },
+    "qasper": {
+      "eligible": 224,
+      "excluded": 0,
+      "records": 224,
+      "total_tokens": 1434986
+    },
+    "repobench-p": {
+      "eligible": 300,
+      "excluded": 0,
+      "records": 300,
+      "total_tokens": 4593963
+    },
+    "samsum": {
+      "eligible": 300,
+      "excluded": 0,
+      "records": 300,
+      "total_tokens": 2714324
+    },
+    "trec": {
+      "eligible": 300,
+      "excluded": 0,
+      "records": 300,
+      "total_tokens": 2459750
+    },
+    "triviaqa": {
+      "eligible": 300,
+      "excluded": 0,
+      "records": 300,
+      "total_tokens": 2912624
+    }
+  },
+  "longbench_v2_cot_stress": {
+    "eligible": 78,
+    "excluded": 50,
+    "records": 128,
+    "total_tokens": 28699148
+  },
+  "longbench_v2_primary": {
+    "eligible": 321,
+    "excluded": 182,
+    "records": 503,
+    "total_tokens": 122198703
+  },
+  "method_independent": true,
+  "model_outputs_present": false,
+  "model_weights_present": false,
+  "ppl": {
+    "c4_validation": {
+      "documents": 2048,
+      "fast_anchor_records": 64,
+      "full_anchor_records": 512,
+      "stream_tokens": 935832
+    },
+    "wikitext2_test": {
+      "documents": 2891,
+      "fast_anchor_records": 64,
+      "full_anchor_records": 512,
+      "stream_tokens": 291827
+    }
+  },
+  "schema_version": "kvbench-quality-fixture-manifest-1.0.0",
+  "scores_present": false
+}

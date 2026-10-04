@@ -1,0 +1,70 @@
+{
+  "schema_version": "kivi-reference-environment-1.0.0",
+  "lane": "reference",
+  "purpose": "source-authoritative correctness fixtures only",
+  "base_image": {
+    "local_tag": "kvbench-measurement:phase6a",
+    "config_digest": "sha256:059bc9be89387369d7de9e3e9b26d85b6e9902c41e7dbf002ebc45edd188fb7e",
+    "upstream_manifest_digest": "sha256:0eee3094c71518ad31d011a594ae6ed6de72959ee07e318cb31cffe71690e90c",
+    "identity_policy": "fail before build unless the local tag resolves exactly to config_digest"
+  },
+  "dockerfile": {
+    "path": "docker/reference-kivi.Dockerfile",
+    "sha256": "b319d0c15d43d70ce364123d447b820ad1e312d6c60aa737c9707c701da17912"
+  },
+  "image": {
+    "tag": "kvbench-reference-kivi:phase7",
+    "platform": "linux/amd64",
+    "platform_manifest_digest": "sha256:f27e4cdef6bd15f18ab76b1fe0e4413ede004b42538c74e3dd90d04172406f75",
+    "config_digest": "sha256:0915dc8488fd6c9a150a3b4f56bb4b97b5dbdb7c51d96cda2d431df20e856ce3",
+    "local_id": "sha256:f27e4cdef6bd15f18ab76b1fe0e4413ede004b42538c74e3dd90d04172406f75",
+    "build_definition_revision": "3417ea0e7f322369eed21bb787a9a9a19b0a69bd",
+    "generator_sha256": "883c94712a42918c17ea776457d837170830f18cd8f4313eb20617df7670d392"
+  },
+  "python_environment": {
+    "python": "3.12.3",
+    "torch": "2.12.1+cu130",
+    "triton": "3.7.1",
+    "numpy": "2.5.1",
+    "transformers": "4.57.6",
+    "freeze_path": "reference/kivi/python-freeze.txt",
+    "freeze_sha256": "491b08a8e8a1f4a347659e901d15a1dbac0f098e965a166846f443659fb62745",
+    "dependency_strategy": "exact merged distribution freeze inherited from the immutable parent image; no package installation in the KIVI child image"
+  },
+  "toolchain": {
+    "cuda_userspace": "13.0.2",
+    "cuda_runtime": "13.0",
+    "nvcc": "13.0.88",
+    "gcc": "13.3.0",
+    "gxx": "13.3.0",
+    "compute_sanitizer": "2025.3.1.0"
+  },
+  "runtime": {
+    "driver": "595.71.05",
+    "gpu": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition",
+    "compute_capability": "12.0",
+    "input_dtype": "bfloat16",
+    "upstream_cuda_abi_dtype": "float16",
+    "bf16_to_fp16_policy": "fixture values are selected from an exactly representable grid and must round-trip BF16 to FP16 to BF16 exactly"
+  },
+  "architecture_flags": {
+    "TORCH_CUDA_ARCH_LIST": "12.0+PTX",
+    "CUDAARCHS": "120",
+    "CMAKE_CUDA_ARCHITECTURES": "120"
+  },
+  "source_checkout": {
+    "repository": "https://github.com/jy-yuan/KIVI.git",
+    "commit": "876b4d2d08e3b1d5f70d0969c299d8c7c42ddfb6",
+    "base_tree": "c94c31b2cfd44eeb9a18cff9dcdf03adff4ac49b",
+    "patched_tree": "b617493dea5aff1a754cd27ad6be12ac512b2aee",
+    "location": "/opt/kivi-source",
+    "floating_branch": false,
+    "unofficial_fork": false
+  },
+  "measurement_container_modified": false,
+  "credentials_in_image": false,
+  "model_weights_in_image": false,
+  "model_cache_in_image": false,
+  "performance_data_in_image": false,
+  "verified_at": "2026-07-27T01:07:05+08:00"
+}

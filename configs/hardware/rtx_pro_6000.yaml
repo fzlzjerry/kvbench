@@ -1,0 +1,24 @@
+{
+  "schema_version": "kvbench.hardware.v1",
+  "document_type": "hardware",
+  "hardware_id": "rtx_pro_6000_blackwell_96gb",
+  "resolution": {
+    "schema_version": "kvbench.resolution.v1",
+    "status": "resolved",
+    "blockers": [],
+    "reason": null
+  },
+  "expected_gpu_family": "RTX_PRO_6000_BLACKWELL",
+  "expected_gpu_count": 1,
+  "tensor_parallel_size": 1,
+  "exclusive_gpu": true,
+  "max_memory_fraction": 0.88,
+  "require_stable_clocks": true,
+  "record_full_sku": true,
+  "e00_run_id": "e00-20260722T050632.375718Z-6442ba1f7554-02d5bd32",
+  "e00_manifest_path": "docs/evidence/e00/e00-20260722T050632.375718Z-6442ba1f7554-02d5bd32/manifest.json",
+  "e00_manifest_sha256": "d054df714bb5eea1f114bf10a03a2879f56ec8d17d3b07e24fe6efcaba6b7aca",
+  "g0_status": "PASS",
+  "container_parity_status": "not_evaluated",
+  "container_parity_blocker": "B-010"
+}

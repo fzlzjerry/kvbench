@@ -1,0 +1,85 @@
+{
+  "authority_manifest_sha256": {
+    "build_manifest": "1a65cc50737b20055b46202ecf5df4b76fcc60f63691cece1dbcf395ac86dcfa",
+    "calibration_manifest": "c6dcdc118e51335f9d1e578793f7a19e5def5b9b9a6b2558fa6a7cc8b6815a20",
+    "environment": "0f07fb317cab8ee77ad5c9bd794b8063be230333309d3fa705cc6d9f4167b6c4",
+    "source_manifest": "80a1f98efb100b5399a3ccd1938b0cf2ed1aa7aa3513cb44349dbdd0b587553d"
+  },
+  "calibration": {
+    "calibration_id": "kvqcal-cdb724c806d64d095c040d2673a987a3",
+    "fisher_regenerated": false,
+    "quantizers_regenerated": false,
+    "root_sha256": "8148306d08205af376994b022f189a0d6837915cd279ca8af6b104e1f4b46ccf"
+  },
+  "decision": "0025",
+  "family_provenance": {
+    "kvq2": {
+      "copy_mode": "ordinary_files_byte_identical",
+      "family_tree_sha256": "7625600b6b0a5341d542a40edf13693354a9e6a11847a82440349eaed2d927ac",
+      "file_count": 36,
+      "source_fixture_id": "kvqref-a50af6511c314b6394e58a7f81ceefb8",
+      "source_root_sha256": "32cdf465a361dd6695b66ccbea0a462bddc075fd9778d0aa8cdaa3f94e6f63ab"
+    },
+    "kvq3": {
+      "fixture_id": "kvqref-2e0a0e9022c50cbc6fb497d88cae973e",
+      "mode": "regenerated_deterministic_kvq3_only",
+      "scalar_control": "PASS",
+      "source_decision": "0025"
+    },
+    "kvq4": {
+      "copy_mode": "ordinary_files_byte_identical",
+      "family_tree_sha256": "52bfbdf2c29f546b391b6079497aaf5c3d17a3a125dd0d096c748cc0fae2e0a8",
+      "file_count": 36,
+      "source_fixture_id": "kvqref-a50af6511c314b6394e58a7f81ceefb8",
+      "source_root_sha256": "32cdf465a361dd6695b66ccbea0a462bddc075fd9778d0aa8cdaa3f94e6f63ab"
+    }
+  },
+  "fixture_matrix": {
+    "cases": [
+      "key_zero_value_fixed12",
+      "key_few_value_fixed12",
+      "key_cap_value_fixed12"
+    ],
+    "families": [
+      "kvq4",
+      "kvq3",
+      "kvq2"
+    ],
+    "legacy_ambiguous_aliases": false,
+    "total": 9
+  },
+  "gates": {
+    "full_scan": "CLOSED",
+    "g2_kvq": "NOT_EVALUATED",
+    "global_g2_g5": "NOT_EVALUATED",
+    "performance_data_frozen_present": false,
+    "quality_execution": "LOCKED"
+  },
+  "method_identifier": "kvquant_gqa_graphsafe_kvq3_v2",
+  "performance_measurement": false,
+  "phase": "phase11p_r_kvq3_value_pack_correction",
+  "profiler_execution": false,
+  "quality_evaluation": false,
+  "run_id": "kvqref-2e0a0e9022c50cbc6fb497d88cae973e",
+  "run_kind": "reference_fixture_correction",
+  "schema_version": "kvbench-phase11pr-kvquant-reference-bundle-1.0.0",
+  "source": {
+    "aggregate_patch_sha256": "23a15db86790299392412c3ce2da7d971f4f073cfaf6839d82d3746c8b56b551",
+    "extension_sha256": "46c41aad8f56d58608d4c1273bd3a72fd36c8f69f9ca2c5a046f0c811631bf51",
+    "patched_commit": "0d9df350bd1788284e1ce76a8bf6e886beca5efa",
+    "patched_tree": "a85cf7bf093982a4bf89c33d4e6794d9a85f846d",
+    "upstream_base_commit": "57a238357f0ffe50084670fcd5781c9848f80ea2",
+    "upstream_base_tree": "094e0f736f77ee327e5350cbd1eefb1c936aa77b"
+  },
+  "sparse_contract": {
+    "key_counts": [
+      0,
+      6,
+      12
+    ],
+    "value_non_sink_count": 12,
+    "value_selection": "six_lowest_plus_six_highest",
+    "value_sink_count": 0
+  },
+  "status": "completed"
+}

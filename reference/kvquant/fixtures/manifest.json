@@ -1,0 +1,82 @@
+{
+  "calibration": {
+    "calibration_id": "kvqcal-cdb724c806d64d095c040d2673a987a3",
+    "calibration_manifest_sha256": "c6dcdc118e51335f9d1e578793f7a19e5def5b9b9a6b2558fa6a7cc8b6815a20",
+    "fisher_regenerated": false,
+    "quantizers_regenerated": false,
+    "root_sha256": "8148306d08205af376994b022f189a0d6837915cd279ca8af6b104e1f4b46ccf"
+  },
+  "contract_decision": "0023",
+  "decision": "0021",
+  "environment": {
+    "build_manifest_sha256": "b7cb09eac544905cc8ec289c5eb00b7db7222686fb5b6b87174a5145c1a7b19b",
+    "environment_manifest_sha256": "8c8b494c8d458e4dfd4bdae2865243f00ce5b35fd44912a8f15d8d3af4a92c44",
+    "extension_sha256": "53bee7b4b5a0dead6adb682df1343330963b41149d12c2a876888c1c2ede9597",
+    "image_config_digest": "sha256:24eb3f6ff39b72f45c353acfbef6ce2d9aaac0860180b4dde8b937593176714b"
+  },
+  "fixture_matrix": {
+    "cases": [
+      "key_zero_value_fixed12",
+      "key_few_value_fixed12",
+      "key_cap_value_fixed12"
+    ],
+    "families": [
+      "kvq4",
+      "kvq3",
+      "kvq2"
+    ],
+    "legacy_ambiguous_aliases": false,
+    "total": 9
+  },
+  "gates": {
+    "full_scan": "CLOSED",
+    "g2_kvq": "NOT_EVALUATED",
+    "global_g2_g5": "NOT_EVALUATED",
+    "performance_data_frozen_present": false,
+    "quality_execution": "LOCKED"
+  },
+  "geometry": {
+    "append_tokens": 1,
+    "batch_size": 1,
+    "dtype": "bfloat16",
+    "head_dim": 128,
+    "key_outlier_cap": 12,
+    "num_kv_groups": 4,
+    "num_kv_heads": 8,
+    "num_query_heads": 32,
+    "seed": 20260729,
+    "sink_tokens": 5,
+    "store_context": 17,
+    "total_context": 18,
+    "value_outlier_cap": 12
+  },
+  "method_identifier": "kvquant_gqa_upstream_patch_v1",
+  "performance_measurement": false,
+  "phase": "phase10_kvquant_reference",
+  "profiler_execution": false,
+  "quality_evaluation": false,
+  "run_id": "kvqref-a50af6511c314b6394e58a7f81ceefb8",
+  "run_kind": "reference_fixture",
+  "schema_version": "kvbench-phase10-kvquant-reference-bundle-1.0.0",
+  "source": {
+    "official_author_gqa_support_claimed": false,
+    "patch_sha256": "db3b6fb7ec0a72e25001e1c83a5158d86512248db5c3a06c61895598d1d482d6",
+    "patched_commit": "4ad80bc8c942d0a05516d2be8f8d443a77a05900",
+    "patched_tree": "c4f1490c9c0c4ec46099f1e95c092516df2adb4e",
+    "source_manifest_sha256": "93789b87f8dcd127bf8e5b27abaddbe6beb22a4b099d99147803e1409556802a",
+    "upstream_base_commit": "57a238357f0ffe50084670fcd5781c9848f80ea2",
+    "upstream_base_tree": "094e0f736f77ee327e5350cbd1eefb1c936aa77b"
+  },
+  "sparse_contract": {
+    "key_counts": [
+      0,
+      6,
+      12
+    ],
+    "value_non_sink_count": 12,
+    "value_occupancy_data_dependent": false,
+    "value_selection": "six_lowest_plus_six_highest",
+    "value_sink_count": 0
+  },
+  "status": "completed"
+}

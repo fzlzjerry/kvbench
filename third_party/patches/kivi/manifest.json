@@ -1,0 +1,57 @@
+{
+  "schema_version": "kvbench-kivi-source-patch-manifest-1.0.0",
+  "authority": {
+    "decision": "docs/decisions/0018-kivi-b019-native-gqa-patch-authority.md",
+    "kind": "checksum_bound_project_patch_on_official_commit",
+    "upstream_status": "not_merged",
+    "unofficial_fork": false
+  },
+  "source": {
+    "repository": "https://github.com/jy-yuan/KIVI.git",
+    "base_commit": "876b4d2d08e3b1d5f70d0969c299d8c7c42ddfb6",
+    "base_tree": "c94c31b2cfd44eeb9a18cff9dcdf03adff4ac49b",
+    "patched_tree": "b617493dea5aff1a754cd27ad6be12ac512b2aee"
+  },
+  "patch": {
+    "path": "third_party/patches/kivi/0001-preserve-native-gqa-kv-storage.patch",
+    "sha256": "c9c2dd52d4c81b844d1d1d7218ad2cd60a5b31574a387f716d466cb01310423d",
+    "apply_command": "git apply --unidiff-zero --check <patch> && git apply --unidiff-zero <patch>",
+    "base_state_required": "clean detached checkout at base_commit"
+  },
+  "patched_files": [
+    {
+      "path": "models/kivi_gqa.py",
+      "base_git_blob": null,
+      "base_sha256": null,
+      "patched_git_blob": "a8a3830da54d93bae71495e6f58473e2184e882a",
+      "patched_sha256": "8ce44e84eda16d4f8094ea3504100d5d327e955a7a6e58fc845bbc207cbed66c",
+      "role": "native-KV-head grouped query/key and attention/value contractions"
+    },
+    {
+      "path": "models/llama_kivi.py",
+      "base_git_blob": "427fd2b650457f75392e04658fdcebbdc026583a",
+      "base_sha256": "67ca858604a460fcafae018d97c5e420841b1ea7dcce522daf554e2df3af68f1",
+      "patched_git_blob": "71da53ae2f480035b26179f00bb33aa4acd97115",
+      "patched_sha256": "e6caeefcab9e47bbcd9fdfa2c8f3293db1b9810fc4f041e945bf01e7776dfed4",
+      "role": "primary-model residual GQA call-site replacement"
+    }
+  ],
+  "semantic_scope": {
+    "query_head_count": 32,
+    "kv_head_count": 8,
+    "query_heads_per_kv_head": 4,
+    "quantization_changed": false,
+    "packing_changed": false,
+    "cache_layout_changed": false,
+    "rollover_changed": false,
+    "cuda_extension_changed": false,
+    "attention_score_geometry_changed": false,
+    "attention_output_geometry_changed": false,
+    "residual_kv_materialization_removed": true
+  },
+  "prohibited_operations": [
+    "repeat_kv",
+    "repeat_interleave",
+    "expand_to_query_head_kv"
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "algorithmic_source_modified": false,
+  "authority": {
+    "commit": "752a3a504485790a2e8491cacbb35c137339ad34",
+    "release": "v0.25.1",
+    "repository": "https://github.com/vllm-project/vllm.git",
+    "tree": "3ec7a4eb00f9bc8fec399bea6cf7de27a7936372"
+  },
+  "compatibility_scope": [
+    "replace vllm.triton_utils imports with the authorized image's locked triton package",
+    "replace vllm package imports with local pinned-source imports",
+    "provide only the CUDA-platform predicate used by the upstream optional FP8 helper",
+    "export the byte-identical serving-path Hadamard implementation"
+  ],
+  "files": [
+    {
+      "carried_path": "src/kvbench/third_party/vllm_turboquant/config.py",
+      "carried_sha256": "1fe9930e25e12b6b6cf3696159f9475a32fd2cd714991c501268c872374966bd",
+      "integration": "byte_identical_full_file",
+      "upstream_git_blob": "84e3940d264dc3108a5a4e2bdb688c886a61d2b6",
+      "upstream_path": "vllm/model_executor/layers/quantization/turboquant/config.py",
+      "upstream_sha256": "1fe9930e25e12b6b6cf3696159f9475a32fd2cd714991c501268c872374966bd"
+    },
+    {
+      "carried_path": "src/kvbench/third_party/vllm_turboquant/centroids.py",
+      "carried_sha256": "0a0ec4cb3b1380d6f6983835a1ded5ebaa03d6a0927541f9dcf59d6423d4ad1d",
+      "integration": "byte_identical_full_file",
+      "upstream_git_blob": "490265747c5ba4e676376f3998d2b0846a93dfff",
+      "upstream_path": "vllm/model_executor/layers/quantization/turboquant/centroids.py",
+      "upstream_sha256": "0a0ec4cb3b1380d6f6983835a1ded5ebaa03d6a0927541f9dcf59d6423d4ad1d"
+    },
+    {
+      "algorithmic_symbol_sha256": {
+        "_tq_fused_store_mse": "dba0aef81544fe4f0442a5ec7ea685bff06eb0ba54319e437e11bcf2cfff1c0f"
+      },
+      "carried_path": "src/kvbench/third_party/vllm_turboquant/triton_turboquant_store.py",
+      "carried_sha256": "4c71a35db7264d6a8cae66e9eac5757b1f7f6dcf8fdcdb3913c6e4015ddd9679",
+      "integration": "full_file_with_import_only_compatibility",
+      "upstream_git_blob": "3ad2d41488e7e0aec31097e75734c375d54abd13",
+      "upstream_path": "vllm/v1/attention/ops/triton_turboquant_store.py",
+      "upstream_sha256": "0ac49b3da69a70fdc6e7b1800237a81f8398f8509770d0f48d1938d926d06e45"
+    },
+    {
+      "algorithmic_symbol_sha256": {
+        "_tq_decode_stage1": "d40bf2951631d307005adccac8eee4c9d94c4ac446636a74a64bdf1384273314"
+      },
+      "carried_path": "src/kvbench/third_party/vllm_turboquant/triton_turboquant_decode.py",
+      "carried_sha256": "99845ff4e71f12cbc9571763bd259cf8d64987b7d2e591e49b98f1dc9fb25f4c",
+      "integration": "full_file_with_import_only_compatibility",
+      "upstream_git_blob": "3adaf2610d8dc033180f16709f780d756efc7445",
+      "upstream_path": "vllm/v1/attention/ops/triton_turboquant_decode.py",
+      "upstream_sha256": "8e52678136449e4bbca2195fbcbb87426c955a2b1b8422e7ab9511e45ee5f5c6"
+    },
+    {
+      "algorithmic_symbol_sha256": {
+        "_fwd_kernel_stage2": "827a519f1f51ae3b0eba2417b5e8fe2c77362c8ebc78b7456d6f0e1a69c42ce3"
+      },
+      "carried_path": "src/kvbench/third_party/vllm_turboquant/triton_decode_attention.py",
+      "carried_sha256": "920b2aca82e62ea894bf2010c9871ec9f59db422c3f8210d62794992013ef352",
+      "integration": "byte_identical_required_symbol_with_local_triton_imports",
+      "upstream_git_blob": "6aec1db2e59c797e6d9a4761c905c83ccea66785",
+      "upstream_path": "vllm/v1/attention/ops/triton_decode_attention.py",
+      "upstream_sha256": "b9823c65eba22d76abf64dad7d7d16a950f67471c86d6cb5b3e983aaf14381ac"
+    },
+    {
+      "algorithmic_symbol_sha256": {
+        "_build_hadamard_and_cached": "d517184aebb8620a02d1bae3ed6e40c46710539f70bfc63f354ff8cedef60061"
+      },
+      "carried_path": "src/kvbench/third_party/vllm_turboquant/compat.py",
+      "carried_sha256": "a19ba6708a66a7e6fd8e2c462485da3bf13470b1a1094289a67a72a3de505b01",
+      "integration": "byte_identical_hadamard_symbols_plus_platform_import_shim",
+      "upstream_git_blob": "af4ab007a8be1a602feda5e07b899f8ad18d6a39",
+      "upstream_path": "vllm/v1/attention/backends/turboquant_attn.py",
+      "upstream_sha256": "e02d975b1e204d56247e8efd6fecf80d6b87767bb2b323243eb4441b926198de"
+    }
+  ],
+  "schema_version": "kvbench-vllm-turboquant-provenance-1.0.0"
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": "kvbench-kvquant-calibration-image-1.0.0",
+  "image_config_digest": "sha256:127759078f2c70c9e795c7a1bb3408df1eaee8fa019319299d283dc8075b216d",
+  "local_repo_digest": "kvbench-calibration-kvquant@sha256:127759078f2c70c9e795c7a1bb3408df1eaee8fa019319299d283dc8075b216d",
+  "created_at": "2026-07-28T15:53:14.99330069+08:00",
+  "platform": "linux/amd64",
+  "size_bytes": 8115399558,
+  "base_image": "kvbench-phase9p-validation@sha256:16ee632c5ac029deca5859f3da4c74f9e5e55f5080c10745a59653e95d8e5b44",
+  "base_image_config_digest": "sha256:16ee632c5ac029deca5859f3da4c74f9e5e55f5080c10745a59653e95d8e5b44",
+  "dockerfile": {
+    "path": "docker/calibration-kvquant.Dockerfile",
+    "sha256": "e3ac0933c21c986bed2ca169c8983f6d1e6412e02bed42a282f9c604fd9c4de5"
+  },
+  "additive_requirements": {
+    "path": "docker/calibration-kvquant.requirements.txt",
+    "sha256": "81f9296aa5f45be809e94062013a19517d1d01aa6888ad4f59992672b99a70a1",
+    "require_hashes": true,
+    "no_dependencies": true
+  },
+  "python_freeze": {
+    "path": "docker/calibration-kvquant.python-freeze.txt",
+    "sha256": "950f28e3513f03e693b4dd87018ced302f4c201754e791bcdef65976c737eb7a"
+  },
+  "runtime": {
+    "python": "3.12.3",
+    "pytorch": "2.12.1+cu130",
+    "cuda_userspace": "13.0.2",
+    "nvcc": "13.0.88",
+    "gcc": "13.3.0",
+    "transformers": "4.57.6",
+    "accelerate": "1.10.1",
+    "datasets": "5.0.0",
+    "numpy": "2.5.1",
+    "scipy": "1.16.1",
+    "scikit_learn": "1.7.1",
+    "pyarrow": "25.0.0",
+    "pandas": "3.0.5"
+  },
+  "build": {
+    "successful_command": "env DOCKER_BUILDKIT=0 docker build --pull=false --file docker/calibration-kvquant.Dockerfile --tag kvbench-calibration-kvquant:phase9 .",
+    "attempts": [
+      {
+        "status": "FAILED_BEFORE_INSTALL",
+        "builder": "buildkit",
+        "base_reference": "kvbench-phase9p-validation@sha256:16ee632c5ac029deca5859f3da4c74f9e5e55f5080c10745a59653e95d8e5b44",
+        "reason": "BuildKit attempted unauthorized Docker Hub resolution of a local-only image."
+      },
+      {
+        "status": "FAILED_BEFORE_INSTALL",
+        "builder": "buildkit",
+        "base_reference": "sha256:16ee632c5ac029deca5859f3da4c74f9e5e55f5080c10745a59653e95d8e5b44",
+        "reason": "BuildKit again treated the local image config digest as a remote library reference."
+      },
+      {
+        "status": "PASS",
+        "builder": "docker-legacy-local-image",
+        "base_reference": "sha256:16ee632c5ac029deca5859f3da4c74f9e5e55f5080c10745a59653e95d8e5b44"
+      }
+    ]
+  },
+  "smoke": {
+    "cuda_visible": true,
+    "gpu": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition",
+    "patched_source_import": "PASS",
+    "pre_rope_hook_available": true,
+    "exact_config_tokenizer_load": "PASS",
+    "exact_bf16_model_load": "PASS",
+    "one_layer_fisher": "PASS",
+    "small_nuq_quantizer": "PASS",
+    "unittest_count": 4
+  },
+  "contents": {
+    "patched_source": false,
+    "model_weights": false,
+    "model_cache": false,
+    "dataset_cache": false,
+    "calibration_outputs": false,
+    "credentials": false
+  },
+  "public_image_publication": false,
+  "performance_measurement": false,
+  "quality_evaluation": false
+}

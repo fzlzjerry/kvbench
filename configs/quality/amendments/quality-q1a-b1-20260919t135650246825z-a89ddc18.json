@@ -1,0 +1,54 @@
+{
+  "schema_version": "kvbench-quality-contract-amendment-1.0.0",
+  "amendment_id": "quality-q1a-b1-20260919t135650246825z-a89ddc18",
+  "created_at_utc": "2026-09-19T13:56:50.246825Z",
+  "chronology": "specified after Q0 cross-batch failures and bounded BF16 diagnosis, before Fast PPL or LongBench benchmark scores",
+  "base_contract": {
+    "contract_id": "quality-qp1-20260918t170812117127z-170b638c-e8f4a2",
+    "contract_sha256": "b4d6cb35b0b455ca19680a0a39a12016369b667f8e53e2b07525766a05ecedd1",
+    "bundle_root": "6c24d464a8f7e9fa1b33f7bece2246d776c26045642ab00ed0df7b8f83200b62"
+  },
+  "motivation_evidence": {
+    "original_q0_root": "2bde5bf4a95becb0b6cbe752c7987355128c412709abd107b89979b21c6a48e0",
+    "batch_diagnosis_root": "eedee1596bb36692da8557fc001c45593f50f930e62c27227a7151ab6aa88ba6"
+  },
+  "scope": {
+    "original_cross_batch_gate": "failed",
+    "quality_evaluated_batch_sizes": [
+      1
+    ],
+    "quality_transfer_to_other_batches": "not_established",
+    "amendment_reason": "scope_restriction_after_Q0_batch_failure",
+    "quality_status": "unvalidated"
+  },
+  "authorized_changes": {
+    "formal_quality_inference_physical_batch_size": 1,
+    "cross_batch_gate_prerequisite_for_b1_track": false,
+    "b1_fast_ppl_permitted_for_existing_b1_q0_eligible_configurations": true,
+    "same_rule_for_all_ten_configurations": true
+  },
+  "preserved_requirements": {
+    "original_contract_bytes_and_sha": true,
+    "original_cross_batch_failure_results": true,
+    "cross_batch_tolerances": true,
+    "b1_numerical_correctness": true,
+    "source_and_reference_fidelity": true,
+    "finite_outputs_and_state_progression": true,
+    "compressed_cache_dependence": true,
+    "prompt_and_scoring_alignment": true,
+    "same_batch_execution_mode_consistency": true,
+    "datasets_sample_ids_tokenization_and_masks": true,
+    "ppl_margins_and_statistics": true,
+    "stage_order_and_finalist_policy": true,
+    "method_fingerprints_and_runtime_precision": true
+  },
+  "explicit_non_authorizations": [
+    "cross_batch_gate_waiver_or_pass",
+    "quality_transfer_to_batches_2_4_8_16",
+    "full_ppl",
+    "longbench_scoring",
+    "batch_invariant_runtime_work",
+    "protected_runtime_or_kernel_changes",
+    "performance_reruns_or_performance_data_changes"
+  ]
+}

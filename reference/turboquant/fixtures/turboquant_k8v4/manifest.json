@@ -1,0 +1,232 @@
+{
+  "claims": {
+    "comparative_latency": false,
+    "performance": false,
+    "quality": false
+  },
+  "configuration": {
+    "boundary_policy": {
+      "dense": "skip first two and last two layers",
+      "hybrid": "no boundary skips"
+    },
+    "cache_dtype": "turboquant_k8v4",
+    "graph_support_declaration": "AttentionCGSupport.UNIFORM_BATCH",
+    "key_bits": 8,
+    "key_quantization": "fp8_e4m3",
+    "metadata_precision": "fp16",
+    "norm_correction": false,
+    "phase5_role": "optional",
+    "supported_block_sizes": [
+      16,
+      32,
+      64,
+      128
+    ],
+    "supported_head_dimensions": {
+      "backend": "any_positive",
+      "upstream_tests": [
+        64,
+        96,
+        128,
+        256
+      ]
+    },
+    "supported_input_dtypes": [
+      "float16",
+      "bfloat16"
+    ],
+    "value_bits": 4,
+    "value_quantization": "per_vector_uniform"
+  },
+  "environment": {
+    "linux_amd64_container_digest": "sha256:f0b9a0dc75a9fca3b6811e3279367b2d6a448055a000bfd13859587d74cef268",
+    "manifest_sha256": "b8a44c6769a17eb3c1de6e3ce129563bca2d338a7702b94e9256d443b89fcdb4",
+    "runtime": {
+      "compute_capability": "12.0",
+      "cuda_runtime": "13.0",
+      "cuda_toolkit_package": "13.0.2",
+      "driver": "595.71.05",
+      "gpu": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition",
+      "python": "3.12.3",
+      "torch": "2.11.0+cu130",
+      "triton": "3.6.0",
+      "vllm": "0.25.1"
+    }
+  },
+  "fixture_id": "vllm-v0.25.1-sm120-gqa-d128-l17-a1-seed20260724-turboquant_k8v4",
+  "geometry": {
+    "append_tokens": 1,
+    "batch_size": 1,
+    "block_size": 16,
+    "head_dim": 128,
+    "initial_context": 17,
+    "input_dtype": "bfloat16",
+    "max_num_kv_splits": 4,
+    "num_blocks": 2,
+    "num_kv_heads": 8,
+    "num_query_heads": 32,
+    "seed": 20260724,
+    "total_context": 18
+  },
+  "graph": {
+    "phase6_validation_deferred": true,
+    "reason": "A direct capture would require a separate graph harness beyond this reference fixture lane.",
+    "reference_graph_smoke": "not_exercised_minimal_direct_api",
+    "upstream_declaration": "AttentionCGSupport.UNIFORM_BATCH"
+  },
+  "inputs": {
+    "append_key": {
+      "dtype": "bfloat16",
+      "nbytes": 2048,
+      "path": "inputs/append_key.bf16.bin",
+      "sha256": "8fc4f43caf1b9340449fe210a898c6286a1f5084edcd16a57cdb664d4671e984",
+      "shape": [
+        1,
+        8,
+        128
+      ]
+    },
+    "append_value": {
+      "dtype": "bfloat16",
+      "nbytes": 2048,
+      "path": "inputs/append_value.bf16.bin",
+      "sha256": "2c6e62a917106eb96d957daab3679b14c40575fb9feae7a8360b9e4fd15b0a30",
+      "shape": [
+        1,
+        8,
+        128
+      ]
+    },
+    "decode_query": {
+      "dtype": "bfloat16",
+      "nbytes": 8192,
+      "path": "inputs/decode_query.bf16.bin",
+      "sha256": "55d8a35c7743d2888dab6041d1a5a2ac6b51cd63290fc76de61b792163e96577",
+      "shape": [
+        1,
+        32,
+        128
+      ]
+    },
+    "prefill_key": {
+      "dtype": "bfloat16",
+      "nbytes": 34816,
+      "path": "inputs/prefill_key.bf16.bin",
+      "sha256": "ae4bb4a4c578f8695e89527bc2e004b870acad87efbba8e95a26a5ae15e7da8f",
+      "shape": [
+        17,
+        8,
+        128
+      ]
+    },
+    "prefill_value": {
+      "dtype": "bfloat16",
+      "nbytes": 34816,
+      "path": "inputs/prefill_value.bf16.bin",
+      "sha256": "4280ddbb91a20b1d1ce48f34d4d143fb7fba31391249fc1561d4b6cd4bc89858",
+      "shape": [
+        17,
+        8,
+        128
+      ]
+    }
+  },
+  "layout": {
+    "allocated_cache_bytes": 50176,
+    "byte_breakdown_per_head_token": {
+      "alignment_padding": 0,
+      "key_norm": 0,
+      "packed_keys": 128,
+      "packed_values": 64,
+      "value_scale": 2,
+      "value_zero_point": 2
+    },
+    "key_packed_size": 128,
+    "offsets": {
+      "aligned_slot_end": 196,
+      "key_norm_start": null,
+      "packed_key_start": 0,
+      "packed_value_start": 128,
+      "slot_end": 196,
+      "value_scale_start": 192,
+      "value_zero_point_start": 194
+    },
+    "owned_cache_bytes_after_append": 28224,
+    "owned_cache_bytes_after_store": 26656,
+    "page_bytes": 25088,
+    "slot_size": 196,
+    "slot_size_aligned": 196,
+    "storage_shape": [
+      2,
+      16,
+      8,
+      196
+    ],
+    "value_packed_size": 68
+  },
+  "operations": {
+    "append": "vllm.v1.attention.ops.triton_turboquant_store.triton_turboquant_store",
+    "decode": "vllm.v1.attention.ops.triton_turboquant_decode.triton_turboquant_decode_attention",
+    "local_algorithm_reimplementation": false,
+    "store": "vllm.v1.attention.ops.triton_turboquant_store.triton_turboquant_store"
+  },
+  "outputs": {
+    "append_slot": {
+      "dtype": "uint8",
+      "nbytes": 1568,
+      "path": "append_slot.uint8.bin",
+      "sha256": "6f2c818d371db4c127700ce87eee4cf269c2b94abff805ca9decd6d23d22ed07",
+      "shape": [
+        8,
+        196
+      ]
+    },
+    "cache_after_append": {
+      "dtype": "uint8",
+      "nbytes": 50176,
+      "path": "cache_after_append.uint8.bin",
+      "sha256": "6748f464c3a66f22b5920a9d68796336a4a3891f489ddab418821f944c7c75ab",
+      "shape": [
+        2,
+        16,
+        8,
+        196
+      ]
+    },
+    "cache_after_store": {
+      "dtype": "uint8",
+      "nbytes": 50176,
+      "path": "cache_after_store.uint8.bin",
+      "sha256": "19aac620bedc82dbf8cded7f8791ecb2ce1fb987a25acd0585946664082edf3b",
+      "shape": [
+        2,
+        16,
+        8,
+        196
+      ]
+    },
+    "decode_output": {
+      "dtype": "bfloat16",
+      "nbytes": 8192,
+      "path": "decode_output.bf16.bin",
+      "sha256": "109f050e4c6a80dadeb8a7f6f829af2b458c7c6ebf0ad32ae63d7663599c62cc",
+      "shape": [
+        1,
+        32,
+        128
+      ]
+    },
+    "kernel_trace": {
+      "nbytes": 792,
+      "path": "kernel_trace.json",
+      "sha256": "ad782ca0d225613cfcb9c9dd2f964cf9e8fbbd4e5b1e381425f0810881862ada"
+    }
+  },
+  "schema_version": "turboquant-reference-fixture-1.0.0",
+  "source": {
+    "commit": "752a3a504485790a2e8491cacbb35c137339ad34",
+    "manifest_sha256": "2817315b99eac1388973fd59b9cf73f795fd81172496ef066efefeda5e2235da",
+    "repository": "https://github.com/vllm-project/vllm.git",
+    "tree": "3ec7a4eb00f9bc8fec399bea6cf7de27a7936372"
+  }
+}

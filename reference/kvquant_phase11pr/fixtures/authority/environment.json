@@ -1,0 +1,10 @@
+{
+  "calibration_mount": "read_only",
+  "credentials_in_container": false,
+  "cuda_validation_container": "sha256:059bc9be89387369d7de9e3e9b26d85b6e9902c41e7dbf002ebc45edd188fb7e",
+  "fixture_generation_image": "sha256:24eb3f6ff39b72f45c353acfbef6ce2d9aaac0860180b4dde8b937593176714b",
+  "network": "disabled",
+  "schema_version": "kvbench-phase11pr-environment-1.0.0",
+  "source_mount": "read_only",
+  "status": "PASS"
+}

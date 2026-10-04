@@ -1,0 +1,22 @@
+{
+  "append_kernels": [
+    "_tq_fused_store_fp8"
+  ],
+  "backend_fallback": false,
+  "decode_kernels": [
+    "_fwd_kernel_stage2",
+    "_tq_decode_stage1"
+  ],
+  "full_prefix_dequantization_observed": false,
+  "gqa_materialization_observed": false,
+  "gqa_source_path": "_tq_decode_stage1 maps query head to kv_head by integer group division",
+  "performance_claim_eligible": false,
+  "run_kind": "reference_trace",
+  "schema_version": "turboquant-reference-trace-1.0.0",
+  "store_kernels": [
+    "_tq_fused_store_fp8"
+  ],
+  "timings_discarded": true,
+  "trace_limitation": "Kernel-name tracing identifies executed CUDA kernels but is not a proof of physical memory traffic and retains no timing fields.",
+  "trace_mechanism": "torch.profiler CUDA activities; kernel names retained only"
+}

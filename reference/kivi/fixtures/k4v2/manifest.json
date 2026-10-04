@@ -1,0 +1,19 @@
+{
+  "extension_sha256": "45d29ec1a3cecc4b253d1d1dd6139ef4f91cff88993db61a9d73685314851aa9",
+  "fixture": {
+    "nbytes": 1586218,
+    "path": "fixture.json",
+    "sha256": "edc668ae463d9a019aa12223c5d78ce3562ba3a4748d9bf2d4eabbb051c45117"
+  },
+  "image_config_digest": "sha256:0915dc8488fd6c9a150a3b4f56bb4b97b5dbdb7c51d96cda2d431df20e856ce3",
+  "patched_tree": "b617493dea5aff1a754cd27ad6be12ac512b2aee",
+  "performance_measurement": false,
+  "schema_version": "kivi-reference-fixture-manifest-1.0.0",
+  "source_commit": "876b4d2d08e3b1d5f70d0969c299d8c7c42ddfb6",
+  "variant": {
+    "id": "k4v2",
+    "k_bits": 4,
+    "role": "held_out_asymmetry_control",
+    "v_bits": 2
+  }
+}

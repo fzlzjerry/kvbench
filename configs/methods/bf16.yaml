@@ -1,0 +1,47 @@
+{
+  "schema_version": "kvbench.method.v1",
+  "document_type": "method",
+  "method_config_id": "bf16",
+  "method": "bf16",
+  "resolution": {
+    "schema_version": "kvbench.resolution.v1",
+    "status": "blocked",
+    "blockers": [
+      "B-010",
+      "E02"
+    ],
+    "reason": "The exact BF16 implementation is frozen for the narrow native-host Phase 3 admission lane, but formal E02 closure remains blocked by B-010 and the G1 result."
+  },
+  "source_lock_id": null,
+  "source_revision": null,
+  "authority_status": "project_baseline",
+  "implementation": {
+    "resolution": {
+      "schema_version": "kvbench.resolution.v1",
+      "status": "resolved",
+      "blockers": [],
+      "reason": null
+    },
+    "attention_backend": "pytorch_2.12.1_flash_sdpa_fa2_2.5.7_forced_gqa",
+    "cache_layout": "two_contiguous_bf16_layers_batch_kv_heads_context_head_dim_tensors",
+    "adapter_source_sha256": "0d185b132987627abe0272a4e66f14202ac5a06c832fe0cc59050c9d7a403313",
+    "kernel_binary_sha256": "b248fb7e9935440965e4736eea48868b315ba41012734b7ce058fc0a2d0b1984",
+    "graph_support": "cuda_graph"
+  },
+  "variants": [
+    {
+      "variant_id": "bf16",
+      "role": "baseline",
+      "resolution": {
+        "schema_version": "kvbench.resolution.v1",
+        "status": "resolved",
+        "blockers": [],
+        "reason": null
+      },
+      "parameters": {
+        "parameter_type": "bf16",
+        "cache_dtype": "bfloat16"
+      }
+    }
+  ]
+}
