@@ -515,6 +515,9 @@ CHECKS = {
     # name: (task, configuration, variant, extra args, sanitizer kernel filter)
     "t1-greedy-s4": ("task1", "tq_k3v4_nc", {}, [], None),
     "t1-greedy-s32": ("task1", "tq_k3v4_nc", {"tq_splits": 32}, [], None),
+    # Supplementary context, not preregistered: BF16 on the same probe, to place the
+    # split-4 vs split-32 difference next to the quantization difference.
+    "t1-greedy-bf16": ("task1", "bf16", {}, [], None),
     "t1-sanitizer-s32": ("task1", "tq_k3v4_nc", {"tq_splits": 32},
                          ["--prefix-tokens", "512", "--steps", "4"], "regex=_tq_decode_stage1|_fwd_kernel_stage2"),
     "t1-sanitizer-s32-all": ("task1", "tq_k3v4_nc", {"tq_splits": 32},
