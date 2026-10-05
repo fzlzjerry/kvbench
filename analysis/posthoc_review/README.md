@@ -19,6 +19,7 @@ checksums.sha256, COMPLETE) that `scripts/r2_artifact.py` publishes unchanged.
 | `partB_analysis.py` | host, `.phase17-venv` | Part B analysis of the sealed GPU raw artifact (split diagnostic, traffic-model check) |
 | `partC_exclusion_record.py` | host, `.phase17-venv` | KVQuant quality exclusion record (AGENTS.md #12) |
 | `partD_final_analyses.py` | host, `.phase17-venv` | final revision: cache-only ceiling S_cache and the KIVI-k4v4 fixed-cost kernel breakdown (imports `partA_analysis.py` unchanged) |
+| `partE_kivi_adjusted.py` | host, `.phase17-venv` | final revision: KIVI S_adj with the fixed-cost excess removed (sealed Part A fits only, no refit) |
 | `test_partB_split_override.py` | host GPU, small | mechanism test of the split override (no model) |
 | `README.md` | | this file |
 
@@ -31,11 +32,11 @@ made file by file (never `cp -a dir/. target`):
 
 ```bash
 mkdir -p analysis/posthoc_review
-for f in README.md posthoc_common.py partA_analysis.py partB_offline.py partB_worker.py partB_gpu_diagnostics.py partB_analysis.py partC_exclusion_record.py partD_final_analyses.py test_partB_split_override.py; do cp paper/posthoc/$f analysis/posthoc_review/$f; done
+for f in README.md posthoc_common.py partA_analysis.py partB_offline.py partB_worker.py partB_gpu_diagnostics.py partB_analysis.py partC_exclusion_record.py partD_final_analyses.py partE_kivi_adjusted.py test_partB_split_override.py; do cp paper/posthoc/$f analysis/posthoc_review/$f; done
 ```
 
-Rerunning the five CPU analyses on the retained roots (2026-10-05) reproduced every
-sealed data file of 3dc84c64, c347e20a, 39efeb1c, 47296f7c, and b0969338; the only difference
+Rerunning the six CPU analyses on the retained roots (2026-10-05) reproduced every
+sealed data file of 3dc84c64, c347e20a, 39efeb1c, 47296f7c, b0969338, and 1998be3e; the only difference
 was how the excluded staging directory's path was written in the Part B analysis
 exclusions (absolute in the sealed run, relative in the rerun):
 
@@ -45,6 +46,7 @@ $P analysis/posthoc_review/partA_analysis.py --parent <new_dir>
 $P analysis/posthoc_review/partB_offline.py --parent <new_dir>
 $P analysis/posthoc_review/partC_exclusion_record.py --parent <new_dir>
 $P analysis/posthoc_review/partD_final_analyses.py --parent <new_dir>
+$P analysis/posthoc_review/partE_kivi_adjusted.py --parent <new_dir>
 $P analysis/posthoc_review/partB_analysis.py artifacts/posthoc/posthoc-b-gpu-20261004t202246814451z-0641de4b-e22fff \
     --part-a paper/posthoc/artifacts/posthoc-a-20261004t143713987904z-0641de4b-ab87cf --parent <new_dir> \
     --excluded-staging artifacts/posthoc/.staging-partb-20261004t150133z=interrupted_duplicate_smoke_launch_not_used
@@ -60,6 +62,7 @@ $P analysis/posthoc_review/partB_analysis.py artifacts/posthoc/posthoc-b-gpu-202
 | `paper/posthoc/artifacts/posthoc-b-analysis-20261004t202531220352z-0641de4b-74462d` | `39efeb1c273b2637a8e8b3ca60edd1f41e476530decbe85a750bf134071092fb` | 4cdbb3ae, 3dc84c64, 5605558b, 641fc02d |
 | `paper/posthoc/artifacts/posthoc-c-exclusions-20261004t164203027878z-0641de4b-e16598` | `47296f7c98a0d0da54bb0cc3c60692ecf179ddd97743bcec89285f5126c139f7` | q1a 23d11321, joint 2d609efb |
 | `paper/posthoc/artifacts/posthoc-d-20261005t064839061781z-b0ed1058-d6fb96` | `b0969338edac1270050001419faf2ae8b4add0d4c0976cb8fb1e4bae9a7c8d4d` | 5605558b, d7458767, 641fc02d, 3dc84c64 (checked equal) |
+| `paper/posthoc/artifacts/posthoc-e-20261005t074653228884z-bbefea1c-dec6cf` | `1998be3eef24582e2e05c8c8c0015c4aac9d6b4bc3b2efd5a028ade6bd5e3db9` | 3dc84c64, 5605558b |
 
 `artifacts/posthoc/.staging-partb-20261004t150133z` is an interrupted duplicate smoke launch (its runner ended after the first job). It is retained in place, not analyzed, and recorded in the Part B analysis exclusions with reason `interrupted_duplicate_smoke_launch_not_used`.
 
