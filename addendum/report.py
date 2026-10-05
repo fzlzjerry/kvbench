@@ -58,23 +58,40 @@ def ols(xs: list[float], ys: list[float]) -> tuple[float, float]:
     return my - slope * mx, slope
 
 
+def frozen_reference() -> dict[tuple, float]:
+    path = R / "inputs" / "frozen_reference.json"
+    if not path.exists():
+        return {}
+    doc = json.loads(path.read_text())
+    return {(p["method_config_id"], p["batch_size"], p["context_label"]): p["median_ms"] for p in doc["points"]}
+
+
 def same_work_table(task: str, lines: list[str], label: str | None = None) -> list[dict[str, Any]]:
     rows = points(task)
+    frozen = frozen_reference()
     bf16 = {(r["batch_size"], r["context_label"]): r for r in rows if r["configuration"] == "bf16"}
     out = []
-    lines += ["| Configuration | Variant | B | L | T_BF16 (ms) | CV_BF16 | T_method (ms) | CV_method | S = T_BF16/T | Status |",
-              "|---|---|---|---|---|---|---|---|---|---|"]
-    for r in sorted((r for r in rows if r["configuration"] != "bf16"),
-                    key=lambda r: (r["label"], json.dumps(r["variant"]), r["batch_size"], r["context_label"])):
+    lines += ["| Configuration | Variant | B | L | T_BF16 (ms) | CV_BF16 | T_method (ms) | CV_method | S = T_BF16/T | Status | Frozen S (reference) |",
+              "|---|---|---|---|---|---|---|---|---|---|---|"]
+
+    def order(r: dict[str, Any]) -> tuple:
+        splits = r["variant"].get("tq_splits")
+        return (r["label"], splits if isinstance(splits, int) else 0, json.dumps(r["variant"]),
+                r["batch_size"], r["context_label"])
+
+    for r in sorted((r for r in rows if r["configuration"] != "bf16"), key=order):
         b = bf16.get((r["batch_size"], r["context_label"]))
         s = b["point_median_ms"] / r["point_median_ms"] if b else None
         variant = ", ".join(f"{k}={v}" for k, v in r["variant"].items()) or "existing"
         status = r["disposition"] + (" (unstable)" if r["unstable"] else "")
         if label:
             status += f"; {label}"
+        key = (r["batch_size"], r["context_label"])
+        frozen_method, frozen_bf16 = frozen.get((r["configuration"], *key)), frozen.get(("bf16", *key))
+        frozen_s = frozen_bf16 / frozen_method if frozen_method and frozen_bf16 else None
         lines.append(f"| {r['label']} | {variant} | {r['batch_size']} | {LABEL_K.get(r['context_label'], r['context_label'])} | "
                      f"{fmt(b and b['point_median_ms'])} | {fmt(b and 100 * b['cv'], 2)}% | {fmt(r['point_median_ms'])} | "
-                     f"{fmt(100 * r['cv'], 2)}% | {fmt(s)} | {status} |")
+                     f"{fmt(100 * r['cv'], 2)}% | {fmt(s)} | {status} | {fmt(frozen_s)} |")
         out.append({**r, "bf16_point_median_ms": b and b["point_median_ms"], "bf16_cv": b and b["cv"], "S": s})
     return out
 
@@ -160,7 +177,9 @@ def main() -> None:
     status_rows = []
     for task, text in (("task1", "Task 1 TurboQuant 32 splits"), ("task1-sweep", "Task 1 split sweep"),
                        ("task2", "Task 2 KIVI grouped residual (gate FAILED; diagnostic timing)"),
-                       ("task3", "Task 3 vLLM FP8 positive control"), ("task4-gate", "Task 4 synthetic-cache gate"),
+                       ("task3", "Task 3 retry, prefix caching off (stopped; incomplete attempt)"),
+                       ("task3b", "Task 3 vLLM FP8 positive control (prefix caching on)"),
+                       ("task4-gate", "Task 4 synthetic-cache gate"),
                        ("task4-bmax", "Task 4 fixed-memory throughput")):
         sessions = c.read_jsonl(R / task / "driver-sessions.jsonl")
         procs = c.read_jsonl(R / task / "processes.jsonl")
@@ -175,6 +194,8 @@ def main() -> None:
     # Task 1
     lines += ["## Task 1: TurboQuant with 32 KV splits", ""]
     data["task1"] = same_work_table("task1", lines)
+    lines += ["", "Frozen S: frozen Full Scan medians (as-ported 4 splits; existing KIVI adapter) over frozen BF16, "
+              "from inputs/frozen_reference.json; context only, never combined with addendum timings."]
     lines += ["", "Split sweep, TQ-k3v4, B = 1, 128K (same-run BF16):", ""]
     data["task1_sweep"] = same_work_table("task1-sweep", lines)
     lines += ["", "Effective cache-path bandwidth (fit T = c0 + D_cache / BW_eff over the addendum contexts at fixed B):", ""]
@@ -230,11 +251,15 @@ def main() -> None:
 
     # Task 3
     lines += ["", "## Task 3: vLLM FP8 KV-cache positive control", ""]
-    summary_path = R / "task3" / "summary.json"
+    summary_path = R / "task3b" / "summary.json"
+    lines += ["Measured as task3b (amendment Section 10): the first installation attempt reached the 3 h cap; "
+              "the retry's first pass failed at engine start (missing curand headers, fixed via CPATH); its second "
+              "pass (prefix caching off, the benchmark default) was stopped after 2 of 36 processes; task3b enables "
+              "prefix caching. vLLM numbers compare only with vLLM BF16, never with kvbench timings.", ""]
     if summary_path.exists():
         summary = json.loads(summary_path.read_text())
         data["task3"] = summary
-        manifest = json.loads((R / "task3" / "manifest.json").read_text())
+        manifest = json.loads((R / "task3b" / "manifest.json").read_text())
         lines += [f"vLLM/torch/CUDA: `{manifest.get('versions')}`; engine settings: {manifest.get('engine_settings')}.", "",
                   "| KV dtype | B | L (input_len) | Step (ms) | CV | n | Attention backend(s) | FP8 / BF16 step | BF16 / FP8 |",
                   "|---|---|---|---|---|---|---|---|---|"]
@@ -260,6 +285,19 @@ def main() -> None:
                          f"{fmt(entry['synthetic'] and entry['synthetic']['point_median_ms'])} | "
                          f"{fmt(entry.get('relative_difference') and 100 * entry['relative_difference'], 2)}% | "
                          f"{fmt(entry.get('threshold') and 100 * entry['threshold'], 2)}% | {entry['pass']} |")
+    try:
+        import feasibility
+        table = feasibility.compute()
+        data["task4_feasibility"] = table
+        lines += ["", "B_max from the steady-state formula (L = 128K):", "",
+                  "| Configuration | B | Steady-state bytes | Headroom to 89,733,904,465 B | Fits |", "|---|---|---|---|---|"]
+        for row in table["rows"]:
+            near = {"bf16": (2, 3, 4), "k4v4": (8, 9, 10)}.get(row["method_config_id"], ())
+            if row["batch_size"] in near:
+                lines.append(f"| {c.LABELS.get(row['method_config_id'])} | {row['batch_size']} | {row['steady_state_bytes']:,} | "
+                             f"{row['headroom_bytes']:,} | {row['fits_steady_state']} |")
+    except Exception as error:  # report without the table rather than fail
+        lines += ["", f"(feasibility table unavailable: {error})"]
     bmax_rows = points("task4-bmax")
     if bmax_rows:
         lines += ["", "L = 128K at B_max (steady-state formula, limit 89,733,904,465 bytes; addendum/feasibility.py). "
