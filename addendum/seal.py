@@ -69,6 +69,7 @@ def main() -> int:
         "results": copy_tree(c.RESULTS, stage / "results" / c.ADDENDUM_ID),
         "code": copy_tree(c.ADDENDUM_REPO / "addendum", stage / "code" / "addendum", {"__pycache__"}),
     }
+    (stage / "code" / c.AMENDMENT).parent.mkdir(parents=True, exist_ok=True)
     shutil.copyfile(c.ADDENDUM_REPO / c.AMENDMENT, stage / "code" / c.AMENDMENT)
     if args.launch_scripts:
         counts["launch_scripts"] = copy_tree(args.launch_scripts, stage / "code" / "launch-scripts")
