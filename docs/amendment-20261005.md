@@ -207,3 +207,10 @@ original gates or timing protocol, and any other hyperparameter change.
 - Task 3 installation: the first attempt from pypi.org (started 20:05:23 CST)
   was stopped after 60 min while downloading; the second uses the PyPI mirror
   mirrors.aliyun.com. The 3 h cap still counts from 20:05:23 CST.
+- 2026-10-05 23:12 CST: Task 3 reached its 3 h cap during installation (no
+  vLLM run; FAILURES.md, reason `cap_reached_during_environment_installation`).
+  Author decision (~23:20 CST): retry Task 3 once after the Task 4 / Task 2
+  timing chain has finished, with a new 3 h cap counted from the start of the
+  retry installation; installation with `uv` from the same mirror, never
+  during a timing run. Task 3's protocol (Section 5) is otherwise unchanged.
+  The first attempt's failure record stays.

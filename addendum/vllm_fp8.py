@@ -89,7 +89,7 @@ def log_facts(text: str) -> dict[str, Any]:
             "vllm_version_in_log": version.group(1) if version else None}
 
 
-def run(venv: Path) -> None:
+def run(venv: Path, deadline_epoch: int | None = None) -> None:
     if os.geteuid() != 0:
         raise SystemExit("run as root (model snapshot is root-only)")
     ROOT.mkdir(parents=True, exist_ok=True)
@@ -105,11 +105,13 @@ def run(venv: Path) -> None:
         manifest = {"addendum_id": c.ADDENDUM_ID, "task": TASK, "amendment": c.AMENDMENT,
                     "started_at_utc": c.utc_now(), "started_at_epoch": time.time(),
                     "cap_seconds": CAP_SECONDS, "venv": str(venv), "versions": version,
+                    "deadline_epoch": deadline_epoch or TASK3_DEADLINE_EPOCH,
                     "model_snapshot": str(SNAPSHOT), "warmup_iters": WARMUP_ITERS, "iters": ITERS,
                     "engine_settings": "vLLM defaults except --kv-cache-dtype; CUDA Graphs on (no --enforce-eager)",
                     "jobs": jobs}
         c.write_new(manifest_path, c.json_text(manifest))
-    deadline = min(manifest["started_at_epoch"] + manifest["cap_seconds"], TASK3_DEADLINE_EPOCH)
+    # The retry (amendment Section 10) passes its own deadline: retry start + 3 h.
+    deadline = manifest.get("deadline_epoch") or TASK3_DEADLINE_EPOCH
     done = {r["run_id"] for r in c.read_jsonl(ROOT / "processes.jsonl") if r["status"] == "completed"}
     env = {**os.environ, "HF_HUB_OFFLINE": "1", "TRANSFORMERS_OFFLINE": "1", "VLLM_NO_USAGE_STATS": "1",
            "DO_NOT_TRACK": "1", "CUDA_VISIBLE_DEVICES": c.GPU_UUID}
@@ -205,9 +207,10 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("action", choices=("run", "summarize", "order"))
     parser.add_argument("--venv", type=Path, default=Path("/home/rockrock/addendum-vllm-env"))
+    parser.add_argument("--deadline-epoch", type=int, default=None)
     args = parser.parse_args()
     if args.action == "run":
-        run(args.venv)
+        run(args.venv, args.deadline_epoch)
     elif args.action == "order":
         for job in job_order():
             print(job["run_id"])
