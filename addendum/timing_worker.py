@@ -36,6 +36,16 @@ def install_variant(variant: dict) -> dict | None:
         return overrides.install_tq_split_override(int(variant["tq_splits"]))
     if set(variant) == {"kivi_grouped_residual"} and variant["kivi_grouped_residual"]:
         return overrides.install_kivi_grouped_residual()
+    if (set(variant) == {"kivi_grouped_residual", "fp16_reduced_precision_reduction"}
+            and variant["kivi_grouped_residual"]):
+        # Diagnostic option: cuBLAS FP16 reduction mode for the residual bmm calls
+        # (the only FP16 cuBLAS calls in KIVI decode; the model runs in BF16).
+        import torch
+        torch.backends.cuda.matmul.allow_fp16_reduced_precision_reduction = bool(
+            variant["fp16_reduced_precision_reduction"])
+        state = overrides.install_kivi_grouped_residual()
+        state["allow_fp16_reduced_precision_reduction"] = bool(variant["fp16_reduced_precision_reduction"])
+        return state
     raise RuntimeError(f"unknown variant {variant}")
 
 

@@ -532,6 +532,13 @@ CHECKS = {
     "t2-greedy-k4v4-grouped": ("task2", "k4v4", {"kivi_grouped_residual": True}, [], None),
     "t2-greedy-k2v2-orig": ("task2", "k2v2", {}, [], None),
     "t2-greedy-k2v2-grouped": ("task2", "k2v2", {"kivi_grouped_residual": True}, [], None),
+    # Gate-failure diagnostics (not preregistered): determinism of the existing
+    # adapter, and the grouped adapter with FP16 reduced-precision reduction off.
+    "t2-greedy-k4v4-orig-repeat": ("task2", "k4v4", {}, [], None),
+    "t2-greedy-k4v4-grouped-norrr": ("task2", "k4v4", {"kivi_grouped_residual": True,
+                                                       "fp16_reduced_precision_reduction": False}, [], None),
+    "t2-greedy-k2v2-grouped-norrr": ("task2", "k2v2", {"kivi_grouped_residual": True,
+                                                       "fp16_reduced_precision_reduction": False}, [], None),
     "t2-sanitizer-k4v4-grouped": ("task2", "k4v4", {"kivi_grouped_residual": True},
                                   ["--prefix-tokens", "128", "--steps", "40"], "all"),
     "t2-sanitizer-k2v2-grouped": ("task2", "k2v2", {"kivi_grouped_residual": True},
