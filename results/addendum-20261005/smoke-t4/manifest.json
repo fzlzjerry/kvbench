@@ -1,0 +1,75 @@
+{
+  "addendum_git_sha_at_start": "6d7ce8bade7525d708105c5cdf176025711c08d4",
+  "addendum_id": "addendum-20261005",
+  "amendment": "docs/amendment-20261005.md",
+  "cap_seconds": 3600,
+  "jobs": [
+    {
+      "batch_size": 1,
+      "block": "k4v4-synthetic",
+      "configuration": "k4v4",
+      "context_label": 4096,
+      "extra_args": [],
+      "order_index": 0,
+      "predicted_seconds": 90,
+      "round": 0,
+      "run_id": "smoke-t4-r0-o000-k4v4-synthetic-b1-l4096",
+      "seed": 2026100900,
+      "task": "smoke-t4",
+      "variant": {},
+      "worker": "synthetic_worker.py"
+    },
+    {
+      "batch_size": 9,
+      "block": "k4v4-synthetic-b9",
+      "configuration": "k4v4",
+      "context_label": 4096,
+      "extra_args": [
+        "--unadmitted-batch-bypass"
+      ],
+      "order_index": 1,
+      "predicted_seconds": 900,
+      "round": 0,
+      "run_id": "smoke-t4-r0-o001-k4v4-synthetic-b9-b9-l4096",
+      "seed": 2026100900,
+      "task": "smoke-t4",
+      "variant": {},
+      "worker": "synthetic_worker.py"
+    },
+    {
+      "batch_size": 1,
+      "block": "bf16-synthetic",
+      "configuration": "bf16",
+      "context_label": 4096,
+      "extra_args": [],
+      "order_index": 2,
+      "predicted_seconds": 40,
+      "round": 0,
+      "run_id": "smoke-t4-r0-o002-bf16-synthetic-b1-l4096",
+      "seed": 2026100900,
+      "task": "smoke-t4",
+      "variant": {},
+      "worker": "synthetic_worker.py"
+    },
+    {
+      "batch_size": 3,
+      "block": "bf16-synthetic-b3",
+      "configuration": "bf16",
+      "context_label": 4096,
+      "extra_args": [
+        "--unadmitted-batch-bypass"
+      ],
+      "order_index": 3,
+      "predicted_seconds": 900,
+      "round": 0,
+      "run_id": "smoke-t4-r0-o003-bf16-synthetic-b3-b3-l4096",
+      "seed": 2026100900,
+      "task": "smoke-t4",
+      "variant": {},
+      "worker": "synthetic_worker.py"
+    }
+  ],
+  "started_at_epoch": 1791205653.4905012,
+  "started_at_utc": "2026-10-05T13:07:33.490486Z",
+  "task": "smoke-t4"
+}

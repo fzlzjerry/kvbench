@@ -1,0 +1,12 @@
+{
+  "attempt": 0,
+  "failed_checks": [],
+  "finished_at_utc": "2026-10-05T16:17:42.604165Z",
+  "gpu_apps_after": "",
+  "host_wall_process_median_ms": 43.282019734375,
+  "run_id": "task4-bmax-r2-o000-bf16-synthetic-bmax-b3-l131072",
+  "started_at_utc": "2026-10-05T16:16:28.291426Z",
+  "status": "completed",
+  "wall_seconds_including_setup": 74.26693600811996,
+  "worker_result_sha256": "287501d2af82fcfbbb9367a141541b9e88e447792c3cf4ff44c510d6eaada7a6"
+}

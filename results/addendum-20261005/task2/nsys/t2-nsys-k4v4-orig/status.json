@@ -1,0 +1,14 @@
+{
+  "batch_size": 1,
+  "configuration": "k4v4",
+  "context_label": 4096,
+  "docker_returncode": 0,
+  "finished_at_utc": "2026-10-05T13:14:04.760354Z",
+  "nsys": "t2-nsys-k4v4-orig",
+  "profiler_duration_is_normal_timing": false,
+  "replays": 8,
+  "started_at_utc": "2026-10-05T13:11:40.259533Z",
+  "status": "completed",
+  "task": "task2",
+  "variant": {}
+}

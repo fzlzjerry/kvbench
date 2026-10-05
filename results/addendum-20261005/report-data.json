@@ -1,0 +1,3030 @@
+{
+  "generated_at_utc": "2026-10-05T21:39:10.054052Z",
+  "task1": [
+    {
+      "S": 0.6014760100936192,
+      "addendum_git_sha": "99bf51409c6997d6f1c5de18c820ab0eb46691a4",
+      "addendum_id": "addendum-20261005",
+      "batch_size": 1,
+      "bf16_cv": 8.939619614490141e-05,
+      "bf16_point_median_ms": 14.09751141796875,
+      "configuration": "tq_3bit_nc",
+      "container_digest": "sha256:059bc9be89387369d7de9e3e9b26d85b6e9902c41e7dbf002ebc45edd188fb7e",
+      "context_label": 32768,
+      "cv": 0.0008631615868845453,
+      "disposition": "stable",
+      "execution_git_sha": "ec534d9958d5616eef981c628b87a92c7c809872",
+      "failed_checks": [],
+      "label": "TQ-3bit",
+      "latency_basis": "host_wall",
+      "n_processes": 3,
+      "point_median_ms": 23.43819401171875,
+      "process_medians_ms": [
+        23.40398234375,
+        23.43976719140625,
+        23.43819401171875
+      ],
+      "run_ids": [
+        "task1-r0-o007-tq_3bit_nc-s32-b1-l32768",
+        "task1-r1-o011-tq_3bit_nc-s32-b1-l32768",
+        "task1-r2-o010-tq_3bit_nc-s32-b1-l32768"
+      ],
+      "task": "task1",
+      "unstable": false,
+      "variant": {
+        "tq_splits": 32
+      },
+      "worker_result_sha256": [
+        "486ef4a40189cb9ffe8a31a6739a046d8bf68b56e2f9c2de3b1a45cfc24fcb0f",
+        "1ac19ebc015188f04bc748d0c6c4f42f98236f2aa365508d84450e37251d2a39",
+        "8c3dcce4f2b9ea78abaf38df4abbdcd0375075f9959768bc8e58ca2f5e979b11"
+      ],
+      "written_at_utc": "2026-10-05T11:33:21.313884Z"
+    },
+    {
+      "S": 0.38458327118853547,
+      "addendum_git_sha": "99bf51409c6997d6f1c5de18c820ab0eb46691a4",
+      "addendum_id": "addendum-20261005",
+      "batch_size": 1,
+      "bf16_cv": 8.746865270225398e-05,
+      "bf16_point_median_ms": 22.26092378515625,
+      "configuration": "tq_3bit_nc",
+      "container_digest": "sha256:059bc9be89387369d7de9e3e9b26d85b6e9902c41e7dbf002ebc45edd188fb7e",
+      "context_label": 131072,
+      "cv": 0.00025396396407528034,
+      "disposition": "stable",
+      "execution_git_sha": "ec534d9958d5616eef981c628b87a92c7c809872",
+      "failed_checks": [],
+      "label": "TQ-3bit",
+      "latency_basis": "host_wall",
+      "n_processes": 3,
+      "point_median_ms": 57.883234796875,
+      "process_medians_ms": [
+        57.863712296875,
+        57.883234796875,
+        57.89250956640625
+      ],
+      "run_ids": [
+        "task1-r0-o006-tq_3bit_nc-s32-b1-l131072",
+        "task1-r1-o010-tq_3bit_nc-s32-b1-l131072",
+        "task1-r2-o011-tq_3bit_nc-s32-b1-l131072"
+      ],
+      "task": "task1",
+      "unstable": false,
+      "variant": {
+        "tq_splits": 32
+      },
+      "worker_result_sha256": [
+        "75e802a737b40cc0f249a52bdbe428e9789962fb523aae7c93aee2c7050227e3",
+        "faaaafda2bed923ddabdff2c49d3f4418ecf417a8c632796e9027a772bd081db",
+        "7f77c2e9c98f3a595c10c820b37432ecace91bb351d843e20b80fd85c78deb1f"
+      ],
+      "written_at_utc": "2026-10-05T11:35:18.098804Z"
+    },
+    {
+      "S": 0.5091178756489162,
+      "addendum_git_sha": "99bf51409c6997d6f1c5de18c820ab0eb46691a4",
+      "addendum_id": "addendum-20261005",
+      "batch_size": 8,
+      "bf16_cv": 2.7085260516612588e-05,
+      "bf16_point_median_ms": 32.6279851875,
+      "configuration": "tq_3bit_nc",
+      "container_digest": "sha256:059bc9be89387369d7de9e3e9b26d85b6e9902c41e7dbf002ebc45edd188fb7e",
+      "context_label": 32768,
+      "cv": 0.003348032346432716,
+      "disposition": "stable",
+      "execution_git_sha": "ec534d9958d5616eef981c628b87a92c7c809872",
+      "failed_checks": [],
+      "label": "TQ-3bit",
+      "latency_basis": "host_wall",
+      "n_processes": 3,
+      "point_median_ms": 64.087290484375,
+      "process_medians_ms": [
+        63.98305891015625,
+        64.087290484375,
+        64.3960930078125
+      ],
+      "run_ids": [
+        "task1-r0-o008-tq_3bit_nc-s32-b8-l32768",
+        "task1-r1-o009-tq_3bit_nc-s32-b8-l32768",
+        "task1-r2-o009-tq_3bit_nc-s32-b8-l32768"
+      ],
+      "task": "task1",
+      "unstable": false,
+      "variant": {
+        "tq_splits": 32
+      },
+      "worker_result_sha256": [
+        "1dba6985a94a225b3397cb9c8c4c82b4cac63f3d89d034c8a5178ceb5fa88aac",
+        "42e81e7967bbef9a4fb6ececa9484de8da242d75f941c254d91a0360fe0a4809",
+        "5b99b7238aa4d4bf6f5b3b00262aa45c44bf31c2e46526476ff954f9e2dc5fda"
+      ],
+      "written_at_utc": "2026-10-05T11:32:29.666541Z"
+    },
+    {
+      "S": 0.541732466491018,
+      "addendum_git_sha": "99bf51409c6997d6f1c5de18c820ab0eb46691a4",
+      "addendum_id": "addendum-20261005",
+      "batch_size": 1,
+      "bf16_cv": 8.939619614490141e-05,
+      "bf16_point_median_ms": 14.09751141796875,
+      "configuration": "tq_4bit_nc",
+      "container_digest": "sha256:059bc9be89387369d7de9e3e9b26d85b6e9902c41e7dbf002ebc45edd188fb7e",
+      "context_label": 32768,
+      "cv": 0.0009715290104164051,
+      "disposition": "stable",
+      "execution_git_sha": "ec534d9958d5616eef981c628b87a92c7c809872",
+      "failed_checks": [],
+      "label": "TQ-4bit",
+      "latency_basis": "host_wall",
+      "n_processes": 3,
+      "point_median_ms": 26.02301373828125,
+      "process_medians_ms": [
+        25.979416984375,
+        26.02301373828125,
+        26.02334957421875
+      ],
+      "run_ids": [
+        "task1-r0-o000-tq_4bit_nc-s32-b1-l32768",
+        "task1-r1-o002-tq_4bit_nc-s32-b1-l32768",
+        "task1-r2-o002-tq_4bit_nc-s32-b1-l32768"
+      ],
+      "task": "task1",
+      "unstable": false,
+      "variant": {
+        "tq_splits": 32
+      },
+      "worker_result_sha256": [
+        "f41269cb04e003b14334f2b4b4e6ec2b6ae1c18a549bfb716214131fcfc49c2a",
+        "b0beb578c1891971b86d51675e8a59ca599b2308bbfc2545e58a13ea76c73f32",
+        "0415909d31e171e0b859bf2c1909eafebb27ebea5cfb4c66f3e87053149b2471"
+      ],
+      "written_at_utc": "2026-10-05T11:23:15.905997Z"
+    },
+    {
+      "S": 0.32640638379899956,
+      "addendum_git_sha": "99bf51409c6997d6f1c5de18c820ab0eb46691a4",
+      "addendum_id": "addendum-20261005",
+      "batch_size": 1,
+      "bf16_cv": 8.746865270225398e-05,
+      "bf16_point_median_ms": 22.26092378515625,
+      "configuration": "tq_4bit_nc",
+      "container_digest": "sha256:059bc9be89387369d7de9e3e9b26d85b6e9902c41e7dbf002ebc45edd188fb7e",
+      "context_label": 131072,
+      "cv": 0.00068575985398433,
+      "disposition": "stable",
+      "execution_git_sha": "ec534d9958d5616eef981c628b87a92c7c809872",
+      "failed_checks": [],
+      "label": "TQ-4bit",
+      "latency_basis": "host_wall",
+      "n_processes": 3,
+      "point_median_ms": 68.200025765625,
+      "process_medians_ms": [
+        68.11926042578125,
+        68.200025765625,
+        68.20044187109374
+      ],
+      "run_ids": [
+        "task1-r0-o002-tq_4bit_nc-s32-b1-l131072",
+        "task1-r1-o001-tq_4bit_nc-s32-b1-l131072",
+        "task1-r2-o001-tq_4bit_nc-s32-b1-l131072"
+      ],
+      "task": "task1",
+      "unstable": false,
+      "variant": {
+        "tq_splits": 32
+      },
+      "worker_result_sha256": [
+        "ec774d00e4c2e415bac14f1adebd1da1c6b8cac81c339096b5c96fc7ed64f87e",
+        "aa62536827681356e66ac8b04eb77a31a7c65b2743595ba61433f52753cdd33f",
+        "490be054cbdaa2fd4ad0b0218c375463c860785d737d62b600ca4b6fd260e2f8"
+      ],
+      "written_at_utc": "2026-10-05T11:22:20.699584Z"
+    },
+    {
+      "S": 0.5746870125912782,
+      "addendum_git_sha": "99bf51409c6997d6f1c5de18c820ab0eb46691a4",
+      "addendum_id": "addendum-20261005",
+      "batch_size": 8,
+      "bf16_cv": 2.7085260516612588e-05,
+      "bf16_point_median_ms": 32.6279851875,
+      "configuration": "tq_4bit_nc",
+      "container_digest": "sha256:059bc9be89387369d7de9e3e9b26d85b6e9902c41e7dbf002ebc45edd188fb7e",
+      "context_label": 32768,
+      "cv": 0.008992680285845338,
+      "disposition": "stable",
+      "execution_git_sha": "ec534d9958d5616eef981c628b87a92c7c809872",
+      "failed_checks": [],
+      "label": "TQ-4bit",
+      "latency_basis": "host_wall",
+      "n_processes": 3,
+      "point_median_ms": 56.77522629296875,
+      "process_medians_ms": [
+        55.9455534296875,
+        56.86932134765625,
+        56.77522629296875
+      ],
+      "run_ids": [
+        "task1-r0-o001-tq_4bit_nc-s32-b8-l32768",
+        "task1-r1-o000-tq_4bit_nc-s32-b8-l32768",
+        "task1-r2-o000-tq_4bit_nc-s32-b8-l32768"
+      ],
+      "task": "task1",
+      "unstable": false,
+      "variant": {
+        "tq_splits": 32
+      },
+      "worker_result_sha256": [
+        "9e112c499a2a86d1fc5736841875ab8a184ef1469b565059da9ea82eef5b780c",
+        "cead6f09aa10f20374aeebcfe2051c4483f974e3835ab6ecb2bc6ef8d670ecab",
+        "04152fda024f1a30333ab609e9b58504c2e344e6600277c837d2e45e02e1c9ea"
+      ],
+      "written_at_utc": "2026-10-05T11:20:09.807364Z"
+    },
+    {
+      "S": 0.6382818951702488,
+      "addendum_git_sha": "99bf51409c6997d6f1c5de18c820ab0eb46691a4",
+      "addendum_id": "addendum-20261005",
+      "batch_size": 1,
+      "bf16_cv": 8.939619614490141e-05,
+      "bf16_point_median_ms": 14.09751141796875,
+      "configuration": "tq_k3v4_nc",
+      "container_digest": "sha256:059bc9be89387369d7de9e3e9b26d85b6e9902c41e7dbf002ebc45edd188fb7e",
+      "context_label": 32768,
+      "cv": 0.0006288841649826294,
+      "disposition": "stable",
+      "execution_git_sha": "ec534d9958d5616eef981c628b87a92c7c809872",
+      "failed_checks": [],
+      "label": "TQ-k3v4",
+      "latency_basis": "host_wall",
+      "n_processes": 3,
+      "point_median_ms": 22.0866540703125,
+      "process_medians_ms": [
+        22.0866540703125,
+        22.086920765625,
+        22.06273901953125
+      ],
+      "run_ids": [
+        "task1-r0-o011-tq_k3v4_nc-s32-b1-l32768",
+        "task1-r1-o005-tq_k3v4_nc-s32-b1-l32768",
+        "task1-r2-o007-tq_k3v4_nc-s32-b1-l32768"
+      ],
+      "task": "task1",
+      "unstable": false,
+      "variant": {
+        "tq_splits": 32
+      },
+      "worker_result_sha256": [
+        "9be85e9149c6ab1d6f5d66738145f3da71bab5c3f3b53ce82f1c0eced0a85524",
+        "ebe975e8ac43d36910ce7c93f05b73df1db887d27b2ebb978401b8a2ba6eebe9",
+        "2dc8680725965dfa24df4d55954bfb75244a24bede21448df948b2f90957666e"
+      ],
+      "written_at_utc": "2026-10-05T11:28:26.495472Z"
+    },
+    {
+      "S": 0.4242730711167447,
+      "addendum_git_sha": "99bf51409c6997d6f1c5de18c820ab0eb46691a4",
+      "addendum_id": "addendum-20261005",
+      "batch_size": 1,
+      "bf16_cv": 8.746865270225398e-05,
+      "bf16_point_median_ms": 22.26092378515625,
+      "configuration": "tq_k3v4_nc",
+      "container_digest": "sha256:059bc9be89387369d7de9e3e9b26d85b6e9902c41e7dbf002ebc45edd188fb7e",
+      "context_label": 131072,
+      "cv": 0.00031417259064724817,
+      "disposition": "stable",
+      "execution_git_sha": "ec534d9958d5616eef981c628b87a92c7c809872",
+      "failed_checks": [],
+      "label": "TQ-k3v4",
+      "latency_basis": "host_wall",
+      "n_processes": 3,
+      "point_median_ms": 52.4683872265625,
+      "process_medians_ms": [
+        52.4683872265625,
+        52.4944720859375,
+        52.463962859375
+      ],
+      "run_ids": [
+        "task1-r0-o009-tq_k3v4_nc-s32-b1-l131072",
+        "task1-r1-o004-tq_k3v4_nc-s32-b1-l131072",
+        "task1-r2-o006-tq_k3v4_nc-s32-b1-l131072"
+      ],
+      "task": "task1",
+      "unstable": false,
+      "variant": {
+        "tq_splits": 32
+      },
+      "worker_result_sha256": [
+        "d26bda63fbdfba340f9a473126584aa0c849360c9f8e228659cd1d44d5e51e82",
+        "31ba75a59a9f52a99bd3874d2756f44a77640b2e4ae504a3b4c8db6256b628ef",
+        "b6179358e5436bb2f4ece836eeca73cf54b3dba4b9287a49602fdbbe2aa30cdd"
+      ],
+      "written_at_utc": "2026-10-05T11:27:36.772512Z"
+    },
+    {
+      "S": 0.5453349264350038,
+      "addendum_git_sha": "99bf51409c6997d6f1c5de18c820ab0eb46691a4",
+      "addendum_id": "addendum-20261005",
+      "batch_size": 8,
+      "bf16_cv": 2.7085260516612588e-05,
+      "bf16_point_median_ms": 32.6279851875,
+      "configuration": "tq_k3v4_nc",
+      "container_digest": "sha256:059bc9be89387369d7de9e3e9b26d85b6e9902c41e7dbf002ebc45edd188fb7e",
+      "context_label": 32768,
+      "cv": 0.002681257070975083,
+      "disposition": "stable",
+      "execution_git_sha": "ec534d9958d5616eef981c628b87a92c7c809872",
+      "failed_checks": [],
+      "label": "TQ-k3v4",
+      "latency_basis": "host_wall",
+      "n_processes": 3,
+      "point_median_ms": 59.83109389453125,
+      "process_medians_ms": [
+        59.9647044296875,
+        59.64536694921875,
+        59.83109389453125
+      ],
+      "run_ids": [
+        "task1-r0-o010-tq_k3v4_nc-s32-b8-l32768",
+        "task1-r1-o003-tq_k3v4_nc-s32-b8-l32768",
+        "task1-r2-o008-tq_k3v4_nc-s32-b8-l32768"
+      ],
+      "task": "task1",
+      "unstable": false,
+      "variant": {
+        "tq_splits": 32
+      },
+      "worker_result_sha256": [
+        "fe35a7735b569823e1ced73361d5d0b7278b0a5b54354d82c89529c13d5d8f23",
+        "c48a31f8cc1d7c10b7a6e119e995414300368caed9c35dec061b768ec67e96c4",
+        "7c6e0e0bb255a94606001c82aca47f88339c3d9c79fa125b0245ccf2bbc7220a"
+      ],
+      "written_at_utc": "2026-10-05T11:30:24.842965Z"
+    }
+  ],
+  "task1_eta": [
+    {
+      "batch_size": 1,
+      "bw_eff_gb_s": 112.8875642994195,
+      "c0_ms": 11.949097337354456,
+      "configuration": "tq_3bit_nc",
+      "contexts": [
+        32768,
+        131072
+      ],
+      "eta": 0.07071501960669674,
+      "variant": {
+        "tq_splits": 32
+      }
+    },
+    {
+      "batch_size": 1,
+      "bw_eff_gb_s": 111.18162467226564,
+      "c0_ms": 11.954919126524757,
+      "configuration": "tq_4bit_nc",
+      "contexts": [
+        32768,
+        131072
+      ],
+      "eta": 0.06964638503272315,
+      "variant": {
+        "tq_splits": 32
+      }
+    },
+    {
+      "batch_size": 1,
+      "bw_eff_gb_s": 141.9719904892618,
+      "c0_ms": 11.952864719782806,
+      "configuration": "tq_k3v4_nc",
+      "contexts": [
+        32768,
+        131072
+      ],
+      "eta": 0.08893408369075369,
+      "variant": {
+        "tq_splits": 32
+      }
+    },
+    {
+      "batch_size": 1,
+      "bw_eff_gb_s": 1596.3732305707938,
+      "c0_ms": 11.376159433534639,
+      "configuration": "bf16",
+      "contexts": [
+        32768,
+        131072
+      ],
+      "variant": {}
+    }
+  ],
+  "task1_sweep": [
+    {
+      "S": 0.13946092506259955,
+      "addendum_git_sha": "83910ca71fd90f992797c7ca494674ff05023176",
+      "addendum_id": "addendum-20261005",
+      "batch_size": 1,
+      "bf16_cv": 0.00018542461402253822,
+      "bf16_point_median_ms": 22.25926928515625,
+      "block": "tq_k3v4_nc-s8",
+      "configuration": "tq_k3v4_nc",
+      "container_digest": "sha256:059bc9be89387369d7de9e3e9b26d85b6e9902c41e7dbf002ebc45edd188fb7e",
+      "context_label": 131072,
+      "cv": 0.0004911232778434415,
+      "disposition": "stable",
+      "execution_git_sha": "ec534d9958d5616eef981c628b87a92c7c809872",
+      "failed_checks": [],
+      "label": "TQ-k3v4",
+      "latency_basis": "host_wall",
+      "n_processes": 3,
+      "point_median_ms": 159.6093620859375,
+      "process_medians_ms": [
+        159.6093620859375,
+        159.71431939453126,
+        159.56096307421876
+      ],
+      "run_ids": [
+        "task1-sweep-r0-o002-tq_k3v4_nc-s8-b1-l131072",
+        "task1-sweep-r1-o000-tq_k3v4_nc-s8-b1-l131072",
+        "task1-sweep-r2-o002-tq_k3v4_nc-s8-b1-l131072"
+      ],
+      "task": "task1-sweep",
+      "unstable": false,
+      "variant": {
+        "tq_splits": 8
+      },
+      "worker": "timing_worker.py",
+      "worker_result_sha256": [
+        "0f96854e87536877b87e58ad09b201d263185edcdcbc16e5d0696878089daf24",
+        "569053de4eeeb9e3ba840a43a2b0edab82bd82003ba905a2fe3d42490d50ccc8",
+        "2ada72c545a00b8b3ee3cfd38058d40318c7b74af1ffe3559f011b05369cc14a"
+      ],
+      "written_at_utc": "2026-10-05T12:01:06.500241Z"
+    },
+    {
+      "S": 0.2590178390533877,
+      "addendum_git_sha": "83910ca71fd90f992797c7ca494674ff05023176",
+      "addendum_id": "addendum-20261005",
+      "batch_size": 1,
+      "bf16_cv": 0.00018542461402253822,
+      "bf16_point_median_ms": 22.25926928515625,
+      "block": "tq_k3v4_nc-s16",
+      "configuration": "tq_k3v4_nc",
+      "container_digest": "sha256:059bc9be89387369d7de9e3e9b26d85b6e9902c41e7dbf002ebc45edd188fb7e",
+      "context_label": 131072,
+      "cv": 0.0012464069333483808,
+      "disposition": "stable",
+      "execution_git_sha": "ec534d9958d5616eef981c628b87a92c7c809872",
+      "failed_checks": [],
+      "label": "TQ-k3v4",
+      "latency_basis": "host_wall",
+      "n_processes": 3,
+      "point_median_ms": 85.9372055859375,
+      "process_medians_ms": [
+        86.00819689453125,
+        85.7977118203125,
+        85.9372055859375
+      ],
+      "run_ids": [
+        "task1-sweep-r0-o001-tq_k3v4_nc-s16-b1-l131072",
+        "task1-sweep-r1-o003-tq_k3v4_nc-s16-b1-l131072",
+        "task1-sweep-r2-o000-tq_k3v4_nc-s16-b1-l131072"
+      ],
+      "task": "task1-sweep",
+      "unstable": false,
+      "variant": {
+        "tq_splits": 16
+      },
+      "worker": "timing_worker.py",
+      "worker_result_sha256": [
+        "3fabfe1f3524b15294e107d6d840433b8aefb3dd1a0c6337b73adf657791a223",
+        "daf242c0f01a2387d3acb74131b3b4a20a6dfbcfb50a2add576ecd8beab7611e",
+        "d403eb93ae7c63c9302165611cc7765c7fb140024ce267ba86e263ed50e8c86e"
+      ],
+      "written_at_utc": "2026-10-05T11:56:04.176065Z"
+    },
+    {
+      "S": 0.6015710306880964,
+      "addendum_git_sha": "83910ca71fd90f992797c7ca494674ff05023176",
+      "addendum_id": "addendum-20261005",
+      "batch_size": 1,
+      "bf16_cv": 0.00018542461402253822,
+      "bf16_point_median_ms": 22.25926928515625,
+      "block": "tq_k3v4_nc-s64",
+      "configuration": "tq_k3v4_nc",
+      "container_digest": "sha256:059bc9be89387369d7de9e3e9b26d85b6e9902c41e7dbf002ebc45edd188fb7e",
+      "context_label": 131072,
+      "cv": 0.0005796456590222796,
+      "disposition": "stable",
+      "execution_git_sha": "ec534d9958d5616eef981c628b87a92c7c809872",
+      "failed_checks": [],
+      "label": "TQ-k3v4",
+      "latency_basis": "host_wall",
+      "n_processes": 3,
+      "point_median_ms": 37.00189694921875,
+      "process_medians_ms": [
+        37.00189694921875,
+        37.025620796875,
+        36.98280651953125
+      ],
+      "run_ids": [
+        "task1-sweep-r0-o003-tq_k3v4_nc-s64-b1-l131072",
+        "task1-sweep-r1-o002-tq_k3v4_nc-s64-b1-l131072",
+        "task1-sweep-r2-o003-tq_k3v4_nc-s64-b1-l131072"
+      ],
+      "task": "task1-sweep",
+      "unstable": false,
+      "variant": {
+        "tq_splits": 64
+      },
+      "worker": "timing_worker.py",
+      "worker_result_sha256": [
+        "271744a8fe3e4ab8fc284ec3ae1d66eaeee2f2855e6172e02c67788a22615c0b",
+        "b2e36cedb505074f3ce25f92ff897b871c2551369728e43a9dc0bf2e2f8e2914",
+        "5a352da9cb11febe7f7671bce23a9bab5ab03e1a0cda29efa68acd88ad686a14"
+      ],
+      "written_at_utc": "2026-10-05T12:02:34.662092Z"
+    }
+  ],
+  "task2": [
+    {
+      "S": 0.9180199084368542,
+      "addendum_git_sha": "594d69b4354813b3f25b4351b655d229b554ff86",
+      "addendum_id": "addendum-20261005",
+      "batch_size": 1,
+      "bf16_cv": 0.00039127273280280077,
+      "bf16_point_median_ms": 11.74592079296875,
+      "block": "k2v2-grouped",
+      "configuration": "k2v2",
+      "container_digest": "sha256:059bc9be89387369d7de9e3e9b26d85b6e9902c41e7dbf002ebc45edd188fb7e",
+      "context_label": 4096,
+      "cv": 0.0002977113091733486,
+      "disposition": "stable",
+      "execution_git_sha": "ec534d9958d5616eef981c628b87a92c7c809872",
+      "failed_checks": [],
+      "label": "KIVI-k2v2",
+      "latency_basis": "host_wall",
+      "n_processes": 3,
+      "point_median_ms": 12.7948432109375,
+      "process_medians_ms": [
+        12.78962899609375,
+        12.79704562109375,
+        12.7948432109375
+      ],
+      "run_ids": [
+        "task2-r0-o002-k2v2-grouped-b1-l4096",
+        "task2-r1-o003-k2v2-grouped-b1-l4096",
+        "task2-r2-o016-k2v2-grouped-b1-l4096"
+      ],
+      "status_label": "gate_failed_diagnostic_only",
+      "task": "task2",
+      "unstable": false,
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py",
+      "worker_result_sha256": [
+        "19cfb5fe715c671e8887e6c0abf0a826b4e07a71fddf9b4d7eb94edb02da15f4",
+        "bd657cdcbc10dce39b823743c6d26d29c10458b797e047eee9077ffea70de27b",
+        "a4df48fa76f2f405140d23cb39ec929759cca241e07a4709f3a0a8a4fae85939"
+      ],
+      "written_at_utc": "2026-10-05T19:21:12.084060Z"
+    },
+    {
+      "S": 0.756833868474266,
+      "addendum_git_sha": "594d69b4354813b3f25b4351b655d229b554ff86",
+      "addendum_id": "addendum-20261005",
+      "batch_size": 1,
+      "bf16_cv": 0.0021016792157248303,
+      "bf16_point_median_ms": 14.0913360859375,
+      "block": "k2v2-grouped",
+      "configuration": "k2v2",
+      "container_digest": "sha256:059bc9be89387369d7de9e3e9b26d85b6e9902c41e7dbf002ebc45edd188fb7e",
+      "context_label": 32768,
+      "cv": 0.003889100860602608,
+      "disposition": "stable",
+      "execution_git_sha": "ec534d9958d5616eef981c628b87a92c7c809872",
+      "failed_checks": [],
+      "label": "KIVI-k2v2",
+      "latency_basis": "host_wall",
+      "n_processes": 3,
+      "point_median_ms": 18.61879690234375,
+      "process_medians_ms": [
+        18.7414244375,
+        18.61879690234375,
+        18.61289855859375
+      ],
+      "run_ids": [
+        "task2-r0-o003-k2v2-grouped-b1-l32768",
+        "task2-r1-o001-k2v2-grouped-b1-l32768",
+        "task2-r2-o014-k2v2-grouped-b1-l32768"
+      ],
+      "status_label": "gate_failed_diagnostic_only",
+      "task": "task2",
+      "unstable": false,
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py",
+      "worker_result_sha256": [
+        "7cc139623c8ccda97bddc2103623e5d66f1798aacd588c75edd35195d014d5f7",
+        "c6a8770ec80e63dcd7f8cd3420ddc6016d1b58f330110291c08ca4d826df3fdf",
+        "2aa4ca43b9d6484798b835995d5ca1fc4c16d90a4f516816a77cab3232524667"
+      ],
+      "written_at_utc": "2026-10-05T19:16:49.397353Z"
+    },
+    {
+      "S": 0.5703130837992582,
+      "addendum_git_sha": "594d69b4354813b3f25b4351b655d229b554ff86",
+      "addendum_id": "addendum-20261005",
+      "batch_size": 1,
+      "bf16_cv": 0.0030893073928096163,
+      "bf16_point_median_ms": 22.25623919921875,
+      "block": "k2v2-grouped",
+      "configuration": "k2v2",
+      "container_digest": "sha256:059bc9be89387369d7de9e3e9b26d85b6e9902c41e7dbf002ebc45edd188fb7e",
+      "context_label": 131072,
+      "cv": 0.0011099651460607922,
+      "disposition": "stable",
+      "execution_git_sha": "ec534d9958d5616eef981c628b87a92c7c809872",
+      "failed_checks": [],
+      "label": "KIVI-k2v2",
+      "latency_basis": "host_wall",
+      "n_processes": 3,
+      "point_median_ms": 39.0245986484375,
+      "process_medians_ms": [
+        38.99495699609375,
+        39.0245986484375,
+        39.08029269921875
+      ],
+      "run_ids": [
+        "task2-r0-o004-k2v2-grouped-b1-l131072",
+        "task2-r1-o004-k2v2-grouped-b1-l131072",
+        "task2-r2-o017-k2v2-grouped-b1-l131072"
+      ],
+      "status_label": "gate_failed_diagnostic_only",
+      "task": "task2",
+      "unstable": false,
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py",
+      "worker_result_sha256": [
+        "66aed0613968bbd5c09ca06057ae88b27a15d6635ee88acd589c76749d44a403",
+        "aa55892f83891fd91a7ee2b5ca8be2c008cf74c90ff36b42d1df61f1fba1660d",
+        "5244774a988cf6d0e7890772d6840ed7bc205757ec6db9bc30952953c4e3bd3c"
+      ],
+      "written_at_utc": "2026-10-05T19:35:05.141329Z"
+    },
+    {
+      "S": 0.9686413838163423,
+      "addendum_git_sha": "594d69b4354813b3f25b4351b655d229b554ff86",
+      "addendum_id": "addendum-20261005",
+      "batch_size": 8,
+      "bf16_cv": 2.6917975894701333e-05,
+      "bf16_point_median_ms": 14.26130323828125,
+      "block": "k2v2-grouped",
+      "configuration": "k2v2",
+      "container_digest": "sha256:059bc9be89387369d7de9e3e9b26d85b6e9902c41e7dbf002ebc45edd188fb7e",
+      "context_label": 4096,
+      "cv": 0.0004844961737686812,
+      "disposition": "stable",
+      "execution_git_sha": "ec534d9958d5616eef981c628b87a92c7c809872",
+      "failed_checks": [],
+      "label": "KIVI-k2v2",
+      "latency_basis": "host_wall",
+      "n_processes": 3,
+      "point_median_ms": 14.72299601953125,
+      "process_medians_ms": [
+        14.7287838828125,
+        14.7145980703125,
+        14.72299601953125
+      ],
+      "run_ids": [
+        "task2-r0-o000-k2v2-grouped-b8-l4096",
+        "task2-r1-o005-k2v2-grouped-b8-l4096",
+        "task2-r2-o012-k2v2-grouped-b8-l4096"
+      ],
+      "status_label": "gate_failed_diagnostic_only",
+      "task": "task2",
+      "unstable": false,
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py",
+      "worker_result_sha256": [
+        "997861c6a241faca129ae800d05d74fd70789045b1f8e95696dac542facedbb7",
+        "cc0f1b8ac196f71e53a27fd21e70e143cf5a1348bb96eb542fbffb7a6608b6ba",
+        "c2ee38d559c5d4f147002c466af71a5b8440fe125f77127580aa2d0c50cb5c01"
+      ],
+      "written_at_utc": "2026-10-05T19:08:33.283622Z"
+    },
+    {
+      "S": 1.0026890752163398,
+      "addendum_git_sha": "594d69b4354813b3f25b4351b655d229b554ff86",
+      "addendum_id": "addendum-20261005",
+      "batch_size": 8,
+      "bf16_cv": 6.965490198853023e-06,
+      "bf16_point_median_ms": 27.456316921875,
+      "block": "k2v2-grouped",
+      "configuration": "k2v2",
+      "container_digest": "sha256:059bc9be89387369d7de9e3e9b26d85b6e9902c41e7dbf002ebc45edd188fb7e",
+      "context_label": 24576,
+      "cv": 0.0012187737639673824,
+      "disposition": "stable",
+      "execution_git_sha": "ec534d9958d5616eef981c628b87a92c7c809872",
+      "failed_checks": [],
+      "label": "KIVI-k2v2",
+      "latency_basis": "host_wall",
+      "n_processes": 3,
+      "point_median_ms": 27.382682828125,
+      "process_medians_ms": [
+        27.4237352109375,
+        27.35761672265625,
+        27.382682828125
+      ],
+      "run_ids": [
+        "task2-r0-o001-k2v2-grouped-b8-l24576",
+        "task2-r1-o000-k2v2-grouped-b8-l24576",
+        "task2-r2-o015-k2v2-grouped-b8-l24576"
+      ],
+      "status_label": "gate_failed_diagnostic_only",
+      "task": "task2",
+      "unstable": false,
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py",
+      "worker_result_sha256": [
+        "2cb194df2f299f4b222f0ed9cb64c2028fba18f8c87cf13d8785eec0698a3b63",
+        "55b5a73280b9fe78d9d79aa0271a5a08366e3a195ceb1d7f0f6c9a1b0e625075",
+        "630a1024b1de16ff047365eac93bff18c0d8bfbf55f8abc27159f6fec55e766f"
+      ],
+      "written_at_utc": "2026-10-05T19:20:14.550773Z"
+    },
+    {
+      "S": 1.0047225308377292,
+      "addendum_git_sha": "594d69b4354813b3f25b4351b655d229b554ff86",
+      "addendum_id": "addendum-20261005",
+      "batch_size": 8,
+      "bf16_cv": 0.0023764695449555394,
+      "bf16_point_median_ms": 32.624661515625,
+      "block": "k2v2-grouped",
+      "configuration": "k2v2",
+      "container_digest": "sha256:059bc9be89387369d7de9e3e9b26d85b6e9902c41e7dbf002ebc45edd188fb7e",
+      "context_label": 32768,
+      "cv": 0.0007296307208540378,
+      "disposition": "stable",
+      "execution_git_sha": "ec534d9958d5616eef981c628b87a92c7c809872",
+      "failed_checks": [],
+      "label": "KIVI-k2v2",
+      "latency_basis": "host_wall",
+      "n_processes": 3,
+      "point_median_ms": 32.47131473046875,
+      "process_medians_ms": [
+        32.47131473046875,
+        32.5047603671875,
+        32.45895639453125
+      ],
+      "run_ids": [
+        "task2-r0-o005-k2v2-grouped-b8-l32768",
+        "task2-r1-o002-k2v2-grouped-b8-l32768",
+        "task2-r2-o013-k2v2-grouped-b8-l32768"
+      ],
+      "status_label": "gate_failed_diagnostic_only",
+      "task": "task2",
+      "unstable": false,
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py",
+      "worker_result_sha256": [
+        "68a3bbebd4c613cf8bc2bc56054a2c64cff46ef878b5b0f98fd0a28351086ec8",
+        "82160661093f396392831d1a4697ff833fa5006b9fdeb83bac5cad409055362c",
+        "aaba81c3315feddf74add45308f4606120fe429fa4968462e3de1ed0a1b229a2"
+      ],
+      "written_at_utc": "2026-10-05T19:12:57.842295Z"
+    },
+    {
+      "S": 0.9247438690242459,
+      "addendum_git_sha": "594d69b4354813b3f25b4351b655d229b554ff86",
+      "addendum_id": "addendum-20261005",
+      "batch_size": 1,
+      "bf16_cv": 0.00039127273280280077,
+      "bf16_point_median_ms": 11.74592079296875,
+      "block": "k4v4-grouped",
+      "configuration": "k4v4",
+      "container_digest": "sha256:059bc9be89387369d7de9e3e9b26d85b6e9902c41e7dbf002ebc45edd188fb7e",
+      "context_label": 4096,
+      "cv": 0.0009462383618927831,
+      "disposition": "stable",
+      "execution_git_sha": "ec534d9958d5616eef981c628b87a92c7c809872",
+      "failed_checks": [],
+      "label": "KIVI-k4v4",
+      "latency_basis": "host_wall",
+      "n_processes": 3,
+      "point_median_ms": 12.701809859375,
+      "process_medians_ms": [
+        12.68176090625,
+        12.701809859375,
+        12.70325147265625
+      ],
+      "run_ids": [
+        "task2-r0-o006-k4v4-grouped-b1-l4096",
+        "task2-r1-o017-k4v4-grouped-b1-l4096",
+        "task2-r2-o003-k4v4-grouped-b1-l4096"
+      ],
+      "status_label": "gate_failed_diagnostic_only",
+      "task": "task2",
+      "unstable": false,
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py",
+      "worker_result_sha256": [
+        "cf0e62dfa023876d0f7508afc869dce333d19ec32de4a57c4155fdcc389525e4",
+        "5beaeef91acdf49bf0c044df346ccf89833dee2795e01ae8235064b5ef692b7a",
+        "f22bba01c5ed3b78a2ff64714c3d9150133bd9ede169f6c492bc324166562564"
+      ],
+      "written_at_utc": "2026-10-05T18:58:05.759369Z"
+    },
+    {
+      "S": 0.7749638996745902,
+      "addendum_git_sha": "594d69b4354813b3f25b4351b655d229b554ff86",
+      "addendum_id": "addendum-20261005",
+      "batch_size": 1,
+      "bf16_cv": 0.0021016792157248303,
+      "bf16_point_median_ms": 14.0913360859375,
+      "block": "k4v4-grouped",
+      "configuration": "k4v4",
+      "container_digest": "sha256:059bc9be89387369d7de9e3e9b26d85b6e9902c41e7dbf002ebc45edd188fb7e",
+      "context_label": 32768,
+      "cv": 0.00022141060942299848,
+      "disposition": "stable",
+      "execution_git_sha": "ec534d9958d5616eef981c628b87a92c7c809872",
+      "failed_checks": [],
+      "label": "KIVI-k4v4",
+      "latency_basis": "host_wall",
+      "n_processes": 3,
+      "point_median_ms": 18.18321613671875,
+      "process_medians_ms": [
+        18.18321613671875,
+        18.18253164453125,
+        18.1898225703125
+      ],
+      "run_ids": [
+        "task2-r0-o008-k4v4-grouped-b1-l32768",
+        "task2-r1-o016-k4v4-grouped-b1-l32768",
+        "task2-r2-o001-k4v4-grouped-b1-l32768"
+      ],
+      "status_label": "gate_failed_diagnostic_only",
+      "task": "task2",
+      "unstable": false,
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py",
+      "worker_result_sha256": [
+        "e372c3f4d107823ff863bfaaa455222d24e535635a23e0b40eee0d169aad2731",
+        "b2cc5288923e1d3e715f818bd1ef0739541957e32c9f5f3c83ae6ec8764ad9e5",
+        "73c8d81edaea33ce8cd391f02f81dc73369ceb92c2df4a8d544f9f463a6d88db"
+      ],
+      "written_at_utc": "2026-10-05T18:52:35.495463Z"
+    },
+    {
+      "S": 0.5940600714559378,
+      "addendum_git_sha": "594d69b4354813b3f25b4351b655d229b554ff86",
+      "addendum_id": "addendum-20261005",
+      "batch_size": 1,
+      "bf16_cv": 0.0030893073928096163,
+      "bf16_point_median_ms": 22.25623919921875,
+      "block": "k4v4-grouped",
+      "configuration": "k4v4",
+      "container_digest": "sha256:059bc9be89387369d7de9e3e9b26d85b6e9902c41e7dbf002ebc45edd188fb7e",
+      "context_label": 131072,
+      "cv": 0.0008816378282197805,
+      "disposition": "stable",
+      "execution_git_sha": "ec534d9958d5616eef981c628b87a92c7c809872",
+      "failed_checks": [],
+      "label": "KIVI-k4v4",
+      "latency_basis": "host_wall",
+      "n_processes": 3,
+      "point_median_ms": 37.46462734765625,
+      "process_medians_ms": [
+        37.46462734765625,
+        37.50760253515625,
+        37.4426516015625
+      ],
+      "run_ids": [
+        "task2-r0-o009-k4v4-grouped-b1-l131072",
+        "task2-r1-o013-k4v4-grouped-b1-l131072",
+        "task2-r2-o000-k4v4-grouped-b1-l131072"
+      ],
+      "status_label": "gate_failed_diagnostic_only",
+      "task": "task2",
+      "unstable": false,
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py",
+      "worker_result_sha256": [
+        "f39d683ff274baacef692e99fc6de91771b61048d30af516c4885696a8356eb1",
+        "0b7daf1e245d4804f36a8386585a33ed6108dc4906b89f763a50e1485e2ed4a0",
+        "b6155b10e51a3010eae08951c94aa5b39b140e6ac1770e4a82667a3554c7da54"
+      ],
+      "written_at_utc": "2026-10-05T18:48:45.884860Z"
+    },
+    {
+      "S": 0.9438889379717395,
+      "addendum_git_sha": "594d69b4354813b3f25b4351b655d229b554ff86",
+      "addendum_id": "addendum-20261005",
+      "batch_size": 8,
+      "bf16_cv": 2.6917975894701333e-05,
+      "bf16_point_median_ms": 14.26130323828125,
+      "block": "k4v4-grouped",
+      "configuration": "k4v4",
+      "container_digest": "sha256:059bc9be89387369d7de9e3e9b26d85b6e9902c41e7dbf002ebc45edd188fb7e",
+      "context_label": 4096,
+      "cv": 0.00025451007580527525,
+      "disposition": "stable",
+      "execution_git_sha": "ec534d9958d5616eef981c628b87a92c7c809872",
+      "failed_checks": [],
+      "label": "KIVI-k4v4",
+      "latency_basis": "host_wall",
+      "n_processes": 3,
+      "point_median_ms": 15.10909034375,
+      "process_medians_ms": [
+        15.1066030625,
+        15.11414962109375,
+        15.10909034375
+      ],
+      "run_ids": [
+        "task2-r0-o010-k4v4-grouped-b8-l4096",
+        "task2-r1-o012-k4v4-grouped-b8-l4096",
+        "task2-r2-o004-k4v4-grouped-b8-l4096"
+      ],
+      "status_label": "gate_failed_diagnostic_only",
+      "task": "task2",
+      "unstable": false,
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py",
+      "worker_result_sha256": [
+        "72c8d541a49bc5c04c20c9bb0501807be3c958ef183cdf940cd3814dbb627da8",
+        "a24a836229ea9a92f158415435bf3681d1653901aa3cd17f004fbb4afefdcc03",
+        "8fba84da53da0bc1a03239c08118c1c276d2eedb13df7704ffe513d322135c5c"
+      ],
+      "written_at_utc": "2026-10-05T18:59:07.790718Z"
+    },
+    {
+      "S": 0.9029698228421154,
+      "addendum_git_sha": "594d69b4354813b3f25b4351b655d229b554ff86",
+      "addendum_id": "addendum-20261005",
+      "batch_size": 8,
+      "bf16_cv": 6.965490198853023e-06,
+      "bf16_point_median_ms": 27.456316921875,
+      "block": "k4v4-grouped",
+      "configuration": "k4v4",
+      "container_digest": "sha256:059bc9be89387369d7de9e3e9b26d85b6e9902c41e7dbf002ebc45edd188fb7e",
+      "context_label": 24576,
+      "cv": 0.0006133351465111099,
+      "disposition": "stable",
+      "execution_git_sha": "ec534d9958d5616eef981c628b87a92c7c809872",
+      "failed_checks": [],
+      "label": "KIVI-k4v4",
+      "latency_basis": "host_wall",
+      "n_processes": 3,
+      "point_median_ms": 30.406682734375,
+      "process_medians_ms": [
+        30.43862014453125,
+        30.406682734375,
+        30.40594439453125
+      ],
+      "run_ids": [
+        "task2-r0-o007-k4v4-grouped-b8-l24576",
+        "task2-r1-o014-k4v4-grouped-b8-l24576",
+        "task2-r2-o005-k4v4-grouped-b8-l24576"
+      ],
+      "status_label": "gate_failed_diagnostic_only",
+      "task": "task2",
+      "unstable": false,
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py",
+      "worker_result_sha256": [
+        "48966422ef9d0c8a67d27a3c9851bdbe79433af697aeb8c1eade8a4ec34560f5",
+        "e7fb91e27c21a4282152356b6f91da967b322ec3475302c3d6e56460d6e5666b",
+        "da9fd941cc34c0dd9bad1139cbc4a2898b49c998a07eea3f6fb5bd52c78db942"
+      ],
+      "written_at_utc": "2026-10-05T19:02:39.118875Z"
+    },
+    {
+      "S": 0.878476448168895,
+      "addendum_git_sha": "594d69b4354813b3f25b4351b655d229b554ff86",
+      "addendum_id": "addendum-20261005",
+      "batch_size": 8,
+      "bf16_cv": 0.0023764695449555394,
+      "bf16_point_median_ms": 32.624661515625,
+      "block": "k4v4-grouped",
+      "configuration": "k4v4",
+      "container_digest": "sha256:059bc9be89387369d7de9e3e9b26d85b6e9902c41e7dbf002ebc45edd188fb7e",
+      "context_label": 32768,
+      "cv": 0.001212779537285217,
+      "disposition": "stable",
+      "execution_git_sha": "ec534d9958d5616eef981c628b87a92c7c809872",
+      "failed_checks": [],
+      "label": "KIVI-k4v4",
+      "latency_basis": "host_wall",
+      "n_processes": 3,
+      "point_median_ms": 37.13777595703125,
+      "process_medians_ms": [
+        37.164534625,
+        37.13777595703125,
+        37.0766904140625
+      ],
+      "run_ids": [
+        "task2-r0-o011-k4v4-grouped-b8-l32768",
+        "task2-r1-o015-k4v4-grouped-b8-l32768",
+        "task2-r2-o002-k4v4-grouped-b8-l32768"
+      ],
+      "status_label": "gate_failed_diagnostic_only",
+      "task": "task2",
+      "unstable": false,
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py",
+      "worker_result_sha256": [
+        "6acb46b461fa9a8adb699f84299533d42ebb77e83fb76099909aa60e685af6e1",
+        "63e652090148da510587a1dbd31b5a61a68be52f1b5452fa3ab1e484289f57c5",
+        "79f9c2da3cf21d6d6aa1b8893459b03f115738816d8c82cd5b6d3a3bd78d7dfe"
+      ],
+      "written_at_utc": "2026-10-05T18:57:08.476118Z"
+    }
+  ],
+  "task2_eta": [
+    {
+      "batch_size": 1,
+      "bw_eff_gb_s": 148.3360415602095,
+      "c0_ms": 11.850741543385075,
+      "configuration": "k2v2",
+      "contexts": [
+        4096,
+        32768,
+        131072
+      ],
+      "eta": 0.09270173300535997,
+      "variant": {
+        "kivi_grouped_residual": true
+      }
+    },
+    {
+      "batch_size": 8,
+      "bw_eff_gb_s": 389.6068412915237,
+      "c0_ms": 12.03135296562335,
+      "configuration": "k2v2",
+      "contexts": [
+        4096,
+        24576,
+        32768
+      ],
+      "eta": 0.23555361206268177,
+      "variant": {
+        "kivi_grouped_residual": true
+      }
+    },
+    {
+      "batch_size": 1,
+      "bw_eff_gb_s": 241.04250714271245,
+      "c0_ms": 11.822337712623487,
+      "configuration": "k4v4",
+      "contexts": [
+        4096,
+        32768,
+        131072
+      ],
+      "eta": 0.15063809108736703,
+      "variant": {
+        "kivi_grouped_residual": true
+      }
+    },
+    {
+      "batch_size": 8,
+      "bw_eff_gb_s": 487.5440462882258,
+      "c0_ms": 11.790732846762333,
+      "configuration": "k4v4",
+      "contexts": [
+        4096,
+        24576,
+        32768
+      ],
+      "eta": 0.29476577146887334,
+      "variant": {
+        "kivi_grouped_residual": true
+      }
+    },
+    {
+      "batch_size": 1,
+      "bw_eff_gb_s": 1600.1431338034727,
+      "c0_ms": 11.3933015965204,
+      "configuration": "bf16",
+      "contexts": [
+        4096,
+        32768,
+        131072
+      ],
+      "variant": {}
+    },
+    {
+      "batch_size": 8,
+      "bw_eff_gb_s": 1654.0049540307953,
+      "c0_ms": 11.648271381219988,
+      "configuration": "bf16",
+      "contexts": [
+        4096,
+        24576,
+        32768
+      ],
+      "variant": {}
+    }
+  ],
+  "task2_gates": {
+    "t2-gate-k2v2": {
+      "components": {
+        "G3.direct_compressed_decode": true,
+        "G3.native_gqa_semantic_replacement": true,
+        "G3.no_backend_fallback": true,
+        "G3.no_measured_torch_cat": true,
+        "G3.no_unknown_allocation": true,
+        "G4.graph_capture_replay": true,
+        "G4.graph_zero_replay_allocation": true,
+        "G4.no_backend_fallback": true,
+        "no_stage_errors": true,
+        "static_execution_path_precheck": true,
+        "unittest.fixture_conformance": true,
+        "unittest.graph_harness": true,
+        "variant_installed_as_requested": true
+      },
+      "gates_pass": true,
+      "native_gqa_literal": false
+    },
+    "t2-gate-k2v2-control": {
+      "components": {
+        "G3.direct_compressed_decode": true,
+        "G3.native_gqa_semantic_replacement": true,
+        "G3.no_backend_fallback": true,
+        "G3.no_measured_torch_cat": true,
+        "G3.no_unknown_allocation": true,
+        "G4.graph_capture_replay": true,
+        "G4.graph_zero_replay_allocation": true,
+        "G4.no_backend_fallback": true,
+        "no_stage_errors": true,
+        "static_execution_path_precheck": true,
+        "unittest.fixture_conformance": true,
+        "unittest.graph_harness": true,
+        "variant_installed_as_requested": true
+      },
+      "gates_pass": true,
+      "native_gqa_literal": true
+    },
+    "t2-gate-k4v4": {
+      "components": {
+        "G3.direct_compressed_decode": true,
+        "G3.native_gqa_semantic_replacement": true,
+        "G3.no_backend_fallback": true,
+        "G3.no_measured_torch_cat": true,
+        "G3.no_unknown_allocation": true,
+        "G4.graph_capture_replay": true,
+        "G4.graph_zero_replay_allocation": true,
+        "G4.no_backend_fallback": true,
+        "no_stage_errors": true,
+        "static_execution_path_precheck": true,
+        "unittest.fixture_conformance": true,
+        "unittest.graph_harness": true,
+        "variant_installed_as_requested": true
+      },
+      "gates_pass": true,
+      "native_gqa_literal": false
+    },
+    "t2-gate-k4v4-control": {
+      "components": {
+        "G3.direct_compressed_decode": true,
+        "G3.native_gqa_semantic_replacement": true,
+        "G3.no_backend_fallback": true,
+        "G3.no_measured_torch_cat": true,
+        "G3.no_unknown_allocation": true,
+        "G4.graph_capture_replay": true,
+        "G4.graph_zero_replay_allocation": true,
+        "G4.no_backend_fallback": true,
+        "no_stage_errors": true,
+        "static_execution_path_precheck": true,
+        "unittest.fixture_conformance": true,
+        "unittest.graph_harness": true,
+        "variant_installed_as_requested": true
+      },
+      "gates_pass": true,
+      "native_gqa_literal": true
+    }
+  },
+  "task2_nsys": {
+    "t2-nsys-k2v2-grouped": {
+      "by_kernel": {
+        "Kernel2": {
+          "count_per_step": 160.0,
+          "ms_per_step": 7.258828625
+        },
+        "bgemv2_kernel_outer_dim": {
+          "count_per_step": 64.0,
+          "ms_per_step": 0.936677875
+        },
+        "cunn_SoftMaxForwardReg": {
+          "count_per_step": 32.0,
+          "ms_per_step": 0.073511625
+        },
+        "elementwise_kernel": {
+          "count_per_step": 449.0,
+          "ms_per_step": 0.631153375
+        },
+        "gemv2T_kernel_val": {
+          "count_per_step": 32.0,
+          "ms_per_step": 0.040232
+        },
+        "indexSelectSmallIndex": {
+          "count_per_step": 1.0,
+          "ms_per_step": 0.00218
+        },
+        "kernel": {
+          "count_per_step": 129.0,
+          "ms_per_step": 2.602988
+        },
+        "reduce_kernel": {
+          "count_per_step": 65.0,
+          "ms_per_step": 0.107215625
+        },
+        "splitKreduce_kernel": {
+          "count_per_step": 32.0,
+          "ms_per_step": 0.041219875
+        },
+        "unrolled_elementwise_kernel": {
+          "count_per_step": 225.0,
+          "ms_per_step": 0.417974375
+        },
+        "vectorized_elementwise_kernel": {
+          "count_per_step": 677.0,
+          "ms_per_step": 0.480823
+        }
+      },
+      "kernel_ms_per_step": 12.592804375,
+      "kernels_per_step": 1866.0
+    },
+    "t2-nsys-k2v2-orig": {
+      "by_kernel": {
+        "Kernel2": {
+          "count_per_step": 1120.0,
+          "ms_per_step": 9.241729875
+        },
+        "bgemv2_kernel_outer_dim": {
+          "count_per_step": 64.0,
+          "ms_per_step": 0.93762925
+        },
+        "cunn_SoftMaxForwardReg": {
+          "count_per_step": 32.0,
+          "ms_per_step": 0.0733275
+        },
+        "elementwise_kernel": {
+          "count_per_step": 449.0,
+          "ms_per_step": 0.637985125
+        },
+        "indexSelectSmallIndex": {
+          "count_per_step": 1.0,
+          "ms_per_step": 0.002096
+        },
+        "kernel": {
+          "count_per_step": 2177.0,
+          "ms_per_step": 5.179085125
+        },
+        "reduce_kernel": {
+          "count_per_step": 65.0,
+          "ms_per_step": 0.107367375
+        },
+        "splitKreduce_kernel": {
+          "count_per_step": 32.0,
+          "ms_per_step": 0.041307875
+        },
+        "unrolled_elementwise_kernel": {
+          "count_per_step": 225.0,
+          "ms_per_step": 0.41923425
+        },
+        "vectorized_elementwise_kernel": {
+          "count_per_step": 2661.0,
+          "ms_per_step": 1.701965875
+        }
+      },
+      "kernel_ms_per_step": 18.34172825,
+      "kernels_per_step": 6826.0
+    },
+    "t2-nsys-k4v4-grouped": {
+      "by_kernel": {
+        "Kernel2": {
+          "count_per_step": 160.0,
+          "ms_per_step": 7.26070225
+        },
+        "bgemv4_kernel_outer_dim": {
+          "count_per_step": 64.0,
+          "ms_per_step": 0.836331625
+        },
+        "cunn_SoftMaxForwardReg": {
+          "count_per_step": 32.0,
+          "ms_per_step": 0.073159625
+        },
+        "elementwise_kernel": {
+          "count_per_step": 449.0,
+          "ms_per_step": 0.6300085
+        },
+        "gemv2T_kernel_val": {
+          "count_per_step": 32.0,
+          "ms_per_step": 0.039976
+        },
+        "indexSelectSmallIndex": {
+          "count_per_step": 1.0,
+          "ms_per_step": 0.002104
+        },
+        "kernel": {
+          "count_per_step": 129.0,
+          "ms_per_step": 2.605173125
+        },
+        "reduce_kernel": {
+          "count_per_step": 65.0,
+          "ms_per_step": 0.10682775
+        },
+        "splitKreduce_kernel": {
+          "count_per_step": 32.0,
+          "ms_per_step": 0.04135175
+        },
+        "unrolled_elementwise_kernel": {
+          "count_per_step": 225.0,
+          "ms_per_step": 0.416390375
+        },
+        "vectorized_elementwise_kernel": {
+          "count_per_step": 677.0,
+          "ms_per_step": 0.482966375
+        }
+      },
+      "kernel_ms_per_step": 12.494991375,
+      "kernels_per_step": 1866.0
+    },
+    "t2-nsys-k4v4-orig": {
+      "by_kernel": {
+        "Kernel2": {
+          "count_per_step": 1120.0,
+          "ms_per_step": 9.270144625
+        },
+        "bgemv4_kernel_outer_dim": {
+          "count_per_step": 64.0,
+          "ms_per_step": 0.83573925
+        },
+        "cunn_SoftMaxForwardReg": {
+          "count_per_step": 32.0,
+          "ms_per_step": 0.073411375
+        },
+        "elementwise_kernel": {
+          "count_per_step": 449.0,
+          "ms_per_step": 0.638340625
+        },
+        "indexSelectSmallIndex": {
+          "count_per_step": 1.0,
+          "ms_per_step": 0.00214
+        },
+        "kernel": {
+          "count_per_step": 2177.0,
+          "ms_per_step": 5.20452925
+        },
+        "reduce_kernel": {
+          "count_per_step": 65.0,
+          "ms_per_step": 0.105683625
+        },
+        "splitKreduce_kernel": {
+          "count_per_step": 32.0,
+          "ms_per_step": 0.041455625
+        },
+        "unrolled_elementwise_kernel": {
+          "count_per_step": 225.0,
+          "ms_per_step": 0.418090125
+        },
+        "vectorized_elementwise_kernel": {
+          "count_per_step": 2661.0,
+          "ms_per_step": 1.702131125
+        }
+      },
+      "kernel_ms_per_step": 18.291665625,
+      "kernels_per_step": 6826.0
+    }
+  },
+  "task3": {
+    "generated_at_utc": "2026-10-05T21:33:13.269051Z",
+    "points": [
+      {
+        "attention_backends": [
+          "FLASH_ATTN"
+        ],
+        "batch_size": 1,
+        "context_label": 32768,
+        "cv": 0.0006507123331727203,
+        "input_len": 32768,
+        "kv_cache_dtype": "bf16 (auto)",
+        "n": 3,
+        "step_ms": 12.89045331577654,
+        "step_ms_per_replicate": [
+          12.876919798145536,
+          12.892264403490117,
+          12.89045331577654
+        ],
+        "unstable": false
+      },
+      {
+        "attention_backends": [
+          "FLASH_ATTN"
+        ],
+        "batch_size": 1,
+        "context_label": 131072,
+        "cv": 0.0011137236502863144,
+        "input_len": 131007,
+        "kv_cache_dtype": "bf16 (auto)",
+        "n": 3,
+        "step_ms": 20.530884157778928,
+        "step_ms_per_replicate": [
+          20.530884157778928,
+          20.503213941992726,
+          20.548573422274785
+        ],
+        "unstable": false
+      },
+      {
+        "attention_backends": [
+          "FLASH_ATTN"
+        ],
+        "batch_size": 8,
+        "context_label": 32768,
+        "cv": 0.000731221246250381,
+        "input_len": 32768,
+        "kv_cache_dtype": "bf16 (auto)",
+        "n": 3,
+        "step_ms": 30.181301503034774,
+        "step_ms_per_replicate": [
+          30.147607172693824,
+          30.189128905476537,
+          30.181301503034774
+        ],
+        "unstable": false
+      },
+      {
+        "attention_backends": [
+          "FLASHINFER"
+        ],
+        "batch_size": 1,
+        "context_label": 32768,
+        "cv": 0.0019224556326590955,
+        "fp8_over_bf16": 0.9074080305290432,
+        "input_len": 32768,
+        "kv_cache_dtype": "fp8",
+        "n": 3,
+        "speedup_bf16_over_fp8": 1.1020400595495867,
+        "step_ms": 11.696900855895365,
+        "step_ms_per_replicate": [
+          11.707659876265097,
+          11.696900855895365,
+          11.66448782896623
+        ],
+        "unstable": false
+      },
+      {
+        "attention_backends": [
+          "FLASHINFER"
+        ],
+        "batch_size": 1,
+        "context_label": 131072,
+        "cv": 0.0005375922480798225,
+        "fp8_over_bf16": 0.7391074226666016,
+        "input_len": 131007,
+        "kv_cache_dtype": "fp8",
+        "n": 3,
+        "speedup_bf16_over_fp8": 1.3529833003058374,
+        "step_ms": 15.174528874922544,
+        "step_ms_per_replicate": [
+          15.160765546170296,
+          15.175227326835738,
+          15.174528874922544
+        ],
+        "unstable": false
+      },
+      {
+        "attention_backends": [
+          "FLASHINFER"
+        ],
+        "batch_size": 8,
+        "context_label": 32768,
+        "cv": 0.0011602911173145345,
+        "fp8_over_bf16": 0.6629152454126516,
+        "input_len": 32768,
+        "kv_cache_dtype": "fp8",
+        "n": 3,
+        "speedup_bf16_over_fp8": 1.508488463525258,
+        "step_ms": 20.007644892757526,
+        "step_ms_per_replicate": [
+          20.007644892757526,
+          20.005636954010697,
+          20.046837264089845
+        ],
+        "unstable": false
+      }
+    ]
+  },
+  "task4_bmax": [
+    {
+      "addendum_git_sha": "594d69b4354813b3f25b4351b655d229b554ff86",
+      "addendum_id": "addendum-20261005",
+      "batch_size": 3,
+      "block": "bf16-synthetic-bmax",
+      "configuration": "bf16",
+      "container_digest": "sha256:059bc9be89387369d7de9e3e9b26d85b6e9902c41e7dbf002ebc45edd188fb7e",
+      "context_label": 131072,
+      "cv": 0.0010010686777891678,
+      "disposition": "stable",
+      "execution_git_sha": "ec534d9958d5616eef981c628b87a92c7c809872",
+      "failed_checks": [],
+      "label": "BF16",
+      "latency_basis": "host_wall",
+      "n_processes": 3,
+      "point_median_ms": 43.23839196484375,
+      "process_medians_ms": [
+        43.23839196484375,
+        43.195450984375,
+        43.282019734375
+      ],
+      "run_ids": [
+        "task4-bmax-r0-o000-bf16-synthetic-bmax-b3-l131072",
+        "task4-bmax-r1-o000-bf16-synthetic-bmax-b3-l131072",
+        "task4-bmax-r2-o000-bf16-synthetic-bmax-b3-l131072"
+      ],
+      "status_label": "preregistered",
+      "task": "task4-bmax",
+      "tokens_per_s": 69.38278376400396,
+      "unstable": false,
+      "variant": {},
+      "worker": "synthetic_worker.py",
+      "worker_result_sha256": [
+        "2007b40454174d0fdbb7ee6c369ec24a85339ee5f9cdbbaa1972123c361f23a2",
+        "473a4c2d28223500c70ea9211a78a89746dc5a9f0f375bad3e68ca137e7bb238",
+        "287501d2af82fcfbbb9367a141541b9e88e447792c3cf4ff44c510d6eaada7a6"
+      ],
+      "written_at_utc": "2026-10-05T16:17:42.606372Z"
+    },
+    {
+      "addendum_git_sha": "594d69b4354813b3f25b4351b655d229b554ff86",
+      "addendum_id": "addendum-20261005",
+      "batch_size": 9,
+      "block": "k4v4-synthetic-bmax",
+      "configuration": "k4v4",
+      "container_digest": "sha256:059bc9be89387369d7de9e3e9b26d85b6e9902c41e7dbf002ebc45edd188fb7e",
+      "context_label": 131072,
+      "cv": 0.00033127708970587044,
+      "disposition": "stable",
+      "execution_git_sha": "ec534d9958d5616eef981c628b87a92c7c809872",
+      "failed_checks": [],
+      "label": "KIVI-k4v4",
+      "latency_basis": "host_wall",
+      "n_processes": 3,
+      "point_median_ms": 154.09303037890626,
+      "process_medians_ms": [
+        154.0734231796875,
+        154.09303037890626,
+        154.17000896484376
+      ],
+      "run_ids": [
+        "task4-bmax-r0-o001-k4v4-synthetic-bmax-b9-l131072",
+        "task4-bmax-r1-o001-k4v4-synthetic-bmax-b9-l131072",
+        "task4-bmax-r2-o001-k4v4-synthetic-bmax-b9-l131072"
+      ],
+      "status_label": "preregistered",
+      "task": "task4-bmax",
+      "tokens_per_s": 58.40627559773143,
+      "unstable": false,
+      "variant": {},
+      "worker": "synthetic_worker.py",
+      "worker_result_sha256": [
+        "ff1730bf3a0b79c554edeff1d6937851f96665b50806ebb2af9131df42ffb649",
+        "4ac9fbffb1c5c55c95763400babe36a54c3a3bf342def85a7bae988efccdbc69",
+        "9a459103aaccedb92ffc2882d8ca0cbdb5342f0ae094b833f69fbc8355e63f21"
+      ],
+      "written_at_utc": "2026-10-05T16:34:08.835889Z"
+    }
+  ],
+  "task4_feasibility": {
+    "b_max": {
+      "bf16": 3,
+      "k4v4": 9
+    },
+    "context_label": 131072,
+    "cross_checks": {
+      "frozen_grid_records_identical": 10,
+      "limit_bytes": true,
+      "monotone_in_batch": true,
+      "parta_bf16_closed_form_identical": 32
+    },
+    "formula_source": "scripts/phase13_pilot.py feasibility_record (frozen, imported)",
+    "historical_context": 131071,
+    "limit_bytes": 89733904465,
+    "memory_numbers": "predicted by the preregistered feasibility formula; not measured",
+    "rows": [
+      {
+        "batch_size": 1,
+        "cache_allocated_bytes": 17180033024,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 48881635737,
+        "end_to_end_status": "feasible",
+        "endpoint_workspace_bytes": 163840,
+        "fits_steady_state": true,
+        "fixed_decode_input_bytes": 528,
+        "full_scan_admitted_batch": true,
+        "graph_pool_or_capture_reserve_bytes": 2150006169,
+        "graph_reserve_reference_bytes": 67367936,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": 54343144616,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "bf16",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 35390759849
+      },
+      {
+        "batch_size": 2,
+        "cache_allocated_bytes": 34359902208,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 81634393905,
+        "end_to_end_status": "feasible",
+        "endpoint_workspace_bytes": 327680,
+        "fits_steady_state": true,
+        "fixed_decode_input_bytes": 536,
+        "full_scan_admitted_batch": true,
+        "graph_pool_or_capture_reserve_bytes": 4300012337,
+        "graph_reserve_reference_bytes": 67367936,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": 35013105416,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "bf16",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 54720799049
+      },
+      {
+        "batch_size": 3,
+        "cache_allocated_bytes": 51539771392,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 114387152073,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 491520,
+        "fits_steady_state": true,
+        "fixed_decode_input_bytes": 544,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 6450018505,
+        "graph_reserve_reference_bytes": 67367936,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": 15683066216,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "bf16",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 74050838249
+      },
+      {
+        "batch_size": 4,
+        "cache_allocated_bytes": 68719640576,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 147139910241,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 655360,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 552,
+        "full_scan_admitted_batch": true,
+        "graph_pool_or_capture_reserve_bytes": 8600024673,
+        "graph_reserve_reference_bytes": 67367936,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -3646972984,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "bf16",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 93380877449
+      },
+      {
+        "batch_size": 5,
+        "cache_allocated_bytes": 85899509760,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 179892668409,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 819200,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 560,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 10750030841,
+        "graph_reserve_reference_bytes": 67367936,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -22977012184,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "bf16",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 112710916649
+      },
+      {
+        "batch_size": 6,
+        "cache_allocated_bytes": 103079378944,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 212645426577,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 983040,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 568,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 12900037009,
+        "graph_reserve_reference_bytes": 67367936,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -42307051384,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "bf16",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 132040955849
+      },
+      {
+        "batch_size": 7,
+        "cache_allocated_bytes": 120259248128,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 245398184746,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 1146880,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 576,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 15050043178,
+        "graph_reserve_reference_bytes": 67367936,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -61637090585,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "bf16",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 151370995050
+      },
+      {
+        "batch_size": 8,
+        "cache_allocated_bytes": 137439117312,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 278150942914,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 1310720,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 584,
+        "full_scan_admitted_batch": true,
+        "graph_pool_or_capture_reserve_bytes": 17200049346,
+        "graph_reserve_reference_bytes": 67367936,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -80967129785,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "bf16",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 170701034250
+      },
+      {
+        "batch_size": 9,
+        "cache_allocated_bytes": 154618986496,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 310903701082,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 1474560,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 592,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 19350055514,
+        "graph_reserve_reference_bytes": 67367936,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -100297168985,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "bf16",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 190031073450
+      },
+      {
+        "batch_size": 10,
+        "cache_allocated_bytes": 171798855680,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 343656459250,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 1638400,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 600,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 21500061682,
+        "graph_reserve_reference_bytes": 67367936,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -119627208185,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "bf16",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 209361112650
+      },
+      {
+        "batch_size": 11,
+        "cache_allocated_bytes": 188978724864,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 376409217418,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 1802240,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 608,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 23650067850,
+        "graph_reserve_reference_bytes": 67367936,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -138957247385,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "bf16",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 228691151850
+      },
+      {
+        "batch_size": 12,
+        "cache_allocated_bytes": 206158594048,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 409161975586,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 1966080,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 616,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 25800074018,
+        "graph_reserve_reference_bytes": 67367936,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -158287286585,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "bf16",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 248021191050
+      },
+      {
+        "batch_size": 13,
+        "cache_allocated_bytes": 223338463232,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 441914733754,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 2129920,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 624,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 27950080186,
+        "graph_reserve_reference_bytes": 67367936,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -177617325785,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "bf16",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 267351230250
+      },
+      {
+        "batch_size": 14,
+        "cache_allocated_bytes": 240518332416,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 474667491923,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 2293760,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 632,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 30100086355,
+        "graph_reserve_reference_bytes": 67367936,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -196947364986,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "bf16",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 286681269451
+      },
+      {
+        "batch_size": 15,
+        "cache_allocated_bytes": 257698201600,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 507420250091,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 2457600,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 640,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 32250092523,
+        "graph_reserve_reference_bytes": 67367936,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -216277404186,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "bf16",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 306011308651
+      },
+      {
+        "batch_size": 16,
+        "cache_allocated_bytes": 274878070784,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 540173008259,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 2621440,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 648,
+        "full_scan_admitted_batch": true,
+        "graph_pool_or_capture_reserve_bytes": 34400098691,
+        "graph_reserve_reference_bytes": 67367936,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -235607443386,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "bf16",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 325341347851
+      },
+      {
+        "batch_size": 17,
+        "cache_allocated_bytes": 292057939968,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 572925766427,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 2785280,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 656,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 36550104859,
+        "graph_reserve_reference_bytes": 67367936,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -254937482586,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "bf16",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 344671387051
+      },
+      {
+        "batch_size": 18,
+        "cache_allocated_bytes": 309237809152,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 605678524595,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 2949120,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 664,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 38700111027,
+        "graph_reserve_reference_bytes": 67367936,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -274267521786,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "bf16",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 364001426251
+      },
+      {
+        "batch_size": 19,
+        "cache_allocated_bytes": 326417678336,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 638431282763,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 3112960,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 672,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 40850117195,
+        "graph_reserve_reference_bytes": 67367936,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -293597560986,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "bf16",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 383331465451
+      },
+      {
+        "batch_size": 20,
+        "cache_allocated_bytes": 343597547520,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 671184040932,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 3276800,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 680,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 43000123364,
+        "graph_reserve_reference_bytes": 67367936,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -312927600187,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "bf16",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 402661504652
+      },
+      {
+        "batch_size": 21,
+        "cache_allocated_bytes": 360777416704,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 703936799100,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 3440640,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 688,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 45150129532,
+        "graph_reserve_reference_bytes": 67367936,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -332257639387,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "bf16",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 421991543852
+      },
+      {
+        "batch_size": 22,
+        "cache_allocated_bytes": 377957285888,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 736689557268,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 3604480,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 696,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 47300135700,
+        "graph_reserve_reference_bytes": 67367936,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -351587678587,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "bf16",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 441321583052
+      },
+      {
+        "batch_size": 23,
+        "cache_allocated_bytes": 395137155072,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 769442315436,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 3768320,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 704,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 49450141868,
+        "graph_reserve_reference_bytes": 67367936,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -370917717787,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "bf16",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 460651622252
+      },
+      {
+        "batch_size": 24,
+        "cache_allocated_bytes": 412317024256,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 802195073604,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 3932160,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 712,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 51600148036,
+        "graph_reserve_reference_bytes": 67367936,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -390247756987,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "bf16",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 479981661452
+      },
+      {
+        "batch_size": 25,
+        "cache_allocated_bytes": 429496893440,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 834947831772,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 4096000,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 720,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 53750154204,
+        "graph_reserve_reference_bytes": 67367936,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -409577796187,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "bf16",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 499311700652
+      },
+      {
+        "batch_size": 26,
+        "cache_allocated_bytes": 446676762624,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 867700589940,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 4259840,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 728,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 55900160372,
+        "graph_reserve_reference_bytes": 67367936,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -428907835387,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "bf16",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 518641739852
+      },
+      {
+        "batch_size": 27,
+        "cache_allocated_bytes": 463856631808,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 900453348109,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 4423680,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 736,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 58050166541,
+        "graph_reserve_reference_bytes": 67367936,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -448237874588,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "bf16",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 537971779053
+      },
+      {
+        "batch_size": 28,
+        "cache_allocated_bytes": 481036500992,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 933206106277,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 4587520,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 744,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 60200172709,
+        "graph_reserve_reference_bytes": 67367936,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -467567913788,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "bf16",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 557301818253
+      },
+      {
+        "batch_size": 29,
+        "cache_allocated_bytes": 498216370176,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 965958864445,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 4751360,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 752,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 62350178877,
+        "graph_reserve_reference_bytes": 67367936,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -486897952988,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "bf16",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 576631857453
+      },
+      {
+        "batch_size": 30,
+        "cache_allocated_bytes": 515396239360,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 998711622613,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 4915200,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 760,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 64500185045,
+        "graph_reserve_reference_bytes": 67367936,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -506227992188,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "bf16",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 595961896653
+      },
+      {
+        "batch_size": 31,
+        "cache_allocated_bytes": 532576108544,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 1031464380781,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 5079040,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 768,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 66650191213,
+        "graph_reserve_reference_bytes": 67367936,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -525558031388,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "bf16",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 615291935853
+      },
+      {
+        "batch_size": 32,
+        "cache_allocated_bytes": 549755977728,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 1064217138949,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 5242880,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 776,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 68800197381,
+        "graph_reserve_reference_bytes": 67367936,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -544888070588,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "bf16",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 634621975053
+      },
+      {
+        "batch_size": 1,
+        "cache_allocated_bytes": 5475287168,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 37131087303,
+        "end_to_end_status": "feasible",
+        "endpoint_workspace_bytes": 163840,
+        "fits_steady_state": true,
+        "fixed_decode_input_bytes": 528,
+        "full_scan_admitted_batch": true,
+        "graph_pool_or_capture_reserve_bytes": 2104203591,
+        "graph_reserve_reference_bytes": 65936256,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": 66093693050,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "k4v4",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 23640211415
+      },
+      {
+        "batch_size": 2,
+        "cache_allocated_bytes": 10883457280,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 58066343821,
+        "end_to_end_status": "feasible",
+        "endpoint_workspace_bytes": 327680,
+        "fits_steady_state": true,
+        "fixed_decode_input_bytes": 536,
+        "full_scan_admitted_batch": true,
+        "graph_pool_or_capture_reserve_bytes": 4208407181,
+        "graph_reserve_reference_bytes": 65936256,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": 58581155500,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "k4v4",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 31152748965
+      },
+      {
+        "batch_size": 3,
+        "cache_allocated_bytes": 16291627392,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 79001600340,
+        "end_to_end_status": "feasible",
+        "endpoint_workspace_bytes": 491520,
+        "fits_steady_state": true,
+        "fixed_decode_input_bytes": 544,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 6312610772,
+        "graph_reserve_reference_bytes": 65936256,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": 51068617949,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "k4v4",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 38665286516
+      },
+      {
+        "batch_size": 4,
+        "cache_allocated_bytes": 21699797504,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 99936856858,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 655360,
+        "fits_steady_state": true,
+        "fixed_decode_input_bytes": 552,
+        "full_scan_admitted_batch": true,
+        "graph_pool_or_capture_reserve_bytes": 8416814362,
+        "graph_reserve_reference_bytes": 65936256,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": 43556080399,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "k4v4",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 46177824066
+      },
+      {
+        "batch_size": 5,
+        "cache_allocated_bytes": 27107967616,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 120872113377,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 819200,
+        "fits_steady_state": true,
+        "fixed_decode_input_bytes": 560,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 10521017953,
+        "graph_reserve_reference_bytes": 65936256,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": 36043542848,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "k4v4",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 53690361617
+      },
+      {
+        "batch_size": 6,
+        "cache_allocated_bytes": 32516137728,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 141807369895,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 983040,
+        "fits_steady_state": true,
+        "fixed_decode_input_bytes": 568,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 12625221543,
+        "graph_reserve_reference_bytes": 65936256,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": 28531005298,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "k4v4",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 61202899167
+      },
+      {
+        "batch_size": 7,
+        "cache_allocated_bytes": 37924307840,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 162742626413,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 1146880,
+        "fits_steady_state": true,
+        "fixed_decode_input_bytes": 576,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 14729425133,
+        "graph_reserve_reference_bytes": 65936256,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": 21018467748,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "k4v4",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 68715436717
+      },
+      {
+        "batch_size": 8,
+        "cache_allocated_bytes": 43332477952,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 183677882932,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 1310720,
+        "fits_steady_state": true,
+        "fixed_decode_input_bytes": 584,
+        "full_scan_admitted_batch": true,
+        "graph_pool_or_capture_reserve_bytes": 16833628724,
+        "graph_reserve_reference_bytes": 65936256,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": 13505930197,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "k4v4",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 76227974268
+      },
+      {
+        "batch_size": 9,
+        "cache_allocated_bytes": 48740648064,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 204613139450,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 1474560,
+        "fits_steady_state": true,
+        "fixed_decode_input_bytes": 592,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 18937832314,
+        "graph_reserve_reference_bytes": 65936256,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": 5993392647,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "k4v4",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 83740511818
+      },
+      {
+        "batch_size": 10,
+        "cache_allocated_bytes": 54148818176,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 225548395969,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 1638400,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 600,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 21042035905,
+        "graph_reserve_reference_bytes": 65936256,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -1519144904,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "k4v4",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 91253049369
+      },
+      {
+        "batch_size": 11,
+        "cache_allocated_bytes": 59556988288,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 246483652487,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 1802240,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 608,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 23146239495,
+        "graph_reserve_reference_bytes": 65936256,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -9031682454,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "k4v4",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 98765586919
+      },
+      {
+        "batch_size": 12,
+        "cache_allocated_bytes": 64965158400,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 267418909006,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 1966080,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 616,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 25250443086,
+        "graph_reserve_reference_bytes": 65936256,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -16544220005,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "k4v4",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 106278124470
+      },
+      {
+        "batch_size": 13,
+        "cache_allocated_bytes": 70373328512,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 288354165524,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 2129920,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 624,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 27354646676,
+        "graph_reserve_reference_bytes": 65936256,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -24056757555,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "k4v4",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 113790662020
+      },
+      {
+        "batch_size": 14,
+        "cache_allocated_bytes": 75781498624,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 309289422042,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 2293760,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 632,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 29458850266,
+        "graph_reserve_reference_bytes": 65936256,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -31569295105,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "k4v4",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 121303199570
+      },
+      {
+        "batch_size": 15,
+        "cache_allocated_bytes": 81189668736,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 330224678561,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 2457600,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 640,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 31563053857,
+        "graph_reserve_reference_bytes": 65936256,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -39081832656,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "k4v4",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 128815737121
+      },
+      {
+        "batch_size": 16,
+        "cache_allocated_bytes": 86597838848,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 351159935079,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 2621440,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 648,
+        "full_scan_admitted_batch": true,
+        "graph_pool_or_capture_reserve_bytes": 33667257447,
+        "graph_reserve_reference_bytes": 65936256,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -46594370206,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "k4v4",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 136328274671
+      },
+      {
+        "batch_size": 17,
+        "cache_allocated_bytes": 92006008960,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 372095191598,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 2785280,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 656,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 35771461038,
+        "graph_reserve_reference_bytes": 65936256,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -54106907757,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "k4v4",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 143840812222
+      },
+      {
+        "batch_size": 18,
+        "cache_allocated_bytes": 97414179072,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 393030448116,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 2949120,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 664,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 37875664628,
+        "graph_reserve_reference_bytes": 65936256,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -61619445307,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "k4v4",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 151353349772
+      },
+      {
+        "batch_size": 19,
+        "cache_allocated_bytes": 102822349184,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 413965704634,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 3112960,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 672,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 39979868218,
+        "graph_reserve_reference_bytes": 65936256,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -69131982857,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "k4v4",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 158865887322
+      },
+      {
+        "batch_size": 20,
+        "cache_allocated_bytes": 108230519296,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 434900961153,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 3276800,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 680,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 42084071809,
+        "graph_reserve_reference_bytes": 65936256,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -76644520408,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "k4v4",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 166378424873
+      },
+      {
+        "batch_size": 21,
+        "cache_allocated_bytes": 113638689408,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 455836217671,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 3440640,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 688,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 44188275399,
+        "graph_reserve_reference_bytes": 65936256,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -84157057958,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "k4v4",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 173890962423
+      },
+      {
+        "batch_size": 22,
+        "cache_allocated_bytes": 119046859520,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 476771474190,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 3604480,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 696,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 46292478990,
+        "graph_reserve_reference_bytes": 65936256,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -91669595509,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "k4v4",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 181403499974
+      },
+      {
+        "batch_size": 23,
+        "cache_allocated_bytes": 124455029632,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 497706730708,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 3768320,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 704,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 48396682580,
+        "graph_reserve_reference_bytes": 65936256,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -99182133059,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "k4v4",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 188916037524
+      },
+      {
+        "batch_size": 24,
+        "cache_allocated_bytes": 129863199744,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 518641987227,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 3932160,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 712,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 50500886171,
+        "graph_reserve_reference_bytes": 65936256,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -106694670610,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "k4v4",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 196428575075
+      },
+      {
+        "batch_size": 25,
+        "cache_allocated_bytes": 135271369856,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 539577243745,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 4096000,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 720,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 52605089761,
+        "graph_reserve_reference_bytes": 65936256,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -114207208160,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "k4v4",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 203941112625
+      },
+      {
+        "batch_size": 26,
+        "cache_allocated_bytes": 140679539968,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 560512500263,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 4259840,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 728,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 54709293351,
+        "graph_reserve_reference_bytes": 65936256,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -121719745710,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "k4v4",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 211453650175
+      },
+      {
+        "batch_size": 27,
+        "cache_allocated_bytes": 146087710080,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 581447756782,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 4423680,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 736,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 56813496942,
+        "graph_reserve_reference_bytes": 65936256,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -129232283261,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "k4v4",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 218966187726
+      },
+      {
+        "batch_size": 28,
+        "cache_allocated_bytes": 151495880192,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 602383013300,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 4587520,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 744,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 58917700532,
+        "graph_reserve_reference_bytes": 65936256,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -136744820811,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "k4v4",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 226478725276
+      },
+      {
+        "batch_size": 29,
+        "cache_allocated_bytes": 156904050304,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 623318269819,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 4751360,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 752,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 61021904123,
+        "graph_reserve_reference_bytes": 65936256,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -144257358362,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "k4v4",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 233991262827
+      },
+      {
+        "batch_size": 30,
+        "cache_allocated_bytes": 162312220416,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 644253526337,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 4915200,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 760,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 63126107713,
+        "graph_reserve_reference_bytes": 65936256,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -151769895912,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "k4v4",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 241503800377
+      },
+      {
+        "batch_size": 31,
+        "cache_allocated_bytes": 167720390528,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 665188782856,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 5079040,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 768,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 65230311304,
+        "graph_reserve_reference_bytes": 65936256,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -159282433463,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "k4v4",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 249016337928
+      },
+      {
+        "batch_size": 32,
+        "cache_allocated_bytes": 173128560640,
+        "capacity": 131072,
+        "context_label": 131072,
+        "end_to_end_predicted_bytes": 686124039374,
+        "end_to_end_status": "capacity_infeasible",
+        "endpoint_workspace_bytes": 5242880,
+        "fits_steady_state": false,
+        "fixed_decode_input_bytes": 776,
+        "full_scan_admitted_batch": false,
+        "graph_pool_or_capture_reserve_bytes": 67334514894,
+        "graph_reserve_reference_bytes": 65936256,
+        "graph_reserve_reference_endpoint_workspace_bytes": 163840,
+        "headroom_bytes": -166794971013,
+        "historical_context": 131071,
+        "limit_bytes": 89733904465,
+        "method_config_id": "k4v4",
+        "model_weight_bytes": 16060556288,
+        "steady_state_bytes": 256528875478
+      }
+    ],
+    "rule": "largest B with weights + allocated cache + endpoint workspace + graph reserve + fixed decode inputs <= limit (amendment Section 6; partA capacity() steady state)",
+    "schema_version": "kvbench-addendum-20261005-task4-bmax-1.0.0"
+  },
+  "task4_gate": {
+    "addendum_id": "addendum-20261005",
+    "configurations": {
+      "bf16": {
+        "pass": true,
+        "real": {
+          "cv": 0.00018712680862453912,
+          "disposition": "stable",
+          "n_processes": 3,
+          "point_median_ms": 14.0889355234375
+        },
+        "relative_difference": 0.0005304921936840084,
+        "synthetic": {
+          "cv": 1.2196115247450444e-05,
+          "disposition": "stable",
+          "n_processes": 3,
+          "point_median_ms": 14.081461453125
+        },
+        "threshold": 0.01
+      },
+      "k4v4": {
+        "pass": true,
+        "real": {
+          "cv": 0.000604262633160391,
+          "disposition": "stable",
+          "n_processes": 3,
+          "point_median_ms": 24.4875594921875
+        },
+        "relative_difference": 0.0005416664673334744,
+        "synthetic": {
+          "cv": 0.00012474326349131885,
+          "disposition": "stable",
+          "n_processes": 3,
+          "point_median_ms": 24.47429540234375
+        },
+        "threshold": 0.01
+      }
+    },
+    "evaluated_at_utc": "2026-10-05T15:41:17.542853Z",
+    "pass": true,
+    "rule": "|T_syn - T_real| / T_real <= max(CV_real, CV_syn, 0.01)"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "attempt": 0,
+  "failed_checks": [],
+  "finished_at_utc": "2026-10-05T12:02:34.659835Z",
+  "gpu_apps_after": "",
+  "host_wall_process_median_ms": 36.98280651953125,
+  "run_id": "task1-sweep-r2-o003-tq_k3v4_nc-s64-b1-l131072",
+  "started_at_utc": "2026-10-05T12:01:06.502072Z",
+  "status": "completed",
+  "wall_seconds_including_setup": 88.11232831398956,
+  "worker_result_sha256": "5a352da9cb11febe7f7671bce23a9bab5ab03e1a0cda29efa68acd88ad686a14"
+}

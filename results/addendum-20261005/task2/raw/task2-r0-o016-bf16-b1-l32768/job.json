@@ -1,0 +1,16 @@
+{
+  "attempt": 0,
+  "batch_size": 1,
+  "block": "bf16",
+  "configuration": "bf16",
+  "context_label": 32768,
+  "extra_args": [],
+  "order_index": 16,
+  "predicted_seconds": 45,
+  "round": 0,
+  "run_id": "task2-r0-o016-bf16-b1-l32768",
+  "seed": 2026100520,
+  "task": "task2",
+  "variant": {},
+  "worker": "timing_worker.py"
+}

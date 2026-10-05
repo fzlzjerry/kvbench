@@ -1,0 +1,114 @@
+{
+  "addendum_git_sha_at_start": "594d69b4354813b3f25b4351b655d229b554ff86",
+  "addendum_id": "addendum-20261005",
+  "amendment": "docs/amendment-20261005.md",
+  "cap_seconds": 10800,
+  "jobs": [
+    {
+      "batch_size": 3,
+      "block": "bf16-synthetic-bmax",
+      "configuration": "bf16",
+      "context_label": 131072,
+      "extra_args": [
+        "--unadmitted-batch-bypass"
+      ],
+      "order_index": 0,
+      "predicted_seconds": 150,
+      "round": 0,
+      "run_id": "task4-bmax-r0-o000-bf16-synthetic-bmax-b3-l131072",
+      "seed": 2026100920,
+      "task": "task4-bmax",
+      "variant": {},
+      "worker": "synthetic_worker.py"
+    },
+    {
+      "batch_size": 9,
+      "block": "k4v4-synthetic-bmax",
+      "configuration": "k4v4",
+      "context_label": 131072,
+      "extra_args": [
+        "--unadmitted-batch-bypass"
+      ],
+      "order_index": 1,
+      "predicted_seconds": 1000,
+      "round": 0,
+      "run_id": "task4-bmax-r0-o001-k4v4-synthetic-bmax-b9-l131072",
+      "seed": 2026100920,
+      "task": "task4-bmax",
+      "variant": {},
+      "worker": "synthetic_worker.py"
+    },
+    {
+      "batch_size": 3,
+      "block": "bf16-synthetic-bmax",
+      "configuration": "bf16",
+      "context_label": 131072,
+      "extra_args": [
+        "--unadmitted-batch-bypass"
+      ],
+      "order_index": 0,
+      "predicted_seconds": 150,
+      "round": 1,
+      "run_id": "task4-bmax-r1-o000-bf16-synthetic-bmax-b3-l131072",
+      "seed": 2026100921,
+      "task": "task4-bmax",
+      "variant": {},
+      "worker": "synthetic_worker.py"
+    },
+    {
+      "batch_size": 9,
+      "block": "k4v4-synthetic-bmax",
+      "configuration": "k4v4",
+      "context_label": 131072,
+      "extra_args": [
+        "--unadmitted-batch-bypass"
+      ],
+      "order_index": 1,
+      "predicted_seconds": 1000,
+      "round": 1,
+      "run_id": "task4-bmax-r1-o001-k4v4-synthetic-bmax-b9-l131072",
+      "seed": 2026100921,
+      "task": "task4-bmax",
+      "variant": {},
+      "worker": "synthetic_worker.py"
+    },
+    {
+      "batch_size": 3,
+      "block": "bf16-synthetic-bmax",
+      "configuration": "bf16",
+      "context_label": 131072,
+      "extra_args": [
+        "--unadmitted-batch-bypass"
+      ],
+      "order_index": 0,
+      "predicted_seconds": 150,
+      "round": 2,
+      "run_id": "task4-bmax-r2-o000-bf16-synthetic-bmax-b3-l131072",
+      "seed": 2026100922,
+      "task": "task4-bmax",
+      "variant": {},
+      "worker": "synthetic_worker.py"
+    },
+    {
+      "batch_size": 9,
+      "block": "k4v4-synthetic-bmax",
+      "configuration": "k4v4",
+      "context_label": 131072,
+      "extra_args": [
+        "--unadmitted-batch-bypass"
+      ],
+      "order_index": 1,
+      "predicted_seconds": 1000,
+      "round": 2,
+      "run_id": "task4-bmax-r2-o001-k4v4-synthetic-bmax-b9-l131072",
+      "seed": 2026100922,
+      "task": "task4-bmax",
+      "variant": {},
+      "worker": "synthetic_worker.py"
+    }
+  ],
+  "started_at_epoch": 1791214877.8414345,
+  "started_at_utc": "2026-10-05T15:41:17.841419Z",
+  "status_label": "preregistered",
+  "task": "task4-bmax"
+}

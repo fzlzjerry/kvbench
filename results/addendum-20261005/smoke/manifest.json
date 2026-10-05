@@ -1,0 +1,39 @@
+{
+  "addendum_git_sha_at_start": "de3b0e5d827416702c88b3c0b1afc69e300823c6",
+  "addendum_id": "addendum-20261005",
+  "amendment": "docs/amendment-20261005.md",
+  "cap_seconds": 1800,
+  "jobs": [
+    {
+      "batch_size": 1,
+      "block": "tq_k3v4_nc-s32",
+      "configuration": "tq_k3v4_nc",
+      "context_label": 4096,
+      "order_index": 0,
+      "predicted_seconds": 900,
+      "round": 0,
+      "run_id": "smoke-r0-o000-tq_k3v4_nc-s32-b1-l4096",
+      "seed": 2026100500,
+      "task": "smoke",
+      "variant": {
+        "tq_splits": 32
+      }
+    },
+    {
+      "batch_size": 1,
+      "block": "bf16",
+      "configuration": "bf16",
+      "context_label": 4096,
+      "order_index": 1,
+      "predicted_seconds": 40,
+      "round": 0,
+      "run_id": "smoke-r0-o001-bf16-b1-l4096",
+      "seed": 2026100500,
+      "task": "smoke",
+      "variant": {}
+    }
+  ],
+  "started_at_epoch": 1791196648.9731753,
+  "started_at_utc": "2026-10-05T10:37:28.973161Z",
+  "task": "smoke"
+}

@@ -1,0 +1,19 @@
+[
+  "/home/rockrock/addendum-vllm-env/bin/vllm",
+  "bench",
+  "latency",
+  "--model",
+  "/root/.cache/huggingface/hub/models--meta-llama--Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659",
+  "--input-len",
+  "131007",
+  "--output-len",
+  "1",
+  "--batch-size",
+  "1",
+  "--num-iters-warmup",
+  "5",
+  "--num-iters",
+  "15",
+  "--output-json",
+  "/home/rockrock/kvbench-addendum-20261005/results/addendum-20261005/task3/raw/task3-r0-o000-auto-b1-l131072-out1.attempt1/latency.json"
+]

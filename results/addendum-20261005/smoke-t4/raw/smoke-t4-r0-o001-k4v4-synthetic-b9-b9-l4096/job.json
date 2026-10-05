@@ -1,0 +1,18 @@
+{
+  "attempt": 0,
+  "batch_size": 9,
+  "block": "k4v4-synthetic-b9",
+  "configuration": "k4v4",
+  "context_label": 4096,
+  "extra_args": [
+    "--unadmitted-batch-bypass"
+  ],
+  "order_index": 1,
+  "predicted_seconds": 900,
+  "round": 0,
+  "run_id": "smoke-t4-r0-o001-k4v4-synthetic-b9-b9-l4096",
+  "seed": 2026100900,
+  "task": "smoke-t4",
+  "variant": {},
+  "worker": "synthetic_worker.py"
+}

@@ -1,0 +1,14 @@
+{
+  "check": "t1-sanitizer-s32-all",
+  "configuration": "tq_k3v4_nc",
+  "docker_returncode": 0,
+  "finished_at_utc": "2026-10-05T10:43:36.557018Z",
+  "sanitize": "all",
+  "started_at_utc": "2026-10-05T10:43:14.995346Z",
+  "status": "completed",
+  "task": "task1",
+  "variant": {
+    "tq_splits": 32
+  },
+  "worker_error": null
+}

@@ -1,0 +1,14 @@
+{
+  "attempt": 0,
+  "batch_size": 1,
+  "block": "bf16",
+  "configuration": "bf16",
+  "context_label": 131072,
+  "order_index": 6,
+  "predicted_seconds": 60,
+  "round": 1,
+  "run_id": "task1-r1-o006-bf16-b1-l131072",
+  "seed": 2026100511,
+  "task": "task1",
+  "variant": {}
+}

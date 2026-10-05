@@ -1,0 +1,157 @@
+{"run_id": "task3b-r0-o000-auto-b1-l131072-out1", "status": "completed", "process_median_s": 0.17188247595913708, "wall_seconds": 55.15587826212868}
+{"run_id": "task3b-r0-o001-auto-b1-l131072-out65", "status": "completed", "process_median_s": 1.4858590620569885, "wall_seconds": 81.37144141294993}
+{"run_id": "task3b-r0-o002-auto-b1-l32768-out1", "status": "completed", "process_median_s": 0.05283658602274954, "wall_seconds": 33.17833616002463}
+{"run_id": "task3b-r0-o003-auto-b1-l32768-out65", "status": "completed", "process_median_s": 0.8769594531040639, "wall_seconds": 49.582860560156405}
+{"run_id": "task3b-r0-o004-auto-b8-l32768-out1", "status": "completed", "process_median_s": 0.19457162101753056, "wall_seconds": 53.397595580201596}
+{"run_id": "task3b-r0-o005-auto-b8-l32768-out65", "status": "completed", "process_median_s": 2.1240184800699353, "wall_seconds": 92.28436505887657}
+{"run_id": "task3b-r0-o006-fp8-b8-l32768-out65", "status": "completed", "process_median_s": 1.434773684013635, "wall_seconds": 77.81755798193626}
+{"run_id": "task3b-r0-o007-fp8-b1-l131072-out65", "status": "completed", "process_median_s": 1.064977346919477, "wall_seconds": 71.17364748287946}
+{"run_id": "task3b-r0-o008-fp8-b8-l32768-out1", "status": "completed", "process_median_s": 0.15428441087715328, "wall_seconds": 52.25842610001564}
+{"run_id": "task3b-r0-o009-fp8-b1-l32768-out65", "status": "completed", "process_median_s": 0.7821233840659261, "wall_seconds": 48.17564508412033}
+{"run_id": "task3b-r0-o010-fp8-b1-l32768-out1", "status": "completed", "process_median_s": 0.03283315198495984, "wall_seconds": 33.21007139491849}
+{"run_id": "task3b-r0-o011-fp8-b1-l131072-out1", "status": "completed", "process_median_s": 0.09468835196457803, "wall_seconds": 51.55079088686034}
+{"run_id": "task3b-r1-o000-auto-b8-l32768-out1", "status": "completed", "process_median_s": 0.19165425305254757, "wall_seconds": 53.34101945301518}
+{"run_id": "task3b-r1-o001-auto-b1-l131072-out1", "status": "completed", "process_median_s": 0.17385536688379943, "wall_seconds": 55.00362811679952}
+{"run_id": "task3b-r1-o002-auto-b8-l32768-out65", "status": "completed", "process_median_s": 2.123758503003046, "wall_seconds": 92.30478639993817}
+{"run_id": "task3b-r1-o003-auto-b1-l32768-out1", "status": "completed", "process_median_s": 0.05230185016989708, "wall_seconds": 33.415075132157654}
+{"run_id": "task3b-r1-o004-auto-b1-l32768-out65", "status": "completed", "process_median_s": 0.8774067719932646, "wall_seconds": 49.68741427897476}
+{"run_id": "task3b-r1-o005-auto-b1-l131072-out65", "status": "completed", "process_median_s": 1.486061059171334, "wall_seconds": 81.25877288798802}
+{"run_id": "task3b-r1-o006-fp8-b1-l32768-out65", "status": "completed", "process_median_s": 0.7827703668735921, "wall_seconds": 48.23718393500894}
+{"run_id": "task3b-r1-o007-fp8-b1-l131072-out1", "status": "completed", "process_median_s": 0.09380281204357743, "wall_seconds": 51.58176636882126}
+{"run_id": "task3b-r1-o008-fp8-b8-l32768-out1", "status": "completed", "process_median_s": 0.15423907502554357, "wall_seconds": 52.046872745035216}
+{"run_id": "task3b-r1-o009-fp8-b8-l32768-out65", "status": "completed", "process_median_s": 1.4345998400822282, "wall_seconds": 77.64817716716789}
+{"run_id": "task3b-r1-o010-fp8-b1-l131072-out65", "status": "completed", "process_median_s": 1.0650173609610647, "wall_seconds": 71.11334298201837}
+{"run_id": "task3b-r1-o011-fp8-b1-l32768-out1", "status": "completed", "process_median_s": 0.0341687120962888, "wall_seconds": 33.30464268592186}
+{"run_id": "task3b-r2-o000-fp8-b1-l131072-out1", "status": "completed", "process_median_s": 0.09330085897818208, "wall_seconds": 51.49658184614964}
+{"run_id": "task3b-r2-o001-fp8-b1-l131072-out65", "status": "completed", "process_median_s": 1.0644707069732249, "wall_seconds": 71.00182794802822}
+{"run_id": "task3b-r2-o002-fp8-b8-l32768-out65", "status": "completed", "process_median_s": 1.436812917003408, "wall_seconds": 77.75768683291972}
+{"run_id": "task3b-r2-o003-fp8-b1-l32768-out65", "status": "completed", "process_median_s": 0.7818343930412084, "wall_seconds": 48.09357570298016}
+{"run_id": "task3b-r2-o004-fp8-b1-l32768-out1", "status": "completed", "process_median_s": 0.03530717198736966, "wall_seconds": 33.15524498093873}
+{"run_id": "task3b-r2-o005-fp8-b8-l32768-out1", "status": "completed", "process_median_s": 0.153815332101658, "wall_seconds": 51.962309719994664}
+{"run_id": "task3b-r2-o006-auto-b1-l131072-out1", "status": "completed", "process_median_s": 0.1708538429811597, "wall_seconds": 54.868338878965005}
+{"run_id": "task3b-r2-o007-auto-b8-l32768-out1", "status": "completed", "process_median_s": 0.19301001681014895, "wall_seconds": 53.35861079697497}
+{"run_id": "task3b-r2-o008-auto-b1-l32768-out1", "status": "completed", "process_median_s": 0.05262513877823949, "wall_seconds": 33.136920907069}
+{"run_id": "task3b-r2-o009-auto-b1-l131072-out65", "status": "completed", "process_median_s": 1.485962542006746, "wall_seconds": 81.3106804760173}
+{"run_id": "task3b-r2-o010-auto-b8-l32768-out65", "status": "completed", "process_median_s": 2.1246133130043745, "wall_seconds": 92.44939051498659}
+{"run_id": "task3b-r2-o011-auto-b1-l32768-out65", "status": "completed", "process_median_s": 0.877614150987938, "wall_seconds": 49.724908446893096}
+{
+  "generated_at_utc": "2026-10-05T21:33:13.269051Z",
+  "points": [
+    {
+      "attention_backends": [
+        "FLASH_ATTN"
+      ],
+      "batch_size": 1,
+      "context_label": 32768,
+      "cv": 0.0006507123331727203,
+      "input_len": 32768,
+      "kv_cache_dtype": "bf16 (auto)",
+      "n": 3,
+      "step_ms": 12.89045331577654,
+      "step_ms_per_replicate": [
+        12.876919798145536,
+        12.892264403490117,
+        12.89045331577654
+      ],
+      "unstable": false
+    },
+    {
+      "attention_backends": [
+        "FLASH_ATTN"
+      ],
+      "batch_size": 1,
+      "context_label": 131072,
+      "cv": 0.0011137236502863144,
+      "input_len": 131007,
+      "kv_cache_dtype": "bf16 (auto)",
+      "n": 3,
+      "step_ms": 20.530884157778928,
+      "step_ms_per_replicate": [
+        20.530884157778928,
+        20.503213941992726,
+        20.548573422274785
+      ],
+      "unstable": false
+    },
+    {
+      "attention_backends": [
+        "FLASH_ATTN"
+      ],
+      "batch_size": 8,
+      "context_label": 32768,
+      "cv": 0.000731221246250381,
+      "input_len": 32768,
+      "kv_cache_dtype": "bf16 (auto)",
+      "n": 3,
+      "step_ms": 30.181301503034774,
+      "step_ms_per_replicate": [
+        30.147607172693824,
+        30.189128905476537,
+        30.181301503034774
+      ],
+      "unstable": false
+    },
+    {
+      "attention_backends": [
+        "FLASHINFER"
+      ],
+      "batch_size": 1,
+      "context_label": 32768,
+      "cv": 0.0019224556326590955,
+      "fp8_over_bf16": 0.9074080305290432,
+      "input_len": 32768,
+      "kv_cache_dtype": "fp8",
+      "n": 3,
+      "speedup_bf16_over_fp8": 1.1020400595495867,
+      "step_ms": 11.696900855895365,
+      "step_ms_per_replicate": [
+        11.707659876265097,
+        11.696900855895365,
+        11.66448782896623
+      ],
+      "unstable": false
+    },
+    {
+      "attention_backends": [
+        "FLASHINFER"
+      ],
+      "batch_size": 1,
+      "context_label": 131072,
+      "cv": 0.0005375922480798225,
+      "fp8_over_bf16": 0.7391074226666016,
+      "input_len": 131007,
+      "kv_cache_dtype": "fp8",
+      "n": 3,
+      "speedup_bf16_over_fp8": 1.3529833003058374,
+      "step_ms": 15.174528874922544,
+      "step_ms_per_replicate": [
+        15.160765546170296,
+        15.175227326835738,
+        15.174528874922544
+      ],
+      "unstable": false
+    },
+    {
+      "attention_backends": [
+        "FLASHINFER"
+      ],
+      "batch_size": 8,
+      "context_label": 32768,
+      "cv": 0.0011602911173145345,
+      "fp8_over_bf16": 0.6629152454126516,
+      "input_len": 32768,
+      "kv_cache_dtype": "fp8",
+      "n": 3,
+      "speedup_bf16_over_fp8": 1.508488463525258,
+      "step_ms": 20.007644892757526,
+      "step_ms_per_replicate": [
+        20.007644892757526,
+        20.005636954010697,
+        20.046837264089845
+      ],
+      "unstable": false
+    }
+  ]
+}
+
+T3B_DONE

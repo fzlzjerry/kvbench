@@ -1,0 +1,16 @@
+{
+  "check": "t2-sanitizer-k2v2-grouped",
+  "configuration": "k2v2",
+  "docker_returncode": 0,
+  "finished_at_utc": "2026-10-05T12:12:55.187116Z",
+  "gates_pass": null,
+  "sanitize": "all",
+  "started_at_utc": "2026-10-05T12:11:20.470382Z",
+  "status": "completed",
+  "task": "task2",
+  "variant": {
+    "kivi_grouped_residual": true
+  },
+  "worker_error": null,
+  "worker_script": "check_worker.py"
+}

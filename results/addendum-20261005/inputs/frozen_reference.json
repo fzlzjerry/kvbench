@@ -1,0 +1,345 @@
+{
+  "points": [
+    {
+      "batch_size": 1,
+      "context_label": 4096,
+      "cv": 0.0009858085547238722,
+      "median_ms": 11.773624859375,
+      "method_config_id": "bf16"
+    },
+    {
+      "batch_size": 1,
+      "context_label": 24576,
+      "cv": 0.0008370589188867651,
+      "median_ms": 13.47829878515625,
+      "method_config_id": "bf16"
+    },
+    {
+      "batch_size": 1,
+      "context_label": 32768,
+      "cv": 0.0006532111688336846,
+      "median_ms": 14.11629028125,
+      "method_config_id": "bf16"
+    },
+    {
+      "batch_size": 1,
+      "context_label": 131072,
+      "cv": 0.0004915676672805559,
+      "median_ms": 22.2866824296875,
+      "method_config_id": "bf16"
+    },
+    {
+      "batch_size": 8,
+      "context_label": 4096,
+      "cv": 0.0006459948462873282,
+      "median_ms": 14.27790268359375,
+      "method_config_id": "bf16"
+    },
+    {
+      "batch_size": 8,
+      "context_label": 24576,
+      "cv": 0.00045051666379641,
+      "median_ms": 27.4874919296875,
+      "method_config_id": "bf16"
+    },
+    {
+      "batch_size": 8,
+      "context_label": 32768,
+      "cv": 0.0005749195483001834,
+      "median_ms": 32.6696236484375,
+      "method_config_id": "bf16"
+    },
+    {
+      "batch_size": 8,
+      "context_label": 131072,
+      "cv": null,
+      "median_ms": null,
+      "method_config_id": "bf16"
+    },
+    {
+      "batch_size": 1,
+      "context_label": 4096,
+      "cv": 0.001276384190821269,
+      "median_ms": 19.09793141015625,
+      "method_config_id": "k2v2"
+    },
+    {
+      "batch_size": 1,
+      "context_label": 24576,
+      "cv": 0.00026507108490926,
+      "median_ms": 23.238845046875,
+      "method_config_id": "k2v2"
+    },
+    {
+      "batch_size": 1,
+      "context_label": 32768,
+      "cv": 0.0018023886557010005,
+      "median_ms": 24.9880918046875,
+      "method_config_id": "k2v2"
+    },
+    {
+      "batch_size": 1,
+      "context_label": 131072,
+      "cv": 0.0017041532625138816,
+      "median_ms": 47.30504630859375,
+      "method_config_id": "k2v2"
+    },
+    {
+      "batch_size": 8,
+      "context_label": 4096,
+      "cv": 0.0016832829074844415,
+      "median_ms": 20.67908510546875,
+      "method_config_id": "k2v2"
+    },
+    {
+      "batch_size": 8,
+      "context_label": 24576,
+      "cv": 0.0035059363441959654,
+      "median_ms": 33.558569328125,
+      "method_config_id": "k2v2"
+    },
+    {
+      "batch_size": 8,
+      "context_label": 32768,
+      "cv": 0.0033173818675729673,
+      "median_ms": 38.83451339453125,
+      "method_config_id": "k2v2"
+    },
+    {
+      "batch_size": 8,
+      "context_label": 131072,
+      "cv": null,
+      "median_ms": null,
+      "method_config_id": "k2v2"
+    },
+    {
+      "batch_size": 1,
+      "context_label": 4096,
+      "cv": 0.0014800919988520068,
+      "median_ms": 19.06254571875,
+      "method_config_id": "k4v4"
+    },
+    {
+      "batch_size": 1,
+      "context_label": 24576,
+      "cv": 0.0009620185277389559,
+      "median_ms": 22.89637684765625,
+      "method_config_id": "k4v4"
+    },
+    {
+      "batch_size": 1,
+      "context_label": 32768,
+      "cv": 0.0015557268609039307,
+      "median_ms": 24.53449472265625,
+      "method_config_id": "k4v4"
+    },
+    {
+      "batch_size": 1,
+      "context_label": 131072,
+      "cv": 0.0017881489139356939,
+      "median_ms": 45.83143558984375,
+      "method_config_id": "k4v4"
+    },
+    {
+      "batch_size": 8,
+      "context_label": 4096,
+      "cv": 0.0026556146611684006,
+      "median_ms": 21.06428991796875,
+      "method_config_id": "k4v4"
+    },
+    {
+      "batch_size": 8,
+      "context_label": 24576,
+      "cv": 0.0039348358518373865,
+      "median_ms": 36.76557447265625,
+      "method_config_id": "k4v4"
+    },
+    {
+      "batch_size": 8,
+      "context_label": 32768,
+      "cv": 0.004879718025914818,
+      "median_ms": 43.22662409375,
+      "method_config_id": "k4v4"
+    },
+    {
+      "batch_size": 8,
+      "context_label": 131072,
+      "cv": null,
+      "median_ms": null,
+      "method_config_id": "k4v4"
+    },
+    {
+      "batch_size": 1,
+      "context_label": 4096,
+      "cv": 0.001105208114027054,
+      "median_ms": 22.88019963671875,
+      "method_config_id": "tq_3bit_nc"
+    },
+    {
+      "batch_size": 1,
+      "context_label": 24576,
+      "cv": 0.0009909074260024268,
+      "median_ms": 78.83564487109375,
+      "method_config_id": "tq_3bit_nc"
+    },
+    {
+      "batch_size": 1,
+      "context_label": 32768,
+      "cv": 0.0013340294973174854,
+      "median_ms": 101.2071765234375,
+      "method_config_id": "tq_3bit_nc"
+    },
+    {
+      "batch_size": 1,
+      "context_label": 131072,
+      "cv": 0.0006732200945994161,
+      "median_ms": 369.8383313515625,
+      "method_config_id": "tq_3bit_nc"
+    },
+    {
+      "batch_size": 8,
+      "context_label": 4096,
+      "cv": 0.0012076461531329151,
+      "median_ms": 23.51713283984375,
+      "method_config_id": "tq_3bit_nc"
+    },
+    {
+      "batch_size": 8,
+      "context_label": 24576,
+      "cv": 0.0012182614805263524,
+      "median_ms": 80.3875304921875,
+      "method_config_id": "tq_3bit_nc"
+    },
+    {
+      "batch_size": 8,
+      "context_label": 32768,
+      "cv": 0.0008160508705653642,
+      "median_ms": 103.14418543359375,
+      "method_config_id": "tq_3bit_nc"
+    },
+    {
+      "batch_size": 8,
+      "context_label": 131072,
+      "cv": null,
+      "median_ms": null,
+      "method_config_id": "tq_3bit_nc"
+    },
+    {
+      "batch_size": 1,
+      "context_label": 4096,
+      "cv": 0.0008095130319120612,
+      "median_ms": 25.83002887890625,
+      "method_config_id": "tq_4bit_nc"
+    },
+    {
+      "batch_size": 1,
+      "context_label": 24576,
+      "cv": 0.0005647987760321546,
+      "median_ms": 95.93035983203124,
+      "method_config_id": "tq_4bit_nc"
+    },
+    {
+      "batch_size": 1,
+      "context_label": 32768,
+      "cv": 6.14994728667843e-05,
+      "median_ms": 123.9174679609375,
+      "method_config_id": "tq_4bit_nc"
+    },
+    {
+      "batch_size": 1,
+      "context_label": 131072,
+      "cv": 0.00048244251652686205,
+      "median_ms": 460.2243421953125,
+      "method_config_id": "tq_4bit_nc"
+    },
+    {
+      "batch_size": 8,
+      "context_label": 4096,
+      "cv": 0.0007386480410354758,
+      "median_ms": 26.0220805234375,
+      "method_config_id": "tq_4bit_nc"
+    },
+    {
+      "batch_size": 8,
+      "context_label": 24576,
+      "cv": 0.00046926468339769916,
+      "median_ms": 95.11339673046875,
+      "method_config_id": "tq_4bit_nc"
+    },
+    {
+      "batch_size": 8,
+      "context_label": 32768,
+      "cv": 0.0006338115743916888,
+      "median_ms": 122.72344433984375,
+      "method_config_id": "tq_4bit_nc"
+    },
+    {
+      "batch_size": 8,
+      "context_label": 131072,
+      "cv": null,
+      "median_ms": null,
+      "method_config_id": "tq_4bit_nc"
+    },
+    {
+      "batch_size": 1,
+      "context_label": 4096,
+      "cv": 0.0013886973694894212,
+      "median_ms": 21.09007955859375,
+      "method_config_id": "tq_k3v4_nc"
+    },
+    {
+      "batch_size": 1,
+      "context_label": 24576,
+      "cv": 0.0007042961931379039,
+      "median_ms": 68.00545967578125,
+      "method_config_id": "tq_k3v4_nc"
+    },
+    {
+      "batch_size": 1,
+      "context_label": 32768,
+      "cv": 0.0015417670985114333,
+      "median_ms": 86.82108076953125,
+      "method_config_id": "tq_k3v4_nc"
+    },
+    {
+      "batch_size": 1,
+      "context_label": 131072,
+      "cv": 0.0005678719723584895,
+      "median_ms": 309.89444001953126,
+      "method_config_id": "tq_k3v4_nc"
+    },
+    {
+      "batch_size": 8,
+      "context_label": 4096,
+      "cv": 0.0008951529441741903,
+      "median_ms": 22.01595234375,
+      "method_config_id": "tq_k3v4_nc"
+    },
+    {
+      "batch_size": 8,
+      "context_label": 24576,
+      "cv": 0.0006910797427980708,
+      "median_ms": 71.397397515625,
+      "method_config_id": "tq_k3v4_nc"
+    },
+    {
+      "batch_size": 8,
+      "context_label": 32768,
+      "cv": 0.0007250537463183508,
+      "median_ms": 91.100798484375,
+      "method_config_id": "tq_k3v4_nc"
+    },
+    {
+      "batch_size": 8,
+      "context_label": 131072,
+      "cv": null,
+      "median_ms": null,
+      "method_config_id": "tq_k3v4_nc"
+    }
+  ],
+  "schema_version": "kvbench-addendum-20261005-frozen-reference-1.0.0",
+  "source": "Full Scan host-wall point summary (frozen; perf-freeze-20260917-83536c37-r1 family de80ac wall-closure)",
+  "source_path": "/home/rockrock/cmu_paper/artifacts/phase16/phase16-20260831t123029614620z-ec534d99-de80ac/wall-closure/point_summary.parquet",
+  "source_sha256": "91a1d0fd0261d870a5afdbcd8c7914bf0c4a64e3d8bccb27c67d12f6ece35b86",
+  "use": "context only (as-ported split-4 TurboQuant, existing KIVI adapter); never a denominator for addendum ratios"
+}

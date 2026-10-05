@@ -1,0 +1,18 @@
+{
+  "attempt": 0,
+  "batch_size": 1,
+  "block": "tq_k3v4_nc-s16",
+  "configuration": "tq_k3v4_nc",
+  "context_label": 131072,
+  "extra_args": [],
+  "order_index": 3,
+  "predicted_seconds": 220,
+  "round": 1,
+  "run_id": "task1-sweep-r1-o003-tq_k3v4_nc-s16-b1-l131072",
+  "seed": 2026100611,
+  "task": "task1-sweep",
+  "variant": {
+    "tq_splits": 16
+  },
+  "worker": "timing_worker.py"
+}

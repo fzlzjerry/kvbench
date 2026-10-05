@@ -1,0 +1,14 @@
+{
+  "check": "t2-greedy-k4v4-orig-repeat",
+  "configuration": "k4v4",
+  "docker_returncode": 0,
+  "finished_at_utc": "2026-10-05T12:15:29.424222Z",
+  "gates_pass": null,
+  "sanitize": null,
+  "started_at_utc": "2026-10-05T12:14:26.800514Z",
+  "status": "completed",
+  "task": "task2",
+  "variant": {},
+  "worker_error": null,
+  "worker_script": "check_worker.py"
+}

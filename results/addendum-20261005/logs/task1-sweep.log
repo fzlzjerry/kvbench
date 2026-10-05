@@ -1,0 +1,13 @@
+{"run_id": "task1-sweep-r0-o000-bf16-b1-l131072", "status": "completed", "reason_code": null, "host_wall_process_median_ms": 22.264531046875}
+{"run_id": "task1-sweep-r0-o001-tq_k3v4_nc-s16-b1-l131072", "status": "completed", "reason_code": null, "host_wall_process_median_ms": 86.00819689453125}
+{"run_id": "task1-sweep-r0-o002-tq_k3v4_nc-s8-b1-l131072", "status": "completed", "reason_code": null, "host_wall_process_median_ms": 159.6093620859375}
+{"run_id": "task1-sweep-r0-o003-tq_k3v4_nc-s64-b1-l131072", "status": "completed", "reason_code": null, "host_wall_process_median_ms": 37.00189694921875}
+{"run_id": "task1-sweep-r1-o000-tq_k3v4_nc-s8-b1-l131072", "status": "completed", "reason_code": null, "host_wall_process_median_ms": 159.71431939453126}
+{"run_id": "task1-sweep-r1-o001-bf16-b1-l131072", "status": "completed", "reason_code": null, "host_wall_process_median_ms": 22.25926928515625}
+{"run_id": "task1-sweep-r1-o002-tq_k3v4_nc-s64-b1-l131072", "status": "completed", "reason_code": null, "host_wall_process_median_ms": 37.025620796875}
+{"run_id": "task1-sweep-r1-o003-tq_k3v4_nc-s16-b1-l131072", "status": "completed", "reason_code": null, "host_wall_process_median_ms": 85.7977118203125}
+{"run_id": "task1-sweep-r2-o000-tq_k3v4_nc-s16-b1-l131072", "status": "completed", "reason_code": null, "host_wall_process_median_ms": 85.9372055859375}
+{"run_id": "task1-sweep-r2-o001-bf16-b1-l131072", "status": "completed", "reason_code": null, "host_wall_process_median_ms": 22.25639146875}
+{"run_id": "task1-sweep-r2-o002-tq_k3v4_nc-s8-b1-l131072", "status": "completed", "reason_code": null, "host_wall_process_median_ms": 159.56096307421876}
+{"run_id": "task1-sweep-r2-o003-tq_k3v4_nc-s64-b1-l131072", "status": "completed", "reason_code": null, "host_wall_process_median_ms": 36.98280651953125}
+{"task": "task1-sweep", "finished_at_utc": "2026-10-05T12:02:34.663798Z", "stopped": null, "completed_processes": 12, "planned_processes": 12}

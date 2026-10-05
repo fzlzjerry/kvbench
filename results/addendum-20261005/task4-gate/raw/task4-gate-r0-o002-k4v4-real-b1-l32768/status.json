@@ -1,0 +1,12 @@
+{
+  "attempt": 0,
+  "failed_checks": [],
+  "finished_at_utc": "2026-10-05T15:22:30.675356Z",
+  "gpu_apps_after": "",
+  "host_wall_process_median_ms": 24.4875594921875,
+  "run_id": "task4-gate-r0-o002-k4v4-real-b1-l32768",
+  "started_at_utc": "2026-10-05T15:18:32.248468Z",
+  "status": "completed",
+  "wall_seconds_including_setup": 238.3818833779078,
+  "worker_result_sha256": "57c64df59f66a88ed67e9ff0f879686e90ae460e0628087e01d122ce4357919d"
+}

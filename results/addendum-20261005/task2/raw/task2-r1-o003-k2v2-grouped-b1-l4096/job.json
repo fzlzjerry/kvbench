@@ -1,0 +1,18 @@
+{
+  "attempt": 0,
+  "batch_size": 1,
+  "block": "k2v2-grouped",
+  "configuration": "k2v2",
+  "context_label": 4096,
+  "extra_args": [],
+  "order_index": 3,
+  "predicted_seconds": 90,
+  "round": 1,
+  "run_id": "task2-r1-o003-k2v2-grouped-b1-l4096",
+  "seed": 2026100521,
+  "task": "task2",
+  "variant": {
+    "kivi_grouped_residual": true
+  },
+  "worker": "timing_worker.py"
+}

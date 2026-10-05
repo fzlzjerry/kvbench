@@ -1,0 +1,14 @@
+{
+  "check": "t1-greedy-s32",
+  "configuration": "tq_k3v4_nc",
+  "docker_returncode": 0,
+  "finished_at_utc": "2026-10-05T10:42:20.285939Z",
+  "sanitize": null,
+  "started_at_utc": "2026-10-05T10:42:01.373375Z",
+  "status": "completed",
+  "task": "task1",
+  "variant": {
+    "tq_splits": 32
+  },
+  "worker_error": null
+}

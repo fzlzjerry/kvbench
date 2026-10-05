@@ -1,0 +1,16 @@
+{
+  "attempt": 0,
+  "batch_size": 1,
+  "block": "bf16",
+  "configuration": "bf16",
+  "context_label": 131072,
+  "extra_args": [],
+  "order_index": 1,
+  "predicted_seconds": 60,
+  "round": 1,
+  "run_id": "task1-sweep-r1-o001-bf16-b1-l131072",
+  "seed": 2026100611,
+  "task": "task1-sweep",
+  "variant": {},
+  "worker": "timing_worker.py"
+}

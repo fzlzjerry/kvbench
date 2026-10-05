@@ -1,0 +1,23 @@
+=== t1-greedy-bf16 20:04:09
+{"task": "task1", "check": "t1-greedy-bf16", "started_at_utc": "2026-10-05T12:04:10.249122Z", "configuration": "bf16", "variant": {}, "sanitize": null, "docker_returncode": 0, "status": "completed", "finished_at_utc": "2026-10-05T12:04:27.062452Z", "worker_script": "check_worker.py", "gates_pass": null, "worker_error": null}
+=== t2-gate-k4v4-control 20:04:27
+{"task": "task2", "check": "t2-gate-k4v4-control", "started_at_utc": "2026-10-05T12:04:27.370603Z", "configuration": "k4v4", "variant": {}, "sanitize": null, "docker_returncode": 0, "status": "completed", "finished_at_utc": "2026-10-05T12:04:55.006357Z", "worker_script": "gate_worker.py", "gates_pass": true, "worker_error": null}
+=== t2-gate-k4v4 20:04:55
+{"task": "task2", "check": "t2-gate-k4v4", "started_at_utc": "2026-10-05T12:04:55.313494Z", "configuration": "k4v4", "variant": {"kivi_grouped_residual": true}, "sanitize": null, "docker_returncode": 0, "status": "completed", "finished_at_utc": "2026-10-05T12:05:18.853659Z", "worker_script": "gate_worker.py", "gates_pass": true, "worker_error": null}
+=== t2-gate-k2v2-control 20:05:18
+{"task": "task2", "check": "t2-gate-k2v2-control", "started_at_utc": "2026-10-05T12:05:19.171602Z", "configuration": "k2v2", "variant": {}, "sanitize": null, "docker_returncode": 0, "status": "completed", "finished_at_utc": "2026-10-05T12:05:46.712976Z", "worker_script": "gate_worker.py", "gates_pass": true, "worker_error": null}
+=== t2-gate-k2v2 20:05:46
+{"task": "task2", "check": "t2-gate-k2v2", "started_at_utc": "2026-10-05T12:05:47.021942Z", "configuration": "k2v2", "variant": {"kivi_grouped_residual": true}, "sanitize": null, "docker_returncode": 0, "status": "completed", "finished_at_utc": "2026-10-05T12:06:10.514342Z", "worker_script": "gate_worker.py", "gates_pass": true, "worker_error": null}
+=== t2-greedy-k4v4-orig 20:06:10
+{"task": "task2", "check": "t2-greedy-k4v4-orig", "started_at_utc": "2026-10-05T12:06:10.822089Z", "configuration": "k4v4", "variant": {}, "sanitize": null, "docker_returncode": 0, "status": "completed", "finished_at_utc": "2026-10-05T12:07:13.434114Z", "worker_script": "check_worker.py", "gates_pass": null, "worker_error": null}
+=== t2-greedy-k4v4-grouped 20:07:13
+{"task": "task2", "check": "t2-greedy-k4v4-grouped", "started_at_utc": "2026-10-05T12:07:13.748166Z", "configuration": "k4v4", "variant": {"kivi_grouped_residual": true}, "sanitize": null, "docker_returncode": 0, "status": "completed", "finished_at_utc": "2026-10-05T12:07:58.416019Z", "worker_script": "check_worker.py", "gates_pass": null, "worker_error": null}
+=== t2-greedy-k2v2-orig 20:07:58
+{"task": "task2", "check": "t2-greedy-k2v2-orig", "started_at_utc": "2026-10-05T12:07:58.728767Z", "configuration": "k2v2", "variant": {}, "sanitize": null, "docker_returncode": 0, "status": "completed", "finished_at_utc": "2026-10-05T12:09:01.496056Z", "worker_script": "check_worker.py", "gates_pass": null, "worker_error": null}
+=== t2-greedy-k2v2-grouped 20:09:01
+{"task": "task2", "check": "t2-greedy-k2v2-grouped", "started_at_utc": "2026-10-05T12:09:01.807752Z", "configuration": "k2v2", "variant": {"kivi_grouped_residual": true}, "sanitize": null, "docker_returncode": 0, "status": "completed", "finished_at_utc": "2026-10-05T12:09:44.657471Z", "worker_script": "check_worker.py", "gates_pass": null, "worker_error": null}
+=== t2-sanitizer-k4v4-grouped 20:09:44
+{"task": "task2", "check": "t2-sanitizer-k4v4-grouped", "started_at_utc": "2026-10-05T12:09:44.966089Z", "configuration": "k4v4", "variant": {"kivi_grouped_residual": true}, "sanitize": "all", "docker_returncode": 0, "status": "completed", "finished_at_utc": "2026-10-05T12:11:20.162193Z", "worker_script": "check_worker.py", "gates_pass": null, "worker_error": null}
+=== t2-sanitizer-k2v2-grouped 20:11:20
+{"task": "task2", "check": "t2-sanitizer-k2v2-grouped", "started_at_utc": "2026-10-05T12:11:20.470382Z", "configuration": "k2v2", "variant": {"kivi_grouped_residual": true}, "sanitize": "all", "docker_returncode": 0, "status": "completed", "finished_at_utc": "2026-10-05T12:12:55.187116Z", "worker_script": "check_worker.py", "gates_pass": null, "worker_error": null}
+T2_GATES_DONE

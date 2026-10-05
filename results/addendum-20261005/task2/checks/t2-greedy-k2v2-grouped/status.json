@@ -1,0 +1,16 @@
+{
+  "check": "t2-greedy-k2v2-grouped",
+  "configuration": "k2v2",
+  "docker_returncode": 0,
+  "finished_at_utc": "2026-10-05T12:09:44.657471Z",
+  "gates_pass": null,
+  "sanitize": null,
+  "started_at_utc": "2026-10-05T12:09:01.807752Z",
+  "status": "completed",
+  "task": "task2",
+  "variant": {
+    "kivi_grouped_residual": true
+  },
+  "worker_error": null,
+  "worker_script": "check_worker.py"
+}

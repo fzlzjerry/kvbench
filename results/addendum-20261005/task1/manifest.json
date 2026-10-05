@@ -1,0 +1,533 @@
+{
+  "addendum_git_sha_at_start": "99bf51409c6997d6f1c5de18c820ab0eb46691a4",
+  "addendum_id": "addendum-20261005",
+  "amendment": "docs/amendment-20261005.md",
+  "cap_seconds": 10800,
+  "jobs": [
+    {
+      "batch_size": 1,
+      "block": "tq_4bit_nc-s32",
+      "configuration": "tq_4bit_nc",
+      "context_label": 32768,
+      "order_index": 0,
+      "predicted_seconds": 70,
+      "round": 0,
+      "run_id": "task1-r0-o000-tq_4bit_nc-s32-b1-l32768",
+      "seed": 2026100510,
+      "task": "task1",
+      "variant": {
+        "tq_splits": 32
+      }
+    },
+    {
+      "batch_size": 8,
+      "block": "tq_4bit_nc-s32",
+      "configuration": "tq_4bit_nc",
+      "context_label": 32768,
+      "order_index": 1,
+      "predicted_seconds": 130,
+      "round": 0,
+      "run_id": "task1-r0-o001-tq_4bit_nc-s32-b8-l32768",
+      "seed": 2026100510,
+      "task": "task1",
+      "variant": {
+        "tq_splits": 32
+      }
+    },
+    {
+      "batch_size": 1,
+      "block": "tq_4bit_nc-s32",
+      "configuration": "tq_4bit_nc",
+      "context_label": 131072,
+      "order_index": 2,
+      "predicted_seconds": 160,
+      "round": 0,
+      "run_id": "task1-r0-o002-tq_4bit_nc-s32-b1-l131072",
+      "seed": 2026100510,
+      "task": "task1",
+      "variant": {
+        "tq_splits": 32
+      }
+    },
+    {
+      "batch_size": 1,
+      "block": "bf16",
+      "configuration": "bf16",
+      "context_label": 131072,
+      "order_index": 3,
+      "predicted_seconds": 60,
+      "round": 0,
+      "run_id": "task1-r0-o003-bf16-b1-l131072",
+      "seed": 2026100510,
+      "task": "task1",
+      "variant": {}
+    },
+    {
+      "batch_size": 1,
+      "block": "bf16",
+      "configuration": "bf16",
+      "context_label": 32768,
+      "order_index": 4,
+      "predicted_seconds": 45,
+      "round": 0,
+      "run_id": "task1-r0-o004-bf16-b1-l32768",
+      "seed": 2026100510,
+      "task": "task1",
+      "variant": {}
+    },
+    {
+      "batch_size": 8,
+      "block": "bf16",
+      "configuration": "bf16",
+      "context_label": 32768,
+      "order_index": 5,
+      "predicted_seconds": 85,
+      "round": 0,
+      "run_id": "task1-r0-o005-bf16-b8-l32768",
+      "seed": 2026100510,
+      "task": "task1",
+      "variant": {}
+    },
+    {
+      "batch_size": 1,
+      "block": "tq_3bit_nc-s32",
+      "configuration": "tq_3bit_nc",
+      "context_label": 131072,
+      "order_index": 6,
+      "predicted_seconds": 160,
+      "round": 0,
+      "run_id": "task1-r0-o006-tq_3bit_nc-s32-b1-l131072",
+      "seed": 2026100510,
+      "task": "task1",
+      "variant": {
+        "tq_splits": 32
+      }
+    },
+    {
+      "batch_size": 1,
+      "block": "tq_3bit_nc-s32",
+      "configuration": "tq_3bit_nc",
+      "context_label": 32768,
+      "order_index": 7,
+      "predicted_seconds": 70,
+      "round": 0,
+      "run_id": "task1-r0-o007-tq_3bit_nc-s32-b1-l32768",
+      "seed": 2026100510,
+      "task": "task1",
+      "variant": {
+        "tq_splits": 32
+      }
+    },
+    {
+      "batch_size": 8,
+      "block": "tq_3bit_nc-s32",
+      "configuration": "tq_3bit_nc",
+      "context_label": 32768,
+      "order_index": 8,
+      "predicted_seconds": 130,
+      "round": 0,
+      "run_id": "task1-r0-o008-tq_3bit_nc-s32-b8-l32768",
+      "seed": 2026100510,
+      "task": "task1",
+      "variant": {
+        "tq_splits": 32
+      }
+    },
+    {
+      "batch_size": 1,
+      "block": "tq_k3v4_nc-s32",
+      "configuration": "tq_k3v4_nc",
+      "context_label": 131072,
+      "order_index": 9,
+      "predicted_seconds": 160,
+      "round": 0,
+      "run_id": "task1-r0-o009-tq_k3v4_nc-s32-b1-l131072",
+      "seed": 2026100510,
+      "task": "task1",
+      "variant": {
+        "tq_splits": 32
+      }
+    },
+    {
+      "batch_size": 8,
+      "block": "tq_k3v4_nc-s32",
+      "configuration": "tq_k3v4_nc",
+      "context_label": 32768,
+      "order_index": 10,
+      "predicted_seconds": 130,
+      "round": 0,
+      "run_id": "task1-r0-o010-tq_k3v4_nc-s32-b8-l32768",
+      "seed": 2026100510,
+      "task": "task1",
+      "variant": {
+        "tq_splits": 32
+      }
+    },
+    {
+      "batch_size": 1,
+      "block": "tq_k3v4_nc-s32",
+      "configuration": "tq_k3v4_nc",
+      "context_label": 32768,
+      "order_index": 11,
+      "predicted_seconds": 70,
+      "round": 0,
+      "run_id": "task1-r0-o011-tq_k3v4_nc-s32-b1-l32768",
+      "seed": 2026100510,
+      "task": "task1",
+      "variant": {
+        "tq_splits": 32
+      }
+    },
+    {
+      "batch_size": 8,
+      "block": "tq_4bit_nc-s32",
+      "configuration": "tq_4bit_nc",
+      "context_label": 32768,
+      "order_index": 0,
+      "predicted_seconds": 130,
+      "round": 1,
+      "run_id": "task1-r1-o000-tq_4bit_nc-s32-b8-l32768",
+      "seed": 2026100511,
+      "task": "task1",
+      "variant": {
+        "tq_splits": 32
+      }
+    },
+    {
+      "batch_size": 1,
+      "block": "tq_4bit_nc-s32",
+      "configuration": "tq_4bit_nc",
+      "context_label": 131072,
+      "order_index": 1,
+      "predicted_seconds": 160,
+      "round": 1,
+      "run_id": "task1-r1-o001-tq_4bit_nc-s32-b1-l131072",
+      "seed": 2026100511,
+      "task": "task1",
+      "variant": {
+        "tq_splits": 32
+      }
+    },
+    {
+      "batch_size": 1,
+      "block": "tq_4bit_nc-s32",
+      "configuration": "tq_4bit_nc",
+      "context_label": 32768,
+      "order_index": 2,
+      "predicted_seconds": 70,
+      "round": 1,
+      "run_id": "task1-r1-o002-tq_4bit_nc-s32-b1-l32768",
+      "seed": 2026100511,
+      "task": "task1",
+      "variant": {
+        "tq_splits": 32
+      }
+    },
+    {
+      "batch_size": 8,
+      "block": "tq_k3v4_nc-s32",
+      "configuration": "tq_k3v4_nc",
+      "context_label": 32768,
+      "order_index": 3,
+      "predicted_seconds": 130,
+      "round": 1,
+      "run_id": "task1-r1-o003-tq_k3v4_nc-s32-b8-l32768",
+      "seed": 2026100511,
+      "task": "task1",
+      "variant": {
+        "tq_splits": 32
+      }
+    },
+    {
+      "batch_size": 1,
+      "block": "tq_k3v4_nc-s32",
+      "configuration": "tq_k3v4_nc",
+      "context_label": 131072,
+      "order_index": 4,
+      "predicted_seconds": 160,
+      "round": 1,
+      "run_id": "task1-r1-o004-tq_k3v4_nc-s32-b1-l131072",
+      "seed": 2026100511,
+      "task": "task1",
+      "variant": {
+        "tq_splits": 32
+      }
+    },
+    {
+      "batch_size": 1,
+      "block": "tq_k3v4_nc-s32",
+      "configuration": "tq_k3v4_nc",
+      "context_label": 32768,
+      "order_index": 5,
+      "predicted_seconds": 70,
+      "round": 1,
+      "run_id": "task1-r1-o005-tq_k3v4_nc-s32-b1-l32768",
+      "seed": 2026100511,
+      "task": "task1",
+      "variant": {
+        "tq_splits": 32
+      }
+    },
+    {
+      "batch_size": 1,
+      "block": "bf16",
+      "configuration": "bf16",
+      "context_label": 131072,
+      "order_index": 6,
+      "predicted_seconds": 60,
+      "round": 1,
+      "run_id": "task1-r1-o006-bf16-b1-l131072",
+      "seed": 2026100511,
+      "task": "task1",
+      "variant": {}
+    },
+    {
+      "batch_size": 1,
+      "block": "bf16",
+      "configuration": "bf16",
+      "context_label": 32768,
+      "order_index": 7,
+      "predicted_seconds": 45,
+      "round": 1,
+      "run_id": "task1-r1-o007-bf16-b1-l32768",
+      "seed": 2026100511,
+      "task": "task1",
+      "variant": {}
+    },
+    {
+      "batch_size": 8,
+      "block": "bf16",
+      "configuration": "bf16",
+      "context_label": 32768,
+      "order_index": 8,
+      "predicted_seconds": 85,
+      "round": 1,
+      "run_id": "task1-r1-o008-bf16-b8-l32768",
+      "seed": 2026100511,
+      "task": "task1",
+      "variant": {}
+    },
+    {
+      "batch_size": 8,
+      "block": "tq_3bit_nc-s32",
+      "configuration": "tq_3bit_nc",
+      "context_label": 32768,
+      "order_index": 9,
+      "predicted_seconds": 130,
+      "round": 1,
+      "run_id": "task1-r1-o009-tq_3bit_nc-s32-b8-l32768",
+      "seed": 2026100511,
+      "task": "task1",
+      "variant": {
+        "tq_splits": 32
+      }
+    },
+    {
+      "batch_size": 1,
+      "block": "tq_3bit_nc-s32",
+      "configuration": "tq_3bit_nc",
+      "context_label": 131072,
+      "order_index": 10,
+      "predicted_seconds": 160,
+      "round": 1,
+      "run_id": "task1-r1-o010-tq_3bit_nc-s32-b1-l131072",
+      "seed": 2026100511,
+      "task": "task1",
+      "variant": {
+        "tq_splits": 32
+      }
+    },
+    {
+      "batch_size": 1,
+      "block": "tq_3bit_nc-s32",
+      "configuration": "tq_3bit_nc",
+      "context_label": 32768,
+      "order_index": 11,
+      "predicted_seconds": 70,
+      "round": 1,
+      "run_id": "task1-r1-o011-tq_3bit_nc-s32-b1-l32768",
+      "seed": 2026100511,
+      "task": "task1",
+      "variant": {
+        "tq_splits": 32
+      }
+    },
+    {
+      "batch_size": 8,
+      "block": "tq_4bit_nc-s32",
+      "configuration": "tq_4bit_nc",
+      "context_label": 32768,
+      "order_index": 0,
+      "predicted_seconds": 130,
+      "round": 2,
+      "run_id": "task1-r2-o000-tq_4bit_nc-s32-b8-l32768",
+      "seed": 2026100512,
+      "task": "task1",
+      "variant": {
+        "tq_splits": 32
+      }
+    },
+    {
+      "batch_size": 1,
+      "block": "tq_4bit_nc-s32",
+      "configuration": "tq_4bit_nc",
+      "context_label": 131072,
+      "order_index": 1,
+      "predicted_seconds": 160,
+      "round": 2,
+      "run_id": "task1-r2-o001-tq_4bit_nc-s32-b1-l131072",
+      "seed": 2026100512,
+      "task": "task1",
+      "variant": {
+        "tq_splits": 32
+      }
+    },
+    {
+      "batch_size": 1,
+      "block": "tq_4bit_nc-s32",
+      "configuration": "tq_4bit_nc",
+      "context_label": 32768,
+      "order_index": 2,
+      "predicted_seconds": 70,
+      "round": 2,
+      "run_id": "task1-r2-o002-tq_4bit_nc-s32-b1-l32768",
+      "seed": 2026100512,
+      "task": "task1",
+      "variant": {
+        "tq_splits": 32
+      }
+    },
+    {
+      "batch_size": 1,
+      "block": "bf16",
+      "configuration": "bf16",
+      "context_label": 131072,
+      "order_index": 3,
+      "predicted_seconds": 60,
+      "round": 2,
+      "run_id": "task1-r2-o003-bf16-b1-l131072",
+      "seed": 2026100512,
+      "task": "task1",
+      "variant": {}
+    },
+    {
+      "batch_size": 8,
+      "block": "bf16",
+      "configuration": "bf16",
+      "context_label": 32768,
+      "order_index": 4,
+      "predicted_seconds": 85,
+      "round": 2,
+      "run_id": "task1-r2-o004-bf16-b8-l32768",
+      "seed": 2026100512,
+      "task": "task1",
+      "variant": {}
+    },
+    {
+      "batch_size": 1,
+      "block": "bf16",
+      "configuration": "bf16",
+      "context_label": 32768,
+      "order_index": 5,
+      "predicted_seconds": 45,
+      "round": 2,
+      "run_id": "task1-r2-o005-bf16-b1-l32768",
+      "seed": 2026100512,
+      "task": "task1",
+      "variant": {}
+    },
+    {
+      "batch_size": 1,
+      "block": "tq_k3v4_nc-s32",
+      "configuration": "tq_k3v4_nc",
+      "context_label": 131072,
+      "order_index": 6,
+      "predicted_seconds": 160,
+      "round": 2,
+      "run_id": "task1-r2-o006-tq_k3v4_nc-s32-b1-l131072",
+      "seed": 2026100512,
+      "task": "task1",
+      "variant": {
+        "tq_splits": 32
+      }
+    },
+    {
+      "batch_size": 1,
+      "block": "tq_k3v4_nc-s32",
+      "configuration": "tq_k3v4_nc",
+      "context_label": 32768,
+      "order_index": 7,
+      "predicted_seconds": 70,
+      "round": 2,
+      "run_id": "task1-r2-o007-tq_k3v4_nc-s32-b1-l32768",
+      "seed": 2026100512,
+      "task": "task1",
+      "variant": {
+        "tq_splits": 32
+      }
+    },
+    {
+      "batch_size": 8,
+      "block": "tq_k3v4_nc-s32",
+      "configuration": "tq_k3v4_nc",
+      "context_label": 32768,
+      "order_index": 8,
+      "predicted_seconds": 130,
+      "round": 2,
+      "run_id": "task1-r2-o008-tq_k3v4_nc-s32-b8-l32768",
+      "seed": 2026100512,
+      "task": "task1",
+      "variant": {
+        "tq_splits": 32
+      }
+    },
+    {
+      "batch_size": 8,
+      "block": "tq_3bit_nc-s32",
+      "configuration": "tq_3bit_nc",
+      "context_label": 32768,
+      "order_index": 9,
+      "predicted_seconds": 130,
+      "round": 2,
+      "run_id": "task1-r2-o009-tq_3bit_nc-s32-b8-l32768",
+      "seed": 2026100512,
+      "task": "task1",
+      "variant": {
+        "tq_splits": 32
+      }
+    },
+    {
+      "batch_size": 1,
+      "block": "tq_3bit_nc-s32",
+      "configuration": "tq_3bit_nc",
+      "context_label": 32768,
+      "order_index": 10,
+      "predicted_seconds": 70,
+      "round": 2,
+      "run_id": "task1-r2-o010-tq_3bit_nc-s32-b1-l32768",
+      "seed": 2026100512,
+      "task": "task1",
+      "variant": {
+        "tq_splits": 32
+      }
+    },
+    {
+      "batch_size": 1,
+      "block": "tq_3bit_nc-s32",
+      "configuration": "tq_3bit_nc",
+      "context_label": 131072,
+      "order_index": 11,
+      "predicted_seconds": 160,
+      "round": 2,
+      "run_id": "task1-r2-o011-tq_3bit_nc-s32-b1-l131072",
+      "seed": 2026100512,
+      "task": "task1",
+      "variant": {
+        "tq_splits": 32
+      }
+    }
+  ],
+  "started_at_epoch": 1791197033.913981,
+  "started_at_utc": "2026-10-05T10:43:53.913965Z",
+  "task": "task1"
+}

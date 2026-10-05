@@ -1,0 +1,16 @@
+{
+  "attempt": 0,
+  "batch_size": 1,
+  "block": "bf16-synthetic",
+  "configuration": "bf16",
+  "context_label": 4096,
+  "extra_args": [],
+  "order_index": 2,
+  "predicted_seconds": 40,
+  "round": 0,
+  "run_id": "smoke-t4-r0-o002-bf16-synthetic-b1-l4096",
+  "seed": 2026100900,
+  "task": "smoke-t4",
+  "variant": {},
+  "worker": "synthetic_worker.py"
+}

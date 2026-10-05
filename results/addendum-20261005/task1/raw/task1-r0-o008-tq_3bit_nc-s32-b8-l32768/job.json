@@ -1,0 +1,16 @@
+{
+  "attempt": 0,
+  "batch_size": 8,
+  "block": "tq_3bit_nc-s32",
+  "configuration": "tq_3bit_nc",
+  "context_label": 32768,
+  "order_index": 8,
+  "predicted_seconds": 130,
+  "round": 0,
+  "run_id": "task1-r0-o008-tq_3bit_nc-s32-b8-l32768",
+  "seed": 2026100510,
+  "task": "task1",
+  "variant": {
+    "tq_splits": 32
+  }
+}

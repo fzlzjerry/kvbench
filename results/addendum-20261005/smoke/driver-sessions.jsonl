@@ -1,0 +1,3 @@
+{"completed_processes": 1, "finished_at_utc": "2026-10-05T10:38:18.335109Z", "planned_processes": 2, "stopped": null, "task": "smoke"}
+{"completed_processes": 1, "finished_at_utc": "2026-10-05T10:39:59.411565Z", "planned_processes": 2, "stopped": null, "task": "smoke"}
+{"completed_processes": 2, "finished_at_utc": "2026-10-05T10:40:43.971836Z", "planned_processes": 2, "stopped": null, "task": "smoke"}

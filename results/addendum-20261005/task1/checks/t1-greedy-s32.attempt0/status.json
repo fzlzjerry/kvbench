@@ -1,0 +1,14 @@
+{
+  "check": "t1-greedy-s32",
+  "configuration": "tq_k3v4_nc",
+  "docker_returncode": 3,
+  "finished_at_utc": "2026-10-05T10:41:24.783366Z",
+  "sanitize": null,
+  "started_at_utc": "2026-10-05T10:41:11.285140Z",
+  "status": "failed",
+  "task": "task1",
+  "variant": {
+    "tq_splits": 32
+  },
+  "worker_error": "No module named 'scripts.q0_cache_sensitive_correctness'"
+}

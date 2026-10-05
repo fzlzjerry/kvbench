@@ -1,0 +1,12 @@
+{
+  "attempt": 0,
+  "failed_checks": [],
+  "finished_at_utc": "2026-10-05T11:35:18.096212Z",
+  "gpu_apps_after": "",
+  "host_wall_process_median_ms": 57.89250956640625,
+  "run_id": "task1-r2-o011-tq_3bit_nc-s32-b1-l131072",
+  "started_at_utc": "2026-10-05T11:33:21.315989Z",
+  "status": "completed",
+  "wall_seconds_including_setup": 116.73088399111293,
+  "worker_result_sha256": "7f77c2e9c98f3a595c10c820b37432ecace91bb351d843e20b80fd85c78deb1f"
+}

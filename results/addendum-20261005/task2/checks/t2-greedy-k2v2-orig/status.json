@@ -1,0 +1,14 @@
+{
+  "check": "t2-greedy-k2v2-orig",
+  "configuration": "k2v2",
+  "docker_returncode": 0,
+  "finished_at_utc": "2026-10-05T12:09:01.496056Z",
+  "gates_pass": null,
+  "sanitize": null,
+  "started_at_utc": "2026-10-05T12:07:58.728767Z",
+  "status": "completed",
+  "task": "task2",
+  "variant": {},
+  "worker_error": null,
+  "worker_script": "check_worker.py"
+}

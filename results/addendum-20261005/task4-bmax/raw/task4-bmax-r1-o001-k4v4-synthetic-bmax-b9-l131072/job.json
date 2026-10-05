@@ -1,0 +1,18 @@
+{
+  "attempt": 0,
+  "batch_size": 9,
+  "block": "k4v4-synthetic-bmax",
+  "configuration": "k4v4",
+  "context_label": 131072,
+  "extra_args": [
+    "--unadmitted-batch-bypass"
+  ],
+  "order_index": 1,
+  "predicted_seconds": 1000,
+  "round": 1,
+  "run_id": "task4-bmax-r1-o001-k4v4-synthetic-bmax-b9-l131072",
+  "seed": 2026100921,
+  "task": "task4-bmax",
+  "variant": {},
+  "worker": "synthetic_worker.py"
+}

@@ -1,0 +1,12 @@
+{
+  "check": "t1-greedy-s4",
+  "configuration": "tq_k3v4_nc",
+  "docker_returncode": 0,
+  "finished_at_utc": "2026-10-05T10:42:01.057095Z",
+  "sanitize": null,
+  "started_at_utc": "2026-10-05T10:41:42.036989Z",
+  "status": "completed",
+  "task": "task1",
+  "variant": {},
+  "worker_error": null
+}

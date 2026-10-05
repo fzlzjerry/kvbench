@@ -1,0 +1,14 @@
+{
+  "check": "t1-greedy-bf16",
+  "configuration": "bf16",
+  "docker_returncode": 0,
+  "finished_at_utc": "2026-10-05T12:04:27.062452Z",
+  "gates_pass": null,
+  "sanitize": null,
+  "started_at_utc": "2026-10-05T12:04:10.249122Z",
+  "status": "completed",
+  "task": "task1",
+  "variant": {},
+  "worker_error": null,
+  "worker_script": "check_worker.py"
+}

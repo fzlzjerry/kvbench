@@ -1,0 +1,16 @@
+{
+  "batch_size": 1,
+  "configuration": "k2v2",
+  "context_label": 4096,
+  "docker_returncode": 0,
+  "finished_at_utc": "2026-10-05T13:21:14.869470Z",
+  "nsys": "t2-nsys-k2v2-grouped",
+  "profiler_duration_is_normal_timing": false,
+  "replays": 8,
+  "started_at_utc": "2026-10-05T13:18:52.960373Z",
+  "status": "completed",
+  "task": "task2",
+  "variant": {
+    "kivi_grouped_residual": true
+  }
+}

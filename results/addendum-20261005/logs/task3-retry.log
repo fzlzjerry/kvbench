@@ -1,0 +1,11 @@
+task3 retry start 2026-10-05T19:35:35Z start_epoch=1791228935 deadline_epoch=1791239735
+Looking in indexes: https://mirrors.aliyun.com/pypi/simple/
+Collecting uv
+  Downloading uv-0.12.23-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (11 kB)
+Downloading uv-0.12.23-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (20.6 MB)
+Installing collected packages: uv
+Successfully installed uv-0.12.23
+install rc=0 at 2026-10-05T20:14:13Z
+vllm 0.25.1 torch 2.11.0+cu130 cuda 13.0
+vllm_fp8 rc=0 at 2026-10-05T20:34:04Z
+T3_RETRY_DONE

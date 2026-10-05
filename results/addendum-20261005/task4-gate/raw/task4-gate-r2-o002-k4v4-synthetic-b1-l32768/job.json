@@ -1,0 +1,16 @@
+{
+  "attempt": 0,
+  "batch_size": 1,
+  "block": "k4v4-synthetic",
+  "configuration": "k4v4",
+  "context_label": 32768,
+  "extra_args": [],
+  "order_index": 2,
+  "predicted_seconds": 245,
+  "round": 2,
+  "run_id": "task4-gate-r2-o002-k4v4-synthetic-b1-l32768",
+  "seed": 2026100912,
+  "task": "task4-gate",
+  "variant": {},
+  "worker": "synthetic_worker.py"
+}

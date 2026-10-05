@@ -1,0 +1,12 @@
+{
+  "attempt": 0,
+  "failed_checks": [],
+  "finished_at_utc": "2026-10-05T13:08:39.194676Z",
+  "gpu_apps_after": "",
+  "host_wall_process_median_ms": 18.9576670859375,
+  "run_id": "smoke-t4-r0-o000-k4v4-synthetic-b1-l4096",
+  "started_at_utc": "2026-10-05T13:07:33.494435Z",
+  "status": "completed",
+  "wall_seconds_including_setup": 65.64111688989215,
+  "worker_result_sha256": "b4dbd975413392a6cffa1d1edc3dbdd7c583ae35a3c1086af3e1355866087d1f"
+}

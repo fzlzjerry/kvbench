@@ -1,0 +1,16 @@
+{
+  "check": "t2-gate-k2v2",
+  "configuration": "k2v2",
+  "docker_returncode": 0,
+  "finished_at_utc": "2026-10-05T12:06:10.514342Z",
+  "gates_pass": true,
+  "sanitize": null,
+  "started_at_utc": "2026-10-05T12:05:47.021942Z",
+  "status": "completed",
+  "task": "task2",
+  "variant": {
+    "kivi_grouped_residual": true
+  },
+  "worker_error": null,
+  "worker_script": "gate_worker.py"
+}

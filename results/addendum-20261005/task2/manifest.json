@@ -1,0 +1,894 @@
+{
+  "addendum_git_sha_at_start": "594d69b4354813b3f25b4351b655d229b554ff86",
+  "addendum_id": "addendum-20261005",
+  "amendment": "docs/amendment-20261005.md",
+  "cap_seconds": 14400,
+  "jobs": [
+    {
+      "batch_size": 8,
+      "block": "k2v2-grouped",
+      "configuration": "k2v2",
+      "context_label": 4096,
+      "extra_args": [],
+      "order_index": 0,
+      "predicted_seconds": 100,
+      "round": 0,
+      "run_id": "task2-r0-o000-k2v2-grouped-b8-l4096",
+      "seed": 2026100520,
+      "task": "task2",
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 8,
+      "block": "k2v2-grouped",
+      "configuration": "k2v2",
+      "context_label": 24576,
+      "extra_args": [],
+      "order_index": 1,
+      "predicted_seconds": 240,
+      "round": 0,
+      "run_id": "task2-r0-o001-k2v2-grouped-b8-l24576",
+      "seed": 2026100520,
+      "task": "task2",
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 1,
+      "block": "k2v2-grouped",
+      "configuration": "k2v2",
+      "context_label": 4096,
+      "extra_args": [],
+      "order_index": 2,
+      "predicted_seconds": 90,
+      "round": 0,
+      "run_id": "task2-r0-o002-k2v2-grouped-b1-l4096",
+      "seed": 2026100520,
+      "task": "task2",
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 1,
+      "block": "k2v2-grouped",
+      "configuration": "k2v2",
+      "context_label": 32768,
+      "extra_args": [],
+      "order_index": 3,
+      "predicted_seconds": 245,
+      "round": 0,
+      "run_id": "task2-r0-o003-k2v2-grouped-b1-l32768",
+      "seed": 2026100520,
+      "task": "task2",
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 1,
+      "block": "k2v2-grouped",
+      "configuration": "k2v2",
+      "context_label": 131072,
+      "extra_args": [],
+      "order_index": 4,
+      "predicted_seconds": 850,
+      "round": 0,
+      "run_id": "task2-r0-o004-k2v2-grouped-b1-l131072",
+      "seed": 2026100520,
+      "task": "task2",
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 8,
+      "block": "k2v2-grouped",
+      "configuration": "k2v2",
+      "context_label": 32768,
+      "extra_args": [],
+      "order_index": 5,
+      "predicted_seconds": 290,
+      "round": 0,
+      "run_id": "task2-r0-o005-k2v2-grouped-b8-l32768",
+      "seed": 2026100520,
+      "task": "task2",
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 1,
+      "block": "k4v4-grouped",
+      "configuration": "k4v4",
+      "context_label": 4096,
+      "extra_args": [],
+      "order_index": 6,
+      "predicted_seconds": 90,
+      "round": 0,
+      "run_id": "task2-r0-o006-k4v4-grouped-b1-l4096",
+      "seed": 2026100520,
+      "task": "task2",
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 8,
+      "block": "k4v4-grouped",
+      "configuration": "k4v4",
+      "context_label": 24576,
+      "extra_args": [],
+      "order_index": 7,
+      "predicted_seconds": 240,
+      "round": 0,
+      "run_id": "task2-r0-o007-k4v4-grouped-b8-l24576",
+      "seed": 2026100520,
+      "task": "task2",
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 1,
+      "block": "k4v4-grouped",
+      "configuration": "k4v4",
+      "context_label": 32768,
+      "extra_args": [],
+      "order_index": 8,
+      "predicted_seconds": 245,
+      "round": 0,
+      "run_id": "task2-r0-o008-k4v4-grouped-b1-l32768",
+      "seed": 2026100520,
+      "task": "task2",
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 1,
+      "block": "k4v4-grouped",
+      "configuration": "k4v4",
+      "context_label": 131072,
+      "extra_args": [],
+      "order_index": 9,
+      "predicted_seconds": 850,
+      "round": 0,
+      "run_id": "task2-r0-o009-k4v4-grouped-b1-l131072",
+      "seed": 2026100520,
+      "task": "task2",
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 8,
+      "block": "k4v4-grouped",
+      "configuration": "k4v4",
+      "context_label": 4096,
+      "extra_args": [],
+      "order_index": 10,
+      "predicted_seconds": 100,
+      "round": 0,
+      "run_id": "task2-r0-o010-k4v4-grouped-b8-l4096",
+      "seed": 2026100520,
+      "task": "task2",
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 8,
+      "block": "k4v4-grouped",
+      "configuration": "k4v4",
+      "context_label": 32768,
+      "extra_args": [],
+      "order_index": 11,
+      "predicted_seconds": 290,
+      "round": 0,
+      "run_id": "task2-r0-o011-k4v4-grouped-b8-l32768",
+      "seed": 2026100520,
+      "task": "task2",
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 8,
+      "block": "bf16",
+      "configuration": "bf16",
+      "context_label": 24576,
+      "extra_args": [],
+      "order_index": 12,
+      "predicted_seconds": 75,
+      "round": 0,
+      "run_id": "task2-r0-o012-bf16-b8-l24576",
+      "seed": 2026100520,
+      "task": "task2",
+      "variant": {},
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 8,
+      "block": "bf16",
+      "configuration": "bf16",
+      "context_label": 4096,
+      "extra_args": [],
+      "order_index": 13,
+      "predicted_seconds": 50,
+      "round": 0,
+      "run_id": "task2-r0-o013-bf16-b8-l4096",
+      "seed": 2026100520,
+      "task": "task2",
+      "variant": {},
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 1,
+      "block": "bf16",
+      "configuration": "bf16",
+      "context_label": 131072,
+      "extra_args": [],
+      "order_index": 14,
+      "predicted_seconds": 60,
+      "round": 0,
+      "run_id": "task2-r0-o014-bf16-b1-l131072",
+      "seed": 2026100520,
+      "task": "task2",
+      "variant": {},
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 8,
+      "block": "bf16",
+      "configuration": "bf16",
+      "context_label": 32768,
+      "extra_args": [],
+      "order_index": 15,
+      "predicted_seconds": 85,
+      "round": 0,
+      "run_id": "task2-r0-o015-bf16-b8-l32768",
+      "seed": 2026100520,
+      "task": "task2",
+      "variant": {},
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 1,
+      "block": "bf16",
+      "configuration": "bf16",
+      "context_label": 32768,
+      "extra_args": [],
+      "order_index": 16,
+      "predicted_seconds": 45,
+      "round": 0,
+      "run_id": "task2-r0-o016-bf16-b1-l32768",
+      "seed": 2026100520,
+      "task": "task2",
+      "variant": {},
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 1,
+      "block": "bf16",
+      "configuration": "bf16",
+      "context_label": 4096,
+      "extra_args": [],
+      "order_index": 17,
+      "predicted_seconds": 40,
+      "round": 0,
+      "run_id": "task2-r0-o017-bf16-b1-l4096",
+      "seed": 2026100520,
+      "task": "task2",
+      "variant": {},
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 8,
+      "block": "k2v2-grouped",
+      "configuration": "k2v2",
+      "context_label": 24576,
+      "extra_args": [],
+      "order_index": 0,
+      "predicted_seconds": 240,
+      "round": 1,
+      "run_id": "task2-r1-o000-k2v2-grouped-b8-l24576",
+      "seed": 2026100521,
+      "task": "task2",
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 1,
+      "block": "k2v2-grouped",
+      "configuration": "k2v2",
+      "context_label": 32768,
+      "extra_args": [],
+      "order_index": 1,
+      "predicted_seconds": 245,
+      "round": 1,
+      "run_id": "task2-r1-o001-k2v2-grouped-b1-l32768",
+      "seed": 2026100521,
+      "task": "task2",
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 8,
+      "block": "k2v2-grouped",
+      "configuration": "k2v2",
+      "context_label": 32768,
+      "extra_args": [],
+      "order_index": 2,
+      "predicted_seconds": 290,
+      "round": 1,
+      "run_id": "task2-r1-o002-k2v2-grouped-b8-l32768",
+      "seed": 2026100521,
+      "task": "task2",
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 1,
+      "block": "k2v2-grouped",
+      "configuration": "k2v2",
+      "context_label": 4096,
+      "extra_args": [],
+      "order_index": 3,
+      "predicted_seconds": 90,
+      "round": 1,
+      "run_id": "task2-r1-o003-k2v2-grouped-b1-l4096",
+      "seed": 2026100521,
+      "task": "task2",
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 1,
+      "block": "k2v2-grouped",
+      "configuration": "k2v2",
+      "context_label": 131072,
+      "extra_args": [],
+      "order_index": 4,
+      "predicted_seconds": 850,
+      "round": 1,
+      "run_id": "task2-r1-o004-k2v2-grouped-b1-l131072",
+      "seed": 2026100521,
+      "task": "task2",
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 8,
+      "block": "k2v2-grouped",
+      "configuration": "k2v2",
+      "context_label": 4096,
+      "extra_args": [],
+      "order_index": 5,
+      "predicted_seconds": 100,
+      "round": 1,
+      "run_id": "task2-r1-o005-k2v2-grouped-b8-l4096",
+      "seed": 2026100521,
+      "task": "task2",
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 1,
+      "block": "bf16",
+      "configuration": "bf16",
+      "context_label": 131072,
+      "extra_args": [],
+      "order_index": 6,
+      "predicted_seconds": 60,
+      "round": 1,
+      "run_id": "task2-r1-o006-bf16-b1-l131072",
+      "seed": 2026100521,
+      "task": "task2",
+      "variant": {},
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 1,
+      "block": "bf16",
+      "configuration": "bf16",
+      "context_label": 32768,
+      "extra_args": [],
+      "order_index": 7,
+      "predicted_seconds": 45,
+      "round": 1,
+      "run_id": "task2-r1-o007-bf16-b1-l32768",
+      "seed": 2026100521,
+      "task": "task2",
+      "variant": {},
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 1,
+      "block": "bf16",
+      "configuration": "bf16",
+      "context_label": 4096,
+      "extra_args": [],
+      "order_index": 8,
+      "predicted_seconds": 40,
+      "round": 1,
+      "run_id": "task2-r1-o008-bf16-b1-l4096",
+      "seed": 2026100521,
+      "task": "task2",
+      "variant": {},
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 8,
+      "block": "bf16",
+      "configuration": "bf16",
+      "context_label": 4096,
+      "extra_args": [],
+      "order_index": 9,
+      "predicted_seconds": 50,
+      "round": 1,
+      "run_id": "task2-r1-o009-bf16-b8-l4096",
+      "seed": 2026100521,
+      "task": "task2",
+      "variant": {},
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 8,
+      "block": "bf16",
+      "configuration": "bf16",
+      "context_label": 32768,
+      "extra_args": [],
+      "order_index": 10,
+      "predicted_seconds": 85,
+      "round": 1,
+      "run_id": "task2-r1-o010-bf16-b8-l32768",
+      "seed": 2026100521,
+      "task": "task2",
+      "variant": {},
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 8,
+      "block": "bf16",
+      "configuration": "bf16",
+      "context_label": 24576,
+      "extra_args": [],
+      "order_index": 11,
+      "predicted_seconds": 75,
+      "round": 1,
+      "run_id": "task2-r1-o011-bf16-b8-l24576",
+      "seed": 2026100521,
+      "task": "task2",
+      "variant": {},
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 8,
+      "block": "k4v4-grouped",
+      "configuration": "k4v4",
+      "context_label": 4096,
+      "extra_args": [],
+      "order_index": 12,
+      "predicted_seconds": 100,
+      "round": 1,
+      "run_id": "task2-r1-o012-k4v4-grouped-b8-l4096",
+      "seed": 2026100521,
+      "task": "task2",
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 1,
+      "block": "k4v4-grouped",
+      "configuration": "k4v4",
+      "context_label": 131072,
+      "extra_args": [],
+      "order_index": 13,
+      "predicted_seconds": 850,
+      "round": 1,
+      "run_id": "task2-r1-o013-k4v4-grouped-b1-l131072",
+      "seed": 2026100521,
+      "task": "task2",
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 8,
+      "block": "k4v4-grouped",
+      "configuration": "k4v4",
+      "context_label": 24576,
+      "extra_args": [],
+      "order_index": 14,
+      "predicted_seconds": 240,
+      "round": 1,
+      "run_id": "task2-r1-o014-k4v4-grouped-b8-l24576",
+      "seed": 2026100521,
+      "task": "task2",
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 8,
+      "block": "k4v4-grouped",
+      "configuration": "k4v4",
+      "context_label": 32768,
+      "extra_args": [],
+      "order_index": 15,
+      "predicted_seconds": 290,
+      "round": 1,
+      "run_id": "task2-r1-o015-k4v4-grouped-b8-l32768",
+      "seed": 2026100521,
+      "task": "task2",
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 1,
+      "block": "k4v4-grouped",
+      "configuration": "k4v4",
+      "context_label": 32768,
+      "extra_args": [],
+      "order_index": 16,
+      "predicted_seconds": 245,
+      "round": 1,
+      "run_id": "task2-r1-o016-k4v4-grouped-b1-l32768",
+      "seed": 2026100521,
+      "task": "task2",
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 1,
+      "block": "k4v4-grouped",
+      "configuration": "k4v4",
+      "context_label": 4096,
+      "extra_args": [],
+      "order_index": 17,
+      "predicted_seconds": 90,
+      "round": 1,
+      "run_id": "task2-r1-o017-k4v4-grouped-b1-l4096",
+      "seed": 2026100521,
+      "task": "task2",
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 1,
+      "block": "k4v4-grouped",
+      "configuration": "k4v4",
+      "context_label": 131072,
+      "extra_args": [],
+      "order_index": 0,
+      "predicted_seconds": 850,
+      "round": 2,
+      "run_id": "task2-r2-o000-k4v4-grouped-b1-l131072",
+      "seed": 2026100522,
+      "task": "task2",
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 1,
+      "block": "k4v4-grouped",
+      "configuration": "k4v4",
+      "context_label": 32768,
+      "extra_args": [],
+      "order_index": 1,
+      "predicted_seconds": 245,
+      "round": 2,
+      "run_id": "task2-r2-o001-k4v4-grouped-b1-l32768",
+      "seed": 2026100522,
+      "task": "task2",
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 8,
+      "block": "k4v4-grouped",
+      "configuration": "k4v4",
+      "context_label": 32768,
+      "extra_args": [],
+      "order_index": 2,
+      "predicted_seconds": 290,
+      "round": 2,
+      "run_id": "task2-r2-o002-k4v4-grouped-b8-l32768",
+      "seed": 2026100522,
+      "task": "task2",
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 1,
+      "block": "k4v4-grouped",
+      "configuration": "k4v4",
+      "context_label": 4096,
+      "extra_args": [],
+      "order_index": 3,
+      "predicted_seconds": 90,
+      "round": 2,
+      "run_id": "task2-r2-o003-k4v4-grouped-b1-l4096",
+      "seed": 2026100522,
+      "task": "task2",
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 8,
+      "block": "k4v4-grouped",
+      "configuration": "k4v4",
+      "context_label": 4096,
+      "extra_args": [],
+      "order_index": 4,
+      "predicted_seconds": 100,
+      "round": 2,
+      "run_id": "task2-r2-o004-k4v4-grouped-b8-l4096",
+      "seed": 2026100522,
+      "task": "task2",
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 8,
+      "block": "k4v4-grouped",
+      "configuration": "k4v4",
+      "context_label": 24576,
+      "extra_args": [],
+      "order_index": 5,
+      "predicted_seconds": 240,
+      "round": 2,
+      "run_id": "task2-r2-o005-k4v4-grouped-b8-l24576",
+      "seed": 2026100522,
+      "task": "task2",
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 1,
+      "block": "bf16",
+      "configuration": "bf16",
+      "context_label": 4096,
+      "extra_args": [],
+      "order_index": 6,
+      "predicted_seconds": 40,
+      "round": 2,
+      "run_id": "task2-r2-o006-bf16-b1-l4096",
+      "seed": 2026100522,
+      "task": "task2",
+      "variant": {},
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 8,
+      "block": "bf16",
+      "configuration": "bf16",
+      "context_label": 4096,
+      "extra_args": [],
+      "order_index": 7,
+      "predicted_seconds": 50,
+      "round": 2,
+      "run_id": "task2-r2-o007-bf16-b8-l4096",
+      "seed": 2026100522,
+      "task": "task2",
+      "variant": {},
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 1,
+      "block": "bf16",
+      "configuration": "bf16",
+      "context_label": 131072,
+      "extra_args": [],
+      "order_index": 8,
+      "predicted_seconds": 60,
+      "round": 2,
+      "run_id": "task2-r2-o008-bf16-b1-l131072",
+      "seed": 2026100522,
+      "task": "task2",
+      "variant": {},
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 8,
+      "block": "bf16",
+      "configuration": "bf16",
+      "context_label": 32768,
+      "extra_args": [],
+      "order_index": 9,
+      "predicted_seconds": 85,
+      "round": 2,
+      "run_id": "task2-r2-o009-bf16-b8-l32768",
+      "seed": 2026100522,
+      "task": "task2",
+      "variant": {},
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 1,
+      "block": "bf16",
+      "configuration": "bf16",
+      "context_label": 32768,
+      "extra_args": [],
+      "order_index": 10,
+      "predicted_seconds": 45,
+      "round": 2,
+      "run_id": "task2-r2-o010-bf16-b1-l32768",
+      "seed": 2026100522,
+      "task": "task2",
+      "variant": {},
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 8,
+      "block": "bf16",
+      "configuration": "bf16",
+      "context_label": 24576,
+      "extra_args": [],
+      "order_index": 11,
+      "predicted_seconds": 75,
+      "round": 2,
+      "run_id": "task2-r2-o011-bf16-b8-l24576",
+      "seed": 2026100522,
+      "task": "task2",
+      "variant": {},
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 8,
+      "block": "k2v2-grouped",
+      "configuration": "k2v2",
+      "context_label": 4096,
+      "extra_args": [],
+      "order_index": 12,
+      "predicted_seconds": 100,
+      "round": 2,
+      "run_id": "task2-r2-o012-k2v2-grouped-b8-l4096",
+      "seed": 2026100522,
+      "task": "task2",
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 8,
+      "block": "k2v2-grouped",
+      "configuration": "k2v2",
+      "context_label": 32768,
+      "extra_args": [],
+      "order_index": 13,
+      "predicted_seconds": 290,
+      "round": 2,
+      "run_id": "task2-r2-o013-k2v2-grouped-b8-l32768",
+      "seed": 2026100522,
+      "task": "task2",
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 1,
+      "block": "k2v2-grouped",
+      "configuration": "k2v2",
+      "context_label": 32768,
+      "extra_args": [],
+      "order_index": 14,
+      "predicted_seconds": 245,
+      "round": 2,
+      "run_id": "task2-r2-o014-k2v2-grouped-b1-l32768",
+      "seed": 2026100522,
+      "task": "task2",
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 8,
+      "block": "k2v2-grouped",
+      "configuration": "k2v2",
+      "context_label": 24576,
+      "extra_args": [],
+      "order_index": 15,
+      "predicted_seconds": 240,
+      "round": 2,
+      "run_id": "task2-r2-o015-k2v2-grouped-b8-l24576",
+      "seed": 2026100522,
+      "task": "task2",
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 1,
+      "block": "k2v2-grouped",
+      "configuration": "k2v2",
+      "context_label": 4096,
+      "extra_args": [],
+      "order_index": 16,
+      "predicted_seconds": 90,
+      "round": 2,
+      "run_id": "task2-r2-o016-k2v2-grouped-b1-l4096",
+      "seed": 2026100522,
+      "task": "task2",
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py"
+    },
+    {
+      "batch_size": 1,
+      "block": "k2v2-grouped",
+      "configuration": "k2v2",
+      "context_label": 131072,
+      "extra_args": [],
+      "order_index": 17,
+      "predicted_seconds": 850,
+      "round": 2,
+      "run_id": "task2-r2-o017-k2v2-grouped-b1-l131072",
+      "seed": 2026100522,
+      "task": "task2",
+      "variant": {
+        "kivi_grouped_residual": true
+      },
+      "worker": "timing_worker.py"
+    }
+  ],
+  "started_at_epoch": 1791218049.1448023,
+  "started_at_utc": "2026-10-05T16:34:09.144786Z",
+  "status_label": "gate_failed_diagnostic_only",
+  "task": "task2"
+}

@@ -1,0 +1,16 @@
+{
+  "attempt": 1,
+  "batch_size": 1,
+  "block": "tq_k3v4_nc-s32",
+  "configuration": "tq_k3v4_nc",
+  "context_label": 4096,
+  "order_index": 0,
+  "predicted_seconds": 900,
+  "round": 0,
+  "run_id": "smoke-r0-o000-tq_k3v4_nc-s32-b1-l4096",
+  "seed": 2026100500,
+  "task": "smoke",
+  "variant": {
+    "tq_splits": 32
+  }
+}

@@ -1,0 +1,8 @@
+{"run_id": "task4-bmax-r0-o000-bf16-synthetic-bmax-b3-l131072", "status": "completed", "reason_code": null, "host_wall_process_median_ms": 43.23839196484375}
+{"run_id": "task4-bmax-r0-o001-k4v4-synthetic-bmax-b9-l131072", "status": "completed", "reason_code": null, "host_wall_process_median_ms": 154.0734231796875}
+{"run_id": "task4-bmax-r1-o000-bf16-synthetic-bmax-b3-l131072", "status": "completed", "reason_code": null, "host_wall_process_median_ms": 43.195450984375}
+{"run_id": "task4-bmax-r1-o001-k4v4-synthetic-bmax-b9-l131072", "status": "completed", "reason_code": null, "host_wall_process_median_ms": 154.09303037890626}
+{"run_id": "task4-bmax-r2-o000-bf16-synthetic-bmax-b3-l131072", "status": "completed", "reason_code": null, "host_wall_process_median_ms": 43.282019734375}
+{"run_id": "task4-bmax-r2-o001-k4v4-synthetic-bmax-b9-l131072", "status": "completed", "reason_code": null, "host_wall_process_median_ms": 154.17000896484376}
+{"task": "task4-bmax", "finished_at_utc": "2026-10-05T16:34:08.837077Z", "stopped": null, "completed_processes": 6, "planned_processes": 6}
+T4_DONE

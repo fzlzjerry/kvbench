@@ -1,0 +1,14 @@
+{
+  "check": "t2-gate-k4v4-control",
+  "configuration": "k4v4",
+  "docker_returncode": 0,
+  "finished_at_utc": "2026-10-05T12:04:55.006357Z",
+  "gates_pass": true,
+  "sanitize": null,
+  "started_at_utc": "2026-10-05T12:04:27.370603Z",
+  "status": "completed",
+  "task": "task2",
+  "variant": {},
+  "worker_error": null,
+  "worker_script": "gate_worker.py"
+}
