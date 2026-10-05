@@ -120,6 +120,13 @@ def task_definitions() -> dict[str, dict[str, Any]]:
                                                         ["--unadmitted-batch-bypass"])},
             },
         }),
+        "smoke-t4": {  # synthetic-cache smoke test, admitted and unadmitted B; never reported
+            "task_number": 40, "cap_seconds": 3600, "rounds": 1,
+            "blocks": {"bf16-synthetic": block("bf16", {}, [(1, 4096)], synthetic),
+                       "k4v4-synthetic": block("k4v4", {}, [(1, 4096)], synthetic),
+                       "bf16-synthetic-b3": block("bf16", {}, [(3, 4096)], synthetic, ["--unadmitted-batch-bypass"]),
+                       "k4v4-synthetic-b9": block("k4v4", {}, [(9, 4096)], synthetic, ["--unadmitted-batch-bypass"])},
+        },
         "smoke": {  # infrastructure smoke test; never reported
             "task_number": 0, "cap_seconds": 1800, "rounds": 1,
             "blocks": {"tq_k3v4_nc-s32": block("tq_k3v4_nc", {"tq_splits": 32}, [(1, 4096)]),
