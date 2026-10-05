@@ -15,14 +15,14 @@
 \caption{Eager-to-Graph latency ratio versus context for each configuration at $B = 1$ and $B = 4$ (within-configuration mechanism experiment).
 KIVI's ratio starts near 10 and declines with context.
 BF16 starts near 2.
-TurboQuant and KVQuant stay close to 1.
-TurboQuant: \TQport{} (\TQdiag; Appendix~\ref{app:diagnostics}).}
+TurboQuant\ported{} and KVQuant stay close to 1.}
 \label{fig:graph}
 \end{figure*}
 
 \section{Reproducibility}
 \label{app:repro}
 
+As in the main paper, TurboQuant\ported{} denotes TurboQuant as ported, with split-KV count 4 (Section~\mainref{sec:impl}).
 The results were produced at repository commit \anon{0641de4b}.
 The study used model \hash{meta-llama/Llama-3.1-8B-Instruct} at revision \hash{0e9e39f249a16976918f6564b8830bc894c89659}.
 Performance runs used measurement container \anon{\hash{sha256:059bc9be89387369d7de9e3e9b26d85b6e9902c41e7dbf002ebc45edd188fb7e}}, and quality runs used its derivative \anon{\hash{sha256:1d8056643bf001fb83ee19e6bb19ec93379c296f2be6ba02e907d0b2f4ecca32}}.
@@ -35,7 +35,7 @@ The v1.0 release notes and manuscript use the numbering of an earlier version of
 
 Post-hoc analyses.
 The analyses of Appendices~\ref{app:ceilings}, \ref{app:diagnostics}, and~\ref{app:kvquant} were defined after the results were known and read only the frozen roots above; none reruns a timing scan or a quality run.
-Their code and outputs are sealed under the same retention scheme: traffic model, ceilings, bandwidth, elasticity, capacity, and decomposition \anon{\texttt{3dc84c64\ldots}}; kernel breakdowns from the existing traces \anon{\texttt{c347e20a\ldots}}; the Nsight diagnostics of Appendix~\ref{app:diagnostics}, raw \anon{\texttt{4cdbb3ae\ldots}} and analysis \anon{\texttt{39efeb1c\ldots}}; and the KVQuant quality exclusion record \anon{\texttt{47296f7c\ldots}}.
+Their code and outputs are sealed under the same retention scheme: traffic model, ceilings, bandwidth, elasticity, capacity, and decomposition \anon{\texttt{3dc84c64\ldots}}; kernel breakdowns from the existing traces \anon{\texttt{c347e20a\ldots}}; the Nsight diagnostics of Appendix~\ref{app:diagnostics}, raw \anon{\texttt{4cdbb3ae\ldots}} and analysis \anon{\texttt{39efeb1c\ldots}}; the KVQuant quality exclusion record \anon{\texttt{47296f7c\ldots}}; and the final-revision analyses (cache-only ceiling, KIVI kernel breakdown) \anon{\texttt{b0969338\ldots}}.
 The post-hoc code is on the repository's main branch, not in the v1.0 release; rerunning its CPU analyses on the retained roots reproduces their sealed tables and figures unchanged.
 Every number that the v1.0 packages do not contain, including the post-hoc columns of Table~\mainref{tab:traffic} and panel b of Figure~\mainref{fig:samework}, comes from these artifacts.
 
@@ -78,7 +78,7 @@ Artifact availability.
 The code, configurations, and method patches are released at \anonurl{\RepoURL} as release tag v1.0 (default branch) under the Apache-2.0 license; vendored and patched third-party code keeps its upstream terms, listed in the repository's NOTICE file.
 The protocol, decision records, and full research history are on the main branch at commit \anon{0641de4b}.
 The two CPU reproduction packages are released as GitHub Release assets.
-The raw measurements are available from the author on request.
+The raw measurements are available from the authors on request.
 Model weights are gated under the Llama 3.1 Community License and are not redistributed.
 
 Modeling package (Python standard library only), run from the package root:
@@ -170,8 +170,10 @@ KVQuant-2 & 3.16 $\to$ 5.62 & 5.50 $\to$ 3.09 & 1.01 $\to$ 1.79 & 1.4 $\to$ 2.4 
 
 \textit{Ceilings.}
 $S_{\mathrm{eq}} = D_{\mathrm{BF16}} / D_m$ uses the as-ported traffic.
-The ideal traffic $D_{\mathrm{ideal},m} = N_{\mathrm{BF16}} + \alpha_{\mathrm{BF16}} C_m$ assumes the method reads its allocation as efficiently as BF16 reads its own ($A = 1$) and adds no non-cache traffic of its own; $S_{\mathrm{roof}} = T_{\mathrm{BF16}} \cdot BW_{\mathrm{peak}} / D_{\mathrm{ideal},m}$ with $BW_{\mathrm{peak}} = 1{,}792$ GB/s, NVIDIA's published figure, which the Nsight Compute device attributes reproduce (14.001 GHz memory clock $\times$ 2 $\times$ 512-bit bus).
-Excluding decode workspace and padding from $C_m$ raises TurboQuant's ceiling (\TQport; \TQdiag) from 1.37--2.06 to 1.38--2.33 and changes the others by at most 0.01.
+The ideal cache traffic $D_{\mathrm{ideal,cache},m} = \alpha_{\mathrm{BF16}} C_m$ assumes the method reads its allocation as efficiently as BF16 reads its own ($A = 1$).
+$S_{\mathrm{cache}}$ (Section~\mainref{sec:traffic}) keeps BF16's measured non-cache time, $T_{\mathrm{BF16}} - D_{\mathrm{cache,BF16}} / BW_{\mathrm{eff,BF16}}$ with $BW_{\mathrm{eff,BF16}}$ at the same batch size from Table~\ref{tab:bweff} (at least 11.3 ms at every point), and moves $D_{\mathrm{ideal,cache},m}$ at $BW_{\mathrm{peak}} = 1{,}792$ GB/s, NVIDIA's published figure, which the Nsight Compute device attributes reproduce (14.001 GHz memory clock $\times$ 2 $\times$ 512-bit bus).
+Excluding decode workspace and padding from $C_m$ raises TurboQuant's $S_{\mathrm{cache}}$ from 1.02--1.70 to 1.02--1.88 and changes the others by at most 0.01.
+For comparison, the roofline ceiling $S_{\mathrm{roof}} = T_{\mathrm{BF16}} \cdot BW_{\mathrm{peak}} / (N_{\mathrm{BF16}} + D_{\mathrm{ideal,cache},m})$, 1.37--2.78 at the same-work points, also lets the non-cache work, mostly the 15.1 GB of weights, run at peak bandwidth, so it includes speedups unrelated to the cache: at $B = 1$, 4K it is 1.37--1.39, although the cache path is only 2.9\% of BF16's step time and $S_{\mathrm{cache}}$ is 1.02.
 BF16 itself moves its modeled traffic at 72--85\% of peak at the same-work points.
 
 \textit{Effective bandwidth.}
@@ -182,7 +184,7 @@ Using $D_{\mathrm{cache}}(128\mathrm{K})$ alone in the numerator gives 92.2\% fo
 \textit{Elasticity.}
 At each $(B, L)$ where all three configurations of a family were measured, we regress $\log T$ (point medians) on $\log C_{\mathrm{alloc}}$ across the bit widths, and the same regression of the logarithm of modeled traffic gives the slope expected if latency were proportional to traffic.
 A threshold fixed before any slope was computed keeps the 40 points where modeled cache traffic is at least 25\% of the total (92 fall below it; 30 lack a configuration).
-Pooled within-point slopes are 0.142 [0.140, 0.148] for KIVI (expected 0.304), $-0.057$ [$-0.057$, $-0.055$] for KVQuant (0.242), and 1.243 [1.228, 1.264] for TurboQuant (0.553; \TQport, \TQdiag); the intervals come from 2,000 bootstrap draws over the five process sessions and reflect timing noise only.
+Pooled within-point slopes are 0.142 [0.140, 0.148] for KIVI (expected 0.304), $-0.057$ [$-0.057$, $-0.055$] for KVQuant (0.242), and 1.243 [1.228, 1.264] for TurboQuant\ported{} (0.553); the intervals come from 2,000 bootstrap draws over the five process sessions and reflect timing noise only.
 TurboQuant's bit widths also select different kernel specializations, so its slope mixes byte and kernel effects.
 
 \textit{Steady-state capacity.}
@@ -191,8 +193,7 @@ All values are predictions.
 Steady state admits 505 of the 534 grid points (end to end: 441), and no end-to-end-feasible point is infeasible in steady state.
 
 \begin{table}[t]
-\caption{Effective cache-path bandwidth $BW_{\mathrm{eff}}$ (GB/s) from the decomposition $T = c_0 + D_{\mathrm{cache}} / BW_{\mathrm{eff}}$ fitted across contexts at each batch size (Section~\mainref{sec:model}; post hoc).
-TurboQuant rows: \TQport{} (\TQdiag).}
+\caption{Effective cache-path bandwidth $BW_{\mathrm{eff}}$ (GB/s) from the decomposition $T = c_0 + D_{\mathrm{cache}} / BW_{\mathrm{eff}}$ fitted across contexts at each batch size (Section~\mainref{sec:model}; post hoc).}
 \label{tab:bweff}
 \vskip 0.1in
 \centering
@@ -203,9 +204,9 @@ TurboQuant rows: \TQport{} (\TQdiag).}
 Configuration & $B=1$ & $B=2$ & $B=4$ & $B=8$ & $B=16$ \\
 \midrule
 BF16 & 1602 & 1639 & 1649 & 1653 & 1665 \\
-TQ-4bit & 14 & 28 & 58 & 113 & 208 \\
-TQ-k3v4 & 19 & 39 & 78 & 146 & 212 \\
-TQ-3bit & 14 & 29 & 60 & 114 & 177 \\
+TQ-4bit\ported{} & 14 & 28 & 58 & 113 & 208 \\
+TQ-k3v4\ported{} & 19 & 39 & 78 & 146 & 212 \\
+TQ-3bit\ported{} & 14 & 29 & 60 & 114 & 177 \\
 KIVI-k4v4 & 229 & 342 & 455 & 478 & 477 \\
 KIVI-k2v4 & 199 & 305 & 419 & 443 & 443 \\
 KIVI-k2v2 & 142 & 229 & 321 & 379 & 379 \\
@@ -226,7 +227,7 @@ Our kernel source matches vLLM v0.25.1 except for imports, and the adapter launc
 
 \textit{Split-count diagnostic.}
 In the measurement container, with the Full Scan execution repository and the same session construction (BF16 restores its prefix snapshot; compressed configurations rebuild the cache from the logical prefix), we traced eight Graph replays per point with the split count at 4 (as ported) and at 32 (Table~\ref{tab:split}).
-The 32-split runs swap the split constant and a caller-owned scratch only inside each decode call, so the cache, its fingerprints, and its byte accounting are unchanged; a mechanism test on synthetic data confirms that 32-split outputs agree with the 4-split path to within $1.2 \times 10^{-4}$.
+The 32-split runs swap the split constant and a caller-owned scratch only inside each decode call; in all 33 traced runs, the 12 with 32 splits included, the historical cache and its pointers were unchanged, the adapter fingerprint validated, and outputs were finite (worker checks sealed with the analysis, root \anon{\texttt{39efeb1c\ldots}}).
 $B = 8$ at 128K is infeasible, so $B = 8$, 48K replaces it.
 As-ported traced kernel time per step agrees with the frozen wall-clock medians to within 2.5\%.
 
@@ -308,15 +309,14 @@ $F_{\mathrm{diagnostic}}$ & 27 & 7.6\% & 30.0\% & no \\
 \end{table}
 
 \begin{table*}[t]
-\caption{Model D held-out relative error, median / P95.
-TurboQuant latencies: \TQport{} (\TQdiag).}
+\caption{Model D held-out relative error, median / P95.}
 \label{tab:modelD}
 \vskip 0.1in
 \centering
 \small
 \begin{tabular}{@{}lllll@{}}
 \toprule
-Protocol & BF16 & TurboQuant & KIVI & KVQuant \\
+Protocol & BF16 & TurboQuant\ported{} & KIVI & KVQuant \\
 \midrule
 Leave one batch out & 3.9\% / 1,625.7\% & 7.8\% / 23.1\% & 8.2\% / 20.7\% & 6.2\% / 11.7\% \\
 Leave one configuration out & n/a & 29.9\% / 44.6\% & 2.9\% / 14.1\% & 4.7\% / 16.2\% \\
@@ -339,14 +339,13 @@ The BF16 tail is a genuine extrapolation failure.
 With $B = 1$ held out, D trained on $B \in \{2, 4, 8, 16\}$ predicts 668.6 ms for BF16 at $B = 1$, 4K, where 11.77 ms was measured---a relative error of 5,579\%.
 Over the 15 BF16 edge-extrapolation rows the median error is 21.5\% and the P95 4,017\%, against 2.5\% and 6.0\% for the 27 interior-interpolation rows.
 An audit confirmed units, joins, context scaling, and the point-dependent BF16 ratio; the prediction is reported unmodified and appears as the column of points at the far left of Figure~\ref{fig:heldout}.
-TurboQuant's latency (\TQport; \TQdiag) is not monotone in $r$ (Section~\mainref{sec:latency}), and holding out one TurboQuant configuration gives the weakest configuration transfer (29.9\% median error).
+TurboQuant\ported's latency is not monotone in $r$ (Section~\mainref{sec:latency}), and holding out one TurboQuant configuration gives the weakest configuration transfer (29.9\% median error).
 
 \begin{figure*}[t]
 \centering
 \includegraphics[width=0.8\textwidth]{figures/fig3_heldout_predicted_vs_measured.pdf}
 \caption{Held-out predicted versus measured latency for model D over the three geometry holdout protocols (968 held-out predictions; both axes in ms on a log scale; red line $y = x$).
-The vertical column at the far left is the BF16 batch-edge extrapolation failure, which is retained.
-TurboQuant points: \TQport{} (\TQdiag).}
+The vertical column at the far left is the BF16 batch-edge extrapolation failure, which is retained.}
 \label{fig:heldout}
 \end{figure*}
 

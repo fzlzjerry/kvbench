@@ -9,7 +9,7 @@
 ## MLSys 投稿要求（2027 CFP）
 - 正文最多 10 页，参考文献不计入页数。
 - 附录不能放进正文 PDF，要作为单独文件上传，截止时间和正文相同；审稿人不必读附录。所以投稿时上传两个 PDF：`submission.pdf`（正文 + 参考文献）和 `submission_appendix.pdf`（附录 A–F）。
-- 每条参考文献都要列出全部作者，不能写 "et al."（因此 Llama 3 一条按 arXiv 记录列出了全部作者）。
+- CFP 要求每条参考文献列出全部作者；Llama 3 一条按作者决定写作 "Grattafiori, A. et al."，与这条要求不一致。
 
 ## 文件
 | 文件 | 内容 | 能否修改 |
@@ -30,9 +30,10 @@
    - `\anonurl{\RepoURL}`：仓库链接。源文件里不写真实网址；`\RepoURL` 只在去匿名的 arXiv 版构建时定义（在 `arxiv.tex` 的 `\input{paper}` 之前加一行 `\def\RepoURL{<网址>}`，这一行不要提交到投稿用的源文件或 zip 里）；
    - `\appref{...}`：正文指向附录的引用；`\mainref{...}`：附录指向正文的引用；
    - `\apprefFallback{...}{...}` 和 `\mainrefFallback{...}{...}`（在 `paper.tex` 开头）：跨 PDF 引用的固定后备编号。拿不到另一个 PDF 的 aux 时（例如在 Overleaf 上），引用会显示这些编号，而不是 "??"。增删或调整节、表、图时，要同步改这两张表。本地 `make` 会运行 `check_xref.py`，把每个后备编号和 .aux 里的实际编号对比；不一致、缺少后备编号或有未定义引用时，构建失败，`make overleaf` 也不会生成 zip；
-   - `\TQport`、`\TQdiag`：TurboQuant 的 as-ported（split = 4）标签和 split = 32 诊断范围。凡是出现 TurboQuant 的 S 值或延迟，都要带这两个宏；
+   - `\ported`：TurboQuant 的 † 标记（as ported，split = 4），在 2.2 节定义一次，之后 TurboQuant 的 S 值、延迟和表中的 TQ 行都写成 `TurboQuant\ported{}` 或 `TQ-4bit\ported{}`；上限（ceiling）不依赖实现，不加标记；
+   - `\TQdiag`：split = 32 诊断范围，只出现在 2.2、3.3、Table 3/4 的表注、附录 D、6.1、6.2，其他地方不要再加；
    - `\ifarxiv ... \fi`：只在 arXiv 版出现的内容，例如致谢。
-4. **正文不能超过 10 页。** 编译 `arxiv.tex` 后，第 6 节必须在第 10 页结束（现在在第 10 页右栏顶部结束，只剩约一栏余量），措辞改长很容易超页。
+4. **正文不能超过 10 页。** 编译 `arxiv.tex` 后，第 6 节必须在第 10 页结束（现在在第 10 页右栏约三分之一处结束），措辞改长很容易超页。
 5. **图要改需要重画**，不能直接改 `figures/` 里的 PDF。
 6. 修改时尽量用 Overleaf 的评论和修订追踪（Track changes），方便审阅。
 
