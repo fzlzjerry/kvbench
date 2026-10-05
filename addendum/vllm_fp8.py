@@ -44,7 +44,7 @@ ITERS = 15
 CAP_SECONDS = 3 * 3600 - 45 * 60  # Task 3 cap (3 h) minus the installation budget
 # Task 3 started with the first installation attempt at 2026-10-05 20:05:23 CST;
 # its 3 h cap (installation included) ends at 23:05:23 CST = 15:05:23Z.
-TASK3_DEADLINE_EPOCH = 1791213923
+TASK3_DEADLINE_EPOCH = 1791212723
 
 
 def job_order() -> list[dict[str, Any]]:
