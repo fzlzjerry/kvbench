@@ -102,7 +102,7 @@ def install_tq_split_override(splits: int) -> dict[str, Any]:
     return state
 
 
-def install_kivi_grouped_residual() -> dict[str, Any]:
+def install_kivi_grouped_residual(mode: str = "m4") -> dict[str, Any]:
     """Replace KIVI's per-query-head residual bmm/add loops with per-KV-head batches.
 
     Query head qh = kv * G + g (G = 4) attends KV head kv, the mapping of the
@@ -123,8 +123,15 @@ def install_kivi_grouped_residual() -> dict[str, Any]:
     _torch = kivi_module._torch
     CacheStateError = kivi_module.CacheStateError
     KIVI_GROUP_SIZE = kivi_module.KIVI_GROUP_SIZE
-    state: dict[str, Any] = {"variant": "kivi_grouped_residual", "gqa_group_size": group,
-                             "decode_calls": 0}
+    if mode not in ("m4", "m1x4"):
+        raise RuntimeError(f"unknown grouped-residual mode {mode}")
+    # m4: one bmm per residual operand over [B*8, 4, ...] (query rows of a KV group
+    #     stacked, M = 4), as in the source patch's kivi_gqa.py.
+    # m1x4: per residual operand, 4 bmm calls (one per group member g), each over all
+    #     B*8 KV heads with M = 1 -- the per-element shape of the existing adapter's
+    #     per-query-head calls, batched across KV heads.
+    state: dict[str, Any] = {"variant": "kivi_grouped_residual", "mode": mode,
+                             "gqa_group_size": group, "decode_calls": 0}
 
     def _decode_compressed(self: Any, handle: Any, query_states: Any, scaling: float) -> Any:
         cache = handle.cache
@@ -202,19 +209,24 @@ def install_kivi_grouped_residual() -> dict[str, Any]:
                     historical,
                 )
             )
+        members = ((slice(None),) if mode == "m4" else tuple(slice(g, g + 1) for g in range(group)))
         if residual:
+            residual_keys_t = (cache.key_residual[handle.layer_idx]
+                               .view(grouped_batches, cache.residual_length, cache.head_dim)[:, :residual, :]
+                               .transpose(-1, -2))
+            for rows in members:
+                _torch().bmm(
+                    grouped_query[:, rows, :],
+                    residual_keys_t,
+                    out=grouped_logits[:, rows, historical : historical + residual],
+                )
+        pending_keys_t = handle.pending_key.view(grouped_batches, 1, cache.head_dim).transpose(-1, -2)
+        for rows in members:
             _torch().bmm(
-                grouped_query,
-                cache.key_residual[handle.layer_idx]
-                .view(grouped_batches, cache.residual_length, cache.head_dim)[:, :residual, :]
-                .transpose(-1, -2),
-                out=grouped_logits[:, :, historical : historical + residual],
+                grouped_query[:, rows, :],
+                pending_keys_t,
+                out=grouped_logits[:, rows, historical + residual : total],
             )
-        _torch().bmm(
-            grouped_query,
-            handle.pending_key.view(grouped_batches, 1, cache.head_dim).transpose(-1, -2),
-            out=grouped_logits[:, :, historical + residual : total],
-        )
         # The frozen reference applies the scale while scores are still FP16,
         # then requests an FP32 softmax accumulator.
         logits.mul_(float(scaling))
@@ -297,19 +309,22 @@ def install_kivi_grouped_residual() -> dict[str, Any]:
         grouped_merge = cache.decode_merge.view(grouped_batches, group, cache.head_dim)
         grouped_output = cache.decode_output_fp16.view(grouped_batches, group, cache.head_dim)
         if value_residual:
-            _torch().bmm(
-                grouped_logits[:, :, value_history : value_history + value_residual],
-                residual_values.view(grouped_batches, cache.residual_length, cache.head_dim)[
-                    :, :value_residual, :
-                ],
-                out=grouped_merge,
-            )
+            residual_value_rows = residual_values.view(
+                grouped_batches, cache.residual_length, cache.head_dim)[:, :value_residual, :]
+            for rows in members:
+                _torch().bmm(
+                    grouped_logits[:, rows, value_history : value_history + value_residual],
+                    residual_value_rows,
+                    out=grouped_merge[:, rows, :],
+                )
             grouped_output.add_(grouped_merge)
-        _torch().bmm(
-            grouped_logits[:, :, value_history + value_residual : total],
-            handle.pending_value.view(grouped_batches, 1, cache.head_dim),
-            out=grouped_merge,
-        )
+        pending_value_rows = handle.pending_value.view(grouped_batches, 1, cache.head_dim)
+        for rows in members:
+            _torch().bmm(
+                grouped_logits[:, rows, value_history + value_residual : total],
+                pending_value_rows,
+                out=grouped_merge[:, rows, :],
+            )
         grouped_output.add_(grouped_merge)
         cache.output_buffer.copy_(cache.decode_output_fp16)
         if handle.commit_after_decode:

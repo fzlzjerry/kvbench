@@ -34,8 +34,10 @@ def install_variant(variant: dict) -> dict | None:
         return None
     if set(variant) == {"tq_splits"}:
         return overrides.install_tq_split_override(int(variant["tq_splits"]))
-    if set(variant) == {"kivi_grouped_residual"} and variant["kivi_grouped_residual"]:
-        return overrides.install_kivi_grouped_residual()
+    if set(variant) == {"kivi_grouped_residual"} and variant["kivi_grouped_residual"] is True:
+        return overrides.install_kivi_grouped_residual("m4")
+    if set(variant) == {"kivi_grouped_residual"} and variant["kivi_grouped_residual"] == "m1x4":
+        return overrides.install_kivi_grouped_residual("m1x4")
     if (set(variant) == {"kivi_grouped_residual", "fp16_reduced_precision_reduction"}
             and variant["kivi_grouped_residual"]):
         # Diagnostic option: cuBLAS FP16 reduction mode for the residual bmm calls
