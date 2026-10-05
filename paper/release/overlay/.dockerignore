@@ -1,0 +1,12 @@
+# Deny the complete repository build context, then admit only the Dockerfile
+# and the two immutable Python lock inputs.
+**
+!docker/
+!docker/measurement.Dockerfile
+!preflight/
+!preflight/requirements-e00.txt
+!preflight/requirements-phase3.txt
+
+# Defense in depth for local secret files.
+.env
+.env.*

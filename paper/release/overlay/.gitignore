@@ -1,0 +1,15 @@
+# Raw run outputs and local calibration bundles stay outside version control.
+/artifacts/
+/calibration/kvquant/
+
+# Local environments, caches, and profiler output.
+/.venv/
+/.deps/
+/.reference/
+/__pycache__/
+*.py[cod]
+*.egg-info/
+*.nsys-rep
+*.ncu-rep
+
+.env

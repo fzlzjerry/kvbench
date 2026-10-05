@@ -1,0 +1,75 @@
+kvbench
+Copyright 2026 fzlzjerry
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+It includes or modifies third-party code listed below. Each component keeps
+its upstream license terms.
+
+-------------------------------------------------------------------------------
+1. vLLM (TurboQuant KV-cache path)
+-------------------------------------------------------------------------------
+Source:   https://github.com/vllm-project/vllm
+Version:  v0.25.1, commit 752a3a504485790a2e8491cacbb35c137339ad34
+License:  Apache License 2.0
+Notice:   Copyright contributors to the vLLM project
+          (the upstream repository has no NOTICE file at this release)
+Files:    src/kvbench/third_party/vllm_turboquant/
+          - centroids.py, config.py: unmodified copies
+          - triton_turboquant_decode.py, triton_turboquant_store.py,
+            triton_decode_attention.py: modified (import paths only)
+          - compat.py: contains unmodified vLLM Hadamard-transform code plus
+            a local platform-import shim
+          File-level provenance: src/kvbench/third_party/vllm_turboquant/provenance.json
+
+-------------------------------------------------------------------------------
+2. KIVI
+-------------------------------------------------------------------------------
+Source:   https://github.com/jy-yuan/KIVI
+Version:  commit 876b4d2d08e3b1d5f70d0969c299d8c7c42ddfb6
+License:  MIT License
+Files:    third_party/patches/kivi/ (a patch against the upstream source; the
+          upstream repository itself is not included)
+
+MIT License
+
+Copyright (c) 2024 jiayi yuan
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+-------------------------------------------------------------------------------
+3. KVQuant
+-------------------------------------------------------------------------------
+Source:   https://github.com/SqueezeAILab/KVQuant
+Version:  commit 57a238357f0ffe50084670fcd5781c9848f80ea2
+License:  NOT VERIFIED. The pinned tree has no LICENSE file;
+          deployment/pyproject.toml declares the classifier
+          "License :: OSI Approved :: Apache Software License".
+Files:    third_party/patches/kvquant/0001-0004 (patches against the upstream
+          source; the upstream repository itself is not included). The patches
+          modify KVQuant code and files in its embedded Hugging Face
+          Transformers-derived tree (deployment/transformers), which carries
+          an Apache-2.0 LICENSE file. The upstream README also attributes
+          components to GPTQ, GPTQ-for-LLaMa, and SqueezeLLM; their exact
+          lineage is unresolved (see third_party/LOCK.json).
+
+-------------------------------------------------------------------------------
+Not redistributed
+-------------------------------------------------------------------------------
+Llama 3.1 model weights and tokenizer (meta-llama/Llama-3.1-8B-Instruct) are
+gated under the Llama 3.1 Community License and are not included.
