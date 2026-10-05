@@ -98,6 +98,8 @@ def task_definitions() -> dict[str, dict[str, Any]]:
         },
         "task2": {
             "task_number": 2, "cap_seconds": 4 * 3600,
+            # Amendment Section 10: gate 1 failed; timed as a diagnostic only.
+            "status_label": "gate_failed_diagnostic_only",
             "blocks": {**{f"{cfg}-grouped": block(cfg, {"kivi_grouped_residual": True}, t2_points)
                           for cfg in KIVI},
                        "bf16": block("bf16", {}, t2_points)},
@@ -395,6 +397,7 @@ def write_point(task_root: Path, jobs: list[dict[str, Any]], key: tuple, commit:
         "failed_checks": sorted({k for r in rows for k in r.get("failed_checks", [])}),
         "addendum_git_sha": commit, "execution_git_sha": c.EXECUTION_SHA,
         "container_digest": c.IMAGE, "written_at_utc": c.utc_now(),
+        "status_label": json.loads((task_root / "manifest.json").read_text()).get("status_label", "preregistered"),
     })
 
 
@@ -417,6 +420,7 @@ def run_task(name: str) -> None:
         manifest = {"addendum_id": c.ADDENDUM_ID, "task": name, "amendment": c.AMENDMENT,
                     "started_at_utc": c.utc_now(), "started_at_epoch": time.time(),
                     "cap_seconds": definition["cap_seconds"], "addendum_git_sha_at_start": commit,
+                    "status_label": definition.get("status_label", "preregistered"),
                     "jobs": jobs}
         c.write_new(manifest_path, c.json_text(manifest))
     c.write_new(task_root / f"preflight-{int(time.time())}.json", c.json_text(pre))

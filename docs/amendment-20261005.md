@@ -187,3 +187,23 @@ Quantization replaced by identity, integration path otherwise unchanged; at
 
 Full rescans, KVQuant kernel rewrites, any quality evaluation, changes to the
 original gates or timing protocol, and any other hyperparameter change.
+
+## 10. Decision log (appended; earlier sections unchanged)
+
+- 2026-10-05 ~21:30 CST, after the Task 2 gate results and before any Task 2
+  timing: Task 2 gate 1 (100 identical greedy tokens versus the existing
+  adapter at B=1, 4K) failed for the grouped adapter (k4v4: first divergence
+  at token 31; k2v2: 81), also with FP16 reduced-precision reduction off and
+  with a 4 x (M=1) batched form; the existing adapter is deterministic (100/100
+  against itself). All other gates passed. Author decision (option 3): the gate
+  status is recorded as FAIL (reason `gate_failed_greedy_tokens_not_identical`,
+  results/addendum-20261005/FAILURES.md) and is not changed; Task 2 is timed
+  with the grouped adapter in its preregistered form (Section 4, one bmm per
+  residual operand over [B*8, 4, ...]) as a diagnostic only, labeled
+  `gate_failed_diagnostic_only`, never as an admitted result. Points, ratios
+  and eta from Task 2 carry that label wherever reported.
+- Consequently Task 4 uses the existing KIVI adapter (Section 6: "new adapter
+  if Task 2 passed its gates, else the existing one").
+- Task 3 installation: the first attempt from pypi.org (started 20:05:23 CST)
+  was stopped after 60 min while downloading; the second uses the PyPI mirror
+  mirrors.aliyun.com. The 3 h cap still counts from 20:05:23 CST.
