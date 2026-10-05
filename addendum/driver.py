@@ -443,8 +443,9 @@ def run_check(task: str, name: str, configuration: str, variant: dict[str, Any],
               "--configuration", configuration, "--variant", json.dumps(variant),
               "--addendum-commit", commit, "--output-dir", out, *extra]
     if sanitize:
+        kernel_filter = [] if sanitize == "all" else ["--kernel-name", sanitize]
         worker = ["/usr/local/cuda-13.0/bin/compute-sanitizer", "--tool", "memcheck",
-                  "--kernel-name", sanitize, "--error-exitcode", "17",
+                  *kernel_filter, "--error-exitcode", "17",
                   "--log-file", f"{out}/sanitizer.log", *worker]
     script = (f"{shlex.join(worker)} > {out}/worker.stdout 2> {out}/worker.stderr; rc=$?; "
               f"echo $rc > {out}/worker.returncode; exit $rc")
@@ -479,6 +480,8 @@ CHECKS = {
     "t1-greedy-s32": ("task1", "tq_k3v4_nc", {"tq_splits": 32}, [], None),
     "t1-sanitizer-s32": ("task1", "tq_k3v4_nc", {"tq_splits": 32},
                          ["--prefix-tokens", "512", "--steps", "4"], "regex=_tq_decode_stage1|_fwd_kernel_stage2"),
+    "t1-sanitizer-s32-all": ("task1", "tq_k3v4_nc", {"tq_splits": 32},
+                             ["--prefix-tokens", "128", "--steps", "4"], "all"),
     "smoke-greedy-bf16": ("smoke", "bf16", {}, ["--prefix-tokens", "512", "--steps", "4"], None),
 }
 
