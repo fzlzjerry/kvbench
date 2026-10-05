@@ -556,6 +556,65 @@ CHECKS = {
 }
 
 
+NSYS = {
+    # name: (task, configuration, variant); Nsight Systems kernel breakdown, diagnostic only.
+    "t2-nsys-k4v4-orig": ("task2", "k4v4", {}),
+    "t2-nsys-k4v4-grouped": ("task2", "k4v4", {"kivi_grouped_residual": True}),
+    "t2-nsys-k2v2-orig": ("task2", "k2v2", {}),
+    "t2-nsys-k2v2-grouped": ("task2", "k2v2", {"kivi_grouped_residual": True}),
+}
+
+
+def run_nsys(name: str, batch: int = 1, label: int = 4096, replays: int = 8) -> dict[str, Any]:
+    """Nsight Systems trace of `replays` graph replays (Appendix D settings); never timing."""
+    task, configuration, variant = NSYS[name]
+    pre = preflight()
+    commit = pre["addendum_commit"]
+    job_dir = c.RESULTS / task / "nsys" / name
+    if (job_dir / "status.json").exists() and json.loads((job_dir / "status.json").read_text())["status"] == "completed":
+        return json.loads((job_dir / "status.json").read_text())
+    if job_dir.exists():
+        attempt = 0
+        while (job_dir.parent / f"{name}.attempt{attempt}").exists():
+            attempt += 1
+        os.rename(job_dir, job_dir.parent / f"{name}.attempt{attempt}")
+    job_dir.mkdir(parents=True)
+    job_dir.chmod(0o777)
+    out = c.CONTAINER_OUT
+    worker = ["/opt/kvbench/.venv/bin/python", f"{c.CONTAINER_ADDENDUM}/nsys_worker.py",
+              "--configuration", configuration, "--batch-size", str(batch), "--context-label", str(label),
+              "--variant", json.dumps(variant), "--decode-operations", str(replays), "--warmup-steps", "64",
+              "--family-root", str(c.FAMILY), "--output-dir", out]
+    profile = ["nsys", "profile", "--trace=cuda,nvtx,osrt", "--sample=none", "--cpuctxsw=none",
+               "--backtrace=none", "--capture-range=nvtx", "--nvtx-capture=phase15_decode",
+               "--capture-range-end=stop", "--env-var=NSYS_NVTX_PROFILER_REGISTER_ONLY=0",
+               "--cuda-graph-trace=node", "--force-overwrite=true", f"--output={out}/report", *worker]
+    export = ["nsys", "export", "--type=sqlite", "--force-overwrite=true",
+              f"--output={out}/report.sqlite", f"{out}/report.nsys-rep"]
+    script = (f"set +e; {shlex.join(profile)} > {out}/profiler.stdout 2> {out}/profiler.stderr; rc=$?; "
+              f"echo $rc > {out}/profiler.returncode; "
+              f"if [ -f {out}/report.nsys-rep ]; then {shlex.join(export)} > {out}/export.stdout 2> {out}/export.stderr; fi; "
+              f"nsys --version > {out}/tool_version.txt 2>&1; exit $rc")
+    command = docker_command(f"kvbench-nsys-{name}", job_dir, script)
+    c.write_new(job_dir / "docker_command.json", c.json_text(command))
+    status: dict[str, Any] = {"task": task, "nsys": name, "configuration": configuration, "variant": variant,
+                              "batch_size": batch, "context_label": label, "replays": replays,
+                              "profiler_duration_is_normal_timing": False, "started_at_utc": c.utc_now()}
+    try:
+        completed = run_command(command, check=False, timeout=3600)
+        status["docker_returncode"] = completed.returncode
+    except subprocess.TimeoutExpired:
+        run_command(["docker", "rm", "-f", f"kvbench-nsys-{name}"], check=False)
+        status["docker_returncode"] = None
+    ok = status["docker_returncode"] == 0 and (job_dir / "report.sqlite").exists()
+    status.update({"status": "completed" if ok else "failed", "finished_at_utc": c.utc_now()})
+    c.write_new(job_dir / "status.json", c.json_text(status))
+    if not ok:
+        c.append_failure(task, f"nsys `{name}` failed: returncode {status['docker_returncode']}")
+    print(json.dumps(status), flush=True)
+    return status
+
+
 def show_status(name: str) -> None:
     task_root = c.RESULTS / name
     for row in c.read_jsonl(task_root / "points.jsonl"):
@@ -568,7 +627,7 @@ def show_status(name: str) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("action", choices=("preflight", "run", "status", "order", "check"))
+    parser.add_argument("action", choices=("preflight", "run", "status", "order", "check", "nsys"))
     parser.add_argument("task", nargs="?")
     args = parser.parse_args()
     if args.action == "preflight":
@@ -579,6 +638,8 @@ def main() -> None:
         task, configuration, variant, extra, sanitize, *rest = CHECKS[args.task]
         run_check(task, args.task, configuration, variant, extra, sanitize,
                   worker_script=rest[0] if rest else "check_worker.py")
+    elif args.action == "nsys":
+        run_nsys(args.task)
     elif args.action == "order":
         for job in job_order(args.task, task_definitions()[args.task]):
             print(job["run_id"], job["predicted_seconds"])
