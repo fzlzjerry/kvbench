@@ -30,7 +30,7 @@ SCHEMA = "kvbench-addendum-20261005-check-1.0.0"
 
 def greedy(loaded, configuration: str, prefix_ids: list[int], first_token: int, steps: int):
     import torch
-    import scripts.q0_cache_sensitive_correctness as q0
+    import q0_vendor as q0
 
     length = len(prefix_ids)
     method, cache, endpoint, positions, rope = q0._allocate_state(
