@@ -57,7 +57,9 @@ def install_tq_split_override(splits: int) -> dict[str, Any]:
             dtype=torch.float32,
             device=self.device,
         )
-        state["scratch"][id(self)] = scratch
+        # Keyed by the as-ported scratch pointer: decode handles reach the
+        # cache through a weakref proxy, whose id() differs from the cache's.
+        state["scratch"][self.decode_mid_o.data_ptr()] = scratch
         state["scratch_records"].append({
             "allocated_at": "cache_construction",
             "shape": list(scratch.shape),
@@ -71,11 +73,11 @@ def install_tq_split_override(splits: int) -> dict[str, Any]:
 
     def decode_with_splits(handle: Any, query_states: Any, scaling: float) -> Any:
         cache = handle.cache
-        scratch = state["scratch"].get(id(cache))
+        scratch = state["scratch"].get(cache.decode_mid_o.data_ptr())
         if scratch is None:
             raise RuntimeError(
                 "split scratch was not allocated at cache construction: "
-                f"cache id {id(cache)} type {type(cache).__module__}.{type(cache).__qualname__} "
+                f"cache key {cache.decode_mid_o.data_ptr()} type {type(cache).__module__}.{type(cache).__qualname__} "
                 f"init {getattr(type(cache).__init__, '__qualname__', '?')} "
                 f"class is patched class {type(cache) is cache_class} "
                 f"recorded ids {list(state['scratch'])} records {len(state['scratch_records'])}")
