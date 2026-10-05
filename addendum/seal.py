@@ -102,7 +102,7 @@ def main() -> int:
               "size_bytes": p.stat().st_size, "sha256": c.sha256_file(p)} for p in payload]
     write_new(stage / "artifact_inventory.json", c.json_text({
         "schema_version": "kvbench-artifact-inventory-1.0.0", "run_id": run_id, "files": items,
-        "excluded_control_files": sorted(controls)}))
+        "excluded_control_files": ["artifact_inventory.json", "checksums.sha256", "COMPLETE"]}))
     ledger_files = sorted(p for p in stage.rglob("*") if p.is_file()
                           and p.relative_to(stage).as_posix() not in {"checksums.sha256", "COMPLETE"})
     write_new(stage / "checksums.sha256",
