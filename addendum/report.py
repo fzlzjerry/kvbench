@@ -189,6 +189,7 @@ def main() -> None:
         state = ("not run" if not procs else
                  f"{done} completed processes" + (f"; stopped: {last['stopped']}" if last and last.get("stopped") else ""))
         lines.append(f"| {text} | {state} |")
+    lines.append("| Task 5 KVQuant identity pass-through (optional) | not run: implementation estimate 2-3 h > 1 h condition |")
     lines += ["", "Failures, caps and decisions: see `FAILURES.md` (copied at the end).", ""]
 
     # Task 1
