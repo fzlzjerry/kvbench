@@ -41,6 +41,8 @@ PREDICTED_SECONDS = {
     ("tq", 1, 32768): 70, ("tq", 1, 131072): 160, ("tq", 8, 32768): 130,
     ("kivi", 1, 4096): 90, ("kivi", 1, 32768): 245, ("kivi", 1, 131072): 850,
     ("kivi", 8, 4096): 100, ("kivi", 8, 24576): 240, ("kivi", 8, 32768): 290,
+    # Task 4 B_max points (estimates; KIVI cache construction scales with L).
+    ("bf16", 3, 131072): 150, ("kivi", 9, 131072): 1000,
 }
 SPLIT_SWEEP_SECONDS = {8: 320, 16: 220, 64: 160}  # TQ-k3v4, B=1, 128K
 
@@ -69,8 +71,17 @@ def task_definitions() -> dict[str, dict[str, Any]]:
     t1_points = [(1, 32768), (1, 131072), (8, 32768)]
     t2_points = [(1, 4096), (1, 32768), (1, 131072), (8, 4096), (8, 24576), (8, 32768)]
 
-    def block(configuration: str, variant: dict[str, Any], points: list) -> dict[str, Any]:
-        return {"configuration": configuration, "variant": variant, "points": points}
+    def block(configuration: str, variant: dict[str, Any], points: list,
+              worker: str = "timing_worker.py", extra_args: list[str] | None = None) -> dict[str, Any]:
+        return {"configuration": configuration, "variant": variant, "points": points,
+                "worker": worker, "extra_args": extra_args or []}
+
+    # Task 4 KIVI variant: the grouped residual if Task 2 passed its gates, else
+    # the existing adapter (amendment Section 6); fixed in task4-variant.json
+    # before Task 4 starts.
+    variant_file = c.RESULTS / "task4-variant.json"
+    t4_variant = json.loads(variant_file.read_text())["variant"] if variant_file.exists() else None
+    synthetic = "synthetic_worker.py"
 
     return {
         "task1": {
@@ -91,6 +102,24 @@ def task_definitions() -> dict[str, dict[str, Any]]:
                           for cfg in KIVI},
                        "bf16": block("bf16", {}, t2_points)},
         },
+        **({} if t4_variant is None else {
+            # Synthetic-cache validity gate at (B=1, 32K): real vs synthetic, BF16 and KIVI-k4v4.
+            "task4-gate": {
+                "task_number": 41, "cap_seconds": 2 * 3600,
+                "blocks": {"bf16-real": block("bf16", {}, [(1, 32768)]),
+                           "bf16-synthetic": block("bf16", {}, [(1, 32768)], synthetic),
+                           "k4v4-real": block("k4v4", t4_variant, [(1, 32768)]),
+                           "k4v4-synthetic": block("k4v4", t4_variant, [(1, 32768)], synthetic)},
+            },
+            # Fixed-memory throughput at L = 128K, B = B_max (feasibility.py).
+            "task4-bmax": {
+                "task_number": 42, "cap_seconds": 3 * 3600,
+                "blocks": {"bf16-synthetic-bmax": block("bf16", {}, [(3, 131072)], synthetic,
+                                                        ["--unadmitted-batch-bypass"]),
+                           "k4v4-synthetic-bmax": block("k4v4", t4_variant, [(9, 131072)], synthetic,
+                                                        ["--unadmitted-batch-bypass"])},
+            },
+        }),
         "smoke": {  # infrastructure smoke test; never reported
             "task_number": 0, "cap_seconds": 1800, "rounds": 1,
             "blocks": {"tq_k3v4_nc-s32": block("tq_k3v4_nc", {"tq_splits": 32}, [(1, 4096)]),
@@ -116,6 +145,8 @@ def job_order(name: str, definition: dict[str, Any]) -> list[dict[str, Any]]:
                 jobs.append({
                     "task": name, "round": round_index, "seed": seed, "order_index": order,
                     "block": block_name, "configuration": configuration, "variant": block["variant"],
+                    "worker": block.get("worker", "timing_worker.py"),
+                    "extra_args": block.get("extra_args", []),
                     "batch_size": batch, "context_label": label,
                     "run_id": f"{name}-r{round_index}-o{order:03d}-{block_name}-b{batch}-l{label}",
                     "predicted_seconds": predicted(configuration, batch, label, block["variant"]),
@@ -250,12 +281,12 @@ def docker_command(name: str, job_dir: Path, script: str) -> list[str]:
 
 
 def timing_script(job: dict[str, Any], commit: str) -> str:
-    worker = ["/opt/kvbench/.venv/bin/python", f"{c.CONTAINER_ADDENDUM}/timing_worker.py",
+    worker = ["/opt/kvbench/.venv/bin/python", f"{c.CONTAINER_ADDENDUM}/{job.get('worker', 'timing_worker.py')}",
               "--task", job["task"], "--run-id", job["run_id"],
               "--configuration", job["configuration"], "--batch-size", str(job["batch_size"]),
               "--context-label", str(job["context_label"]), "--replicate-index", str(job["round"]),
               "--order-index", str(job["order_index"]), "--variant", json.dumps(job["variant"]),
-              "--addendum-commit", commit, "--output-dir", c.CONTAINER_OUT]
+              "--addendum-commit", commit, "--output-dir", c.CONTAINER_OUT, *job.get("extra_args", [])]
     out = c.CONTAINER_OUT
     return (f"{shlex.join(worker)} > {out}/worker.stdout 2> {out}/worker.stderr; rc=$?; "
             f"echo $rc > {out}/worker.returncode; exit $rc")
@@ -321,7 +352,7 @@ def completed_runs(task_root: Path) -> dict[str, dict[str, Any]]:
 
 
 def point_key(job: dict[str, Any]) -> tuple:
-    return (job["configuration"], json.dumps(job["variant"], sort_keys=True),
+    return (job["block"], json.dumps(job["variant"], sort_keys=True),
             job["batch_size"], job["context_label"])
 
 
@@ -329,7 +360,7 @@ def write_point(task_root: Path, jobs: list[dict[str, Any]], key: tuple, commit:
                 final: bool = False) -> None:
     done = completed_runs(task_root)
     rows = [done[j["run_id"]] for j in jobs if point_key(j) == key and j["run_id"] in done]
-    existing = {(r["configuration"], json.dumps(r["variant"], sort_keys=True), r["batch_size"],
+    existing = {(r.get("block", r["configuration"]), json.dumps(r["variant"], sort_keys=True), r["batch_size"],
                  r["context_label"]) for r in c.read_jsonl(task_root / "points.jsonl")}
     if key in existing:
         return
@@ -338,12 +369,15 @@ def write_point(task_root: Path, jobs: list[dict[str, Any]], key: tuple, commit:
     rows.sort(key=lambda r: r["round"])
     medians = [r["host_wall_process_median_ms"] for r in rows]
     stats = c.point_statistics(medians)
-    configuration, variant, batch, label = key
+    block_name, variant, batch, label = key
+    point_job = next(j for j in jobs if point_key(j) == key)
+    configuration = point_job["configuration"]
     disposition = ("incomplete" if len(rows) < c.PROCESSES_PER_POINT else
                    "check_failed" if any(r.get("failed_checks") for r in rows) else
                    "unstable" if stats["cv"] is not None and stats["cv"] > c.CV_THRESHOLD else "stable")
     c.append_jsonl(task_root / "points.jsonl", {
-        "addendum_id": c.ADDENDUM_ID, "task": task_root.name, "configuration": configuration,
+        "addendum_id": c.ADDENDUM_ID, "task": task_root.name, "block": block_name,
+        "worker": point_job.get("worker", "timing_worker.py"), "configuration": configuration,
         "label": c.LABELS.get(configuration, configuration), "variant": json.loads(variant),
         "batch_size": batch, "context_label": label, "latency_basis": "host_wall",
         "process_medians_ms": medians, "point_median_ms": stats["median_ms"], "cv": stats["cv"],
