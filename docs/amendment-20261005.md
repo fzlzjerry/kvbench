@@ -214,3 +214,15 @@ original gates or timing protocol, and any other hyperparameter change.
   retry installation; installation with `uv` from the same mirror, never
   during a timing run. Task 3's protocol (Section 5) is otherwise unchanged.
   The first attempt's failure record stays.
+- 2026-10-06 ~04:55 CST, Task 3 retry: `vllm bench latency` disables prefix
+  caching by default (its source: "V1 enables prefix caching by default which
+  skews the latency numbers"), so every iteration re-ran the full prefill
+  (22.8 s per iteration at B=1, 128K) and the 36 processes could not finish
+  within the retry's cap. Author decision (option 1): stop that run (its two
+  completed BF16 processes stay under results/addendum-20261005/task3/ as an
+  incomplete attempt, not reported as results) and rerun Task 3 under
+  results/addendum-20261005/task3b/ with `--enable-prefix-caching` (the vLLM
+  engine default that the benchmark script overrides). The warmup iterations
+  build the cache; T1 and T65 then differ by exactly the 64 decode steps.
+  Everything else in Section 5 is unchanged; the deadline is still the retry's
+  (06:35:35 CST).

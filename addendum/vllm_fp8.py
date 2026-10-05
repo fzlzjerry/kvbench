@@ -34,6 +34,15 @@ import common as c  # noqa: E402
 
 TASK = "task3"
 ROOT = c.RESULTS / TASK
+# task3b (amendment Section 10): same protocol with prefix caching enabled.
+VARIANTS = {"task3": {"prefix_caching": False}, "task3b": {"prefix_caching": True}}
+
+
+def select_task(name: str) -> None:
+    global TASK, ROOT
+    if name not in VARIANTS:
+        raise SystemExit(f"unknown Task 3 variant {name}")
+    TASK, ROOT = name, c.RESULTS / name
 SNAPSHOT = c.MODEL / "snapshots" / "0e9e39f249a16976918f6564b8830bc894c89659"
 DTYPES = ("auto", "fp8")  # auto = model dtype (BF16)
 # (batch, label, input_len): input + 65 must not exceed the model's 131,072 positions.
@@ -107,7 +116,9 @@ def run(venv: Path, deadline_epoch: int | None = None) -> None:
                     "cap_seconds": CAP_SECONDS, "venv": str(venv), "versions": version,
                     "deadline_epoch": deadline_epoch or TASK3_DEADLINE_EPOCH,
                     "model_snapshot": str(SNAPSHOT), "warmup_iters": WARMUP_ITERS, "iters": ITERS,
-                    "engine_settings": "vLLM defaults except --kv-cache-dtype; CUDA Graphs on (no --enforce-eager)",
+                    "engine_settings": ("vLLM defaults except --kv-cache-dtype"
+                                        + (" and --enable-prefix-caching" if VARIANTS[TASK]["prefix_caching"] else "")
+                                        + "; CUDA Graphs on (no --enforce-eager)"),
                     "jobs": jobs}
         c.write_new(manifest_path, c.json_text(manifest))
     # The retry (amendment Section 10) passes its own deadline: retry start + 3 h.
@@ -139,6 +150,8 @@ def run(venv: Path, deadline_epoch: int | None = None) -> None:
                        "--num-iters", str(ITERS), "--output-json", str(run_dir / "latency.json")]
             if job["kv_cache_dtype"] != "auto":
                 command += ["--kv-cache-dtype", job["kv_cache_dtype"]]
+            if VARIANTS[TASK]["prefix_caching"]:
+                command += ["--enable-prefix-caching"]
             c.write_new(run_dir / "command.json", c.json_text(command))
             row: dict[str, Any] = {**job, "attempt": attempt, "started_at_utc": c.utc_now(), "gpu_apps_before": apps,
                                    "environment_additions": environment_additions}
@@ -216,7 +229,9 @@ def main() -> None:
     parser.add_argument("action", choices=("run", "summarize", "order"))
     parser.add_argument("--venv", type=Path, default=Path("/home/rockrock/addendum-vllm-env"))
     parser.add_argument("--deadline-epoch", type=int, default=None)
+    parser.add_argument("--task", default="task3", choices=sorted(VARIANTS))
     args = parser.parse_args()
+    select_task(args.task)
     if args.action == "run":
         run(args.venv, args.deadline_epoch)
     elif args.action == "order":
