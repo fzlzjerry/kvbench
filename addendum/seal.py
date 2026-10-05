@@ -97,14 +97,16 @@ def main() -> int:
     }
     write_new(stage / "manifest.json", c.json_text(manifest))
     controls = {"artifact_inventory.json", "checksums.sha256", "COMPLETE"}
-    payload = sorted(p for p in stage.rglob("*") if p.is_file() and p.relative_to(stage).as_posix() not in controls)
+    payload = sorted((p for p in stage.rglob("*") if p.is_file() and p.relative_to(stage).as_posix() not in controls),
+                     key=lambda p: p.relative_to(stage).as_posix())
     items = [{"path": p.relative_to(stage).as_posix(), "role": "addendum_20261005",
               "size_bytes": p.stat().st_size, "sha256": c.sha256_file(p)} for p in payload]
     write_new(stage / "artifact_inventory.json", c.json_text({
         "schema_version": "kvbench-artifact-inventory-1.0.0", "run_id": run_id, "files": items,
         "excluded_control_files": ["artifact_inventory.json", "checksums.sha256", "COMPLETE"]}))
-    ledger_files = sorted(p for p in stage.rglob("*") if p.is_file()
-                          and p.relative_to(stage).as_posix() not in {"checksums.sha256", "COMPLETE"})
+    ledger_files = sorted((p for p in stage.rglob("*") if p.is_file()
+                           and p.relative_to(stage).as_posix() not in {"checksums.sha256", "COMPLETE"}),
+                          key=lambda p: p.relative_to(stage).as_posix())
     write_new(stage / "checksums.sha256",
               "".join(f"{c.sha256_file(p)}  {p.relative_to(stage).as_posix()}\n" for p in ledger_files))
     write_new(stage / "COMPLETE", c.json_text({
