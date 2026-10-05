@@ -4,6 +4,8 @@
 #                       disagrees with the .aux files, a cross-PDF label has no fallback, or a reference is undefined
 #   make check       -> check_xref.py alone (needs the .aux files of a full build)
 #   make overleaf    -> full build and check, then ../bytes-are-not-latency-overleaf.zip
+#   make arxiv-src   -> arXiv package ../bytes-are-not-latency-arxiv-src.tar.gz and the PDF arXiv will
+#                       produce from it (needs arxiv-identity.tex; see arxiv-identity.example.tex)
 #   make figures     -> regenerate figures/*.pdf from ../figures/*.svg (needs cairosvg and Ghostscript)
 LATEX  ?= pdflatex
 BIBTEX ?= bibtex
@@ -24,7 +26,7 @@ all: submission.pdf submission_appendix.pdf arxiv.pdf submission.aux submission_
 check:
 	python3 check_xref.py
 
-arxiv.pdf arxiv.aux &: arxiv.tex $(DEPS)
+arxiv.pdf arxiv.aux &: arxiv.tex $(DEPS) $(wildcard arxiv-identity.tex)
 	$(LATEX) $(FLAGS) arxiv
 	$(BIBTEX) arxiv
 	$(LATEX) $(FLAGS) arxiv
@@ -51,7 +53,14 @@ overleaf: all
 	rm -f $(OVERLEAF_ZIP)
 	zip -X -q $(OVERLEAF_ZIP) $(OVERLEAF_FILES)
 
+# arXiv compiles the single file with \documentclass and does not run BibTeX; make_arxiv_src.py
+# builds that file and main.bbl, then recompiles the package as arXiv does and checks the result.
+ARXIV_SRC := ../bytes-are-not-latency-arxiv-src.tar.gz
+ARXIV_PDF := ../bytes-are-not-latency-arxiv.pdf
+arxiv-src: arxiv-identity.tex paper.tex appendix.tex references.bib mlsys2025.sty mlsys2025.bst $(FIGURES)
+	python3 make_arxiv_src.py --tarball $(ARXIV_SRC) --pdf $(ARXIV_PDF)
+
 clean:
 	rm -f *.aux *.log *.blg *.out *.bbl
 
-.PHONY: all check overleaf figures clean
+.PHONY: all check overleaf arxiv-src figures clean

@@ -33,12 +33,12 @@
    - `\ported`：TurboQuant 的 † 标记（as ported，split = 4），在 2.2 节定义一次，之后 TurboQuant 的 S 值、延迟和表中的 TQ 行都写成 `TurboQuant\ported{}` 或 `TQ-4bit\ported{}`；上限（ceiling）不依赖实现，不加标记；
    - `\TQdiag`：split = 32 诊断范围，只出现在 2.2、3.3、Table 3/4 的表注、附录 D、6.1、6.2，其他地方不要再加；
    - `\ifarxiv ... \fi`：只在 arXiv 版出现的内容，例如致谢。
-4. **正文不能超过 10 页。** 编译 `arxiv.tex` 后，第 6 节必须在第 10 页结束（现在在第 10 页右栏约三分之一处结束），措辞改长很容易超页。
+4. **正文不能超过 10 页。** 编译 `arxiv.tex` 后，第 6 节必须在第 10 页结束（现在刚好填满第 10 页右栏，没有余量：措辞每加长一行，都要在别处删掉一行），措辞改长很容易超页。
 5. **图要改需要重画**，不能直接改 `figures/` 里的 PDF。
 6. 修改时尽量用 Overleaf 的评论和修订追踪（Track changes），方便审阅。
 
 ## 作者信息
-arXiv 版的作者、单位和邮箱写在 `paper.tex` 开头的 `\AuthorName`、`\AuthorAffiliation`、`\AuthorEmail` 里，目前还是占位符。投稿版会自动显示为 "Anonymous Authors"。
+投稿版无论写什么都显示 "Anonymous Authors"。arXiv 版的真实作者、单位、邮箱、致谢补充和仓库链接只写在 `arxiv-identity.tex` 里（模板是 `arxiv-identity.example.tex`），只有 `arxiv.tex` 会读它。这个文件不在 Overleaf 包里，也不要上传到共享的 Overleaf 项目；没有它时，arXiv 版显示 `[Author Name]` 等占位符。
 
 ## 定稿
 投稿用的两个匿名 PDF（正文 `submission.pdf` 和附录 `submission_appendix.pdf`）不在 Overleaf 上编译。定稿时从 Overleaf 下载源文件（Menu → Download → Source），在本地用 `make` 生成（会自动运行 `check_xref.py`），并做页数、匿名和数字核对。`make overleaf` 在检查通过后重新生成 zip。

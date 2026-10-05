@@ -1,3 +1,7 @@
 % arXiv version ([accepted] option: author block, acknowledgments, repository URL).
+% The real author block and the repository URL are in arxiv-identity.tex (see
+% arxiv-identity.example.tex), which only this file reads; it is never part of the anonymous
+% submission sources or the Overleaf package.
 \def\ARXIV{}
+\IfFileExists{arxiv-identity.tex}{\input{arxiv-identity}}{}
 \input{paper}

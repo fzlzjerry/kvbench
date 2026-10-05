@@ -14,10 +14,15 @@
 \newif\ifappendixonly
 \ifdefined\APPENDIXONLY \appendixonlytrue \else \appendixonlyfalse \fi
 
-% Author block of the arXiv version (not used in the submission version).
-\newcommand{\AuthorName}{[Author Name]}
-\newcommand{\AuthorAffiliation}{[Affiliation, City, Country]}
-\newcommand{\AuthorEmail}{[email]}
+% Author block.  The submission builds print "Anonymous Authors" whatever is given here
+% (mlsys2025.sty).  arxiv.tex reads arxiv-identity.tex, which defines the real author block and the
+% repository URL and is never part of the submission sources or the Overleaf package; without that
+% file the arXiv build prints the placeholders below.
+\providecommand{\ArxivAuthors}{\mlsysauthor{[Author Name]}{aff}}
+\providecommand{\ArxivAffiliations}{\mlsysaffiliation{aff}{[Affiliation, City, Country]}}
+\providecommand{\ArxivCorrespondence}{\mlsyscorrespondingauthor{[Author Name]}{[email]}}
+\providecommand{\ArxivPdfAuthor}{[Author Name]}
+\providecommand{\ArxivAcknowledgments}{}
 
 \usepackage{microtype}
 \usepackage{graphicx}
@@ -44,7 +49,7 @@
 \ifarxiv
   % [accepted] prints a proceedings notice; this version has not appeared in the proceedings.
   \renewcommand{\Notice@String}{}
-  \hypersetup{pdfauthor={\AuthorName}}
+  \hypersetup{pdfauthor={\ArxivPdfAuthor}}
 \fi
 \makeatother
 
@@ -108,11 +113,11 @@
 \mlsystitle{Bytes Are Not Latency: Allocated Size, Measured Traffic, Decode Speed, and Quality of KV-Cache Quantization on a Single Blackwell Workstation GPU}
 
 \begin{mlsysauthorlist}
-\mlsysauthor{\AuthorName}{aff}
+\ArxivAuthors
 \end{mlsysauthorlist}
 
-\mlsysaffiliation{aff}{\AuthorAffiliation}
-\mlsyscorrespondingauthor{\AuthorName}{\AuthorEmail}
+\ArxivAffiliations
+\ArxivCorrespondence
 
 \vskip 0.3in
 
@@ -121,8 +126,8 @@
 KV-cache quantization is expected to speed up decoding because a memory-bound decode step should shorten when it reads fewer bytes.
 We test this expectation, together with model quality, for TurboQuant, KIVI, and KVQuant in one full-model Llama-3.1-8B-Instruct decode harness on an NVIDIA RTX PRO 6000 Blackwell GPU, and find that in these implementations fewer bytes do not mean lower latency: every compressed configuration moves fewer cache bytes than BF16, yet none is faster than BF16 FlashAttention at any same-work point.
 What decides latency is how efficiently the kernels move bytes, not how many they move.
-KIVI, the cleanest comparison because it runs its official kernels, reads 2.8--4.3$\times$ fewer cache bytes than BF16 but runs its cache path at 8--13\% of peak DRAM bandwidth at batch size 1, against 89\% for BF16.
-The TurboQuant and KVQuant ports are slower still, and their bottlenecks trace to integration choices rather than to the algorithms: a split-KV setting below vLLM's default that leaves most of the GPU idle, and a single-threaded outlier-selection kernel that we introduced to make KVQuant graph-safe and deterministic; our correctness gates caught neither.
+KIVI, the cleanest comparison because its cache-path kernels are the official ones, reads 2.8--4.3$\times$ fewer cache bytes than BF16 but runs its cache path at 8--13\% of peak DRAM bandwidth at batch size 1, against 89\% for BF16; even without our adapter's fixed overhead, KIVI at best matches BF16.
+The TurboQuant and KVQuant ports are slower still, and in all three methods large, identifiable costs trace to integration choices rather than to the algorithms: a split-KV setting below vLLM's default that leaves most of the GPU idle, a single-threaded outlier-selection kernel that we introduced to make KVQuant graph-safe and deterministic, and per-query-head residual kernels in our KIVI adapter; our correctness gates caught none of them.
 Modeled bandwidth ceilings bound what better kernels could gain, and under a cache-sensitive quality protocol for single-sequence decoding no configuration is both quality-qualified and faster than BF16.
 \end{abstract}
 \fi
@@ -165,7 +170,7 @@ Which compressed configurations preserve quality when evaluation reads the compr
 \textit{Findings.} RQ1: allocated compression falls short of nominal by a method-specific margin, measured cache traffic departs from the allocation in both directions, and no validated path materializes K/V at query-head width.
 RQ2: no compressed configuration is faster than BF16 at any of the 357 same-work points (TurboQuant and KVQuant as ported), and their cache-path kernels run far below BF16's bandwidth; CUDA Graphs remove submission overhead for every method but reshape the latency curves in method-specific ways, so the floor is not launch overhead alone.
 RQ3: a method-conditioned knee surface in $B$, $L$, and $r_{\mathrm{alloc}}$ predicts held-out latency far better than a scalar byte law (7.9\% against 34.6\% median error) but misses all four evaluable targets.
-RQ4: at physical batch size 1, only KIVI-k4v4 passes perplexity and LongBench-E, it then fails two small-count LongBench v2 guardrails, and KVQuant's result is invalid, so no configuration is both quality-qualified and faster than BF16.
+RQ4: at physical batch size 1, only KIVI-k4v4 passes perplexity and LongBench-E; it then fails two small-count LongBench v2 guardrails, and KVQuant's result is invalid, so no configuration is both quality-qualified and faster than BF16.
 
 \textit{Related work.} Most KV-cache quantizers refine how bits are spent across tokens and channels: importance-aware mixed precision~\citep{yang_notokenleft}, salient-token identification~\citep{he_zipcache}, sliding-window quantization~\citep{duanmu_skvq}, near-lossless compression recipes~\citep{kang_gear}, subspace-orthogonal quantization~\citep{wang_squat}, hardware-aware tuning-free quantization~\citep{tayaranian_innerq}, and 1-bit quantized Johnson--Lindenstrauss transforms~\citep{zandieh_qjl}.
 These papers report accuracy and efficiency in their own harnesses; we measure three of them with model, hardware, timing boundary, and evaluation held fixed.
@@ -206,7 +211,7 @@ Family & Configurations (key/value bits) & Implementation source & Project chang
 \midrule
 BF16 & BF16 & PyTorch SDPA, FlashAttention backend & none \\
 TurboQuant & TQ-4bit (4/4), TQ-k3v4 (3/4), TQ-3bit (3/3) & TurboQuant KV-cache path of vLLM v0.25.1 & port into the common harness \\
-KIVI & k4v4, k2v4, k2v2; group 32, residual 32 & official repository, post-paper snapshot & native-GQA residual patch; FP16 staging \\
+KIVI & k4v4, k2v4, k2v2; group 32, residual 32 & official repository, post-paper snapshot & measured: Graph-safe adapter, per-head residual kernels, FP16 staging; GQA source patch for fixtures \\
 KVQuant & KVQuant-4, -3, -2; 5 sink tokens; outlier cap 12 & author repository & GQA/RoPE compatibility; graph-safe, deterministic kernels \\
 \bottomrule
 \end{tabular}
@@ -219,7 +224,8 @@ We report TurboQuant as ported and write TurboQuant\ported{} (as ported, split${
 
 \textit{KIVI.} We use the official repository at a post-paper snapshot that advertises Llama-3/GQA support, with group size 32 and a 32-token full-precision residual window (the paper's main experiments mostly use 128; its appendix reports 32).
 The snapshot's residual-window attention expands K/V from 8 to 32 heads (Section~\ref{sec:gqa}).
-Our patch groups query heads by their KV head and computes both residual contractions over the eight KV heads; it matches the original formula exactly in BF16 checks and leaves quantization, packing, metadata, and rollover unchanged.
+A source patch computes both residual contractions as batched products grouped by KV head; it matches the original formula exactly in BF16 checks, leaves quantization, packing, metadata, and rollover unchanged, and generates the G1 reference fixtures, but is not on the measured path.
+Performance and quality runs both use our Graph-safe adapter, which calls the official kernels for the quantized history and computes the residual window and the current token per query head (96 FP16 bmm and 64 add kernels per layer in the traced step, Section~\ref{sec:model}).
 The official CUDA kernels accept only FP16, so BF16 activations are staged through preallocated FP16 buffers.
 
 \textit{KVQuant.} We use the author repository with a compatibility patch (``KVQuant-GQA patched upstream''), because the pinned revision rejects Llama-3.1 RoPE and native GQA.
@@ -416,7 +422,9 @@ Another 123 candidate pairs have no ratio: in 108 BF16 is capacity-infeasible, a
 Of the 108, the 27 with a feasible compressed configuration are the capacity points of Section~\ref{sec:capacity}; in the other 81 both sides are infeasible.
 
 The families differ in shape (Table~\ref{tab:latency}).
-KIVI, which runs its official kernels, is closest to BF16; it adds about 7 ms at $B = 1$, 4K, and its ratio improves with batch size, peaking at 0.842 (k2v2).
+KIVI, whose cache-path kernels are the official ones, is closest to BF16; it adds about 7 ms at $B = 1$, 4K, most of it in the per-query-head kernels of our adapter (Section~\ref{sec:model}), and its ratio improves with batch size, peaking at 0.842 (k2v2).
+Removing KIVI's whole fixed-cost excess in the decomposition of Section~\ref{sec:model} ($\Delta c_0 = 5.0$--6.6 ms, which also contains FP16 staging and the official kernels' fixed cost) gives the optimistic post-hoc bound $S_{\mathrm{adj}} = T_{\mathrm{BF16}} / (T_{\mathrm{KIVI}} - \Delta c_0) \leq 1.005$ (k2v2, $B = 8$, 24K), an excess within the fit residual and the timing CV (0.35\% each).
+KIVI thus at best matches BF16: k2v2 reads about 1/4.3 of BF16's cache bytes, but its effective cache bandwidth is also about 4.4$\times$ lower (379 against about 1,650 GB/s at the same batch size).
 TurboQuant\ported's step time grows steeply with context but barely changes with batch at fixed $L$ (TQ-4bit at 32K: 123.9 ms at $B = 1$, 122.7 ms at $B = 8$), and it is not monotone in bit width: TQ-k3v4 is the fastest of the three.
 Nsight traces locate the cause in one integration choice (Appendix~\appref{app:diagnostics}).
 The split-KV stage-1 decode kernel takes 90.6\% of the traced GPU kernel time at $B = 1$, 32K.
@@ -446,7 +454,7 @@ The 27 points thus carry no speedup claim, and this study makes no measured capa
 Expanding K/V from 8 to 32 heads creates operands four times larger than the stored cache.
 Source audits, operator traces, allocation audits, and profiler kernel classification found such expansion only outside the validated system.
 Generic reference attention paths expand K/V: Transformers' eager attention calls \texttt{repeat\_kv}, and a same-shape math-SDPA control dispatched \texttt{expand} and \texttt{clone}, so we excluded both as the baseline.
-The residual-window attention of the official KIVI snapshot also produced a contiguous 32-head copy with four times the input storage at our geometry, which we patched (Section~\ref{sec:impl}).
+The residual-window attention of the official KIVI snapshot also produced a contiguous 32-head copy with four times the input storage at our geometry; our source patch replaces it with KV-head-grouped products, and the measured adapter reads the eight-head residual storage directly (Section~\ref{sec:impl}).
 Every validated configuration passed the G3 materialization check, and at the profiled point Nsight Compute found no complete-prefix materialization or query-head-expanded K/V signature.
 Fourfold expansion is therefore a property of particular code paths, not of GQA decoding in general; we make no claim about how common it is elsewhere.
 
@@ -667,7 +675,7 @@ The RTX PRO 6000 is a GB202 (sm\_120) GPU with GDDR7, not a datacenter sm\_100 B
 
 \textit{Implementations and positive control.} All compressed families run adapted code, and the latencies characterize these implementations on this GPU.
 We measured no positive control---no production-grade quantized-KV kernel such as the FP8 KV caches of vLLM or TensorRT-LLM---so we cannot exclude that optimized kernels for the same algorithms would be faster; the modeled cache-only ceiling $S_{\mathrm{cache}}$ (1.02--2.17 at the same-work points) bounds what faster cache kernels could gain, given the modeled traffic.
-TurboQuant runs as ported with four KV splits where vLLM uses 32 (with 32 splits its GPU kernel time is still 1.6--3.2$\times$ BF16's in the post-hoc Nsight Systems diagnostic, not wall-clock time), and KVQuant's latency is dominated by our single-threaded selection kernel and per-sequence dispatch (Section~\ref{sec:latency}); a rescan with the upstream split count and an FP8 KV-cache positive control are the next steps.
+TurboQuant runs as ported with four KV splits where vLLM uses 32 (with 32 splits its GPU kernel time is still 1.6--3.2$\times$ BF16's in the post-hoc Nsight Systems diagnostic, not wall-clock time), KVQuant's latency is dominated by our single-threaded selection kernel and per-sequence dispatch (Section~\ref{sec:latency}), and most of KIVI's fixed cost of about 6 ms comes from the per-query-head kernels of our adapter (Section~\ref{sec:model}); a rescan with the upstream split count and an FP8 KV-cache positive control are the next steps.
 
 \textit{Post-hoc analyses.} The effective bandwidths, ceilings, elasticities, steady-state capacity, decomposition, and Nsight diagnostics were defined after the results were known (Appendices~\appref{app:ceilings} and~\appref{app:diagnostics}).
 Nsight Compute measured traffic with cold caches and base clocks at $B = 1$ for all configurations and at $B = 8$ and 16 for three of them (BF16, TQ-4bit, KIVI-k4v4); traffic elsewhere is modeled, and profiler kernel times appear only as shares and ratios.
@@ -681,12 +689,12 @@ LongBench v2 used no CoT and an 8-token budget; subgroups are small and three su
 \label{sec:conclusions}
 
 On one Blackwell workstation GPU running a full Llama-3.1-8B decode step, the three KV-cache quantizers we measured move fewer bytes than BF16, but in these implementations fewer bytes do not mean lower latency: every compressed configuration, TurboQuant\ported{} included, is slower than BF16 FlashAttention at every comparable point.
-The cleanest comparison, KIVI with its official kernels, reads 2.8--4.3$\times$ fewer cache bytes yet runs its cache path at 8--13\% of peak DRAM bandwidth against BF16's 89\%, and reaches at most 0.842 of BF16's speed.
-The largest costs of the TurboQuant and KVQuant ports trace to integration choices---four KV splits where vLLM uses 32, and a single-threaded outlier selector---rather than to the algorithms; with 32 splits, TurboQuant's GPU kernel time is still 1.6--3.2$\times$ BF16's (Nsight Systems diagnostic, not wall-clock).
+The cleanest comparison, KIVI, whose cache-path kernels are the official ones, reads 2.8--4.3$\times$ fewer cache bytes yet runs its cache path at 8--13\% of peak DRAM bandwidth against BF16's 89\% at batch size 1, and reaches at most 0.842 of BF16's speed; even with its whole fixed-cost excess removed it at best matches BF16 ($S_{\mathrm{adj}} \leq 1.005$, post hoc), because its effective bandwidth falls about as much as its bytes.
+In all three implementations, large and identifiable costs trace to integration choices rather than to the algorithms---four KV splits where vLLM uses 32, a single-threaded outlier selector, and per-query-head residual kernels in our KIVI adapter; with 32 splits, TurboQuant's GPU kernel time is still 1.6--3.2$\times$ BF16's (Nsight Systems diagnostic, not wall-clock).
 A fixed cost plus cache bytes over an effective bandwidth describes the latency surfaces, so bytes matter only through a bandwidth that the kernels set.
 Capacity gains appear only once prefix-construction transients are excluded, and none was measured.
 At batch size 1, KIVI k4v4 passes perplexity and LongBench-E before failing two small-count LongBench v2 guardrails, and KVQuant's quality result is invalid.
-Our correctness gates passed every configuration yet caught none of these performance-relevant integration choices; admission should also check configuration parity with upstream.
+Our correctness gates passed every configuration yet caught none of these performance-relevant integration choices; admission should also check configuration parity with upstream, and that the code a paper describes is the code that was measured.
 Each link---bit width, allocated bytes, measured traffic, same-work latency, and cache-sensitive quality---needs its own measurement.
 The released CPU packages regenerate the frozen tables; the post-hoc analyses and the raw data are available on request (Appendix~\appref{app:repro}).
 \label{end-of-body}
@@ -695,6 +703,7 @@ The released CPU packages regenerate the frozen tables; the post-hoc analyses an
 \section*{Acknowledgments}
 
 AI coding assistants were used for implementation support and manuscript drafting; the authors reviewed all code, results, and text.
+\ArxivAcknowledgments
 \fi
 
 \bibliography{references}

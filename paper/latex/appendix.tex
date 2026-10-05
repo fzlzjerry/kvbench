@@ -35,7 +35,7 @@ The v1.0 release notes and manuscript use the numbering of an earlier version of
 
 Post-hoc analyses.
 The analyses of Appendices~\ref{app:ceilings}, \ref{app:diagnostics}, and~\ref{app:kvquant} were defined after the results were known and read only the frozen roots above; none reruns a timing scan or a quality run.
-Their code and outputs are sealed under the same retention scheme: traffic model, ceilings, bandwidth, elasticity, capacity, and decomposition \anon{\texttt{3dc84c64\ldots}}; kernel breakdowns from the existing traces \anon{\texttt{c347e20a\ldots}}; the Nsight diagnostics of Appendix~\ref{app:diagnostics}, raw \anon{\texttt{4cdbb3ae\ldots}} and analysis \anon{\texttt{39efeb1c\ldots}}; the KVQuant quality exclusion record \anon{\texttt{47296f7c\ldots}}; and the final-revision analyses (cache-only ceiling, KIVI kernel breakdown) \anon{\texttt{b0969338\ldots}}.
+Their code and outputs are sealed under the same retention scheme: traffic model, ceilings, bandwidth, elasticity, capacity, and decomposition \anon{\texttt{3dc84c64\ldots}}; kernel breakdowns from the existing traces \anon{\texttt{c347e20a\ldots}}; the Nsight diagnostics of Appendix~\ref{app:diagnostics}, raw \anon{\texttt{4cdbb3ae\ldots}} and analysis \anon{\texttt{39efeb1c\ldots}}; the KVQuant quality exclusion record \anon{\texttt{47296f7c\ldots}}; the final-revision analyses (cache-only ceiling, KIVI kernel breakdown) \anon{\texttt{b0969338\ldots}}; and KIVI's adjusted ratio $S_{\mathrm{adj}}$ \anon{\texttt{1998be3e\ldots}}.
 The post-hoc code is on the repository's main branch, not in the v1.0 release; rerunning its CPU analyses on the retained roots reproduces their sealed tables and figures unchanged.
 Every number that the v1.0 packages do not contain, including the post-hoc columns of Table~\mainref{tab:traffic} and panel b of Figure~\mainref{fig:samework}, comes from these artifacts.
 
@@ -228,6 +228,7 @@ Our kernel source matches vLLM v0.25.1 except for imports, and the adapter launc
 \textit{Split-count diagnostic.}
 In the measurement container, with the Full Scan execution repository and the same session construction (BF16 restores its prefix snapshot; compressed configurations rebuild the cache from the logical prefix), we traced eight Graph replays per point with the split count at 4 (as ported) and at 32 (Table~\ref{tab:split}).
 The 32-split runs swap the split constant and a caller-owned scratch only inside each decode call; in all 33 traced runs, the 12 with 32 splits included, the historical cache and its pointers were unchanged, the adapter fingerprint validated, and outputs were finite (worker checks sealed with the analysis, root \anon{\texttt{39efeb1c\ldots}}).
+These checks cover finiteness and cache integrity only; we did not verify that 32-split outputs agree numerically with the 4-split path.
 $B = 8$ at 128K is infeasible, so $B = 8$, 48K replaces it.
 As-ported traced kernel time per step agrees with the frozen wall-clock medians to within 2.5\%.
 

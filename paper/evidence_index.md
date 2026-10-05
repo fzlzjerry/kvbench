@@ -160,6 +160,7 @@ Everything below was defined after the frozen results were known (post hoc) and 
 | PBA | `paper/posthoc/artifacts/posthoc-b-analysis-20261004t202531220352z-0641de4b-74462d` (Nsight diagnostics, analysis) | `39efeb1c…` |
 | PC | `paper/posthoc/artifacts/posthoc-c-exclusions-20261004t164203027878z-0641de4b-e16598` (KVQuant quality exclusion record) | `47296f7c…` |
 | PD | `paper/posthoc/artifacts/posthoc-d-20261005t064839061781z-b0ed1058-d6fb96` (final revision: cache-only ceiling S_cache, KIVI-k4v4 kernel breakdown) | `b0969338…` |
+| PE | `paper/posthoc/artifacts/posthoc-e-20261005t074653228884z-bbefea1c-dec6cf` (final revision: KIVI S_adj from the sealed Part A fits, no refit) | `1998be3e…` |
 
 | Claim / number | Source | Location |
 |---|---|---|
@@ -199,3 +200,10 @@ Everything below was defined after the frozen results were known (post hoc) and 
 | The FP16 bmm and add kernels are issued per query head for the residual window and the current token (§4) | `src/<pkg>/adapters/kivi.py` lines 764–776 and 860–871 | static code reading: `for query_head in range(32)` loops with `torch.bmm(...)` and `add_` |
 | Findings paragraph (§1) | rows of §3.1–§3.6, §4 and Appendix E, and §5 above | summary only; no new number |
 | Conclusions: the released CPU packages regenerate the frozen tables; post-hoc analyses and raw data on request (§6.2, App. A) | v1.0 release assets; Table 3 check above | — |
+| KIVI S_adj = T_BF16 / (T_KIVI − Δc0(B)) ≤ 1.005 (k2v2, B = 8, 24K; 1.001 at 32K; all other points ≤ 1.000), Δc0 = 5.0–6.6 ms, at 120 same-work points (§3.3, §6.2, abstract) | PE/summary.json, PE/e1_kivi_s_adj_points.csv | `s_adj_max`, `points_with_s_adj_above_1`, `delta_c0_ms_range` (5.046–6.641); c0 from PA/a5_decomposition_fits.csv |
+| The excess over 1 is within the fit residual and the timing CV (0.35% each) (§3.3) | PE/e1_kivi_s_adj_points.csv | row k2v2, B = 8, 24576: `method_fit_max_abs_relative_residual` 0.0035, `method_point_cv` 0.0035 |
+| k2v2 reads about 1/4.3 of BF16's cache bytes; effective bandwidth 379 against about 1,650 GB/s at the same batch size (§3.3) | Table 3 (frozen r_DRAM 4.31); PA/a5_decomposition_fits.csv (Table A3) | `r_dram_v1` k2v2; `bw_eff_cache_bytes_per_s` k2v2 B = 8, 16 (379) vs BF16 (1,653, 1,665) |
+| B = 16, 24K has no S_adj: BF16 is capacity-infeasible there | FS/wall-closure/point_summary.parquet | row bf16, B = 16, 24576: `disposition` = capacity_infeasible |
+| KIVI code paths: G1 reference = source patch (KV-head-grouped batched bmm); Graph performance path and eager quality path = the same Graph-safe adapter (per-query-head bmm and add) (§2.2, Table 1, §3.5) | `reference/kivi/generate_fixtures.py` (imports `models.kivi_gqa` helpers of the patched source); `scripts/phase12_unified_admission.py` and `scripts/q0_cache_sensitive_correctness.py` (both `build_method_adapter(load_frozen_kivi_method_config(), ...)`); `src/<pkg>/adapters/kivi.py` `decode_attention` → `_decode_compressed` | static code reading; `third_party/patches/kivi/0001-preserve-native-gqa-kv-storage.patch`, `docs/method_notes/kivi.md` (patch: BMMs with leading dimension batch × H_KV) |
+| Appendix D: the 32-split worker checks cover finiteness and cache integrity only; no numerical comparison with the 4-split path | PBA/worker_checks.json | fields present: `output_finite`, `historical_cache_unchanged`, `cache_pointers_stable`, fingerprint validation; no output-comparison field |
+| Submission build anonymizes commit, tag, container digests, and data roots (19 `[anonymized]` in the appendix PDF, none in the main PDF); the arXiv build shows them | `paper/latex/paper.tex` macro `\anon` | pdftotext check of submission.pdf and submission_appendix.pdf |

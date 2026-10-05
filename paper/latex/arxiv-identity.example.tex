@@ -1,0 +1,16 @@
+% Template for arxiv-identity.tex: the de-anonymized author block of the arXiv version.
+% Copy to arxiv-identity.tex and fill in.  arxiv.tex reads that file before \input{paper}; the
+% submission builds never read it, and it is not part of the Overleaf package.
+% Labels (aff1, aff2, ...) link authors to affiliations; an author may carry several, as {aff1,aff2}.
+\newcommand{\ArxivAuthors}{%
+  \mlsysauthor{First Author}{aff1}
+  \mlsysauthor{Second Author}{aff2}}
+\newcommand{\ArxivAffiliations}{%
+  \mlsysaffiliation{aff1}{Department, University, City, Country}
+  \mlsysaffiliation{aff2}{Department, University, City, Country}}
+\newcommand{\ArxivCorrespondence}{\mlsyscorrespondingauthor{First Author}{first.author@example.org}}
+\newcommand{\ArxivPdfAuthor}{First Author and Second Author}
+% Optional sentences appended to the Acknowledgments (funding, thanks); leave empty if none.
+\newcommand{\ArxivAcknowledgments}{}
+% Repository URL printed in Appendix A.
+\def\RepoURL{https://github.com/<owner>/<repository>}
