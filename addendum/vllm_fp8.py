@@ -113,8 +113,13 @@ def run(venv: Path, deadline_epoch: int | None = None) -> None:
     # The retry (amendment Section 10) passes its own deadline: retry start + 3 h.
     deadline = manifest.get("deadline_epoch") or TASK3_DEADLINE_EPOCH
     done = {r["run_id"] for r in c.read_jsonl(ROOT / "processes.jsonl") if r["status"] == "completed"}
+    # Environment fix (FAILURES.md, 2026-10-06): FlashInfer JIT-compiles its sampling ops
+    # with the host nvcc, whose toolkit lacks curand headers; CPATH points at a directory
+    # holding only the curand headers of the venv's nvidia-curand (cu13) package.
+    curand = venv / "curand-include"
+    environment_additions = {"CPATH": str(curand)} if curand.is_dir() else {}
     env = {**os.environ, "HF_HUB_OFFLINE": "1", "TRANSFORMERS_OFFLINE": "1", "VLLM_NO_USAGE_STATS": "1",
-           "DO_NOT_TRACK": "1", "CUDA_VISIBLE_DEVICES": c.GPU_UUID}
+           "DO_NOT_TRACK": "1", "CUDA_VISIBLE_DEVICES": c.GPU_UUID, **environment_additions}
     for job in jobs:
         if job["run_id"] in done:
             continue
@@ -135,7 +140,8 @@ def run(venv: Path, deadline_epoch: int | None = None) -> None:
             if job["kv_cache_dtype"] != "auto":
                 command += ["--kv-cache-dtype", job["kv_cache_dtype"]]
             c.write_new(run_dir / "command.json", c.json_text(command))
-            row: dict[str, Any] = {**job, "attempt": attempt, "started_at_utc": c.utc_now(), "gpu_apps_before": apps}
+            row: dict[str, Any] = {**job, "attempt": attempt, "started_at_utc": c.utc_now(), "gpu_apps_before": apps,
+                                   "environment_additions": environment_additions}
             if apps:
                 row.update({"status": "infrastructure_failed", "reason_code": "gpu_not_idle"})
             else:
@@ -157,8 +163,10 @@ def run(venv: Path, deadline_epoch: int | None = None) -> None:
                     row.update({"status": "completed", "process_median_s": statistics.median(latencies),
                                 "latencies_s": latencies, "latency_json_sha256": c.sha256_file(result_path)})
                 else:
-                    row.update({"status": "failed" if returncode not in (None,) else "infrastructure_failed",
-                                "reason_code": "timeout" if returncode is None else "vllm_failed",
+                    engine_start = "Engine core initialization failed" in log or "EngineCore failed to start" in log
+                    row.update({"status": "infrastructure_failed" if returncode is None or engine_start else "failed",
+                                "reason_code": ("timeout" if returncode is None else
+                                                "engine_start_failed" if engine_start else "vllm_failed"),
                                 "log_tail": log[-2000:]})
             row["finished_at_utc"] = c.utc_now()
             row["log_sha256"] = c.sha256_file(run_dir / "vllm.log") if (run_dir / "vllm.log").exists() else None
