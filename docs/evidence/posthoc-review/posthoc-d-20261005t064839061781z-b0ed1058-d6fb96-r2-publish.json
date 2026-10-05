@@ -1,0 +1,55 @@
+{
+  "bucket_lock": {
+    "bucket": "kvbench-artifacts",
+    "bucket_exists": true,
+    "bucket_public": false,
+    "covered_prefix": "kvbench/sha256/",
+    "custom_domain_count": 0,
+    "enabled": true,
+    "enabled_custom_domain_count": 0,
+    "endpoint": "https://<R2_ACCOUNT_ID>.r2.cloudflarestorage.com",
+    "endpoint_class": "cloudflare_r2_s3",
+    "lock_prefix": "kvbench/sha256/",
+    "lock_rule_id": "kvbench-evidence-indefinite",
+    "lock_rule_name": null,
+    "lock_scope": "exact",
+    "managed_r2_dev_enabled": false,
+    "provider": "cloudflare_r2",
+    "public_custom_domain": false,
+    "public_r2_dev": false,
+    "public_state_result": "PASS",
+    "retention_condition": "Indefinite",
+    "retention_type": "Indefinite",
+    "verification_result": "PASS",
+    "verified_at_utc": "2026-10-05T06:56:56.689713Z"
+  },
+  "publish": {
+    "complete_last": true,
+    "object_count": 12,
+    "provider": "cloudflare_r2",
+    "publication_order_sha256": "f11e3c19c2c71518e8afa9a84eaf4086a819646772660020fb4e3d7e21296523",
+    "published_at_utc": "2026-10-05T06:57:25.849970Z",
+    "root_sha256": "b0969338edac1270050001419faf2ae8b4add0d4c0976cb8fb1e4bae9a7c8d4d",
+    "uploaded_count": 12,
+    "uri": "r2://kvbench-artifacts/kvbench/sha256/b0969338edac1270050001419faf2ae8b4add0d4c0976cb8fb1e4bae9a7c8d4d/",
+    "verified_existing_count": 0
+  },
+  "r2": {
+    "bucket": "kvbench-artifacts",
+    "endpoint": "https://<R2_ACCOUNT_ID>.r2.cloudflarestorage.com",
+    "endpoint_class": "cloudflare_r2_s3",
+    "prefix": "kvbench/sha256",
+    "provider": "cloudflare_r2",
+    "region": "auto"
+  },
+  "required_variables": {
+    "AWS_ACCESS_KEY_ID": "PRESENT",
+    "AWS_SECRET_ACCESS_KEY": "PRESENT",
+    "CLOUDFLARE_API_TOKEN": "PRESENT",
+    "KVBENCH_R2_PREFIX": "PRESENT",
+    "R2_ACCOUNT_ID": "PRESENT",
+    "R2_BUCKET": "PRESENT",
+    "R2_ENDPOINT": "PRESENT"
+  },
+  "status": "PASS"
+}
