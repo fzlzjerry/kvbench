@@ -421,7 +421,8 @@ def run_task(name: str) -> None:
 
 
 def run_check(task: str, name: str, configuration: str, variant: dict[str, Any],
-              extra: list[str], sanitize: str | None = None, timeout: float = 3600) -> dict[str, Any]:
+              extra: list[str], sanitize: str | None = None, timeout: float = 3600,
+              worker_script: str = "check_worker.py") -> dict[str, Any]:
     """Untimed correctness / sanitizer job (check_worker.py); results under <task>/checks/<name>/."""
     pre = preflight()
     commit = pre["addendum_commit"]
@@ -439,7 +440,7 @@ def run_check(task: str, name: str, configuration: str, variant: dict[str, Any],
     job_dir.chmod(0o777)
     c.write_new(job_dir / "preflight.json", c.json_text(pre))
     out = c.CONTAINER_OUT
-    worker = ["/opt/kvbench/.venv/bin/python", f"{c.CONTAINER_ADDENDUM}/check_worker.py",
+    worker = ["/opt/kvbench/.venv/bin/python", f"{c.CONTAINER_ADDENDUM}/{worker_script}",
               "--configuration", configuration, "--variant", json.dumps(variant),
               "--addendum-commit", commit, "--output-dir", out, *extra]
     if sanitize:
@@ -465,6 +466,8 @@ def run_check(task: str, name: str, configuration: str, variant: dict[str, Any],
     worker_result = json.loads(result_path.read_text()) if result_path.exists() else None
     ok = status["docker_returncode"] == 0 and worker_result is not None and worker_result.get("status") == "completed"
     status.update({"status": "completed" if ok else "failed", "finished_at_utc": c.utc_now(),
+                   "worker_script": worker_script,
+                   "gates_pass": None if worker_result is None else worker_result.get("gates_pass"),
                    "worker_error": None if worker_result is None else worker_result.get("error")})
     c.write_new(job_dir / "status.json", c.json_text(status))
     if not ok:
@@ -482,6 +485,20 @@ CHECKS = {
                          ["--prefix-tokens", "512", "--steps", "4"], "regex=_tq_decode_stage1|_fwd_kernel_stage2"),
     "t1-sanitizer-s32-all": ("task1", "tq_k3v4_nc", {"tq_splits": 32},
                              ["--prefix-tokens", "128", "--steps", "4"], "all"),
+    # Task 2 gates (gate_worker.py); -control runs the frozen adapter through the same harness.
+    "t2-gate-k4v4": ("task2", "k4v4", {"kivi_grouped_residual": True}, [], None, "gate_worker.py"),
+    "t2-gate-k2v2": ("task2", "k2v2", {"kivi_grouped_residual": True}, [], None, "gate_worker.py"),
+    "t2-gate-k4v4-control": ("task2", "k4v4", {}, [], None, "gate_worker.py"),
+    "t2-gate-k2v2-control": ("task2", "k2v2", {}, [], None, "gate_worker.py"),
+    # Task 2 greedy gate: 100 tokens at B=1, 4K, existing vs grouped adapter.
+    "t2-greedy-k4v4-orig": ("task2", "k4v4", {}, [], None),
+    "t2-greedy-k4v4-grouped": ("task2", "k4v4", {"kivi_grouped_residual": True}, [], None),
+    "t2-greedy-k2v2-orig": ("task2", "k2v2", {}, [], None),
+    "t2-greedy-k2v2-grouped": ("task2", "k2v2", {"kivi_grouped_residual": True}, [], None),
+    "t2-sanitizer-k4v4-grouped": ("task2", "k4v4", {"kivi_grouped_residual": True},
+                                  ["--prefix-tokens", "128", "--steps", "40"], "all"),
+    "t2-sanitizer-k2v2-grouped": ("task2", "k2v2", {"kivi_grouped_residual": True},
+                                  ["--prefix-tokens", "128", "--steps", "40"], "all"),
     "smoke-greedy-bf16": ("smoke", "bf16", {}, ["--prefix-tokens", "512", "--steps", "4"], None),
 }
 
@@ -506,8 +523,9 @@ def main() -> None:
     elif args.action == "run":
         run_task(args.task)
     elif args.action == "check":
-        task, configuration, variant, extra, sanitize = CHECKS[args.task]
-        run_check(task, args.task, configuration, variant, extra, sanitize)
+        task, configuration, variant, extra, sanitize, *rest = CHECKS[args.task]
+        run_check(task, args.task, configuration, variant, extra, sanitize,
+                  worker_script=rest[0] if rest else "check_worker.py")
     elif args.action == "order":
         for job in job_order(args.task, task_definitions()[args.task]):
             print(job["run_id"], job["predicted_seconds"])
