@@ -73,7 +73,12 @@ def install_tq_split_override(splits: int) -> dict[str, Any]:
         cache = handle.cache
         scratch = state["scratch"].get(id(cache))
         if scratch is None:
-            raise RuntimeError("split scratch was not allocated at cache construction")
+            raise RuntimeError(
+                "split scratch was not allocated at cache construction: "
+                f"cache id {id(cache)} type {type(cache).__module__}.{type(cache).__qualname__} "
+                f"init {getattr(type(cache).__init__, '__qualname__', '?')} "
+                f"class is patched class {type(cache) is cache_class} "
+                f"recorded ids {list(state['scratch'])} records {len(state['scratch_records'])}")
         saved_scratch = cache.decode_mid_o
         saved_splits = adapter_module.TURBOQUANT_MAX_KV_SPLITS
         cache.decode_mid_o = scratch
