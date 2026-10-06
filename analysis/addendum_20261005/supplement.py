@@ -272,11 +272,11 @@ def write_tables(out: dict) -> None:
                      f"{f(r['wall_t_over_bf16'], 2)} & {f(r['traced_kernel_32_over_bf16'], 2)} \\\\")
     lines.append("% sweep (TQ-k3v4, B = 1, 128K)")
     for r in sorted(out["task1"]["sweep"], key=lambda r: r["variant"]["tq_splits"]):
-        lines.append(f"{r['variant']['tq_splits']} & {f(r['t_bf16_ms'], 2)} & {f(r['t_method_ms'], 2)} & {f(r['s'])} & "
-                     f"{f(r['s_pairwise_min'])}--{f(r['s_pairwise_max'])} \\\\")
+        lines.append(f"TQ-k3v4, {r['variant']['tq_splits']} splits & 1 & 128K & {f(r['t_bf16_ms'], 2)} & {f(r['t_method_ms'], 2)} & "
+                     f"{f(r['s'])} & {f(r['s_pairwise_min'])}--{f(r['s_pairwise_max'])} & {f(1 / r['s'], 2)} & --- \\\\")
     lines += ["", "% Table: grouped KIVI (diagnostic)"]
     for r in sorted(out["task2"]["points"], key=lambda r: (r["configuration"] != "k4v4", r["batch_size"], r["context_label"])):
-        lines.append(f"{LABEL[r['configuration']].replace('KIVI-', '')} & {r['batch_size']} & {LK[r['context_label']]} & "
+        lines.append(f"{LABEL[r['configuration']]} & {r['batch_size']} & {LK[r['context_label']]} & "
                      f"{f(r['t_bf16_ms'], 2)} & {f(r['t_method_ms'], 2)} & {f(r['s'])} & "
                      f"{f(r['s_pairwise_min'])}--{f(r['s_pairwise_max'])} & {f(r['s_existing_frozen'])} & "
                      f"{f(r['s_adj_post_hoc'])} & {f(r['abs_error_vs_s_adj'])} \\\\")
