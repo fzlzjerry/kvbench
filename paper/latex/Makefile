@@ -3,7 +3,8 @@
 #                       then check_xref.py: fails if an \apprefFallback/\mainrefFallback number in paper.tex
 #                       disagrees with the .aux files, a cross-PDF label has no fallback, or a reference is undefined
 #   make check       -> check_xref.py alone (needs the .aux files of a full build)
-#   make overleaf    -> full build and check, then ../bytes-are-not-latency-overleaf.zip
+#   make overleaf    -> full build and check, then ../bytes-are-not-latency-overleaf.zip (anonymous sources)
+#   make overleaf-signed -> the same plus arxiv-identity.tex: ../bytes-are-not-latency-overleaf-signed.zip
 #   make arxiv-src   -> arXiv package ../bytes-are-not-latency-arxiv-src.tar.gz and the PDF arXiv will
 #                       produce from it (needs arxiv-identity.tex; see arxiv-identity.example.tex)
 #   make figures     -> regenerate figures/*.pdf from ../figures/*.svg (needs cairosvg and Ghostscript)
@@ -53,6 +54,13 @@ overleaf: all
 	rm -f $(OVERLEAF_ZIP)
 	zip -X -q $(OVERLEAF_ZIP) $(OVERLEAF_FILES)
 
+# Same package plus arxiv-identity.tex, for a private Overleaf project that should also compile the
+# signed arXiv version (main document arxiv.tex); the submission entry points never read that file.
+OVERLEAF_SIGNED_ZIP := ../bytes-are-not-latency-overleaf-signed.zip
+overleaf-signed: all arxiv-identity.tex
+	rm -f $(OVERLEAF_SIGNED_ZIP)
+	zip -X -q $(OVERLEAF_SIGNED_ZIP) $(OVERLEAF_FILES) arxiv-identity.tex
+
 # arXiv compiles the single file with \documentclass and does not run BibTeX; make_arxiv_src.py
 # builds that file and main.bbl, then recompiles the package as arXiv does and checks the result.
 ARXIV_SRC := ../bytes-are-not-latency-arxiv-src.tar.gz
@@ -63,4 +71,4 @@ arxiv-src: arxiv-identity.tex paper.tex appendix.tex references.bib mlsys2025.st
 clean:
 	rm -f *.aux *.log *.blg *.out *.bbl
 
-.PHONY: all check overleaf arxiv-src figures clean
+.PHONY: all check overleaf overleaf-signed arxiv-src figures clean

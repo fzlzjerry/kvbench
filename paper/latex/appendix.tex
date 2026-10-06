@@ -36,6 +36,7 @@ The v1.0 release notes and manuscript use the numbering of an earlier version of
 Post-hoc analyses.
 The analyses of Appendices~\ref{app:ceilings}, \ref{app:diagnostics}, and~\ref{app:kvquant} were defined after the results were known and read only the frozen roots above; none reruns a timing scan or a quality run.
 Their code and outputs are sealed under the same retention scheme: traffic model, ceilings, bandwidth, elasticity, capacity, and decomposition \anon{\texttt{3dc84c64\ldots}}; kernel breakdowns from the existing traces \anon{\texttt{c347e20a\ldots}}; the Nsight diagnostics of Appendix~\ref{app:diagnostics}, raw \anon{\texttt{4cdbb3ae\ldots}} and analysis \anon{\texttt{39efeb1c\ldots}}; the KVQuant quality exclusion record \anon{\texttt{47296f7c\ldots}}; the final-revision analyses (cache-only ceiling, KIVI kernel breakdown) \anon{\texttt{b0969338\ldots}}; and KIVI's adjusted ratio $S_{\mathrm{adj}}$ \anon{\texttt{1998be3e\ldots}}.
+The addendum runs of Appendix~\ref{app:addendum} (amendment, code, per-process records, and raw files) are sealed under \anon{\texttt{57f8ff27\ldots}}, with a CPU-only script that recomputes their derived numbers.
 The post-hoc code is on the repository's main branch, not in the v1.0 release; rerunning its CPU analyses on the retained roots reproduces their sealed tables and figures unchanged.
 Every number that the v1.0 packages do not contain, including the post-hoc columns of Table~\mainref{tab:traffic} and panel b of Figure~\mainref{fig:samework}, comes from these artifacts.
 
@@ -115,7 +116,7 @@ Aug 22--26 & Pilot scan; knee-densification design (84 adaptive contexts) frozen
 Aug 26--30 & Eager/Graph mechanism experiment; profiler subset \\
 Aug 31--Sep 16 & Full scan executed; wall-clock primary analysis completed; an earlier stopped scan attempt contributed no timing \\
 Sep 16--17 & Modeling and CPU reproduction package \\
-Sep 17--18 & Performance data frozen; exact quality inputs and mechanical choices fixed \\
+Sep 17--18 & Performance data frozen; exact quality inputs (dataset revisions, sample IDs, prompt and chat-template hashes) and mechanical choices (bootstrap size and resampling units, the bounded C4 frame, length buckets, the CoT subset and budgets) fixed \\
 Sep 19 & Correctness stage: all ten configurations fail cross-batch invariance; BF16 diagnosis \\
 Sep 19 & Physical-$B = 1$ amendment approved, before any perplexity score \\
 Sep 19--21 & Fast perplexity \\
@@ -124,6 +125,7 @@ Sep 27--Oct 2 & LongBench-E (KIVI-k4v4) \\
 Oct 2--4 & LongBench v2 no-CoT (KIVI-k4v4) \\
 Oct 4 & Joint validation and scoped quality--performance join \\
 Oct 4--5 & Post-hoc review analyses on the frozen data and Nsight diagnostics (Appendices~\ref{app:ceilings}, \ref{app:diagnostics}, and~\ref{app:kvquant}); no timing scan or quality run \\
+Oct 5--6 & Post-hoc addendum, amendment committed before any run: TurboQuant with 32 splits, KIVI with a grouped residual (gate failed; diagnostic), vLLM FP8 positive control, synthetic-cache throughput (Appendix~\ref{app:addendum}); no quality run \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -228,7 +230,7 @@ Our kernel source matches vLLM v0.25.1 except for imports, and the adapter launc
 \textit{Split-count diagnostic.}
 In the measurement container, with the Full Scan execution repository and the same session construction (BF16 restores its prefix snapshot; compressed configurations rebuild the cache from the logical prefix), we traced eight Graph replays per point with the split count at 4 (as ported) and at 32 (Table~\ref{tab:split}).
 The 32-split runs swap the split constant and a caller-owned scratch only inside each decode call; in all 33 traced runs, the 12 with 32 splits included, the historical cache and its pointers were unchanged, the adapter fingerprint validated, and outputs were finite (worker checks sealed with the analysis, root \anon{\texttt{39efeb1c\ldots}}).
-These checks cover finiteness and cache integrity only; we did not verify that 32-split outputs agree numerically with the 4-split path.
+These checks cover finiteness and cache integrity only; the addendum later compared the two paths numerically and in wall-clock time (Appendix~\ref{app:addendum}).
 $B = 8$ at 128K is infeasible, so $B = 8$, 48K replaces it.
 As-ported traced kernel time per step agrees with the frozen wall-clock medians to within 2.5\%.
 
@@ -383,3 +385,146 @@ These configurations produce finite outputs, pass cache-dependence controls, and
 Because it does not shrink from 2 to 4 bits, it is inconsistent with quantization error and points to a defect in the integrated port---the GQA/RoPE compatibility patch, the project-defined outlier capacity, the graph-safe and deterministic kernels, or the 16-window calibration of Section~\mainref{sec:impl}---whose cause we did not establish; it should not be attributed to KVQuant implementations in general.
 After the results were known we therefore treat the result as invalid and exclude KVQuant from the quality conclusions.
 The preregistered FAIL status in Table~\mainref{tab:joint} is unchanged, and the exclusion is recorded with the machine-readable reason \hash{quality\_result\_invalid\_suspected\_port\_defect} (root \anon{\texttt{47296f7c\ldots}}).
+
+\section{Post-hoc addendum measurements}
+\label{app:addendum}
+
+These runs were designed after the main results were known; an amendment fixing their points, configurations, process counts, and interpretation rules was committed before any of them ran, and they change no frozen result.
+They used the measurement container, GPU, model, and Full Scan worker of the primary scan (CUDA Graph, fixed $L$, 64 warmup replays, then five timed batches of 256 replays per process, whose median is the process median; host wall-clock), with three independent processes per point instead of five, block-randomized order, and BF16 remeasured in the same run for every ratio.
+Same-run BF16 medians agree with the frozen ones within 0.25\%, and every point is stable (CV $\leq$ 0.9\%).
+Uncertainty is given as the range of the nine ratios between the three BF16 and the three method process medians.
+
+\begin{table*}[t]
+\caption{TurboQuant with 32 KV splits (post hoc; wall-clock; three processes per point; same-run BF16).
+$S$ range: the nine ratios between BF16 and TurboQuant process medians.
+$T / T_{\mathrm{BF16}}$: wall-clock; traced: GPU kernel time with 32 splits over BF16's (Nsight Systems, Appendix~\ref{app:diagnostics}).
+The last three rows vary the split count for TQ-k3v4 at $B = 1$, 128K; as ported (4 splits) its $S$ is 0.072 in the frozen scan.}
+\label{tab:add-tq}
+\vskip 0.1in
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrrrrrrrr@{}}
+\toprule
+Configuration & $B$ & $L$ & $T_{\mathrm{BF16}}$ (ms) & $T$ (ms) & $S$ & $S$ range & $T / T_{\mathrm{BF16}}$ & Traced \\
+\midrule
+TQ-4bit & 1 & 32K & 14.10 & 26.02 & 0.542 & 0.542--0.543 & 1.85 & 1.89 \\
+TQ-4bit & 1 & 128K & 22.26 & 68.20 & 0.326 & 0.326--0.327 & 3.06 & 3.16 \\
+TQ-4bit & 8 & 32K & 32.63 & 56.78 & 0.575 & 0.574--0.583 & 1.74 & 1.68 \\
+TQ-k3v4 & 1 & 32K & 14.10 & 22.09 & 0.638 & 0.638--0.639 & 1.57 & 1.60 \\
+TQ-k3v4 & 1 & 128K & 22.26 & 52.47 & 0.424 & 0.424--0.424 & 2.36 & 2.44 \\
+TQ-k3v4 & 8 & 32K & 32.63 & 59.83 & 0.545 & 0.544--0.547 & 1.83 & 1.76 \\
+TQ-3bit & 1 & 32K & 14.10 & 23.44 & 0.601 & 0.601--0.602 & 1.66 & 1.69 \\
+TQ-3bit & 1 & 128K & 22.26 & 57.88 & 0.385 & 0.384--0.385 & 2.60 & 2.68 \\
+TQ-3bit & 8 & 32K & 32.63 & 64.09 & 0.509 & 0.507--0.510 & 1.96 & 1.89 \\
+\midrule
+TQ-k3v4, 8 splits & 1 & 128K & 22.26 & 159.61 & 0.139 & 0.139--0.140 & 7.17 & --- \\
+TQ-k3v4, 16 splits & 1 & 128K & 22.26 & 85.94 & 0.259 & 0.259--0.260 & 3.86 & --- \\
+TQ-k3v4, 64 splits & 1 & 128K & 22.26 & 37.00 & 0.602 & 0.601--0.602 & 1.66 & --- \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\textit{TurboQuant with 32 splits.}
+The stage-1 and stage-2 launches use 32 splits and a caller-owned FP32 scratch of shape $(B, H_q, 32, D + 1)$, allocated with the cache before warmup and graph capture; nothing else changes (Table~\ref{tab:add-tq}).
+At $B = 1$, 4K, on a WikiText-2 prefix in the eager growing-cache path, the 4- and 32-split paths differ by at most 0.25 in a step-0 logit and agree on 69 of 100 greedy tokens (first divergence at the 39th); Compute Sanitizer memcheck reports no errors.
+With 32 splits, wall-clock step time over BF16's is 1.57--3.06, against 1.60--3.16 in traced GPU kernel time.
+At $B = 1$ a two-context fit of $T = c_0 + D_{\mathrm{cache}} / BW_{\mathrm{eff}}$ gives $c_0 = 11.95$ ms (BF16: 11.38) and $BW_{\mathrm{eff}} = 111$--142 GB/s, 7.0--8.9\% of BF16's 1,596 GB/s; $D_{\mathrm{cache}}$ is the modeled traffic of Appendix~\ref{app:ceilings}, whose $\alpha$ was measured on the 4-split kernels.
+
+\begin{table*}[t]
+\caption{KIVI with the KV-head-grouped residual (post hoc; \emph{diagnostic only}, because the adapter fails the 100-token greedy-identity gate; wall-clock; three processes per point; same-run BF16).
+$S$ range: the nine ratios between BF16 and KIVI process medians.
+$S$ existing: the frozen primary-scan ratio of the existing adapter (a different run; context only).
+$S_{\mathrm{adj}}$: the post-hoc bound of Section~\mainref{sec:latency}, sealed before these runs and not refitted.}
+\label{tab:add-kivi}
+\vskip 0.1in
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrrrrrrrrr@{}}
+\toprule
+Configuration & $B$ & $L$ & $T_{\mathrm{BF16}}$ (ms) & $T$ (ms) & $S$ & $S$ range & $S$ existing & $S_{\mathrm{adj}}$ & $|S - S_{\mathrm{adj}}|$ \\
+\midrule
+KIVI-k4v4 & 1 & 4K & 11.75 & 12.70 & 0.925 & 0.924--0.927 & 0.618 & 0.943 & 0.019 \\
+KIVI-k4v4 & 1 & 32K & 14.09 & 18.18 & 0.775 & 0.772--0.775 & 0.575 & 0.786 & 0.011 \\
+KIVI-k4v4 & 1 & 128K & 22.26 & 37.46 & 0.594 & 0.590--0.594 & 0.486 & 0.568 & 0.026 \\
+KIVI-k4v4 & 8 & 4K & 14.26 & 15.11 & 0.944 & 0.944--0.944 & 0.678 & 0.949 & 0.005 \\
+KIVI-k4v4 & 8 & 24K & 27.46 & 30.41 & 0.903 & 0.902--0.903 & 0.748 & 0.894 & 0.009 \\
+KIVI-k4v4 & 8 & 32K & 32.62 & 37.14 & 0.878 & 0.878--0.884 & 0.756 & 0.878 & 0.000 \\
+KIVI-k2v2 & 1 & 4K & 11.75 & 12.79 & 0.918 & 0.918--0.919 & 0.616 & 0.941 & 0.023 \\
+KIVI-k2v2 & 1 & 32K & 14.09 & 18.62 & 0.757 & 0.749--0.757 & 0.565 & 0.767 & 0.010 \\
+KIVI-k2v2 & 1 & 128K & 22.26 & 39.02 & 0.570 & 0.566--0.571 & 0.471 & 0.547 & 0.023 \\
+KIVI-k2v2 & 8 & 4K & 14.26 & 14.72 & 0.969 & 0.968--0.969 & 0.690 & 0.987 & 0.018 \\
+KIVI-k2v2 & 8 & 24K & 27.46 & 27.38 & 1.003 & 1.001--1.004 & 0.819 & 1.005 & 0.002 \\
+KIVI-k2v2 & 8 & 32K & 32.62 & 32.47 & 1.005 & 1.004--1.009 & 0.841 & 1.001 & 0.003 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\textit{KIVI with a KV-head-grouped residual (diagnostic only).}
+The adapter computes the residual-window and current-token products as one batched product per operand over $[B \cdot 8, 4, \cdot]$ views of the existing buffers, as the source patch of Section~\mainref{sec:impl} does; the quantized-history kernels, softmax, and rollover are unchanged.
+It passes G1, G3 (with a semantic check in place of G3's literal source-string test for per-head indexing, which the grouped form cannot contain), G4, zero replay allocation, and Compute Sanitizer, but fails the preregistered gate of 100 identical greedy tokens against the existing adapter at $B = 1$, 4K: the first divergence is at the 32nd token for k4v4 and the 82nd for k2v2, the step-0 logits differ by at most 0.13, and the existing adapter is deterministic (100 of 100 against itself).
+Batching the four query heads of a KV group changes cuBLAS kernel selection and hence FP16 rounding; a variant with four $M = 1$ products per operand also fails (first divergence at the 32nd and 87th token).
+Its timings are therefore diagnostic only (Table~\ref{tab:add-kivi}).
+In Nsight Systems at $B = 1$, 4K it issues 1,866 kernels and 12.5 ms of GPU kernel time per step, against 6,826 and 18.3 ms for the existing adapter.
+Its $c_0$ is 11.8--12.0 ms (BF16: 11.4--11.7; largest difference 0.46 ms), and its $BW_{\mathrm{eff}}$ is 148--488 GB/s.
+Against $S_{\mathrm{adj}}$, computed before these runs from the existing decomposition without refitting, the absolute speedup-ratio error is at most 0.026; this compares twelve points and does not validate the $B$/$L$/$r$ models or the ceilings.
+At the two points with $S > 1$ (k2v2, $B = 8$, 24K and 32K), all nine process-pair ratios exceed 1 (1.001--1.004 and 1.004--1.009), from three processes per side.
+
+\begin{table}[t]
+\caption{FP8 positive control in vLLM v0.25.1 (post hoc): decode step $(T_{65} - T_1)/64$ in ms, median of three replicates; range over the nine replicate pairs.
+The prediction halves BF16's nominal cache-path time on the same vLLM BF16 baseline; meas./pred.\ above 1 means FP8 is slower than predicted.}
+\label{tab:add-fp8}
+\vskip 0.1in
+\centering
+\scriptsize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}rrrrrrrr@{}}
+\toprule
+$B$ & $L$ & BF16 & FP8 & BF16/FP8 & Range & FP8 pred. & Meas./pred. \\
+\midrule
+1 & 32K & 12.89 & 11.70 & 1.10 & 1.10--1.11 & 11.61 & 1.007 \\
+1 & 128K & 20.53 & 15.17 & 1.35 & 1.35--1.36 & 15.44 & 0.983 \\
+8 & 32K & 30.18 & 20.01 & 1.51 & 1.50--1.51 & 19.98 & 1.002 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textit{FP8 positive control.}
+vLLM v0.25.1 ran in a separate environment with the same model and revision, CUDA Graphs on, and prefix caching enabled, which its latency benchmark disables by default, so that iterations reuse the prompt's cache; other settings were the defaults.
+For each KV dtype and point, \texttt{vllm bench latency} ran with output lengths 1 and 65 in three processes each (median of 15 iterations per process), and replicate $i$ gives the decode step $(T_{65} - T_1)/64$; the 128K point uses 131,007 input tokens so that input and output fit the model's 131,072 positions (Table~\ref{tab:add-fp8}).
+vLLM selected FlashAttention for BF16 and FlashInfer for FP8 (\texttt{float8\_e4m3fn}); the logs show no backend or dtype fallback, so the ratio includes the change of backend.
+The prediction is $T_{\mathrm{pred,FP8}} = T_{\mathrm{BF16}} - D_{\mathrm{BF16}} / (2\,BW_{\mathrm{BF16}})$, with $D_{\mathrm{BF16}}$ the nominal BF16 K/V bytes per step at the mean attended context of the 64 differenced steps and $BW_{\mathrm{BF16}} = 1{,}685$ GB/s fitted from the same BF16 baseline at $B = 1$, 32K and 128K.
+It assumes equal non-cache time for both dtypes, exactly half the bytes for FP8, and the $B = 1$ bandwidth at $B = 8$; the bytes are nominal, not measured DRAM traffic, and the bandwidth is a fitted parameter, not a hardware counter.
+Measured over predicted FP8 step time is 0.983--1.007.
+These vLLM timings compare only with vLLM's BF16, not with the harness of the main paper.
+
+\begin{table}[t]
+\caption{Throughput at fixed memory, 128K, synthetic cache (timing only; post hoc).
+Predicted: steady-state formula; allocator: PyTorch peak reserved bytes in the worker (excludes the CUDA context).}
+\label{tab:add-t4}
+\vskip 0.1in
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+Configuration & $B$ & Predicted (GB) & Allocator (GB) & Step (ms) & Tokens/s \\
+\midrule
+BF16 & 3 & 74.1 & 67.8 & 43.24 & 69.4 \\
+KIVI-k4v4 & 9 & 83.7 & 65.0 & 154.09 & 58.4 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textit{Throughput at fixed memory (synthetic cache, timing only).}
+Seeded Gaussian K/V written through each method's store path replace the prefill; everything after cache construction is the timing protocol above.
+At $B = 1$, 32K, synthetic and real caches give step times within 0.05\% for BF16 and KIVI-k4v4 (existing adapter), inside the preregistered 1\% tolerance.
+At 128K the steady-state feasibility formula admits $B = 3$ for BF16 and $B = 9$ for KIVI-k4v4 under the 89.7 GB limit (Table~\ref{tab:add-t4}); both ran, with allocator peaks below the predictions.
+These batch sizes lie outside the admitted geometries; only the geometry admission checks were bypassed, with no kernel or layout change.
+The measurement covers one decode step of the full model with BF16 weights resident and CUDA Graph replay, not prefill or request-level serving.
+KIVI-k4v4 delivers 0.84$\times$ BF16's tokens per second (process-pair range 0.841--0.843).
+
+\textit{Deviations.}
+The FP8 control exceeded its 3 h cap during installation and was rerun with the author's approval; FlashInfer's JIT build needed curand headers taken from the environment's own CUDA package, and because the benchmark disables prefix caching by default, the rerun enabled it, again with the author's approval.
+A planned KVQuant identity pass-through diagnostic was not run because its implementation estimate exceeded the preregistered 1 h.
